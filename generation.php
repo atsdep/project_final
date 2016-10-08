@@ -45,6 +45,9 @@ session_start();
 										<div class="comp comp__step-bar-wrapper no-hover pull-left hide-sm">
 											<span class="hdr-btn"><span class="hide-sm h5 text-normal"><span>ขั้นตอน 1:</span><span>&nbsp;</span></span><span class="h5 text-normal">เริ่มที่ข้อมูลพื้นฐาน</span></span>
 										</div>
+										<div class="lys-navbar__save-and-exit comp pull-right h5 text-normal bg-white">
+											<span><span class="hide-md hide-lg"> <a href="#" class="lys-navbar__save-and-exit-link hdr-btn" data-prevent-default="true"> <span>ทางออก</span> </a> </span> <span class="hide-sm"> <a href="new.php" class="lys-navbar__save-and-exit-link hdr-btn" data-prevent-default="true"> <span>บันทึกและออก</span> </a></span> </span>
+										</div>
 									</div>
 								</div>
 								<div>

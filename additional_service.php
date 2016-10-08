@@ -45,6 +45,9 @@ session_start();
 										<div class="comp comp__step-bar-wrapper no-hover pull-left hide-sm">
 											<span class="hdr-btn"><span class="hide-sm h5 text-normal"><span>ขั้นตอน 1:</span><span>&nbsp;</span></span><span class="h5 text-normal">เริ่มที่ข้อมูลพื้นฐาน</span></span>
 										</div>
+										<div class="lys-navbar__save-and-exit comp pull-right h5 text-normal bg-white">
+											<span><span class="hide-md hide-lg"> <a href="#" class="lys-navbar__save-and-exit-link hdr-btn" data-prevent-default="true"> <span>ทางออก</span> </a> </span> <span class="hide-sm"> <a href="new.php" class="lys-navbar__save-and-exit-link hdr-btn" data-prevent-default="true"> <span>บันทึกและออก</span> </a></span> </span>
+										</div>
 									</div>
 								</div>
 								<div>
@@ -69,7 +72,7 @@ session_start();
 													</div>
 													<div class="clearfix"></div>
 												</div>
-											</div>								
+											</div>
 										</div>
 
 										<!-- button -->
@@ -104,10 +107,10 @@ session_start();
 												<div class="help-panel__text">
 													<div>
 														<p>
-															<span>การจัดหาสิ่งของสำคัญช่วยให้ผู้เข้าพักรู้สึกเหมือนอยู่ที่บ้านในสถานที่ของคุณ</span>
+															<span>ฮาโหลเทส 1 2 3 4</span>
 														</p>
 														<p>
-															<span>เจ้าของที่พักบางคนจัดหาอาหารเช้า หรือเพียงกาแฟและชา พวกเขาไม่จำเป็นต้องจัดหาสิ่งของเหล่านี้ แต่บางครั้งพวกเขาก็จัดหาให้เพื่อให้ผู้เข้าพักรู้สึกได้รับการต้อนรับดี</span>
+															<span>วันทูทีโฟ</span>
 														</p>
 													</div>
 												</div>
