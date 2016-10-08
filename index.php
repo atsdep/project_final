@@ -13,9 +13,23 @@
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
+		<!-- css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom3.css">
+		<link rel="stylesheet" href="css/custom.css">
+
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+		<script src="dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
