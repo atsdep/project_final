@@ -73,36 +73,9 @@ session_start();
 										<div class="landing__left-col-content">
 											<h2 class="landing__title-title space-5"><span>กลายเป็นเจ้าของรถเช่า Rentcnd</span></h2>
 
-											<div class="landing-step-collection step-collection-completed">
-												<div class="row row-condensed lys-vertical-align-middle-container">
-													<div class="col-sm-10">
-														<div class="va-container va-container-v va-container-h">
-															<div class="va-middle">
-																<div class="landing__step-content">
-																	<strong class="landing__step-number text-base text-branding text-light-gray"><span>ขั้นตอน 1</span></strong>
-																	<div class="h3 landing__step-content-title landing__subtitle-width">
-																		เริ่มที่สิ่งของพื้นฐาน
-																	</div>
-																	<div class="landing__step-content-subtitle">
-																		เตียง ห้องน้ำ สิ่งอำนวยความสะดวกและอื่นๆ
-																	</div><span><span class="" style="transition-delay:0ms;display:inline-block;"><a class="link-babu" href="/become-a-host/15415428/room"><span>เปลี่ยน</span></a></span></span>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-2 correct">
-														<span>
-															<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
-																<i class="icon icon-ok-fill icon-size-2 icon-babu"></i>
-															</div></span>
-													</div>
-												</div>
-												<hr>
-											</div>
-											<!-- step-1-com -->
-
 											<div data-reactid="step-1">
 												<div class="landing-step-collection">
+													<!-- step-collection-completed กรอกเสร็จแล้ว -->
 													<div class="row row-condensed lys-vertical-align-middle-container">
 														<div class="col-sm-10">
 															<div class="va-container va-container-v va-container-h">
@@ -117,7 +90,8 @@ session_start();
 																		</div>
 																		<div class="progress landing__progress space-top-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
 																			<div class="progress-bar progress-bar-babu landing__progress-bar" style="width:50%;"></div>
-																		</div><span><span class="">
+																		</div>
+																		<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-babu" href="/become-a-host/15415428/room"> <span>เปลี่ยน</span> </a></span> </span>
 																				<div>
 																					<a class="" href="/become-a-host/location">
 																					<button class="btn btn-babu space-top-1 text-large">
@@ -128,8 +102,11 @@ session_start();
 																</div>
 															</div>
 														</div>
-														<div class="col-sm-2 lys-vertical-align-middle">
-
+														<div class="col-sm-2 correct">
+															<span>
+																<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
+																	<i class="icon icon-ok-fill icon-size-2 icon-babu"></i>
+																</div></span>
 														</div>
 													</div>
 												</div>
@@ -241,18 +218,18 @@ session_start();
 											</div>
 
 											<!-- <div class="landing__more-info-card">
-												<div class="hide-sm">
-													<span>
-														<div class="panel wmpw-panel fast-animation">
+											<div class="hide-sm">
+											<span>
+											<div class="panel wmpw-panel fast-animation">
 
-															<div class="panel-body">
-																<div class="help-panel__bulb-img space-2"></div>
-																<div class="text-large text-gray">
-																	<span>กรอกข้อมูลให้ครบเพื่อความสะดวกแก่ผู้ใช้บริการ</span>
-																</div>
-															</div>
-														</div> </span>
-												</div>
+											<div class="panel-body">
+											<div class="help-panel__bulb-img space-2"></div>
+											<div class="text-large text-gray">
+											<span>กรอกข้อมูลให้ครบเพื่อความสะดวกแก่ผู้ใช้บริการ</span>
+											</div>
+											</div>
+											</div> </span>
+											</div>
 											</div> -->
 
 											<div class="landing__more-info-card">
