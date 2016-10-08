@@ -10,7 +10,7 @@ session_start();
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Start</title>
+		<title>ลงประกาศรถเช่าพร้อมคนขับ กับ Rentcnd</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
