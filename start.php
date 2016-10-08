@@ -10,7 +10,7 @@ session_start();
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Start</title>
+		<title>สร้างรายได้จากการขับรถของตัวเอง กับ Rentcnd</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -230,7 +230,7 @@ session_start();
 								<div class="subnav hide-sm" data-sticky="true" aria-hidden="true" data-transition-at="#header-sign-up-button" data-reactid=".26cmo4oabcw.0.0.0">
 									<div class="page-container-responsive" data-reactid=".26cmo4oabcw.0.0.0.0">
 										<div class="pull-right hide-sm" data-reactid=".26cmo4oabcw.0.0.0.0.1">
-											<a href="/rooms/new?from_sh=1" class="btn btn-large btn-primary btn-block" data-reactid=".26cmo4oabcw.0.0.0.0.1.0"><span data-reactid=".26cmo4oabcw.0.0.0.0.1.0.0">เริ่มเป็นเจ้าของที่พัก</span></a>
+											<a href="/rooms/new?from_sh=1" class="btn btn-large btn-soft btn-block" data-reactid=".26cmo4oabcw.0.0.0.0.1.0"><span data-reactid=".26cmo4oabcw.0.0.0.0.1.0.0">เริ่มเป็นเจ้าของรถเช่า</span></a>
 										</div>
 									</div>
 								</div>
@@ -239,13 +239,13 @@ session_start();
 						<div class="header" data-reactid=".26cmo4oabcw.1">
 							<div class="header__photo " data-reactid=".26cmo4oabcw.1.0"></div>
 							<div class="page-container-responsive header-card" data-reactid=".26cmo4oabcw.1.1">
-								<div class="col-sm-12 col-md-6 col-lg-5 space-md-8 space-md-top-8 text-contrast bg-soft pull-right">
+								<div class="col-sm-12 col-md-6 col-lg-5 space-md-8 space-md-top-8 text-contrast bg-soft-dark pull-right">
 									<div class="row space-top-8 space-8" data-reactid=".26cmo4oabcw.1.1.0.0">
 										<div class="col-sm-offset-1 col-sm-10 col-lg-9 col-left" data-reactid=".26cmo4oabcw.1.1.0.0.0">
 											<h1 class="header-card__title" data-reactid=".26cmo4oabcw.1.1.0.0.0.0"><strong>ลงประกาศให้เช่ารถพร้อมบริการขับรถที่ Rentcnd</strong></h1>
 											<p class="header-card__body space-top-4 space-4">
 												สร้างรายได้ด้วยการขับรถของคุณเอง
-											</p><a href="new.php" class="header-card__button btn btn-primary btn-large" id="header-sign-up-button"><span>เริ่มเป็นเจ้าของรถเช่า</span></a>
+											</p><a href="new.php" class="header-card__button btn btn-soft btn-large bg-soft" id="header-sign-up-button"><span>เริ่มเป็นเจ้าของรถเช่า</span></a>
 										</div>
 									</div>
 								</div>

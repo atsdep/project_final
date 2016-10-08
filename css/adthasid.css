@@ -14,7 +14,50 @@
 	right: 45px;
 }
 
+.help-soft {
+	color: #41687F;
+}
+
 .text-logo {
 	font-size: 32px;
 	font-weight: 700;
+}
+
+.text-soft-dark, .icon-soft-dark {
+    color: #41687F;
+}
+
+.link-soft-dark {
+    color: #41687F;
+    text-decoration: none;
+}
+
+.progress-bar-soft-dark {
+    background-color: #41687F;
+}
+
+
+.bg-soft {
+    background-color: #00A1FF
+}
+.bg-soft-dark {
+    background-color: #41687F
+}
+
+
+/*btn*/
+.btn-soft {
+     border-color: #00A1FF;
+     background-color: #00A1FF;
+     color: #fff;
+}
+.btn-soft-dark {
+     border-color: #41687F;
+     background-color: #41687F;
+     color: #fff;
+}
+.btn-som {
+     border-color: #FF7F00;
+     background-color: #FF7F00;
+     color: #fff;
 }

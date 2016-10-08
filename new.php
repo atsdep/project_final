@@ -44,8 +44,6 @@ session_start();
 
 		</div>
 
-		<script src="https://a0.muscache.com/airbnb/static/packages/header_cookie.bundle-cbed4f8007c1e3c328f8.js" type="text/javascript"></script>
-
 		<main id="site-content" role="main">
 
 			<meta name="pinterest" content="nopin">
@@ -89,12 +87,12 @@ session_start();
 																			ประเภทรถ สิ่งอำนวยความสะดวกและอื่นๆ
 																		</div>
 																		<div class="progress landing__progress space-top-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-																			<div class="progress-bar progress-bar-babu landing__progress-bar" style="width:50%;"></div>
+																			<div class="progress-bar progress-btn-soft-dark landing__progress-bar" style="width:50%;"></div>
 																		</div>
-																		<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-babu" href="/become-a-host/15415428/room"> <span>เปลี่ยน</span> </a></span> </span>
+																		<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-soft-dark" href="/become-a-host/15415428/room"> <span>เปลี่ยน</span> </a></span> </span>
 																				<div>
-																					<a class="" href="/become-a-host/location">
-																					<button class="btn btn-babu space-top-1 text-large">
+																					<a class="" href="generation.php">
+																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>
 																				</div></span></span>
@@ -105,7 +103,7 @@ session_start();
 														<div class="col-sm-2 correct">
 															<span>
 																<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
-																	<i class="icon icon-ok-fill icon-size-2 icon-babu"></i>
+																	<i class="icon icon-ok-fill icon-size-2 icon-soft-dark"></i>
 																</div></span>
 														</div>
 													</div>
@@ -129,11 +127,11 @@ session_start();
 																			รูป รายละเอียดสั้นๆ ชื่อประกาศ
 																		</div>
 																		<div class="progress landing__progress space-top-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-																			<div class="progress-bar progress-bar-babu landing__progress-bar" style="width:50%;"></div>
+																			<div class="progress-bar progress-btn-soft-dark landing__progress-bar" style="width:50%;"></div>
 																		</div><span><span class="">
 																				<div>
 																					<a class="" href="/become-a-host/location">
-																					<button class="btn btn-babu space-top-1 text-large">
+																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>
 																				</div></span></span>
@@ -165,11 +163,11 @@ session_start();
 																			ราคา ปฎิทิน การตั้งค่าการจอง
 																		</div>
 																		<div class="progress landing__progress space-top-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-																			<div class="progress-bar progress-bar-babu landing__progress-bar" style="width:50%;"></div>
+																			<div class="progress-bar progress-btn-soft-dark landing__progress-bar" style="width:50%;"></div>
 																		</div><span><span class="">
 																				<div>
 																					<a class="" href="/become-a-host/location">
-																					<button class="btn btn-babu space-top-1 text-large">
+																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>
 																				</div></span></span>
@@ -196,7 +194,7 @@ session_start();
 														<span>*** คุณสามารถยืนยันรถเช่า และ ตัวตนของคุณเพื่อความน่าเชื่อถือและความไว้ใจแก่ผู้ใช้บริการคนอื่นๆ</span>
 													</p>
 													<div class="va-container va-container-v">
-														<button type="button" class="btn btn-primary va-middle text-large">
+														<button type="button" class="btn btn-som va-middle text-large">
 															<span>ลงประกาศรถเช่า</span>
 														</button>
 													</div>
