@@ -2,6 +2,13 @@
 	font-size: 2.0em;
 }
 
+/*photo*/
+photo-preview__delete-btn.photo-preview__delete--confirm {
+	padding: 5px 10px;
+    background-color: #41687F;
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
 /*new*/
 .correct {
 	position: absolute;

@@ -98,3 +98,41 @@
 			</div> <div class="progress-section progress__bar-section" style="width:16.666666666666668%;left:50%;max-width:50%;"></div> <div class="progress-section progress__bar-section" style="width:16.666666666666668%;left:66.66666666666667%;max-width:33.33333333333333%;"></div> <div class="progress-section progress__bar-section" style="width:16.666666666666668%;left:83.33333333333334%;max-width:16.666666666666657%;"></div> </span>
 	</div>
 </div>
+
+
+<div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--downward help-panel__floating-panel--leftward">
+															<div class="help-panel__bulb-img"></div>
+															<div class="help-panel__close-icon"></div>
+															<div class="help-panel__floating-panel-body help-panel__text">
+																<div class="lys-carousel">
+																	<div class="lys-carousel__height-container" style="height: 275px;">
+																		<span>
+																			<div class="">
+																				<div>
+																					<div class="photo-image__help-tip-1 img-center"></div>
+																					<p class="space-top-2">
+																						<span>เจ้าของที่พักส่วนใหญ่มีรูปอย่างน้อย 8 รูป คุณสามารถเริ่มด้วยรูปเดียวและค่อยมาเพิ่มภายหลังได้ การมีรูปในที่พักทุกแห่งที่ผู้เข้าพักใช้ได้ช่วยผู้เข้าพักจินตนาการภาพการพักในที่พักคุณ</span>
+																					</p>
+																				</div>
+																			</div></span>
+																	</div>
+																	<div class="flex-container-h space-top-4">
+																		<div class="flex-item">
+																			<button aria-label="กลับไป" class="lys-carousel__button lys-carousel__button--prev btn btn-large" disabled="">
+																				<i class="icon icon-arrow-large-left"></i>
+																			</button>
+																		</div>
+																		<div class="flex-item flex-item-fill-parent text-center help-panel__carousel-progress">
+																			<i class="dot help-panel__carousel-dot dot-gray"></i>
+																			<i class="dot help-panel__carousel-dot dot-light-gray"></i>
+																			<i class="dot help-panel__carousel-dot dot-light-gray"></i>
+																		</div>
+																		<div class="flex-item">
+																			<button aria-label="ถัดไป" class="lys-carousel__button lys-carousel__button--next btn btn-large">
+																				<i class="icon icon-arrow-large-right"></i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
