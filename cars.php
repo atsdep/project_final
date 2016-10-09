@@ -55,7 +55,7 @@ session_start();
 						<div class="tablet-bookit-btn-container js-bookit-btn-container pull-right">
 							<button type="submit" class="btn btn-primary btn-large" id="sticky-md-book-it-btn">
 								<span class="book-it__btn-text"> ขอจอง </span>
-								<span class="book-it__btn-text--contact-host hide"> ติดต่อเจ้าของที่พัก </span>
+								<span class="book-it__btn-text--contact-host hide"> ติดต่อเจ้าของรถเช่า </span>
 								<span class="book-it__btn-text--instant hide"> <i class="icon icon-bolt icon-beach h4"></i> จองทันที </span>
 							</button>
 						</div>
@@ -69,13 +69,13 @@ session_start();
 								<a href="#photos" aria-selected="true" class="subnav-item"> รูปภาพ </a>
 							</li>
 							<li>
-								<a href="#summary" class="subnav-item" aria-selected="false"> เกี่ยวกับที่พักนี้ </a>
+								<a href="#summary" class="subnav-item" aria-selected="false"> เกี่ยวกับรถเช่านี้ </a>
 							</li>
 							<li>
 								<a href="#reviews" class="subnav-item" aria-selected="false"> ความคิดเห็น </a>
 							</li>
 							<li>
-								<a href="#host-profile" class="subnav-item" aria-selected="false"> เจ้าของที่พัก </a>
+								<a href="#host-profile" class="subnav-item" aria-selected="false"> เจ้าของรถเช่า </a>
 							</li>
 							<li>
 								<a href="#neighborhood" class="subnav-item" aria-selected="false"> ตำแหน่งที่ตั้ง </a>
@@ -100,7 +100,7 @@ session_start();
 										</div>
 									</div></span>
 								<div class="slideshow-inline-preload hide">
-									<img class="carousel-image img-responsive-height" src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=x_large" alt="" data-reactid=".rvpmv12neo.0.0.2.$https=2//a2=1muscache=1com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5=1jpg?aki_policy=0x_large">
+									<img class="carousel-image img-responsive-height" src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=x_large" alt="">
 								</div>
 								<div class="hero__view-photos">
 									<button type="button" class="btn">
@@ -115,12 +115,12 @@ session_start();
 				<div id="photo-social-share-widget" class="hide">
 					<div class="social-share-widget p3-photo-social-share-widget text-light-gray photo-widget-0 show-lg-inline-block" data-tooltip_id="p3-slideshow-social-share-tooltip-0">
 						<span class="share-title"> แบ่งปัน: </span>
-						<span class="share-triggers"> <a class="share-btn link-icon" data-email-share-link="/rooms/15417960/email_listing?photo=0" data-network="email" rel="nofollow" title="อีเมล์" href="#"> <span class="screen-reader-only">อีเมล์</span> <i class="icon icon-envelope social-icon-size"></i> </a> <a class="share-btn messenger-btn link-icon messenger-btn" data-network="messenger" rel="nofollow" title="Messenger" href="http://www.facebook.com/dialog/send?app_id=138566025676&amp;link=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D24&amp;redirect_uri=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D24" data-messenger-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=0&amp;user_id=63856890&amp;s=24" target="_blank"> <span class="screen-reader-only">Messenger</span> <i class="social-icon-size icon icon-facebook-messenger"></i> </a> <a class="share-btn link-icon" data-network="facebook" rel="nofollow" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D3" data-facebook-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=0&amp;user_id=63856890&amp;s=3" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon icon-facebook social-icon-size"></i> </a> <a class="share-btn embed-btn link-icon" data-network="embed" rel="nofollow" title="ฝังที่พักนี้" data-photo-index="0" href="#"> <span class="screen-reader-only">ฝังที่พักนี้</span> <i class="icon icon-code social-icon-size"></i> </a> <a class="share-btn link-icon" data-network="pinterest" rel="nofollow" title="Pinterest" href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D16&amp;media=https%3A%2F%2Fa2.muscache.com%2Fim%2Fpictures%2F2cb713a5-2c80-423b-82e4-f20938845b97.jpg%3Faki_policy%3Dx_large&amp;description=%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%94%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%9A%E0%B8%99+Airbnb%3A+test+system+-+%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C+%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2+%E0%B9%83%E0%B8%99+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E" target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon icon-pinterest social-icon-size"></i> </a> <span class="hide more-btn"> ··· </span> </span>
+						<span class="share-triggers"> <a class="share-btn link-icon" data-email-share-link="/rooms/15417960/email_listing?photo=0" data-network="email" rel="nofollow" title="อีเมล์" href="#"> <span class="screen-reader-only">อีเมล์</span> <i class="icon icon-envelope social-icon-size"></i> </a> <a class="share-btn messenger-btn link-icon messenger-btn" data-network="messenger" rel="nofollow" title="Messenger" href="http://www.facebook.com/dialog/send?app_id=138566025676&amp;link=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D24&amp;redirect_uri=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D24" data-messenger-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=0&amp;user_id=63856890&amp;s=24" target="_blank"> <span class="screen-reader-only">Messenger</span> <i class="social-icon-size icon icon-facebook-messenger"></i> </a> <a class="share-btn link-icon" data-network="facebook" rel="nofollow" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D3" data-facebook-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=0&amp;user_id=63856890&amp;s=3" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon icon-facebook social-icon-size"></i> </a> <a class="share-btn embed-btn link-icon" data-network="embed" rel="nofollow" title="ฝังรถเช่านี้" data-photo-index="0" href="#"> <span class="screen-reader-only">ฝังรถเช่านี้</span> <i class="icon icon-code social-icon-size"></i> </a> <a class="share-btn link-icon" data-network="pinterest" rel="nofollow" title="Pinterest" href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D0%26user_id%3D63856890%26s%3D16&amp;media=https%3A%2F%2Fa2.muscache.com%2Fim%2Fpictures%2F2cb713a5-2c80-423b-82e4-f20938845b97.jpg%3Faki_policy%3Dx_large&amp;description=%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%94%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%9A%E0%B8%99+Airbnb%3A+test+system+-+%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C+%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2+%E0%B9%83%E0%B8%99+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E" target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon icon-pinterest social-icon-size"></i> </a> <span class="hide more-btn"> ··· </span> </span>
 
 					</div>
 					<div class="social-share-widget p3-photo-social-share-widget text-light-gray photo-widget-1 show-lg-inline-block" data-tooltip_id="p3-slideshow-social-share-tooltip-1">
 						<span class="share-title"> แบ่งปัน: </span>
-						<span class="share-triggers"> <a class="share-btn link-icon" data-email-share-link="/rooms/15417960/email_listing?photo=1" data-network="email" rel="nofollow" title="อีเมล์" href="#"> <span class="screen-reader-only">อีเมล์</span> <i class="icon icon-envelope social-icon-size"></i> </a> <a class="share-btn messenger-btn link-icon messenger-btn" data-network="messenger" rel="nofollow" title="Messenger" href="http://www.facebook.com/dialog/send?app_id=138566025676&amp;link=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D24&amp;redirect_uri=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D24" data-messenger-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=1&amp;user_id=63856890&amp;s=24" target="_blank"> <span class="screen-reader-only">Messenger</span> <i class="social-icon-size icon icon-facebook-messenger"></i> </a> <a class="share-btn link-icon" data-network="facebook" rel="nofollow" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D3" data-facebook-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=1&amp;user_id=63856890&amp;s=3" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon icon-facebook social-icon-size"></i> </a> <a class="share-btn embed-btn link-icon" data-network="embed" rel="nofollow" title="ฝังที่พักนี้" data-photo-index="1" href="#"> <span class="screen-reader-only">ฝังที่พักนี้</span> <i class="icon icon-code social-icon-size"></i> </a> <a class="share-btn link-icon" data-network="pinterest" rel="nofollow" title="Pinterest" href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D16&amp;media=https%3A%2F%2Fa2.muscache.com%2Fim%2Fpictures%2Fb3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg%3Faki_policy%3Dx_large&amp;description=%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%94%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%9A%E0%B8%99+Airbnb%3A+test+system+-+%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C+%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2+%E0%B9%83%E0%B8%99+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E" target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon icon-pinterest social-icon-size"></i> </a> <span class="hide more-btn"> ··· </span> </span>
+						<span class="share-triggers"> <a class="share-btn link-icon" data-email-share-link="/rooms/15417960/email_listing?photo=1" data-network="email" rel="nofollow" title="อีเมล์" href="#"> <span class="screen-reader-only">อีเมล์</span> <i class="icon icon-envelope social-icon-size"></i> </a> <a class="share-btn messenger-btn link-icon messenger-btn" data-network="messenger" rel="nofollow" title="Messenger" href="http://www.facebook.com/dialog/send?app_id=138566025676&amp;link=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D24&amp;redirect_uri=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D24" data-messenger-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=1&amp;user_id=63856890&amp;s=24" target="_blank"> <span class="screen-reader-only">Messenger</span> <i class="social-icon-size icon icon-facebook-messenger"></i> </a> <a class="share-btn link-icon" data-network="facebook" rel="nofollow" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D3" data-facebook-share-link="https://th.airbnb.com/rooms/15417960?bev_ref=1475419335_oovQhuSde3yORaX6&amp;photo=1&amp;user_id=63856890&amp;s=3" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon icon-facebook social-icon-size"></i> </a> <a class="share-btn embed-btn link-icon" data-network="embed" rel="nofollow" title="ฝังรถเช่านี้" data-photo-index="1" href="#"> <span class="screen-reader-only">ฝังรถเช่านี้</span> <i class="icon icon-code social-icon-size"></i> </a> <a class="share-btn link-icon" data-network="pinterest" rel="nofollow" title="Pinterest" href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fth.airbnb.com%2Frooms%2F15417960%3Fbev_ref%3D1475419335_oovQhuSde3yORaX6%26photo%3D1%26user_id%3D63856890%26s%3D16&amp;media=https%3A%2F%2Fa2.muscache.com%2Fim%2Fpictures%2Fb3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg%3Faki_policy%3Dx_large&amp;description=%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%94%E0%B8%B9%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%9A%E0%B8%99+Airbnb%3A+test+system+-+%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C+%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2+%E0%B9%83%E0%B8%99+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E" target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon icon-pinterest social-icon-size"></i> </a> <span class="hide more-btn"> ··· </span> </span>
 
 					</div>
 				</div>
@@ -145,13 +145,13 @@ session_start();
 													</div>
 													<div class="row row-condensed text-muted text-center">
 														<div class="col-sm-3">
-															<i class="icon icon-private-room icon-size-2" aria-hidden="true"></i>
+															<i class="icon icon-star icon-size-2" aria-hidden="true"></i>
 														</div>
 														<div class="col-sm-3">
 															<i class="icon icon-group icon-size-2" aria-hidden="true"></i>
 														</div>
 														<div class="col-sm-3">
-															<i class="icon icon-double-bed icon-size-2" aria-hidden="true"></i>
+															<i class="icon icon-star icon-size-2" aria-hidden="true"></i>
 														</div>
 													</div>
 												</div>
@@ -163,13 +163,13 @@ session_start();
 												<div class="col-md-9">
 													<div class="row row-condensed text-muted text-center">
 														<div class="col-sm-3">
-															ห้องส่วนตัว
+															รถเก๋ง
 														</div>
 														<div class="col-sm-3">
-															ผู้เข้าพัก 1 คน
+															ผู้โดยสาร 1 คน
 														</div>
 														<div class="col-sm-3">
-															2 เตียง
+															3 ที่นั่ง
 														</div>
 													</div>
 												</div>
@@ -213,17 +213,17 @@ session_start();
 																		<div class="row row-condensed">
 																			<div class="col-sm-6">
 																				<label class="book-it__label" for="datespan-checkin">เช็คอิน</label>
-																				<input id="datespan-checkin" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="ดด-ดด-ปปปป">
+																				<input id="datespan-checkin" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="วว-ดด-ปปปป">
 																			</div>
 																			<div class="col-sm-6">
 																				<label class="book-it__label" for="datespan-checkout">เช็คเอาท์</label>
-																				<input id="datespan-checkout" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="ดด-ดด-ปปปป">
+																				<input id="datespan-checkout" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="วว-ดด-ปปปป">
 																			</div>
 																		</div>
 																	</div>
 																	<div class="col-md-3">
 																		<div>
-																			<label for="number_of_guests_15417960" class="book-it__label"><span>ผู้เข้าพัก</span></label>
+																			<label for="number_of_guests_15417960" class="book-it__label"><span>ผู้โดยสาร</span></label>
 																			<div class="select select-block">
 																				<select id="number_of_guests_15417960" name="number_of_guests">
 																					<option selected="" value="1">1</option>
@@ -242,7 +242,7 @@ session_start();
 																</div>
 																<div class="hide">
 																	<button type="button" class="btn btn-primary btn-large btn-small btn-block">
-																		<span>ติดต่อเจ้าของที่พัก</span>
+																		<span>ติดต่อเจ้าของรถเช่า</span>
 																	</button>
 																</div>
 															</div>
@@ -279,7 +279,7 @@ session_start();
 									<div class="row">
 										<div class="col-lg-8 js-details-column">
 											<div class="space-8 space-top-8">
-												<h4 class="space-4 text-center-sm"><span><span>เกี่ยวกับที่พักแห่งนี้ (</span><span><a href="/manage-listing/15417960" class="link-underline"><span>แก้ไขที่พัก</span></a></span> <span>)</span></span></h4>
+												<h4 class="space-4 text-center-sm"><span><span>เกี่ยวกับรถเช่านี้  (</span><span><a href="/manage-listing/15417960" class="link-underline"><span>แก้ไขรถเช่า</span></a></span> <span>)</span></span></h4>
 												<div>
 													<p>
 														<span>สวัสดีครับ</span>
@@ -289,7 +289,7 @@ session_start();
 												<div class="contact-host-div col-12">
 												<div>
 												<button class="btn-link btn-link--bold" type="button">
-												<span>ติดต่อเจ้าของที่พัก</span>
+												<span>ติดต่อเจ้าของรถเช่า</span>
 												</button>
 												</div>
 												</div>
@@ -298,7 +298,7 @@ session_start();
 												<div class="row">
 													<div class="col-md-3 text-muted">
 														<div>
-															<span>ที่พัก</span>
+															<span>รถเช่า</span>
 														</div>
 														<div class="edit-link--hide">
 															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="/manage-listing/15417960/basics"><strong> <span>แก้ไข</span> </strong> </a>
@@ -308,31 +308,31 @@ session_start();
 														<div class="row">
 															<div class="col-md-6">
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 
 															</div>
 															<div class="col-md-6">
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 																<div>
-																	<span>จำนวนผู้เข้าพักได้:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
 																</div>
 															</div>
 														</div>
@@ -419,8 +419,8 @@ session_start();
 															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="/manage-listing/15417960/basics"><strong> <span>แก้ไข</span> </strong> </a>
 														</div>
 													</div>
-													<div class="col-md-9" data-reactid=".ixua23q9z4.0.0.0.0.3.c.1">
-														<div class="row" data-reactid=".ixua23q9z4.0.0.0.0.3.c.1.0">
+													<div class="col-md-9">
+														<div class="row">
 
 														</div>
 													</div>
@@ -454,7 +454,7 @@ session_start();
 													</div>
 												</div>
 												<hr>
-												<div class="row react-house-rules" id="house-rules" data-reactid=".ixua23q9z4.0.0.0.0.3.g">
+												<div class="row react-house-rules" id="house-rules">
 													<div class="col-md-3 text-muted">
 														<div>
 															<span>กฏของรถเช่า</span>
@@ -503,7 +503,7 @@ session_start();
 												<div class="row">
 													<div class="col-md-3 text-muted">
 														<div>
-															<span>ห้องว่าง</span>
+															<span>ว่าง</span>
 														</div>
 														<div class="edit-link--hide">
 															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="/manage-listing/15417960/basics"><strong> <span>แก้ไข</span> </strong> </a>
@@ -512,7 +512,7 @@ session_start();
 													<div class="col-md-9">
 														<div class="row">
 															<div class="col-md-6">
-																<strong>1 คืน</strong> การพักขั้นต่ำ
+																<strong>1 วัน</strong> การเช่าขั้นต่ำ
 															</div>
 															<div class="col-md-6">
 																<a id="view-calendar" href="#"><strong> <span>ดูปฏิทิน</span> </strong> </a>
@@ -531,7 +531,7 @@ session_start();
 										<div class="row">
 											<div class="col-lg-8">
 												<div class="review-wrapper">
-													
+
 													<div class="review-main">
 														<div class="review-content">
 															<div class="panel-body">
@@ -555,7 +555,7 @@ session_start();
 								<div class="page-container-responsive space-top-8 space-8">
 									<div class="row">
 										<div class="col-lg-8">
-											<h4 class="space-2 text-center-sm"><span>เจ้าของที่พักของคุณ</span></h4>
+											<h4 class="space-2 text-center-sm"><span>เจ้าของรถเช่าของคุณ</span></h4>
 											<hr class="space-4 space-top-2">
 											<div class="row">
 												<div class="col-md-3 text-center">
@@ -572,28 +572,28 @@ session_start();
 													</div><div class="space-top-3"></div>
 													<div class="">
 														<button type="button" class="btn btn-primary btn-small">
-															<span>ติดต่อเจ้าของที่พัก</span>
+															<span>ติดต่อเจ้าของรถเช่า</span>
 														</button>
 													</div>
 												</div>
 											</div><!-- end -->
 
 											<!-- <div class="">
-												<hr class="space-4 space-top-4" data-reactid=".ixua23q9z4.2.0.0.0.4.0">
-												<div class="row" data-reactid=".ixua23q9z4.2.0.0.0.4.1">
-													<div class="col-md-3" data-reactid=".ixua23q9z4.2.0.0.0.4.1.0">
-														<div class="text-muted" data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0">
-															<div class="space-2" data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0.0">
-																<span data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0.0.0">เจ้าของที่พักร่วม</span><span data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0.0.1"><i name="additional-hosts" id="tooltip-additional-hosts" class="icon icon-additional-hosts icon icon-question additional-hosts-icon text-muted" data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0.0.1.0"></i><noscript data-reactid=".ixua23q9z4.2.0.0.0.4.1.0.0.0.1.1"></noscript></span>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-9" data-reactid=".ixua23q9z4.2.0.0.0.4.1.1">
-														<div data-reactid=".ixua23q9z4.2.0.0.0.4.1.1.0">
-															<ul class="list-unstyled space-0" data-reactid=".ixua23q9z4.2.0.0.0.4.1.1.0.0"></ul>
-														</div>
-													</div>
-												</div>
+											<hr class="space-4 space-top-4">
+											<div class="row">
+											<div class="col-md-3">
+											<div class="text-muted">
+											<div class="space-2">
+											<span>เจ้าของรถเช่าร่วม</span><span><i name="additional-hosts" id="tooltip-additional-hosts" class="icon icon-additional-hosts icon icon-question additional-hosts-icon text-muted"></i><noscript></noscript></span>
+											</div>
+											</div>
+											</div>
+											<div class="col-md-9">
+											<div>
+											<ul class="list-unstyled space-0"></ul>
+											</div>
+											</div>
+											</div>
 											</div> -->
 											<!-- end -->
 										</div>
@@ -603,12 +603,12 @@ session_start();
 						</div>
 					</div>
 
-					<!-- <div id="neighborhood" class="room-section">
-						<div style="position:relative;" class="page-container-responsive" data-reactid=".8">
-							<div class="p3-location--map" data-reactid=".8.0">
-								<div class="panel location-panel" data-reactid=".8.0.0">
-									<div style="height: 100%; width: 100%; position: relative; background-color: rgb(164, 221, 245); overflow: hidden;" data-reactid=".8.0.0.0">
-										<noscript data-reactid=".8.0.0.0.$/=10"></noscript><noscript data-reactid=".8.0.0.0.$/=12"></noscript>
+					<div id="neighborhood" class="room-section">
+						<div style="position:relative;" class="page-container-responsive">
+							<div class="p3-location--map">
+								<div class="panel location-panel">
+									<div style="height: 100%; width: 100%; position: relative; background-color: rgb(164, 221, 245); overflow: hidden;">
+										<noscript></noscript>
 										<div class="" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;">
 											<div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;">
 												<div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); will-change: transform;">
@@ -769,96 +769,96 @@ session_start();
 										</div>
 									</div>
 								</div>
-								<ul id="guidebook-recommendations" class="hide" data-reactid=".8.0.1">
-									<li class="user-image" data-reactid=".8.0.1.0">
-										<a href="users/15417960" data-reactid=".8.0.1.0.0"><img alt="Adthasid" data-pin-nopin="true" height="90" src="https://a2.muscache.com/im/pictures/26ff8bef-2333-4265-b6d2-cc1e86b349b4.jpg?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
-									</li><li href="" class="info" data-neighborhood-id="3300" data-reactid=".8.0.1.1"></li>
+								<ul id="guidebook-recommendations" class="hide">
+									<li class="user-image">
+										<a href="users/15417960"><img alt="Adthasid" data-pin-nopin="true" height="90" src="https://a2.muscache.com/im/pictures/26ff8bef-2333-4265-b6d2-cc1e86b349b4.jpg?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
+									</li><li href="" class="info" data-neighborhood-id="3300"></li>
 								</ul>
-								<div id="hover-card" class="panel" data-reactid=".8.0.2">
-									<div data-reactid=".8.0.2.$LocationCard">
-										<div class="sliding-carousel" data-reactid=".8.0.2.$LocationCard.0">
-											<div class="carousel-view" style="height: 286px;" data-reactid=".8.0.2.$LocationCard.0.0">
-												<ul class="carousel-item-list list-unstyled" style="left: 0px; width: 1575px;" data-reactid=".8.0.2.$LocationCard.0.0.0">
-													<li class="carousel-item" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular">
-														<div class="carousel-image media-photo media-photo-block" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0">
-															<div class="media-cover media-cover-dark" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/35258/558_3642_0_2800_three_UpperSukhumvit_Lewin_27.jpg');" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.0"></div>
-															<div class="title text-center row row-table text-contrast space-top-3" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.1">
-																<div class="col-8 col-offset-2 col-middle" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.1.0">
-																	<div class="h3" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.1.0.0">
-																		<a href="http://th.airbnb.com/locations/bangkok/upper-sukhumvit" target="_blank" class="link-reset" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.1.0.0.0">สุขุมวิทตอนปลาย</a>
+								<div id="hover-card" class="panel">
+									<div>
+										<div class="sliding-carousel">
+											<div class="carousel-view" style="height: 286px;">
+												<ul class="carousel-item-list list-unstyled" style="left: 0px; width: 1575px;">
+													<li class="carousel-item">
+														<div class="carousel-image media-photo media-photo-block">
+															<div class="media-cover media-cover-dark" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/35258/558_3642_0_2800_three_UpperSukhumvit_Lewin_27.jpg');"></div>
+															<div class="title text-center row row-table text-contrast space-top-3">
+																<div class="col-8 col-offset-2 col-middle">
+																	<div class="h3">
+																		<a href="http://th.airbnb.com/locations/bangkok/upper-sukhumvit" target="_blank" class="link-reset">สุขุมวิทตอนปลาย</a>
 																	</div>
-																	<p data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.1.0.1">
+																	<p>
 																		ตึกสูงสุดชิคทอดเรียงไปตามถนนสายนี้
 																	</p>
 																</div>
 															</div>
-															<div class="header row row-table text-center text-contrast" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.2">
-																<div class="col-12 col-center" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.2.0">
-																	<div class="h6 text-contrast" data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.2.0.0">
-																		<span data-reactid=".8.0.2.$LocationCard.0.0.0.$singular.0.2.0.0.0">บริเวณที่พัก</span>
+															<div class="header row row-table text-center text-contrast">
+																<div class="col-12 col-center">
+																	<div class="h6 text-contrast">
+																		<span>บริเวณรถเช่า</span>
 																	</div>
 																</div>
 															</div>
 														</div>
 													</li>
-													<li class="carousel-item" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/19810/558_3642_0_2800_three_UpperSukhumvit_Lewin_03=1jpg">
-														<div class="carousel-image media-photo media-photo-block" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/19810/558_3642_0_2800_three_UpperSukhumvit_Lewin_03=1jpg.0">
-															<div class="media-cover" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/19810/558_3642_0_2800_three_UpperSukhumvit_Lewin_03.jpg');" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/19810/558_3642_0_2800_three_UpperSukhumvit_Lewin_03=1jpg.0.0"></div>
+													<li class="carousel-item">
+														<div class="carousel-image media-photo media-photo-block">
+															<div class="media-cover" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/19810/558_3642_0_2800_three_UpperSukhumvit_Lewin_03.jpg');"></div>
 														</div>
 													</li>
-													<li class="carousel-item" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/34886/558_3642_0_2800_three_UpperSukhumvit_Lewin_33=1jpg">
-														<div class="carousel-image media-photo media-photo-block" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/34886/558_3642_0_2800_three_UpperSukhumvit_Lewin_33=1jpg.0">
-															<div class="media-cover" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/34886/558_3642_0_2800_three_UpperSukhumvit_Lewin_33.jpg');" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a0=1muscache=1com/locations/uploads/photo/image/34886/558_3642_0_2800_three_UpperSukhumvit_Lewin_33=1jpg.0.0"></div>
+													<li class="carousel-item">
+														<div class="carousel-image media-photo media-photo-block">
+															<div class="media-cover" style="background-image:url('https://a0.muscache.com/locations/uploads/photo/image/34886/558_3642_0_2800_three_UpperSukhumvit_Lewin_33.jpg');"></div>
 														</div>
 													</li>
-													<li class="carousel-item" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19842/558_3642_0_2800_three_UpperSukhumvit_Lewin_40=1jpg">
-														<div class="carousel-image media-photo media-photo-block" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19842/558_3642_0_2800_three_UpperSukhumvit_Lewin_40=1jpg.0">
-															<div class="media-cover" style="background-image:url('https://a1.muscache.com/locations/uploads/photo/image/19842/558_3642_0_2800_three_UpperSukhumvit_Lewin_40.jpg');" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19842/558_3642_0_2800_three_UpperSukhumvit_Lewin_40=1jpg.0.0"></div>
+													<li class="carousel-item">
+														<div class="carousel-image media-photo media-photo-block">
+															<div class="media-cover" style="background-image:url('https://a1.muscache.com/locations/uploads/photo/image/19842/558_3642_0_2800_three_UpperSukhumvit_Lewin_40.jpg');"></div>
 														</div>
 													</li>
-													<li class="carousel-item" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19817/558_3642_0_2800_three_UpperSukhumvit_Lewin_38=1jpg">
-														<div class="carousel-image media-photo media-photo-block" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19817/558_3642_0_2800_three_UpperSukhumvit_Lewin_38=1jpg.0">
-															<div class="media-cover" style="background-image:url('https://a1.muscache.com/locations/uploads/photo/image/19817/558_3642_0_2800_three_UpperSukhumvit_Lewin_38.jpg');" data-reactid=".8.0.2.$LocationCard.0.0.0.$https=2//a1=1muscache=1com/locations/uploads/photo/image/19817/558_3642_0_2800_three_UpperSukhumvit_Lewin_38=1jpg.0.0"></div>
+													<li class="carousel-item">
+														<div class="carousel-image media-photo media-photo-block">
+															<div class="media-cover" style="background-image:url('https://a1.muscache.com/locations/uploads/photo/image/19817/558_3642_0_2800_three_UpperSukhumvit_Lewin_38.jpg');"></div>
 														</div>
 													</li>
 												</ul>
 											</div>
-											<div class="carousel-chevron left" data-reactid=".8.0.2.$LocationCard.0.1">
-												<i class="icon icon-chevron-left icon-gray icon-size-2" data-reactid=".8.0.2.$LocationCard.0.1.0"></i>
+											<div class="carousel-chevron left">
+												<i class="icon icon-chevron-left icon-gray icon-size-2"></i>
 											</div>
-											<div class="carousel-chevron right" data-reactid=".8.0.2.$LocationCard.0.2">
-												<i class="icon icon-chevron-right icon-gray icon-size-2" data-reactid=".8.0.2.$LocationCard.0.2.0"></i>
+											<div class="carousel-chevron right">
+												<i class="icon icon-chevron-right icon-gray icon-size-2"></i>
 											</div>
 										</div>
-										<div class="panel-body" data-reactid=".8.0.2.$LocationCard.1">
-											<div class="row space-2" data-reactid=".8.0.2.$LocationCard.1.0">
-												<div class="col-12 text-center" data-reactid=".8.0.2.$LocationCard.1.0.0">
-													<i class="dot icon-size-1 dot-ebisu" data-reactid=".8.0.2.$LocationCard.1.0.0.$0"></i><i class="dot icon-size-1 " data-reactid=".8.0.2.$LocationCard.1.0.0.$1"></i><i class="dot icon-size-1 " data-reactid=".8.0.2.$LocationCard.1.0.0.$2"></i><i class="dot icon-size-1 " data-reactid=".8.0.2.$LocationCard.1.0.0.$3"></i><i class="dot icon-size-1 " data-reactid=".8.0.2.$LocationCard.1.0.0.$4"></i>
+										<div class="panel-body">
+											<div class="row space-2">
+												<div class="col-12 text-center">
+													<i class="dot icon-size-1 dot-ebisu"></i><i class="dot icon-size-1 "></i><i class="dot icon-size-1 "></i><i class="dot icon-size-1 "></i><i class="dot icon-size-1 "></i>
 												</div>
 											</div>
-											<div class="tags text-center" data-reactid=".8.0.2.$LocationCard.1.1">
+											<div class="tags text-center">
 												พัฒนาใหม่ · อพาร์ทเม้นท์ · ราคาสูง · เติบโตเร็ว · สวนเบญจสิริ · นานาชาติ
 											</div>
 										</div>
 									</div>
-									<div class="panel-body" data-reactid=".8.0.2.1">
-										<div class="text-center" data-reactid=".8.0.2.1.0">
-											ตำแหน่งที่ตั้งของที่พัก
+									<div class="panel-body">
+										<div class="text-center">
+											ตำแหน่งที่ตั้งของรถเช่า
 										</div>
-										<div class="text-center" data-reactid=".8.0.2.1.1">
-											<span class="listing-location" data-reactid=".8.0.2.1.1.$กรุงเทพ,0"><a class="text-muted" href="/s/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E--%E0%B9%84%E0%B8%97%E0%B8%A2" data-reactid=".8.0.2.1.1.$กรุงเทพ,0.0"><span>กรุงเทพ,</span></a></span><span class="listing-location" data-reactid=".8.0.2.1.1.$Krung Thep Maha Nakhon,1"><a class="text-muted" href="/s/Krung-Thep-Maha-Nakhon--%E0%B9%84%E0%B8%97%E0%B8%A2" data-reactid=".8.0.2.1.1.$Krung Thep Maha Nakhon,1.0"><span>Krung Thep Maha Nakhon,</span></a></span><span class="listing-location" data-reactid=".8.0.2.1.1.$ไทย2"><a class="text-muted" href="/s/%E0%B9%84%E0%B8%97%E0%B8%A2" data-reactid=".8.0.2.1.1.$ไทย2.0"><span>ไทย</span></a></span>
+										<div class="text-center">
+											<span class="listing-location"><a class="text-muted" href="/s/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E--%E0%B9%84%E0%B8%97%E0%B8%A2"><span>กรุงเทพ,</span></a></span><span class="listing-location"><a class="text-muted" href="/s/Krung-Thep-Maha-Nakhon--%E0%B9%84%E0%B8%97%E0%B8%A2"><span>Krung Thep Maha Nakhon,</span></a></span><span class="listing-location"><a class="text-muted" href="/s/%E0%B9%84%E0%B8%97%E0%B8%A2"><span>ไทย</span></a></span>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- map -->
 
 					<div id="similar-listings">
 						<div class="space-2 space-top-4">
 							<div class="page-container-responsive the-one-thing sliding-carousel-container">
-								<h4 class="space-4 text-center-sm">ที่พักที่คล้ายกัน</h4>
+								<h4 class="space-4 text-center-sm">รถเช่าที่คล้ายกัน</h4>
 								<div class="sliding-carousel similar-listings">
 									<div class="carousel-view" style="height: 293px;">
 										<ul class="carousel-item-list list-unstyled row" style="left: 0px; width: 8640px;">
@@ -869,99 +869,95 @@ session_start();
 															<div>
 																<a href="/rooms/8752630" class="media-photo media-cover" target="listing_8752630">
 																<div class="listing-img-container media-cover text-center">
-																	<img src="https://a1.muscache.com/im/pictures/111437052/590e577a_original.jpg?aki_policy=x_medium" class="img-responsive-height" alt="Prime location Sukhumvit Asok BTS - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
-																	<img src="https://a1.muscache.com/im/pictures/111436697/e0a0549a_original.jpg?aki_policy=x_medium" class="img-responsive-height hide" alt="Prime location Sukhumvit Asok BTS - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																	<img src="img/suv.jpg?aki_policy=x_medium" class="img-responsive-height" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																	<img src="https://a1.muscache.com/im/pictures/111436697/e0a0549a_original.jpg?aki_policy=x_medium" class="img-responsive-height hide" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
 																</div></a>
 																<a href="/rooms/8752630" target="listing_8752630">
 																<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
 																	<div class="price-label">
-																		<span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.1.1.3:0.0.0.0"><sup class="currency-prefix" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.1.1.3:0.0.0.0.0">฿</sup><span class="price-amount" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.1.1.3:0.0.0.0.1">1992</span><span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.1.1.3:0.0.0.0.4"> </span></span>
+																		<span> <sup class="currency-prefix">฿</sup><span class="price-amount">1992</span><span> </span></span>
 																	</div>
 																</div></a>
 															</div>
 														</div>
-														<div class="panel-body panel-card-section" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2">
-															<div class="media" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0">
-																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.0">
-																<div class="media-photo media-round" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.0.0"><img src="https://a2.muscache.com/im/users/1113464/profile_pic/1444381640/original.jpg?aki_policy=profile_medium" alt="Bruno" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.0.0.0">
-																</div></a><h3 title="Prime location Sukhumvit Asok BTS" class="h5 listing-name text-truncate space-top-1" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.1.2"><span class="listing-name--display" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.1.2.0">Prime location Sukhumvit Asok BTS</span></a></h3><a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2">
-																<div class="text-muted listing-location text-truncate" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0">
-																	<div class="" data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0.0">
-																		<span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0.0.1"><span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0.0.1.0">บ้าน/อพาร์ทเมนท์ทั้งหลัง</span><span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0.0.1.1"> — </span><span data-reactid=".7.0.1.0.0.$0.$8752630.$8752630.2.0.2.0.0.1.2">ไกลออกไป 0.1 กิโลเมตร</span></span>
+														<div class="panel-body panel-card-section">
+															<div class="media">
+																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset">
+																<div class="media-photo media-round"><img src="img/profile?aki_policy=profile_medium" alt="Bruno">
+																</div> </a>
+																<h3 title="Title Name" class="h5 listing-name text-truncate space-top-1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal"><span class="listing-name--display">Title Name</span></a></h3>
+																<a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset">
+																<div class="text-muted listing-location text-truncate">
+																	<div class="">
+																		<span><span>บ้าน/อพาร์ทเมนท์ทั้งหลัง</span></span>
 																	</div>
-																</div></a>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4" data-reactid=".7.0.1.0.0.$0.$2812183">
-													<div class="listing" itemscope="" itemtype="http://schema.org/Enumeration" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183">
-														<div class="panel-image listing-img listing-img--hide-carousel-controls" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1">
-															<div data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1">
-																<a href="/rooms/2812183" class="media-photo media-cover" target="listing_2812183" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.0">
-																<div class="listing-img-container media-cover text-center" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.0.0"><img src="https://a0.muscache.com/im/pictures/85728114/280bb7dc_original.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height" alt="TheRiverSideBangkok - Orchid - บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.0.0.$0"><img src="https://a1.muscache.com/im/pictures/85728606/b8bdc9b3_original.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height hide" alt="TheRiverSideBangkok - Orchid - บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.0.0.1:$1">
-																</div></a><a href="/rooms/2812183" target="listing_2812183" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0">
-																<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0">
-																	<div class="price-label" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0.0">
-																		<span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0.0.0"><sup class="currency-prefix" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0.0.0.0">฿</sup><span class="price-amount" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0.0.0.1">3215</span><span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:0.0.0.0.4"> </span></span>
-																	</div>
-																</div></a>
-																<div class="panel-overlay-top-right wl-social-connection-panel" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1">
-																	<span class="rich-toggle wish_list_button wishlist-button not_saved" data-img="https://a0.muscache.com/im/pictures/85728114/280bb7dc_original.jpg?aki_policy=x_medium" data-name="TheRiverSideBangkok - Orchid" data-address="กรุงเทพ" data-hosting_id="2812183" data-review_count="6" data-room_type="บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-star_rating="0" data-host_id="7929368" data-host_img="https://a2.muscache.com/im/users/7929368/profile_pic/1375676654/original.jpg?aki_policy=profile_medium" data-property_type_name="บ้าน/อพาร์ทเมนท์ทั้งหลัง" tabindex="0" role="button" style="display:block;width:32px;height:32px;" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0">
-																		<input type="checkbox" id="wishlist-widget-2812183" name="wishlist-widget-2812183" aria-hidden="true" tabindex="-1" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.0">
-																		<label for="wishlist-widget-2812183" class="hide-sm" aria-hidden="true" tabindex="-1" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.1"><i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.1.0"></i><i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.1.1"></i><i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-2812183" class="icon icon-heart-alt icon-white icon-size-2" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.1.2"></i></label>
-																		<div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip" role="tooltip" data-trigger="#wishlist-widget-icon-2812183" data-event="none" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.2">
-																			<p class="text-white wishlist-widget-tooltip__body" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.1.1.3:1.0.2.0"></p>
-																		</div></span>
-																</div>
-															</div>
-														</div>
-														<div class="panel-body panel-card-section" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2">
-															<div class="media" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0">
-																<a href="/users/show/7929368" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.0">
-																<div class="media-photo media-round" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.0.0"><img src="https://a2.muscache.com/im/users/7929368/profile_pic/1375676654/original.jpg?aki_policy=profile_medium" alt="John" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.0.0.0">
-																</div></a><h3 title="TheRiverSideBangkok - Orchid" class="h5 listing-name text-truncate space-top-1" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.1"><a href="/rooms/2812183" target="listing_2812183" class="text-normal" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.1.2"><span class="listing-name--display" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.1.2.0">TheRiverSideBangkok - Orchid</span></a></h3><a href="/rooms/2812183" target="listing_2812183" class="text-normal link-reset" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2">
-																<div class="text-muted listing-location text-truncate" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0">
-																	<div class="" data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0.0">
-																		<span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0.0.1"><span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0.0.1.0">บ้าน/อพาร์ทเมนท์ทั้งหลัง</span><span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0.0.1.1"> — </span><span data-reactid=".7.0.1.0.0.$0.$2812183.$2812183.2.0.2.0.0.1.2">ไกลออกไป 6.2 กิโลเมตร</span></span>
-																	</div>
-																</div></a>
+																</div> </a>
 															</div>
 														</div>
 													</div>
 												</div>
-												<div class="col-md-4" data-reactid=".7.0.1.0.0.$0.$15225254">
-													<div class="listing" itemscope="" itemtype="http://schema.org/Enumeration" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254">
-														<div class="panel-image listing-img listing-img--hide-carousel-controls" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1">
-															<div data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1">
-																<a href="/rooms/15225254" class="media-photo media-cover" target="listing_15225254" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.0">
-																<div class="listing-img-container media-cover text-center" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.0.0"><img src="https://a1.muscache.com/im/pictures/16635030-f034-463d-8fe2-08b762677969.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height" alt="Asoke Luxury 1BR / 4Pax / NaNa/ BTS&amp;MRT - บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.0.0.$0"><img src="https://a2.muscache.com/im/pictures/6f9dd48e-4efa-4050-973f-92762800bc0d.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height hide" alt="Asoke Luxury 1BR / 4Pax / NaNa/ BTS&amp;MRT - บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.0.0.1:$1">
-																</div></a><a href="/rooms/15225254" target="listing_15225254" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0">
-																<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0">
-																	<div class="price-label" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0">
-																		<span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.0"><sup class="currency-prefix" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.0.0">฿</sup><span class="price-amount" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.0.1">1887</span><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.0.4"> </span></span><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1"><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.0"> </span><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1"><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1.0"> </span><span class="instant-book-trigger-wrapper" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1.1"><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1.1.0"><i class="icon icon-instant-book icon-flush-sides icon-beach" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1.1.0.0"></i><noscript data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:0.0.0.1.1.1.0.1"></noscript></span></span></span></span>
+												<div class="col-md-4">
+													<div class="listing" itemscope="" itemtype="http://schema.org/Enumeration">
+														<div class="panel-image listing-img listing-img--hide-carousel-controls">
+															<div>
+																<a href="/rooms/8752630" class="media-photo media-cover" target="listing_8752630">
+																<div class="listing-img-container media-cover text-center">
+																	<img src="img/4.jpg?aki_policy=x_medium" class="img-responsive-height" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																	<img src="https://a1.muscache.com/im/pictures/111436697/e0a0549a_original.jpg?aki_policy=x_medium" class="img-responsive-height hide" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																</div></a>
+																<a href="/rooms/8752630" target="listing_8752630">
+																<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
+																	<div class="price-label">
+																		<span> <sup class="currency-prefix">฿</sup><span class="price-amount">1992</span><span> </span></span>
 																	</div>
 																</div></a>
-																<div class="panel-overlay-top-right wl-social-connection-panel" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1">
-																	<span class="rich-toggle wish_list_button wishlist-button not_saved" data-img="https://a1.muscache.com/im/pictures/16635030-f034-463d-8fe2-08b762677969.jpg?aki_policy=x_medium" data-name="Asoke Luxury 1BR / 4Pax / NaNa/ BTS&amp;MRT" data-address="กรุงเทพ" data-hosting_id="15225254" data-review_count="1" data-room_type="บ้าน/อพาร์ทเมนท์ทั้งหลัง" data-star_rating="0" data-host_id="37041244" data-host_img="https://a1.muscache.com/im/pictures/410535a9-5254-4b4a-9ef9-17d26e12828a.jpg?aki_policy=profile_medium" data-property_type_name="บ้าน/อพาร์ทเมนท์ทั้งหลัง" tabindex="0" role="button" style="display:block;width:32px;height:32px;" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0">
-																		<input type="checkbox" id="wishlist-widget-15225254" name="wishlist-widget-15225254" aria-hidden="true" tabindex="-1" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.0">
-																		<label for="wishlist-widget-15225254" class="hide-sm" aria-hidden="true" tabindex="-1" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.1"><i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.1.0"></i><i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.1.1"></i><i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-15225254" class="icon icon-heart-alt icon-white icon-size-2" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.1.2"></i></label>
-																		<div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip" role="tooltip" data-trigger="#wishlist-widget-icon-15225254" data-event="none" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.2">
-																			<p class="text-white wishlist-widget-tooltip__body" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.1.1.3:1.0.2.0"></p>
-																		</div></span>
-																</div>
 															</div>
 														</div>
-														<div class="panel-body panel-card-section" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2">
-															<div class="media" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0">
-																<a href="/users/show/37041244" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset is-superhost" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.0">
-																<div class="media-photo media-round" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.0.0"><img src="https://a1.muscache.com/im/pictures/410535a9-5254-4b4a-9ef9-17d26e12828a.jpg?aki_policy=profile_medium" alt="Emmy 'N Sis" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.0.0.0">
-																</div></a><h3 title="Asoke Luxury 1BR / 4Pax / NaNa/ BTS&amp;MRT" class="h5 listing-name text-truncate space-top-1" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.1"><a href="/rooms/15225254" target="listing_15225254" class="text-normal" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.1.2"><span class="listing-name--display" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.1.2.0">Asoke Luxury 1BR / 4Pax / NaNa/ BTS&amp;MRT</span></a></h3><a href="/rooms/15225254" target="listing_15225254" class="text-normal link-reset" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2">
-																<div class="text-muted listing-location text-truncate" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0">
-																	<div class="" data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0.0">
-																		<span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0.0.1"><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0.0.1.0">บ้าน/อพาร์ทเมนท์ทั้งหลัง</span><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0.0.1.1"> — </span><span data-reactid=".7.0.1.0.0.$0.$15225254.$15225254.2.0.2.0.0.1.2">ไกลออกไป 0.7 กิโลเมตร</span></span>
+														<div class="panel-body panel-card-section">
+															<div class="media">
+																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset">
+																<div class="media-photo media-round"><img src="img/profile?aki_policy=profile_medium" alt="Bruno">
+																</div> </a>
+																<h3 title="Title Name" class="h5 listing-name text-truncate space-top-1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal"><span class="listing-name--display">Title Name</span></a></h3>
+																<a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset">
+																<div class="text-muted listing-location text-truncate">
+																	<div class="">
+																		<span><span>บ้าน/อพาร์ทเมนท์ทั้งหลัง</span></span>
+																	</div>
+																</div> </a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="listing" itemscope="" itemtype="http://schema.org/Enumeration">
+														<div class="panel-image listing-img listing-img--hide-carousel-controls">
+															<div>
+																<a href="/rooms/8752630" class="media-photo media-cover" target="listing_8752630">
+																<div class="listing-img-container media-cover text-center">
+																	<img src="img/van.jpg?aki_policy=x_medium" class="img-responsive-height" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																	<img src="https://a1.muscache.com/im/pictures/111436697/e0a0549a_original.jpg?aki_policy=x_medium" class="img-responsive-height hide" alt="Title Name - บ้าน/อพาร์ทเมนท์ทั้งหลัง">
+																</div></a>
+																<a href="/rooms/8752630" target="listing_8752630">
+																<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
+																	<div class="price-label">
+																		<span> <sup class="currency-prefix">฿</sup><span class="price-amount">1992</span><span> </span></span>
 																	</div>
 																</div></a>
+															</div>
+														</div>
+														<div class="panel-body panel-card-section">
+															<div class="media">
+																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset">
+																<div class="media-photo media-round"><img src="https://a2.muscache.com/im/users/1113464/profile_pic/1444381640/original.jpg?aki_policy=profile_medium" alt="Bruno">
+																</div> </a>
+																<h3 title="Title Name" class="h5 listing-name text-truncate space-top-1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal"><span class="listing-name--display">Title Name</span></a></h3>
+																<a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset">
+																<div class="text-muted listing-location text-truncate">
+																	<div class="">
+																		<span><span>บ้าน/อพาร์ทเมนท์ทั้งหลัง</span></span>
+																	</div>
+																</div> </a>
 															</div>
 														</div>
 													</div>
@@ -969,11 +965,11 @@ session_start();
 											</li>
 										</ul>
 									</div>
-									<div class="carousel-chevron left hide" data-reactid=".7.0.1.1">
-										<i class="icon icon-chevron-left icon-gray icon-size-2" data-reactid=".7.0.1.1.0"></i>
+									<div class="carousel-chevron left hide">
+										<i class="icon icon-chevron-left icon-gray icon-size-2"></i>
 									</div>
 									<div class="carousel-chevron right">
-										<i class="icon icon-chevron-right icon-gray icon-size-2" data-reactid=".7.0.1.2.0"></i>
+										<i class="icon icon-chevron-right icon-gray icon-size-2"></i>
 									</div>
 								</div>
 								<!-- คล้ายกัน -->
@@ -998,7 +994,7 @@ session_start();
 			<div class="fixed-container bg-hof text-contrast">
 				<div class="page-container-responsive">
 					<div class="va-container va-container-v va-container-h">
-						<span class="h5 va-middle hide-sm"> นี่เป็นตัวอย่างการแสดงที่พักของคุณ </span>
+						<span class="h5 va-middle hide-sm"> นี่เป็นตัวอย่างการแสดงรถเช่าของคุณ </span>
 
 						<div class="va-middle text-right">
 							<a href="/manage-listing/15417960" class="btn btn-primary btn-large" id="dismiss-preview-popup">ตกลง ดำเนินการต่อ</a>
@@ -1009,10 +1005,10 @@ session_start();
 		</div>
 
 		<div>
-			<div data-reactid=".6">
-				<div class="SlideshowModal__slideshow-preload hide" data-reactid=".6.0"><img src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=x_large" alt="" data-reactid=".6.0.$https=2//a2=1muscache=1com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5=1jpg?aki_policy=0x_large">
+			<div>
+				<div class="SlideshowModal__slideshow-preload hide"><img src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=x_large" alt="">
 				</div>
-				<div class="SlideshowModal__slideshow-preload hide" data-reactid=".6.1"><img src="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=small" alt="" data-reactid=".6.1.$https=2//a2=1muscache=1com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97=1jpg?aki_policy=0small"><img src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=small" alt="" data-reactid=".6.1.$https=2//a2=1muscache=1com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5=1jpg?aki_policy=0small">
+				<div class="SlideshowModal__slideshow-preload hide"><img src="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=small" alt=""><img src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=small" alt="">
 				</div>
 			</div>
 		</div>
