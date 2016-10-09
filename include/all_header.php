@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="comp pull-right show-login">
-			<a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/dashboard" data-href="/dashboard" data-href-host="/trips"> <span class="value_name margin-right--tiny hide-md">Adthasid</span>
+			<a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/users.php" data-href="/dashboard" data-href-host="/trips"> <span class="value_name margin-right--tiny hide-md">Adthasid</span>
 			<div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray"><img width="28" height="28" src="img/profile.jpg?aki_policy=profile_small" alt="">
 			</div> </a>
 
@@ -29,19 +29,23 @@
 				<div class="panel-header no-border hide-lg">
 					<strong><span class="value_name">Adthasid</span></strong>
 				</div>
-				<a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
+				<!-- <a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					การเดินทางของคุณ
+				</div> </a> -->
+				<a href="/my_reservations.php" class=" panel-body link-reset hover-item no-crawl">
+				<div class="hover-item__content">
+					ข้อมูลการจองของคุณ
 				</div> </a>
-				<a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
+				<a href="/users.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					แก้ไขข้อมูลส่วนตัว
 				</div> </a>
-				<a href="/users/notifications" class=" panel-body link-reset hover-item no-crawl">
+				<a href="/account.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
-					การตั้งค่าบัญชี
+					เปลี่ยนรหัสผ่าน
 				</div> </a>
-				<a href="/logout" class=" panel-body link-reset hover-item no-crawl">
+				<a href="#" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					ออกจากระบบ
 				</div> </a>
@@ -49,13 +53,13 @@
 		</div>
 
 		<div class="comp pull-right">
-			<a data-login-modal="" href="/login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> เข้าสู่ระบบ </a>
+			<a data-login-modal="" href="#Login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> เข้าสู่ระบบ </a>
 		</div>
 		<div class="comp pull-right">
-			<a data-signup-modal="" data-header-view="true" href="/signup_login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ลงทะเบียน </a>
+			<a data-signup-modal="" data-header-view="true" href="#sigin" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ลงทะเบียน </a>
 		</div>
 		<div class="comp pull-right">
-			<a data-signup-modal="" data-header-view="true" href="/signup_login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ความช่วยเหลือ </a>
+			<a data-signup-modal="" data-header-view="true" href="#helps" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ความช่วยเหลือ </a>
 		</div>
 		
 		<div class="comp pull-right">
@@ -90,26 +94,26 @@
 					ปฏิทิน
 
 				</div> </a>
-				<a href="/rooms" class=" panel-body link-reset hover-item origin-item js-host-manage-listings-link no-crawl">
+				<a href="/mycar.php" class=" panel-body link-reset hover-item origin-item js-host-manage-listings-link no-crawl">
 				<div class="hover-item__content">
 					จัดการรถเช่า
 					<i class="alert-count listing-count listing-count--inline text-center fade">0</i>
 				</div> </a>
-				<a href="/rooms/new" class=" panel-body link-reset hover-item origin-item js-host-list-your-space-link">
+				<a href="/new.php" class=" panel-body link-reset hover-item origin-item js-host-list-your-space-link">
 				<div class="hover-item__content">
 					ลงประกาศรถเช่า
 
-				</div> </a><a href="/my_reservations" class=" panel-body link-reset hover-item origin-item js-host-my-reservations-link no-crawl">
+				</div> </a><a href="/my_reservations.php" class=" panel-body link-reset hover-item origin-item js-host-my-reservations-link no-crawl">
 				<div class="hover-item__content">
 					การจองของลูกค้า
 
 				</div> </a>
-				<a href="/users/transaction_history" class=" panel-body link-reset hover-item origin-item js-host-transaction-history-link no-crawl">
+				<a href="/my_reservations.php" class=" panel-body link-reset hover-item origin-item js-host-transaction-history-link no-crawl">
 				<div class="hover-item__content">
 					การจองของคุณ
 
 				</div> </a>
-				<a href="/users/reviews" class=" panel-body link-reset hover-item origin-item js-host-reviews-link no-crawl">
+				<a href="/reviews.php" class=" panel-body link-reset hover-item origin-item js-host-reviews-link no-crawl">
 				<div class="hover-item__content">
 					ความคิดเห็น
 
@@ -118,7 +122,7 @@
 		</div>
 
 		<div class="comp pull-right hide-host comp-become-a-host">
-			<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="new.php"> <span class="btn btn-small btn-become-a-host"> สร้างรายได้จากการขับรถ</span> </a>
+			<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="/start.php"> <span class="btn btn-small btn-become-a-host"> สร้างรายได้จากการขับรถ</span> </a>
 		</div>
 
 		<div class="comp pull-left back-to-search-results-wrapper"></div>
