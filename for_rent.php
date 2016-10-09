@@ -103,13 +103,44 @@ session_start();
 												<div class="filters-section panel-body panel-light intro-filter">
 													<div class="row">
 														<div class="col-lg-3 col-md-12 text-center-sm text-center-md space-sm-1 sectionLabel_rcr7sj">
+															<div id="filter-section-header-dates">
+																<span>เป้าหมาย</span>
+															</div>
+														</div>
+														<div class="col-lg-9 col-md-11">
+															<div class="row row-condensed">
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
+																	<div class="select select-block">
+																		<label for="guest-select" class="screen-reader-only"><span>จังหวัดต้นทาง</span></label>
+																		<select id="guest-select">
+																			<option disabled="" selected="" value="-1">เจังหวัดต้นทาง</option>
+																			<option value="1">กรุงเทพมหานคร</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
+																	<div class="select select-block">
+																		<label for="guest-select" class="screen-reader-only"><span>จังหวัดปลายทาง</span></label>
+																		<select id="guest-select">
+																			<option disabled="" selected="" value="-1">จังหวัดปลายทาง</option>
+																			<option value="1">เชียงใหม่</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="filters-section panel-body panel-light intro-filter">
+													<div class="row">
+														<div class="col-lg-3 col-md-12 text-center-sm text-center-md space-sm-1 sectionLabel_rcr7sj">
 															<div id="filter-section-header-room-types">
 																<span>ประเภทรถ</span><span> </span><span><i class="icon icon-question hide-sm hide-md"></i></span>
 															</div>
 														</div>
 														<div class="col-lg-9 col-md-11">
 															<div class="row row-condensed" id="room-options">
-																<div class="col-md-4 col-sm-12 space-sm-1">
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
 																	<label id="entire-place-checkbox-label" class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark" for="">
 																		<div class="facet-checkbox__icon-col">
 																			<i class="icon h5 icon-star"></i>
@@ -121,7 +152,7 @@ session_start();
 																			<input id="facet-checkbox-entire-place" type="checkbox" name="room-type" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
-																<div class="col-md-4 col-sm-12 space-sm-1">
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
 																	<label id="entire-place-checkbox-label" class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark" for="">
 																		<div class="facet-checkbox__icon-col">
 																			<i class="icon h5 icon-star"></i>
@@ -135,7 +166,7 @@ session_start();
 																</div>
 															</div>
 															<div class="row row-condensed space-top-md-4 space-top-lg-4" id="room-options">
-																<div class="col-md-4 col-sm-12 space-sm-1">
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
 																	<label id="entire-place-checkbox-label" class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark" for="">
 																		<div class="facet-checkbox__icon-col">
 																			<i class="icon h5 icon-star"></i>
@@ -147,7 +178,7 @@ session_start();
 																			<input id="facet-checkbox-entire-place" type="checkbox" name="room-type" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
-																<div class="col-md-4 col-sm-12 space-sm-1">
+																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
 																	<label id="entire-place-checkbox-label" class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark" for="">
 																		<div class="facet-checkbox__icon-col">
 																			<i class="icon h5 icon-star"></i>
@@ -538,7 +569,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
@@ -587,7 +618,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
@@ -684,7 +715,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
@@ -733,7 +764,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
@@ -830,7 +861,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
@@ -879,7 +910,7 @@ session_start();
 															</div>
 														</div>
 													</div>
-													
+
 													<div class="listing-card-wrapper col-sm-12 space-2 col-md-3">
 														<div class="listing">
 															<div class="panel-image listing-img">
