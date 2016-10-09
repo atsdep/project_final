@@ -32,17 +32,9 @@ session_start();
 
 	<body class="with-new-header ">
 
-		<div id="header" class="airbnb-header new hide-sm logged_in is_host">
-
-			<header class="regular-header clearfix hide-sm" id="new-header" role="banner">
-
-				<div class="comp pull-left">
-					<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rentcnd </a>
-				</div>
-
-			</header>
-
-		</div>
+		<?php
+			include 'include/all_header.php';
+		?>
 
 		<main id="site-content" role="main">
 

@@ -54,17 +54,10 @@
 		<div class="comp pull-right">
 			<a data-signup-modal="" data-header-view="true" href="/signup_login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ลงทะเบียน </a>
 		</div>
-
-		<div class="comp pull-right show-travel-credit js-travel-credit-menu-container hide">
-			<a class="needsclick no-crawl hdr-btn link-reset js-travel-credit-comp" href="/invite?r=3" rel="nofollow" data-href="/invite?r=3">
-			<div class="gift-icon-container text-center">
-				<span class="margin-right--tiny hide-md">เครดิต</span>
-				<i class="header-icon js-travel-credit-icon icon-gift-alt-gray"> <i class="alert-count js-travel-credit-unread-count text-center fade in">1</i> </i>
-			</div> </a>
-
-			<div class="panel  drop-down-menu travel-credit-dropdown"></div>
+		<div class="comp pull-right">
+			<a data-signup-modal="" data-header-view="true" href="/signup_login" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ความช่วยเหลือ </a>
 		</div>
-
+		
 		<div class="comp pull-right">
 			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="/dashboard" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade">0</i> </i> </a>
 
@@ -124,11 +117,6 @@
 				<a href="/users/reviews" class=" panel-body link-reset hover-item origin-item js-host-reviews-link no-crawl">
 				<div class="hover-item__content">
 					ความคิดเห็น
-
-				</div> </a>
-				<a href="/host-assist" class=" panel-body link-reset hover-item origin-item hide item-host-assist js-host-assist-link no-crawl">
-				<div class="hover-item__content">
-					เจ้าของรถเช่าช่วย
 
 				</div> </a>
 			</div>
