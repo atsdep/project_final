@@ -64,6 +64,9 @@ session_start();
 									<a href="users.php" aria-selected="false" class="sidenav-item">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
+									<a href="profile_picture.php" aria-selected="false" class="sidenav-item">รูปโปรไฟล์</a>
+								</li>
+								<li>
 									<a href="edit_verification.php" aria-selected="false" class="sidenav-item">ความไว้ใจและการยืนยันตัวตน</a>
 								</li>
 								<li>

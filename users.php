@@ -38,6 +38,10 @@ session_start();
 		?>
 		<main id="site-content" role="main">
 
+			<div class="alert alert-success alert-success">
+				<a href="#" class="close alert-close" data-prevent-default="">×</a><i class="icon alert-icon icon-star-circled"></i>ปรับปรุงโปรไฟล์เรียบร้อยแล้ว
+			</div>
+
 			<div class="subnav hide-print">
 				<div class="page-container-responsive">
 					<ul class="subnav-list">
@@ -64,6 +68,9 @@ session_start();
 									<a href="users.php" aria-selected="true" class="sidenav-item">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
+									<a href="profile_picture.php" aria-selected="false" class="sidenav-item">รูปโปรไฟล์</a>
+								</li>
+								<li>
 									<a href="edit_verification.php" aria-selected="false" class="sidenav-item">ความไว้ใจและการยืนยันตัวตน</a>
 								</li>
 								<li>
@@ -83,51 +90,6 @@ session_start();
 								<div style="margin:0;padding:0;display:inline">
 									<input name="utf8" type="hidden" value="✓">
 									<input name="authenticity_token" type="hidden" value="V4$.Rentcnd.com$YP4tThly0ng$c_NfIUJHtitKZ29ST6PxJjkEiWohugZMfz-VmjAITgU=">
-								</div>
-
-								<div class="panel space-4">
-									<div class="panel-header">
-										รูปโปรไฟล์
-									</div>
-									<div class="panel-body photos-section">
-										<div class="row">
-											<div class="col-lg-4 text-center">
-												<div class="profile_pic_container picture-main space-sm-2 space-md-2" data-picture-id="134912144">
-													<div class="media-photo profile-pic-background">
-														<img alt="Adthasid" height="225" src="https://a2.muscache.com/im/pictures/26ff8bef-2333-4265-b6d2-cc1e86b349b4.jpg?aki_policy=profile_x_medium" title="Adthasid" width="225">
-													</div>
-													<div class="media-photo media-round">
-														<img alt="Adthasid" height="225" src="https://a2.muscache.com/im/pictures/26ff8bef-2333-4265-b6d2-cc1e86b349b4.jpg?aki_policy=profile_x_medium" title="Adthasid" width="225">
-													</div>
-													<button class="picture-tile-delete overlay-btn" data-behavior="tooltip" aria-label="ลบ">
-														<i class="icon icon-trash"></i>
-													</button>
-												</div>
-											</div>
-											<div class="col-lg-8">
-												<ul class="list-layout picture-tiles clearfix ui-sortable"></ul>
-
-												<p>
-													รูปหน้าตรงที่ชัดเจนเป็นวิธีสำคัญที่เจ้าของที่พักและผู้เข้าพักจะได้เรียนรู้เกี่ยวกับกันและกัน การเป็นเจ้าบ้านให้ทิวทัศน์ไม่น่าสนุกแน่! กรุณาอัพโหลดรูปภาพที่แสดงหน้าคุณอย่างชัดเจน
-												</p>
-
-												<div class="row row-condensed">
-													<div class="col-md-6 space-top-4 col-offset-2">
-														<span class="btn btn-block btn-large file-input-container"> อัพโหลดไฟล์
-															<form accept-charset="UTF-8" action="https://th.airbnb.com/users/ajax_image_upload" enctype="multipart/form-data" id="ajax_upload_form" method="post" name="ajax_upload_form" target="upload_frame">
-																<div style="margin:0;padding:0;display:inline">
-																	<input name="utf8" type="hidden" value="✓">
-																	<input name="authenticity_token" type="hidden" value="V4$.airbnb.com$YP4tThly0ng$c_NfIUJHtitKZ29ST6PxJjkEiWohugZMfz-VmjAITgU=">
-																</div>
-																<input id="user_id" name="user_id" type="hidden" value="63856890">
-																<input id="callback" name="callback" type="hidden" value="EditProfile">
-																<input id="user_profile_pic" name="user[profile_pic]" type="file">
-															</form> <iframe id="upload_frame" name="upload_frame" style="display:none;"></iframe> </span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
 
 								<div class="panel space-4">
@@ -517,8 +479,9 @@ session_start();
 										<div class="row row-condensed space-4">
 											<label class="text-right col-sm-3" for="user_profile_info_about"> บรรยายตัวคุณ </label>
 											<div class="col-sm-9">
-												<textarea cols="40" id="user_profile_info_about" name="user_profile_info[about]" rows="5"></textarea>																																				
+												<textarea cols="40" id="user_profile_info_about" name="user_profile_info[about]" rows="5"></textarea>																																																
 												
+
 
 
 

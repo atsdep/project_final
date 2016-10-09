@@ -63,7 +63,8 @@
 		</div>
 		
 		<div class="comp pull-right">
-			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade">0</i> </i> </a>
+			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> 
+				<i class="alert-count js-host-item-count listing-count text-center fade in">!</i> </i> </a> <!-- fade in -->
 
 			<div class="panel  drop-down-menu host-tooltip--new">
 				<div class="panel-header no-border hide-lg">
