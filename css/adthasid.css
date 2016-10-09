@@ -125,3 +125,98 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
 }
 
 
+/*modal*/
+.panel-header {
+    color: #484848;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dce0e0;
+}
+
+.panel-header:first-child, .panel-body:first-child, ul.panel-body>li:first-child, ol.panel-body>li:first-child, .panel-footer:first-child {
+    border-top: 0;
+}
+.panel-dark, .panel-header {
+    background-color: #edefed;
+}
+.panel-header, .panel-body, ul.panel-body>li, ol.panel-body>li, .panel-footer {
+    position: relative;
+    margin: 0;
+    padding: 20px;
+    border-top: 1px solid #dce0e0;
+}
+
+.icon-btn.btn-large .fa {
+    position: absolute;
+    font-size: 24px;
+    left: 40px;
+}
+
+.signup-login-form__switch-copy {
+    float: left;
+    display: inline-block;
+    margin-right: 4px;
+    line-height: 34px;
+    font-size: 16px
+}
+
+.signup-login-form__btn-xl {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 27px !important;
+    padding-right: 27px !important;
+    font-weight: normal;
+}
+
+.signup-login-form__btn-xl .icon {
+    font-size: 18px !important;
+    line-height: 50px;
+}
+
+.btn-large .fa.fa-facebook {
+    margin-right: 13px;
+}
+
+.icon-btn.btn-large .icon {
+    position: absolute;
+    font-size: 24px;
+    top: 6px;
+    left: 20px;
+}
+
+.btn-block {
+    display: block;
+    white-space: normal;
+    width: 100%;
+}
+
+.btn-facebook {
+    border-color: #3B5998;
+    background-color: #3B5998;
+    color: #fff;
+}
+
+.btn-signin {
+     border-color: #00A1FF;
+     background-color: #00A1FF;
+     color: #fff;
+}
+
+.signup-or-separator {
+    background: none;
+    height: 52px;
+    position: relative;
+    text-align: center
+}
+.signup-or-separator hr {
+    margin: -16px auto 10px;
+    width: 100%
+}
+.signup-or-separator--text {
+    background-color: #fff;
+    display: inline-block;
+    padding: 6px
+}
+
+

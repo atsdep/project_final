@@ -14,9 +14,14 @@
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
 		<!-- css -->
+		<link rel="stylesheet" href="css/adthasid.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
 		<link rel="stylesheet" href="css/custom.css">
+		
+		
+		
+		
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -101,56 +106,60 @@
 			</div>
 			<!-- container-fluid -->
 		</nav>
-
+		
 		<div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
+					<div class="modal-header panel-header show-sm">
+						ลงทะเบียน
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title">ลงทะเบียน</h4>
 					</div>
 					<div class="modal-body">
-						<button type="button" data-toggle="modal" data-target="#register-email" data-dismiss="modal" aria-label="Close">
-							ลงทะเบียนโดยใช้อีเมล
-						</button>
-						<hr>
-						หรือ
-						<hr>
-						<button>
-							ลงทะเบียนโดยใช้ Facebook
-						</button>
-					</div>
-					<div class="modal-footer">
-						<div class="row">
-							มีบัญชีผู้ใช้ Rentcnd อยู่แล้วใช่ไหม
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-login" data-dismiss="modal" aria-label="Close">
-								เข้าสู่ระบบ
-							</button>
+						<div class="text-center">
+							<a data-toggle="modal" data-target="#register-email" data-dismiss="modal" aria-label="Close" class="btn icon-btn create-using-facebook btn-block signup-login-form__btn-xl space-1 btn-large btn-signin js-facebook-auth" 
+							id="create_using_email_button"> <i class="fa fa-envelope-o hide-sm"></i> ลงทะเบียนโดยใช้อีเมล </a>
 						</div>
-
+						<div class="signup-or-separator">
+							<span class="h6 signup-or-separator--text">หรือ</span>
+							<hr>
+						</div>
+						<div class="social-buttons">
+							<a href="" class="btn icon-btn create-using-facebook btn-block signup-login-form__btn-xl space-1 btn-large btn-facebook js-facebook-auth"> 
+								<span class="icon-container"> <i class="fa fa-facebook hide-sm"></i> </span> <span class="text-container"> ลงทะเบียนโดยใช้ Facebook </span> </a>
+						</div>
 					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+					<div class="panel-body js-login-footer signup-login-form__extra-panel-body">
+						<div class="clearfix">
+							<span class="signup-login-form__switch-copy"> มีบัญชีผู้ใช้ Rentcnd อยู่แล้วใช่ไหม </span>
+							<a href="/login?" class="modal-link link-to-login-in-signup btn btn-default pull-right" data-toggle="modal" data-target="#modal-login" data-dismiss="modal" aria-label="Close"> เข้าสู่ระบบ </a>
+						</div>
+					</div>
 
+				</div>
+			</div>
+		</div>
+		
+		
 		<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
+					<div class="modal-header panel-header show-sm">
+						เข้าสู่ระบบ
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title">เข้าสู่ระบบ</h4>
 					</div>
 					<div class="modal-body">
-						<button type="button" data-toggle="modal" data-target="#register-email" data-dismiss="modal" aria-label="Close">
-							เข้าสู่ระบบด้วย Facebook
-						</button>
-						<hr>
-						หรือ
-						<hr>
+						<div class="social-buttons">
+							<a href="" class="btn icon-btn create-using-facebook btn-block signup-login-form__btn-xl space-1 btn-large btn-facebook js-facebook-auth"> 
+								<span class="icon-container"> <i class="fa fa-facebook hide-sm"></i> </span> <span class="text-container"> เข้าสู่ระบบด้วย  Facebook </span> </a>
+						</div>
+						<div class="signup-or-separator">
+							<span class="h6 signup-or-separator--text">หรือ</span>
+							<hr>
+						</div>
 						<form>
 							<div class="row">
 								<input type="text" id="LoginEmail" name="LoginEmail" placeholder="อีเมลล์แอดเดรส">
@@ -165,35 +174,38 @@
 							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
-						<div class="row">
-							ไม่มีบัญชีใช่ไหม?
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-register" data-dismiss="modal" aria-label="Close">
-								ลงทะเบียน
-							</button>
+					<div class="panel-body js-login-footer signup-login-form__extra-panel-body">
+						<div class="clearfix">
+							<span class="signup-login-form__switch-copy"> ไม่มีบัญชีใช่ไหม </span>
+							<a href="/register?" class="modal-link link-to-login-in-signup btn btn-default pull-right" data-toggle="modal" data-target="#modal-register" data-dismiss="modal" aria-label="Close"> ลงทะเบียน </a>
 						</div>
-
 					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
 
+				</div>
+			</div>
+		</div>
+		
 		<div class="modal fade" id="register-email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
+					<div class="modal-header panel-header show-sm">
+						ลงทะเบียน
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title">ลงทะเบียน</h4>
 					</div>
 					<div class="modal-body">
-						ลงทะเบียน <a href="#">Facebook</a>
-						<hr>
+						<div class="text-center social-links">
+   								 ลงทะเบียนด้วย <a href="" class="js-facebook-auth">Facebook</a>
+  						</div>
+						<div class="signup-or-separator">
+							<span class="h6 signup-or-separator--text">หรือ</span>
+							<hr>
+						</div>
 						<form>
 							<div class="row">
 								<input type="text" id="firstname"  name="firstname" placeholder="ชื่อแรก">
-								<span class="error" id="errorName">กรุณาใส่ชื่อของท่าน</span>
+								
 							</div>
 							<div class="row">
 								<input type="text" id="surname" name="surname" placeholder="ชื่อสกุล">
@@ -213,20 +225,17 @@
 								</button>
 							</div>
 						</form>
-
 					</div>
-					<div class="modal-footer">
-						<div class="row">
-							มีบัญชีผู้ใช้ Rentcnd อยู่แล้วใช่ไหม
-							<button type="button" class="btn btn-primary">
-								เข้าสู่ระบบ
-							</button>
+					<div class="panel-body js-login-footer signup-login-form__extra-panel-body">
+						<div class="clearfix">
+							<span class="signup-login-form__switch-copy"> มีบัญชีผู้ใช้ Rentcnd อยู่แล้วใช่ไหม </span>
+							<a href="/register?" class="modal-link link-to-login-in-signup btn btn-default pull-right" data-toggle="modal" data-target="#modal-login" data-dismiss="modal" aria-label="Close"> เข้าสู่ระบบ </a>
 						</div>
-
 					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+
+				</div>
+			</div>
+		</div>
 
 		<header class="intro-header" style="background-image: url('img/header-bg-1.jpg')">
 			<div class="	">

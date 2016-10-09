@@ -37,7 +37,7 @@ session_start();
 		<?php
 			include 'include/all_header.php';
 		?>
-
+		
 		<script src="https://a0.muscache.com/airbnb/static/packages/header_cookie.bundle-cbed4f8007c1e3c328f8.js" type="text/javascript"></script>
 
 		<main id="site-content" role="main">

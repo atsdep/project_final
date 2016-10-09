@@ -7,7 +7,7 @@
 				<span class="search-placeholder--sm"> ไปที่ไหน </span>
 			</button>
 			<a href="/" class="header-belo hide"> <span class="screen-reader-only"> Rentcnd </span> </a>
-			<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rendcnd </a>
+			<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rentcnd </a>
 		</div>
 		<div class="action--sm"></div>
 		<nav class="nav--sm" role="navigation"></nav>
@@ -17,7 +17,7 @@
 	<header class="regular-header clearfix hide-sm" id="new-header" role="banner">
 
 		<div class="comp pull-left">
-			<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rendcnd </a>
+			<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rentcnd </a>
 		</div>
 
 		<div class="comp pull-right show-login">
@@ -59,7 +59,7 @@
 		</div>
 		
 		<div class="comp pull-right">
-			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="/dashboard" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade">0</i> </i> </a>
+			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade">0</i> </i> </a>
 
 			<div class="panel  drop-down-menu host-tooltip--new">
 				<div class="panel-header no-border hide-lg">
@@ -85,11 +85,6 @@
 					</div>
 				</div>
 
-				<a href="/dashboard" class=" panel-body link-reset hover-item origin-item js-host-dashboard-link no-crawl">
-				<div class="hover-item__content">
-					แดชบอร์ด
-					<i class="alert-count js-pending-request-count--inline text-center fade">0</i>
-				</div> </a>
 				<a href="/rooms" class=" panel-body link-reset hover-item origin-item js-host-calendar-link hide no-crawl">
 				<div class="hover-item__content">
 					ปฏิทิน

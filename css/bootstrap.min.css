@@ -5992,7 +5992,7 @@ button.close {
 .modal-dialog {
     position: relative;
     width: auto;
-    margin: 10px
+    margin: 20px
 }
 .modal-content {
     position: relative;
@@ -6036,7 +6036,7 @@ button.close {
 }
 .modal-body {
     position: relative;
-    padding: 15px
+    padding: 16px
 }
 .modal-footer {
     padding: 15px;
@@ -6062,8 +6062,8 @@ button.close {
 }
 @media (min-width: 768px) {
     .modal-dialog {
-        width: 600px;
-        margin: 30px auto
+        width: 400px;
+        margin: 200px auto
     }
     .modal-content {
         -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -6071,6 +6071,7 @@ button.close {
     }
     .modal-sm {
         width: 300px
+        margin: 100px auto
     }
 }
 @media (min-width: 992px) {
