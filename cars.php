@@ -31,7 +31,7 @@ session_start();
 	</head>
 
 	<body class="with-new-header no_wiggle_webkit">
-
+		
 		<script src="https://a2.muscache.com/airbnb/static/packages/header_cookie.bundle-8fccc80bc11420dd7f69.js" type="text/javascript"></script>
 
 		<main id="site-content" role="main">
