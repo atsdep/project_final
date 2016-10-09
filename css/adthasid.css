@@ -2,6 +2,26 @@
 	font-size: 2.0em;
 }
 
+@media (min-width: 744px) {
+    .sidebar {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 744px) {
+    .filters {
+        right: 0%;
+        width: 100%;
+    }
+    .filters.collapse {
+        right: 0%;
+        width: 60%;
+        /*border-bottom: 0px;*/
+    }
+    
+}
+
 /*photo*/
 photo-preview__delete-btn.photo-preview__delete--confirm {
 	padding: 5px 10px;
