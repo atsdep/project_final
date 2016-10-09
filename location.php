@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
@@ -10,7 +10,7 @@ session_start();
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>สิ่งอำนวยความสะดวก สำหรับรถเช่า Rentcnd ของคุณ</title>
+		<title>แก้ไข ตำแหน่งที่ตั้ง สำหรับรถเช่า Rentcnd ของคุณ</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -60,87 +60,35 @@ session_start();
 
 										<div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
 											<div class="panel--no-border panel-title">
-												<h3 class="no-margin-padding">รถของคุณมีสิ่งอำนวยความสะดวกอะไรบ้าง</h3>
+												<h3 class="no-margin-padding">รถเช่าของคุณอยู่ที่ไหน</h3>
 											</div>
-
-											<div data-reactid="1">
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>Wifi ภายในรถ</span> </label>
-														<span>&nbsp;</span>
+											<div>
+												<form>
+													<div class="row">
+														<div class="space-top-2 col-sm-12">
+															<label for="address-form-field-street"><span>ที่อยู่</span></label>
+															<input class="input input-block input-jumbo lys-address-form__input lys-invalid" id="address-form-field-street" name="street" type="text" autocomplete="off" value="" placeholder="ชื่อ/เลขที่บ้าน + ถนน">
+														</div>
+														<div class="space-top-2 col-sm-12 col-md-6">
+															<label for="address-form-field-city"><span>ตำบล/แขวง</span></label>
+															<input class="input input-block input-jumbo lys-address-form__input" id="address-form-field-city" name="city" type="text" autocomplete="off" value="">
+														</div>
+														<div class="space-top-2 col-sm-12 col-md-6">
+															<label for="address-form-field-state">อำเภอ/เขต<span></span></label>
+															<input class="input input-block input-jumbo lys-address-form__input" id="address-form-field-state" name="state" type="text" autocomplete="off" value="">
+														</div>
+														<div class="space-top-2 col-sm-12 col-md-6">
+															<label for="address-form-field-zipcode"><span>จังหวัด</span></label>
+															<input class="input input-block input-jumbo lys-address-form__input" id="address-form-field-zipcode" name="zipcode" type="text" autocomplete="off">
+														</div>
+														<div class="space-top-2 col-sm-12 col-md-6">
+															<label for="address-form-field-zipcode"><span>รหัสไปรษณีย์</span></label>
+															<input class="input input-block input-jumbo lys-address-form__input" id="address-form-field-zipcode" name="zipcode" type="text" autocomplete="off">
+														</div>
 													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>น้ำดื่ม</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>หนังสือ</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>เพลง</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>กระดาษทิชชู่</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>เบาะนั่งสำหรับเด็ก</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>จอมอนิเตอร์ติดรถยนต์</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>ไฟชารจ์ 220V</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>ระบบฟอกอากาศในรถยนต์</span> </label>
-														<span>&nbsp;</span>
-													</div>
-													<div class="clearfix"></div>
-												</div>
-
+												</form>
 											</div>
 										</div>
-
-										<!-- button -->
 										<div class="main-panel__actions-wrapper">
 											<div class="centered-content clearfix">
 												<div class="bg-white main-panel-outer-half clearfix shadowed">
@@ -149,8 +97,8 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="generation.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="additional_service.php">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="additional_service.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="map.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
@@ -172,11 +120,9 @@ session_start();
 												<div class="help-panel__text">
 													<div>
 														<p>
-															<span>ฮาโหลเทส 1 2 3 4</span>
+															<span>ที่อยู่ที่แน่นอนของคุณจะถูกเก็บเป็นความลับ</span>
 														</p>
-														<p>
-															<span>วันทูทีโฟ</span>
-														</p>
+														
 													</div>
 												</div>
 											</div>
@@ -188,8 +134,9 @@ session_start();
 													<div class="help-panel__floating-panel-body help-panel__text">
 														<div>
 															<p>
-																<span>Mobile</span>
+																<span>ที่อยู่ที่แน่นอนของคุณจะถูกเก็บเป็นความลับ</span>
 															</p>
+															
 														</div>
 													</div>
 												</div>

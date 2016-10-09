@@ -71,7 +71,7 @@ session_start();
 										<div class="landing__left-col-content">
 											<h2 class="landing__title-title space-5"><span>กลายเป็นเจ้าของรถเช่า Rentcnd</span></h2>
 
-											<div data-reactid="step-1">
+											<div step-header="step-1">
 												<div class="landing-step-collection">
 													<!-- step-collection-completed กรอกเสร็จแล้ว -->
 													<div class="row row-condensed lys-vertical-align-middle-container">
@@ -112,7 +112,7 @@ session_start();
 											</div>
 											<!-- step1 -->
 
-											<div data-reactid="step-2">
+											<div step-header="step-2">
 												<div class="landing-step-collection">
 													<div class="row row-condensed lys-vertical-align-middle-container">
 														<div class="col-sm-10">
@@ -148,7 +148,7 @@ session_start();
 											</div>
 											<!-- step2 -->
 
-											<div data-reactid="step-3">
+											<div step-header="step-3">
 												<div class="landing-step-collection">
 													<div class="row row-condensed lys-vertical-align-middle-container">
 														<div class="col-sm-10">
