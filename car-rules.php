@@ -66,7 +66,7 @@ session_start();
 												<div class="row space-2">
 													<div class="col-lg-8 col-md-8 col-sm-6">
 														<div class="space-2">
-															<span>เหมาะสำหรับเด็ก (2-12 ปี)</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
+															<span>สูบบุหรี่ได้</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
 														</div>
 													</div>
 													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
@@ -86,7 +86,7 @@ session_start();
 												<div class="row space-2">
 													<div class="col-lg-8 col-md-8 col-sm-6">
 														<div class="space-2">
-															<span>เหมาะสำหรับเด็ก (2-12 ปี)</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
+															<span>เหมาะกับสัตว์เลี้ยง</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
 														</div>
 													</div>
 													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
@@ -106,7 +106,7 @@ session_start();
 												<div class="row space-2">
 													<div class="col-lg-8 col-md-8 col-sm-6">
 														<div class="space-2">
-															<span>เหมาะสำหรับเด็ก (2-12 ปี)</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
+															<span>test</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
 														</div>
 													</div>
 													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
@@ -146,7 +146,7 @@ session_start();
 												<form>
 													<div class="input-btn-group flex-container-h">
 														<div class="flex-item flex-item-fill-parent">
-															<input id="new-custom-house-rule" type="text" value="" class="jumbo-font-size text-gray" placeholder="ผู้เข้าพักควรทราบอะไรอีก">
+															<input id="new-custom-house-rule" type="text" value="" class="jumbo-font-size text-gray" placeholder="ผู้เช่าบริการควรทราบอะไรอีก">
 														</div>
 														<div class="flex-item">
 															<button type="submit" class="btn btn-jumbo">
@@ -189,11 +189,11 @@ session_start();
 												<div class="help-panel__text">
 													<div>
 														<p>
-															<span>คุณจำเป็นต้องรู้สึกมั่นใจทุกครั้งที่ผู้ใช้มาใช้บริการรถเช่าของคุณ เราจึงกำหนดให้ผู้ใช้บริการแต่ละคนกรอกข้อมูลบางประการก่อนจองรถเช่า</span>
+															<span>นอกจากข้อกำหนดของ Rentcnd ผู้เช่าบริการต้องยอมรับกฎของคุณก่อนพวกเขาจองรถเช่า</span>
 														</p>
-														<p>
-															<span>คุณจะตั้งค่ากฎของรถเช่าสำหรับผู้ใช้บริการรถเช่าของคุณในหน้าถัดไป</span>
-														</p>
+														<!-- <p>
+															<span>หากผู้เช่าจองรถเช่า ทันทีที่ทำผิดกฎของคุณ คุณสามารถยกเลิกการจองโดยไม่มีโทษก่อนหรือระหว่างการเดินทาง</span>
+														</p> -->
 													</div>
 												</div>
 											</div>
