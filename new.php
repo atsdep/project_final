@@ -52,7 +52,7 @@ session_start();
 								</div>
 								<div class="h5 text-normal lys-navbar__preview-link-container show-sm">
 									<div class="lys-navbar__preview-link preview-link-not-available">
-										<a class="" href="/rooms/undefined?preview_for_lys" target="_blank"><span>ตัวอย่าง</span></a>
+										<a class="" href="/cars.php" target="_blank"><span>ตัวอย่าง</span></a>
 									</div>
 								</div>
 							</div>
@@ -226,7 +226,7 @@ session_start();
 												<div class="preview-card text-center text-large">
 													<span>
 														<div class="preview-card--border media space-top-2 hide-sm">
-															<a href="/rooms/15415428?preview_for_lys" target="_blank" class="link-reset link--accessibility-outline" alt="ตัวอย่างประกาศ">
+															<a href="cars.php?preview" target="_blank" class="link-reset link--accessibility-outline" alt="ตัวอย่างประกาศ">
 															<div class="panel-body va-container">
 																<div class="media-body preview-card--right-col va-middle text-truncated">
 																	<span>ชื่อประกาศ</span>
