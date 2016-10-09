@@ -113,3 +113,15 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
         background-size: 24px 24px
     }
 }
+
+
+.booking-scenario__welcome-customer {
+    width: 190px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-image: url(../img/profile.jpg);
+    width: 190px;
+    height: 142px;
+}
+
+
