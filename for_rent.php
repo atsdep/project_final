@@ -113,7 +113,7 @@ session_start();
 																	<div class="select select-block">
 																		<label for="guest-select" class="screen-reader-only"><span>จังหวัดต้นทาง</span></label>
 																		<select id="guest-select">
-																			<option disabled="" selected="" value="-1">เจังหวัดต้นทาง</option>
+																			<option disabled="" selected="" value="-1">จังหวัดต้นทาง</option>
 																			<option value="1">กรุงเทพมหานคร</option>
 																		</select>
 																	</div>
