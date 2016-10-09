@@ -10,7 +10,7 @@ session_start();
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>แก้ไข ราคาสำหรับ รถเช่า Rentcnd ของคุณ</title>
+		<title>แก้ไข กำหนดเงื่อนไขในราคา รถเช่า Rentcnd ของคุณ</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -60,80 +60,32 @@ session_start();
 
 										<div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
 											<div class="panel--no-border panel-title">
-												<h3 class="no-margin-padding">ราคาพื้นฐาน</h3>
+												<h3 class="no-margin-padding">กำหนดเงื่อนไขในราคาของคุณ</h3>
 											</div>
-											<p class="text-muted">
-												<span>ราคาพื้นฐานของคุณคืออัตราราคารายวันตามค่าเริ่มต้นของคุณ</span>
-											</p>
-											<div>
-												<div class="space-top-4">
-													<div>
-														<div class="">
-															<h4 class="text-muted space-4"><span>ภายในจังหวัด</span></h4>
-															<label for="price-stepper" class="h4 text-muted text-normal"><span>ราคาพื้นฐาน</span></label>
-															<div>
-																<div class="increment-btn no-padding">
-																	<div class="increment-btn btn-group no-padding">
-																		<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0" role="textbox">
-																			<div class="increment-btn__border-container-label text-truncated">
-																				<span>฿</span>
-																				<input class="increment-btn__input" id="price-stepper" type="number" style="width: 5px;">
-																				<span class="text-muted"><span>ต่อวัน</span></span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
+											<div data-reactid="1">
+												<div class="space-5 amenity-item">
+													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<div class="pull-left col-sm-11">
+														<label for="wireless_internet"> <span>รวมค่าน้ำมัน</span> </label>
+														<span>&nbsp;</span>
 													</div>
+													<div class="clearfix"></div>
 												</div>
-												<div class="space-top-6">
-													<h4 class="text-muted space-4"><span>ปลายทางต่างจังหวัด</span></h4>
-													<div class="row space-4">
-														<div class="col-sm-9">
-															test
-														</div>
-														<div class="col-sm-3 text-right">
-															<a href="#" data-prevent-default="true" class="remove-cursor"></a>
-														</div>
+												<div class="space-5 amenity-item">
+													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<div class="pull-left col-sm-11">
+														<label for="wireless_internet"> <span>รวมค่าทางด่วน</span> </label>
+														<span>&nbsp;</span>
 													</div>
-													<div class="row space-4">
-														<div class="col-sm-9">
-															เชียงใหม่ <span>฿4,800</span> ต่อวัน
-														</div>
-														<div class="col-sm-3 text-right">
-															<a href="#" data-prevent-default="true" class="remove-cursor"></a>
-														</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="space-5 amenity-item">
+													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<div class="pull-left col-sm-11">
+														<label for="wireless_internet"> <span>รวมค่าจอดรถ</span> </label>
+														<span>&nbsp;</span>
 													</div>
-													<form>
-														<div class="input-btn-group flex-container-h">
-															<div class="flex-item flex-item-fill-parent">
-																<div class="select select-block select-jumbo">
-																	<select id="province" name="province" class="">
-																		<option value="0" disabled=""  selected="">เลือกจังหวัด</option>
-																		<option value="1">Toyota</option>
-																	</select>
-																</div>
-																<div class="increment-btn space-top-1">
-																	<div class="increment-btn btn-group no-padding">
-																		<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0" role="textbox">
-																			<div class="increment-btn__border-container-label text-truncated">
-																				<span>฿</span>
-																				<input class="increment-btn__input" id="price-stepper" type="number" style="width: 5px;">
-																				<span class="text-muted"><span>ต่อวัน</span></span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="flex-item">
-																<button type="submit" class="btn btn-jumbo">
-																	<span>เพิ่ม</span>
-																</button>
-															</div>
-														</div>
-													</form>
+													<div class="clearfix"></div>
 												</div>
 											</div>
 										</div>
@@ -145,8 +97,8 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price-terms.php"><span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="calendar.php">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="choose-scope.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="price.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>

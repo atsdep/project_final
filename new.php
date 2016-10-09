@@ -130,7 +130,7 @@ session_start();
 																			<div class="progress-bar progress-btn-soft-dark landing__progress-bar" style="width:50%;"></div>
 																		</div><span><span class="">
 																				<div>
-																					<a class="" href="/become-a-host/location">
+																					<a class="" href="photos.php">
 																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>
@@ -166,7 +166,7 @@ session_start();
 																			<div class="progress-bar progress-btn-soft-dark landing__progress-bar" style="width:50%;"></div>
 																		</div><span><span class="">
 																				<div>
-																					<a class="" href="/become-a-host/location">
+																					<a class="" href="choose-scope.php">
 																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>

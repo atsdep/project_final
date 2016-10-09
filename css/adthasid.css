@@ -9,6 +9,12 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
     background-color: rgba(255, 0, 0, 0.7);
 }
 
+.scope{
+	font-size: 44px;
+    display: block;
+    color: #41687F;
+}
+
 /*new*/
 .correct {
 	position: absolute;

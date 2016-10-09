@@ -112,8 +112,8 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="/become-a-host/"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="/become-a-host/bedrooms">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="customer-requiements.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>

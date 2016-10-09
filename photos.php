@@ -146,11 +146,6 @@ session_start();
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-sm-12">
-																		<div class="row">
-																			<textarea class="photo-preview__caption-textarea" placeholder="เพิ่มคำบรรยายใต้ภาพ" style="height: 45px;"></textarea>
-																		</div>
-																	</div>
 																</div>
 															</div>
 															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
@@ -167,11 +162,7 @@ session_start();
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-sm-12">
-																		<div class="row">
-																			<textarea class="photo-preview__caption-textarea" placeholder="เพิ่มคำบรรยายใต้ภาพ" style="height: 45px;"></textarea>
-																		</div>
-																	</div>
+
 																</div>
 															</div>
 															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
@@ -189,11 +180,7 @@ session_start();
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-sm-12">
-																		<div class="row">
-																			<textarea class="photo-preview__caption-textarea" placeholder="เพิ่มคำบรรยายใต้ภาพ" style="height: 45px;"></textarea>
-																		</div>
-																	</div>
+
 																</div>
 															</div>
 															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
@@ -210,11 +197,7 @@ session_start();
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-sm-12">
-																		<div class="row">
-																			<textarea class="photo-preview__caption-textarea" placeholder="เพิ่มคำบรรยายใต้ภาพ" style="height: 45px;"></textarea>
-																		</div>
-																	</div>
+
 																</div>
 															</div>
 															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
@@ -262,8 +245,8 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="/become-a-host/15417960/"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="/become-a-host/15417960/highlights">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="description.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div></a>
