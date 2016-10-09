@@ -224,7 +224,7 @@ session_start();
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="location.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
 																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="new.php">
 																	<div class="btn-progress-next__text">
-																		<span>บันทึก</span>
+																		<span>ถัดไป</span>
 																	</div> </a>
 																</div>
 															</div>
