@@ -1118,7 +1118,6 @@
 }
 .airbnb-header .regular-header .comp .header-icon.icon-home-gray {
     background-repeat: no-repeat;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC%2FxhBQAAAbZJREFUSA3tVM1Kw0AQnklrqaD2rt56EBRKbHry5wG8iQ9RBfVs9QH8OaugfQjxoj6A1lMTYyGCh97Ue1WwaNt1NjVpsqTZtNSDYCDZndmZ79v5C0LExzTLCy3EY26uMLauqrmbKK4oM6pWy6naO%2BwD4CpjzLZHRAbATlMjUEinc7UwjFAC3dRXyOCQARsn0E9C3eNgpNsmsgQCvpBuU1O1s24kgQTmoznR%2FGgckdPyD2AJhpR8dib7wGXDMqbhq1Uk8Hku03MeG45vqFPqc1vsfH0EPAV3FX2NMZ4SGKP3FREKsxntpJ2WjmNUW5egl1t1aABk0aJlWYl6o77TS169BM4%2BqF7JeHIXDVMvURHn7BQwKKZG2ZasMxxQcbU77g0PqAvyPIXUBLeom2WqFUAMYDFqb4vAosxnpglwzfWKczgocI7nxXIJHKJBr79OEJfd2KgYS8BoqBhMem2pgk%2BANHyZ7JVXL%2B7lEQSAcxCbkM5EQFGWRuDcXFNz7lByEONeb1Er%2BqISwbksjyDIi3S8z7sc%2BdR9E%2FhQQoR%2FgpDktI%2F%2Bforcv6k01j4NFBr5yz59o7hdfAN3b7piIiJFsAAAAABJRU5ErkJggg%3D%3D);
     width: 24px;
     height: 24px;
     top: 7px
@@ -1130,7 +1129,6 @@
 (-o-min-device-pixel-ratio: 13/10),
 (min-resolution: 1.3dppx) {
     .airbnb-header .regular-header .comp .header-icon.icon-home-gray {
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC%2FxhBQAAAx1JREFUaAXtWE1rE0EYft9N%2FOghRnor9iCUoii4IfEkiJ68CorgH2hAVPCi9ePsR%2BtFqCK0P0EU%2FQkieMouu4qihKIHxasxBz%2FyMb6TNGU22d3ZyUy3DWwuOzv7fj3vM%2FNkdhG24McYQ%2B%2Bdc4ku13h4RPaodKzyFGlgOh2aDuh%2BcI9Ai60xYCfE2Aj4FnbhQvlo%2BaM4rzs2BqBer%2B9p%2Fm7eBsZuEgO7wwojBv4RHQ8KU4V78%2FPzf8NsVOeMAPB952Qb2CowOJyoAIRPecCqbVfeJLKPMdICsL5eKzaauAQIVb7uQ%2FK8RFo7jMHZ4We9%2FcBgtVhgi3NzxxvDz5PehyVN5Ot4zjkA9piMZ0IcfiBaV8t2%2BTl%2F5vrueca6K1G2tM2vVEqVFyFxpFPKALzP3oHun%2FaTqK7S%2FNr%2BArsx3FXO1s8mLhMjC2Fs0fwra2%2F%2BculQ6bu0asEgMYCBNHYZ3Cf%2FfUKM%2FjDhupbsl18Wwi0VyU0EIEoaeeV9ZWFLhani3aTK0lesxh1guBimWCqSGwtAJo0qiUYYowl5Y%2BSSGwnANNVhAPic7tIcASCTxnE3WxSAwbxMHOg%2FJlRyAwBkcidK4yCx6atqDT0AMvRR0mi6%2BEE8FclF733tTKcDz8h5bGkcJDZ9le3DXA4uoOs5X%2BjkeFBMvhWHLjG%2ByjhOCUkFv6Lj1QJndF1pVClOxTZKckcAlO2K1TtoqURPyZZLrus7XTGdJd7w8U4tPqq2EQDDgHb6fQZguxnKGNhuBvImCvB9f7YD7Yckc6coXtgrppiGXjfxdQ7y123b%2FiY%2BGGesvYT6xbd8Kv5iguJ5jTPctgMtcvVnxyla9NEG0O88TItBk4zpgDhNIJaT2MbZaAPYWDabOVT%2BCAnE6U3HMQcm9kBgzfOjSFwtdPZq0%2FPchk3AN84v6llssignnXliKPASpROL%2B6YOgHJOPADdpgf8U2eANn3GgEhB6gyIyU2MMwAmuqgTI2NAp3smfDMGTHRRJ0bGgE73TPhOPAMjnxZNdCXNGBPPAH3IBe0vA2l2XMzFa7cAreokgujVTLX%2FBy%2FXhmcaEIK0AAAAAElFTkSuQmCC);
         -webkit-background-size: 24px 24px;
         -moz-background-size: 24px 24px;
         -o-background-size: 24px 24px;
