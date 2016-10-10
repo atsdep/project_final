@@ -1,5 +1,8 @@
 <?php
 session_start();
+require 'config/database.php';
+require 'config/connectdb.php';
+require 'controllers/select_car_brand.php';
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -28,6 +31,11 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -65,11 +73,15 @@ session_start();
 											<div data-reactid="1">
 												<div class="space-4">
 													<div>
-														<label for="house-type" class="h4 text-gray text-normal"><span>เลือกยี่ห้อรถยนต์</span></label>
+														<label for="car-brand" class="h4 text-gray text-normal"><span>เลือกยี่ห้อรถยนต์</span></label>
 														<div class="select select-block select-jumbo">
-															<select id="house-type" name="house_type" class="">
-																<option value="0" disabled="">เลือกหนึ่งข้อ</option>
-																<option selected="" value="1">Toyota</option>
+															<select id="car-brand" name="car-brand" class="">
+																<option selected="" value="" disabled="">เลือกหนึ่งข้อ</option>
+																<?php
+																while ($result_brand = mysqli_fetch_assoc($query_car_brand)) {
+																	echo "<option value=\" " . $result_brand['car_brand_id'] . " \"> " . $result_brand['car_brand_name'] . "</option> ";
+																}
+																?>
 															</select>
 														</div>
 													</div>
@@ -78,11 +90,11 @@ session_start();
 											<div data-reactid="1">
 												<div class="space-4">
 													<div>
-														<label for="house-type" class="h4 text-gray text-normal"><span>เลือกรุ่นรถยนต์</span></label>
+														<label for="car-gene" class="h4 text-gray text-normal"><span>เลือกรุ่นรถยนต์</span></label>
 														<div class="select select-block select-jumbo">
-															<select id="house-type" name="house_type" class="">
-																<option value="0" disabled="">เลือกหนึ่งข้อ</option>
-																<option selected="" value="1">Toyota</option>
+															<select id="car-gene" name="car-gene" class="" disabled="">
+																<option selected=""  value="" disabled="">เลือกหนึ่งข้อ</option>
+
 															</select>
 														</div>
 													</div>
@@ -91,11 +103,23 @@ session_start();
 											<div data-reactid="1">
 												<div class="space-4">
 													<div>
-														<label for="house-type" class="h4 text-gray text-normal"><span>เลือกปีรถยนต์</span></label>
+														<label for="car-year" class="h4 text-gray text-normal"><span>เลือกปีรถยนต์</span></label>
 														<div class="select select-block select-jumbo">
-															<select id="house-type" name="house_type" class="">
-																<option value="0" disabled="">เลือกหนึ่งข้อ</option>
-																<option selected="" value="1">Toyota</option>
+															<select id="car-year" name="car-year" class="">
+																<option selected="" value="" disabled="">เลือกหนึ่งข้อ</option>
+																<option value="2016">2016</option>
+																<option value="2015">2015</option>
+																<option value="2014">2014</option>
+																<option value="2013">2013</option>
+																<option value="2012">2012</option>
+																<option value="2011">2011</option>
+																<option value="2010">2010</option>
+																<option value="2010">2009</option>
+																<option value="2010">2000</option>
+																<option value="2010">1999</option>
+																<option value="2010">1998</option>
+																<option value="2010">1997</option>
+																<option value="2010">1996</option>
 															</select>
 														</div>
 													</div>
@@ -110,14 +134,18 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php"> 
-																		<span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="amenities.php">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	
+																	<a id="btn-new-step1-1" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="amenities.php">
+																	<span id="process-loading" class="hide-sm loading" style="left: -123px; top: 10px;"></span>
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
+																	
 																</div>
+																
 															</div>
+															
 														</div>
 													</div>
 												</div>
@@ -153,17 +181,16 @@ session_start();
 											</div>
 										</div>
 										<div class="show-sm help-panel__floating-container">
-											<span class="tooltip-popup__transition-container">
-												<div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
-													<div class="help-panel__bulb-img"></div><div class="help-panel__close-icon"></div>
-													<div class="help-panel__floating-panel-body help-panel__text">
-														<div>
-															<p>
-																<span>จำนวนและประเภทเตียงที่คุณมีกำหนดว่าผู้เข้าพักกี่คนสามารถพักในที่พักของคุณได้อย่างสบายๆ</span>
-															</p>
-														</div>
-													</div>
+											<span class="tooltip-popup__transition-container"> <!-- <div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
+												<div class="help-panel__bulb-img"></div><div class="help-panel__close-icon"></div>
+												<div class="help-panel__floating-panel-body help-panel__text">
+												<div>
+												<p>
+												<span>จำนวนและประเภทเตียงที่คุณมีกำหนดว่าผู้เข้าพักกี่คนสามารถพักในที่พักของคุณได้อย่างสบายๆ</span>
+												</p>
 												</div>
+												</div>
+												</div> -->
 												<div class="help-panel--collapsed help-panel__bulb-img-bubble">
 													<div class="help-panel__bulb-img img-center"></div>
 												</div> </span>
@@ -179,9 +206,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

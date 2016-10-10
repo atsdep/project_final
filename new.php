@@ -28,6 +28,9 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+			include 'config/js.php';
+		?>
 	</head>
 
 	<body class="with-new-header ">
@@ -261,9 +264,5 @@ session_start();
 		include 'include/footer.php';
 		?>
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
 
 </html>
