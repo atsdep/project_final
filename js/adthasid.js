@@ -36,7 +36,7 @@ $(document).ready(function() {
 					text : data.msg,
 					type : "success",
 					timer : 2000,
-					showConfirmButton : false
+					showConfirmButton : true
 				}, function() {
 					location.reload();
 				});
@@ -69,7 +69,7 @@ $(document).ready(function() {
 					type : "success",
 					html : true,
 					timer : 2000,
-					showConfirmButton : false
+					showConfirmButton : true
 				}, function() {
 					location.reload();
 				});

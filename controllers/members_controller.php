@@ -6,7 +6,9 @@ require ("../config/connectdb.php");
 if (isset($_POST["mode"])) {
 
 	if ($_POST["mode"] == "add") {
+		
 
+		$birthday = date("Y-m-d",strtotime(str_replace('/', '-', $_POST['year'] . "-" . $_POST['month'] ."-". $_POST['day'])));
 		$query = mysqli_query($connect, "INSERT INTO members(member_firstname
 		,member_lastname
 		,member_username
@@ -17,7 +19,7 @@ if (isset($_POST["mode"])) {
 		, '" . $_POST["ln"] . "'
 		,'" . $_POST["em"] . "'
 		,'" . md5($_POST["pw"]) . "'
-		, '2016-10-10'
+		, '$birthday'
 		);");
 
 		if (!$query) {

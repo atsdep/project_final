@@ -96,7 +96,7 @@ require ("controllers/select_member.php");
 									<a href="my_reservations.php">ข้อมูลการจอง</a>
 								</li>
 								<li>
-									<a href="process/logout.php">ออกจากระบบ</a>
+									<a href="controllers/logout.php">ออกจากระบบ</a>
 								</li>
 							</ul>
 						</li>
