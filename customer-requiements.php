@@ -1,5 +1,7 @@
 <?php
 session_start();
+require 'config/database.php';
+require 'config/connectdb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +30,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -131,11 +137,14 @@ session_start();
 														<p class="text-muted text-large space-3">
 															<span>ข้อกำหนดมากขึ้นสามารถหมายถึงโอกาสการได้รับการจองน้อยลง</span>
 														</p>
+														<form id="form-customer-requiements">
 														<div class="ib-requirement text-jumb-normal space-3">
-															<input id="government_id" type="checkbox" class="col-sm-1" checked="" value="government_id">														<div class="pull-left col-sm-11" data-reactid=".10y5hnrjmkg.1.4.0.1.1.1.2.0.1:$0.1">
+															<input id="government_id" type="checkbox" class="col-sm-1" value="government_id">
+															<div class="pull-left col-sm-11">
 																<label for="government_id"><span>บัตรประจำตัวที่รัฐบาลออกให้ที่ส่งให้ Rentcnd</span></label>
 															</div><div class="clearfix"></div>
 														</div>
+														</form>
 													</div>
 												</div>
 											</div>

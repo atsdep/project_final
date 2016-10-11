@@ -28,6 +28,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -60,14 +64,16 @@ session_start();
 
 										<div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
 											<div class="panel--no-border panel-title">
-												<h3 class="no-margin-padding">แก้ไขรายละเอียดของคุณ</h3>
+												<h3 class="no-margin-padding">รายละเอียดของรถเช่าคุณ</h3>
 											</div>
 
 											<div data-reactid="1">
+												<form id="form-description">
 												<fieldset class="lys-input__fieldset">
-													<textarea class="lys-summary__textarea hide-scroll"  style="height: 67px;"></textarea>
+													<textarea placeholder="อธิบายเกี่ยวกับรถเช่าของคุณ"  id="description" class="lys-summary__textarea hide-scroll"  style="height: 67px;"></textarea><!-- height: 67px -->
 													<strong> <span class="lys-input__remaining-char-count text-muted text-small">500</span> </strong>
 												</fieldset>
+												</form>
 											</div>
 										</div>
 
@@ -81,7 +87,7 @@ session_start();
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="photos.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="title.php">
+																	<a id="next-description" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="title.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>

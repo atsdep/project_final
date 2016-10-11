@@ -28,6 +28,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -62,17 +66,17 @@ session_start();
 											<div class="panel--no-border panel-title">
 												<h3 class="no-margin-padding">บริการเสริมเมื่อใช้บริการรถเช่าของคุณ</h3>
 											</div>
-
-											<div data-reactid="1">
-												<div class="space-5 amenity-item">
-													<input id="wifi" type="checkbox" class="col-sm-1" value="1">
-													<div class="pull-left col-sm-11">
-														<label> <span>แวะระหว่างทางได้</span></label>
-														<span>&nbsp;</span>
+											<form name="from-additional_service" id="from-additional_service">
+												<div data-reactid="1">
+													<div class="space-5 amenity-item">
+														<input id="car_stop" type="checkbox" class="col-sm-1" value="1">
+														<div class="pull-left col-sm-11">
+															<label> <span>แวะระหว่างทางได้</span></label>
+															<span>&nbsp;</span>
+														</div>
+														<div class="clearfix"></div>
 													</div>
-													<div class="clearfix"></div>
 												</div>
-											</div>
 										</div>
 
 										<!-- button -->
@@ -85,7 +89,7 @@ session_start();
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="amenities.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="location.php">
+																	<a id="btn-step1-3" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="new.php?">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
@@ -96,6 +100,7 @@ session_start();
 												</div>
 											</div>
 										</div>
+										</form>
 										<div class="waypoint-container">
 											<span style="font-size:0;"></span>
 										</div>
@@ -143,9 +148,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

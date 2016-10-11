@@ -38,7 +38,7 @@ require 'controllers/select_car_brand.php';
 		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
-	<body class="with-new-header ">
+	<body class="with-new-header">
 		<main id="site-content" role="main">
 			<div id="lys-redesign-div">
 				<div>
@@ -136,7 +136,7 @@ require 'controllers/select_car_brand.php';
 																<div>
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
 																	
-																	<a id="btn-new-step1-1" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="amenities.php">
+																	<a id="" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="amenities.php">
 																	<span id="process-loading" class="hide-sm loading" style="left: -123px; top: 10px;"></span>
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>

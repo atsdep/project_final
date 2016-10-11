@@ -31,6 +31,7 @@ session_start();
 		<?php
 			include 'config/js.php';
 		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -86,7 +87,7 @@ session_start();
 																		</div>
 																		<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-soft-dark" href="/become-a-host/15415428/room"> <span>เปลี่ยน</span> </a></span> </span>
 																				<div>
-																					<a class="" href="generation.php">
+																					<a class="" href="province.php">
 																					<button class="btn btn-soft-dark space-top-1 text-large">
 																						<span>ดำเนินการต่อ</span>
 																					</button></a>
@@ -189,7 +190,7 @@ session_start();
 														<span>*** คุณสามารถยืนยันรถเช่า และ ตัวตนของคุณเพื่อความน่าเชื่อถือและความไว้ใจแก่ผู้ใช้บริการคนอื่นๆ</span>
 													</p>
 													<div class="va-container va-container-v">
-														<button type="button" class="btn btn-som va-middle text-large">
+														<button id="btn-new-show" type="button" class="btn btn-som va-middle text-large">
 															<span>ลงประกาศรถเช่า</span>
 														</button>
 													</div>

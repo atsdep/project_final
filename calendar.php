@@ -1,5 +1,7 @@
 <?php
 session_start();
+require ("config/datetime.php");
+require ("controllers/calendar_controller.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +30,11 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
+		<script src="js/calendar_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -68,17 +75,63 @@ session_start();
 												<div class="DayPicker text-center va-top space-8">
 													<table>
 														<caption class="DayPicker-caption space-2">
-															<strong>ตุลาคม 2016</strong>
+															<strong><?php echo $thaimonth[date("n")] , " ", date(" Y ")?></strong>
 														</caption>
 														<thead class="text-gray text-center text-small">
 															<tr>
 																<td>อา</td><td>จ</td><td>อ</td><td>พ</td><td>พฤ</td><td>ศ</td><td>ส</td>
 															</tr><tr class="week-header-filler"></tr>
 														</thead>
-														<tbody>
-
+														<tbody id="one_mouth">
+									
+														<?php
+														$m = date("m");
+														$y = date("Y");
+														calendar($m, $y);
+														?>
+									
 														</tbody>
 													</table>
+												</div>
+												
+												<div class="DayPicker text-center va-top space-8">
+												<table>
+												<caption class="DayPicker-caption space-2">
+													<strong><?php echo $thaimonth[date("n", strtotime('+1 month'))] , " ", date(" Y ") ?></strong>
+												</caption>
+												<thead class="text-gray text-center text-small">
+													<tr>
+													<td>อา</td><td>จ</td><td >อ</td><td>พ</td><td>พฤ</td><td>ศ</td><td>ส</td>
+													</tr><tr class="week-header-filler"></tr>
+												</thead>
+												<tbody id="two_mouth">
+												<?php
+												$m = date("m", strtotime('+1 month'));
+												$y = date("Y");
+												calendar($m, $y);
+												?>
+												</tbody>
+												</table>
+												</div>
+												
+												<div class="DayPicker text-center va-top space-8">
+												<table>
+												<caption class="DayPicker-caption space-2">
+													<strong><?php echo $thaimonth[date("n", strtotime('+2 month'))] , " ", date(" Y ") ?></strong>
+												</caption>
+												<thead class="text-gray text-center text-small">
+													<tr>
+													<td>อา</td><td>จ</td><td >อ</td><td>พ</td><td>พฤ</td><td>ศ</td><td>ส</td>
+													</tr><tr class="week-header-filler"></tr>
+												</thead>
+												<tbody id="two_mouth">
+												<?php
+												$m = date("m", strtotime('+2 month'));
+												$y = date("Y");
+												calendar($m, $y);
+												?>
+												</tbody>
+												</table>
 												</div>
 
 												<div class="shared-tooltip-styles availability-tooltip text-center text-large availability-tooltip--transition tooltip-bottom-middle" style="top:0;left:0;position:absolute;opacity:0;pointer-events:none;" role="tooltip" aria-hidden="true">
@@ -113,7 +166,7 @@ session_start();
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="customer-requiements.php">
+																	<a id="btn-next-calendar" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="customer-requiements.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
@@ -175,11 +228,23 @@ session_start();
 			</div>
 
 		</main>
-
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+						$(document).ready(function() {
+			var number = <?php echo date("j")?>;
 
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+		var step_oneMouth = document.querySelectorAll("#one_mouth td.DayPicker-day");
+		for (var i = 0; i < step_oneMouth.length; i++) {
 
+			if (step_oneMouth[i].innerHTML < number && step_oneMouth[i].innerHTML != "") {
+				step_oneMouth[i].className = "DayPicker-day DayPicker-day--blocked-past-date";
+			}
+		}//block date
+
+		$("td.DayPicker-day--available").click(function(e) {
+			$(this).toggleClass("DayPicker-day--available DayPicker-day--unavailable");
+		});
+
+		});
+	</script>
 </html>

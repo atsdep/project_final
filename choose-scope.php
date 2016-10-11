@@ -28,6 +28,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -65,33 +69,36 @@ session_start();
 											<div class="row">
 												<div class="col-sm-12 col-lg-12 space-top-2">
 													<fieldset class="mode-chooser">
-														<label for="list_your_space_pricing_mode-2" class="clearfix mode-chooser__option mode-chooser__option--with-icon">
-															<div class="mode-chooser__icon">
-																<i class="fa fa-sign-out scope"></i>
-															</div>
-															<div class="mode-chooser__text">
-																<div class="mode-chooser__heading space-1">
-																	<span>ปลายทาง ต่างจังหวัดได้</span><span>&nbsp;</span>
+														<form id="form-choose-scope">
+															<label id="label-in" for="list_your_space_pricing_mode-1" class="clearfix mode-chooser__option mode-chooser__option--with-icon">
+																<div class="mode-chooser__icon">
+																	<i class="fa fa-sign-in scope"></i>
 																</div>
-																<p class="mode-chooser__subtitle space-0">
-																	<span>คุณเลือกที่จะบริการจากต้นทาง ภายในจังหวัดของคุณ ไปยังปลายทางต่างจังหวัดได้</span>
-																</p>
-															</div>
-															<input type="radio" class="mode-chooser__input pointer-input" name="list_your_space_pricing_mode" id="list_your_space_pricing_mode-2" value="2">
-														</label><label for="list_your_space_pricing_mode-1" class="clearfix mode-chooser__option mode-chooser__option--with-icon">
-															<div class="mode-chooser__icon">
-																<i class="fa fa-sign-in scope"></i>
-															</div>
-															<div class="mode-chooser__text">
-																<div class="mode-chooser__heading space-1">
-																	<span>ปลายทางภายในจังหวัดของฉัน</span><span>&nbsp;</span>
+																<div class="mode-chooser__text">
+																	<div class="mode-chooser__heading space-1">
+																		<span>ปลายทางภายในจังหวัดของฉัน</span><span>&nbsp;</span>
+																	</div>
+																	<p class="mode-chooser__subtitle space-0">
+																		<span>คุณเลือกที่จะบริการจากต้นทางไปยังปลายทาง ภายในจังหวัดของคุณ</span>
+																	</p>
 																</div>
-																<p class="mode-chooser__subtitle space-0">
-																	<span>คุณเลือกที่จะบริการจากต้นทางไปยังปลายทาง ภายในจังหวัดของคุณ</span>
-																</p>
-															</div>
-															<input type="radio" class="mode-chooser__input pointer-input" name="list_your_space_pricing_mode" id="list_your_space_pricing_mode-1" value="1" checked="">
-														</label>
+																<input id="in" type="radio" class="mode-chooser__input pointer-input" name="list_your_scope" id="list_your_space_pricing_mode-1" value="0" checked="">
+															</label>
+															<label id="label-out" for="list_your_space_pricing_mode-2" class="clearfix mode-chooser__option mode-chooser__option--with-icon">
+																<div class="mode-chooser__icon">
+																	<i class="fa fa-sign-out scope"></i>
+																</div>
+																<div class="mode-chooser__text">
+																	<div class="mode-chooser__heading space-1">
+																		<span>ปลายทาง ต่างจังหวัดได้</span><span>&nbsp;</span>
+																	</div>
+																	<p class="mode-chooser__subtitle space-0">
+																		<span>คุณเลือกที่จะบริการจากต้นทาง ภายในจังหวัดของคุณ ไปยังปลายทางต่างจังหวัดได้</span>
+																	</p>
+																</div>
+																<input id="out" type="radio" class="mode-chooser__input pointer-input" name="list_your_scope" id="list_your_space_pricing_mode-2" value="1">
+															</label>
+														</form>
 													</fieldset>
 												</div>
 											</div>
@@ -163,9 +170,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

@@ -1,5 +1,7 @@
 <?php
 session_start();
+require 'config/database.php';
+require 'config/connectdb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +30,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -72,11 +78,11 @@ session_start();
 													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
 														<div class="rocker-switch pull-right">
 															<table class="rocker-switch__table">
-																<tbody>
+																<tbody id="smoking">
 																	<tr>
-																		<td class="rocker-switch__button rocker-switch__button--deactivated"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ไม่</span></a></td>
+																		<td id="smoking_no" class="rocker-switch__button"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ไม่</span></a></td>
 																		<td><div class="rocker-switch__divider"></div></td>
-																		<td class="rocker-switch__button rocker-switch__button--yes"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ใช่</span> </a></td>
+																		<td id="smoking_yes" class="rocker-switch__button"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ใช่</span> </a></td>
 																	</tr>
 																</tbody>
 															</table>
@@ -92,31 +98,11 @@ session_start();
 													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
 														<div class="rocker-switch pull-right">
 															<table class="rocker-switch__table">
-																<tbody>
+																<tbody id="pet">
 																	<tr>
-																		<td class="rocker-switch__button rocker-switch__button--no"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ไม่</span></a></td>
+																		<td id="pet_no" class="rocker-switch__button"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ไม่</span></a></td>
 																		<td><div class="rocker-switch__divider"></div></td>
-																		<td class="rocker-switch__button rocker-switch__button--deactivated"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ใช่</span> </a></td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
-												<div class="row space-2">
-													<div class="col-lg-8 col-md-8 col-sm-6">
-														<div class="space-2">
-															<span>test</span><span>&nbsp;</span><span><i class="icon icon-question-alt icon-hover-dark h6"></i></span>
-														</div>
-													</div>
-													<div class="col-lg-4 col-md-4 col-sm-6 text-right space-top-1 space-1">
-														<div class="rocker-switch pull-right">
-															<table class="rocker-switch__table">
-																<tbody>
-																	<tr>
-																		<td class="rocker-switch__button rocker-switch__button--deactivated"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ไม่</span></a></td>
-																		<td><div class="rocker-switch__divider"></div></td>
-																		<td class="rocker-switch__button rocker-switch__button--deactivated"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ใช่</span> </a></td>
+																		<td id="pet_yes" class="rocker-switch__button"><a class="rocker-switch__label" href="#" data-prevent-default="true"> <span>ใช่</span> </a></td>
 																	</tr>
 																</tbody>
 															</table>
@@ -124,17 +110,9 @@ session_start();
 													</div>
 												</div>
 											</div>
-
-											<div class="space-top-4">
+											
+											<div class="space-top-4 hide">
 												<h4 class="text-muted space-4"><span>เพิ่มกฎมากขึ้น</span></h4>
-												<div class="row space-4">
-													<div class="col-sm-9">
-														test
-													</div>
-													<div class="col-sm-3 text-right">
-														<a href="#" data-prevent-default="true" class="remove-cursor"></a>
-													</div>
-												</div>
 												<div class="row space-4">
 													<div class="col-sm-9">
 														test
@@ -192,7 +170,7 @@ session_start();
 															<span>นอกจากข้อกำหนดของ Rentcnd ผู้เช่าบริการต้องยอมรับกฎของคุณก่อนพวกเขาจองรถเช่า</span>
 														</p>
 														<!-- <p>
-															<span>หากผู้เช่าจองรถเช่า ทันทีที่ทำผิดกฎของคุณ คุณสามารถยกเลิกการจองโดยไม่มีโทษก่อนหรือระหว่างการเดินทาง</span>
+														<span>หากผู้เช่าจองรถเช่า ทันทีที่ทำผิดกฎของคุณ คุณสามารถยกเลิกการจองโดยไม่มีโทษก่อนหรือระหว่างการเดินทาง</span>
 														</p> -->
 													</div>
 												</div>
@@ -225,9 +203,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

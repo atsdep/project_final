@@ -1,5 +1,8 @@
 <?php
 session_start();
+require 'config/database.php';
+require 'config/connectdb.php';
+require 'controllers/select_scope.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +31,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -72,21 +79,29 @@ session_start();
 															<h4 class="text-muted space-4"><span>ภายในจังหวัด</span></h4>
 															<label for="price-stepper" class="h4 text-muted text-normal"><span>ราคาพื้นฐาน</span></label>
 															<div>
-																<div class="increment-btn no-padding">
-																	<div class="increment-btn btn-group no-padding">
-																		<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0" role="textbox">
-																			<div class="increment-btn__border-container-label text-truncated">
-																				<span>฿</span>
-																				<input class="increment-btn__input" id="price-stepper" type="number" style="width: 5px;">
-																				<span class="text-muted"><span>ต่อวัน</span></span>
+																
+																	<div class="increment-btn no-padding">
+																		<div class="increment-btn btn-group no-padding">
+																			<form id="form-price-one">
+																			<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0" role="textbox">
+																				<div class="increment-btn__border-container-label text-truncated">
+																					<span>฿</span>
+																					<input class="increment-btn__input" id="price-one" type="number" style="width: 60px;">
+																					<span class="text-muted"><span> ต่อวัน</span></span>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
-																</div>
+																</form>
 															</div>
 														</div>
 													</div>
 												</div>
+												<?php
+												if(isset($result_scope['announce_scope'])){
+												if($result_scope['announce_scope'] == 0){
+												?>
+
 												<div class="space-top-6">
 													<h4 class="text-muted space-4"><span>ปลายทางต่างจังหวัด</span></h4>
 													<div class="row space-4">
@@ -135,6 +150,12 @@ session_start();
 														</div>
 													</form>
 												</div>
+
+												<?php
+												}
+												}
+												?>
+
 											</div>
 										</div>
 										<div class="main-panel__actions-wrapper">
@@ -146,7 +167,7 @@ session_start();
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
 																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price-terms.php"><span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="calendar.php">
+																	<a id="btn-next-price" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="calendar.php">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
@@ -204,9 +225,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

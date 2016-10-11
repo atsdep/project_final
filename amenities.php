@@ -28,6 +28,11 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -62,76 +67,76 @@ session_start();
 											<div class="panel--no-border panel-title">
 												<h3 class="no-margin-padding">รถของคุณมีสิ่งอำนวยความสะดวกอะไรบ้าง</h3>
 											</div>
-
+											<form name="form-amenities" id="form-amenities">
 											<div data-reactid="1">
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="wifi" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>Wifi ภายในรถ</span> </label>
+														<label for="wifi"> <span>Wifi ภายในรถ</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="water" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>น้ำดื่ม</span> </label>
+														<label for="water"> <span>น้ำดื่ม</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="book" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>หนังสือ</span> </label>
+														<label for="book"> <span>หนังสือ</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="music" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>เพลง</span> </label>
+														<label for="music"> <span>เพลง</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="tissues" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>กระดาษทิชชู่</span> </label>
+														<label for="tissues"> <span>กระดาษทิชชู่</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="childseat" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>เบาะนั่งสำหรับเด็ก</span> </label>
+														<label for="childseat"> <span>เบาะนั่งสำหรับเด็ก</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="monitor" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>จอมอนิเตอร์ติดรถยนต์</span> </label>
+														<label for="monitor"> <span>จอมอนิเตอร์ติดรถยนต์</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="220v" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>ไฟชารจ์ 220V</span> </label>
+														<label for="220v"> <span>ไฟชารจ์ 220V</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="space-5 amenity-item">
-													<input id="wireless_internet" type="checkbox" class="col-sm-1" value="1">
+													<input id="purifier" type="checkbox" class="col-sm-1" value="1">
 													<div class="pull-left col-sm-11">
-														<label for="wireless_internet"> <span>ระบบฟอกอากาศในรถยนต์</span> </label>
+														<label for="purifier"> <span>ระบบฟอกอากาศในรถยนต์</span> </label>
 														<span>&nbsp;</span>
 													</div>
 													<div class="clearfix"></div>
@@ -161,6 +166,7 @@ session_start();
 												</div>
 											</div>
 										</div>
+										</form>
 										<div class="waypoint-container">
 											<span style="font-size:0;"></span>
 										</div>
@@ -208,9 +214,4 @@ session_start();
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>
