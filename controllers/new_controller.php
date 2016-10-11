@@ -297,7 +297,7 @@ if (isset($_POST["mode"])) {
 		} else {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
 		}
-	}else if ($_POST["mode"] == "pet") {
+	} else if ($_POST["mode"] == "pet") {
 
 		$sql_update_ann = "UPDATE announces SET pet = '" . $_POST["pet"] . "'
 		WHERE announce_id = '" . $_SESSION['new_ann_id'] . "'";
@@ -310,7 +310,7 @@ if (isset($_POST["mode"])) {
 		} else {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
 		}
-	}else if ($_POST["mode"] == "announce_ready") {
+	} else if ($_POST["mode"] == "announce_ready") {
 
 		$sql_update_ann = "UPDATE announces SET announce_status = 'ready'
 		WHERE announce_id = '" . $_SESSION['new_ann_id'] . "'";
@@ -323,7 +323,7 @@ if (isset($_POST["mode"])) {
 		} else {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
 		}
-	}else if ($_POST["mode"] == "announce_show") {
+	} else if ($_POST["mode"] == "announce_show") {
 
 		$sql_update_ann = "UPDATE announces SET announce_status = 'show'
 		WHERE announce_id = '" . $_SESSION['new_ann_id'] . "'";
