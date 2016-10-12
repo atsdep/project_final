@@ -12,10 +12,12 @@ if(isset($_GET['id']) and strlen($_GET['id']) == 10){
 			header("location:index.php");
 		}
 	}
-}else{
+}else if(!isset($_GET['id'])){
 	$string = $_SERVER['REQUEST_URI'];
   	if(stristr($string, 'new.php') === FALSE and stristr($string, 'province.php') === FALSE) {
 	header("location:index.php");
 	}
+}else{
+	header("location:index.php");
 }
 ?>

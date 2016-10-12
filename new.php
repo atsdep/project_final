@@ -65,13 +65,23 @@ if (!isset($_SESSION['member_id'])) {
 							</div>
 							<div class="landing-width bg-white row row-condensed list-your-space__landing-content">
 								<span>
-									<div class="col-md-7 landing__left-col fast-animation">
+									<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] == 'unready' or $result_select_announce['announce_status'] == 'step1' or $result_select_announce['announce_status'] == 'step2'){
+									?>
+										<div class="col-md-7 landing__left-col fast-animation">
+									<?php
+									}else{
+									?>
+										<div class="col-md-7 landing__left-col fast-animation readyToPublish">
+									<?php
+									}
+									?>
+									
 										<!-- readyToPublish ตอนเสร็จหมดแล้ว -->
 										<div class="landing__left-col-content">
 											<h2 class="landing__title-title space-5"><span>กลายเป็นเจ้าของรถเช่า Rentcnd</span></h2>
 
 											<div step-header="step-1">
-												<?php if(isset($result_announce_select) and $result_announce_select['announce_status'] == 'ready'){
+												<?php if(isset($result_select_announce['announce_status']) or $result_select_announce['announce_status'] == 'hide' or $result_select_announce['announce_status'] == 'ready' or $result_select_announce['announce_status'] == 'show'){
 												?>
 												<div class="landing-step-collection step-collection-completed">
 													<?php }else{ ?>
@@ -91,14 +101,17 @@ if (!isset($_SESSION['member_id'])) {
 																			<div class="landing__step-content-subtitle">
 																				ประเภทรถ สิ่งอำนวยความสะดวกและอื่นๆ
 																			</div>
-																			<?php if(isset($result_select_announce)){ if($result_select_announce['announce_status'] != 'unready'){
+																			<?php if(isset($result_select_announce['announce_status'])){ if($result_select_announce['announce_status'] != 'unready'){
 																			?>
 																			<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-soft-dark" href="/province.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>"> <span>เปลี่ยน</span> </a></span> </span>
 																			<?php }
 																				}
 																			?>
-																			<?php if(isset($result_select_announce)){
-																			if($result_select_announce['announce_status'] != 'step1'){
+																			
+																			
+																			
+																			<?php if(isset($result_select_announce['announce_status'])){
+																			if($result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] == 'unready'){
 																			?>
 																			<div>
 																				<a class="" href="province.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>">
@@ -106,12 +119,23 @@ if (!isset($_SESSION['member_id'])) {
 																					<span>ดำเนินการต่อ</span>
 																				</button></a>
 																			</div>
-																			<?php } } ?>
+																			<?php } 
+																			}else if (!isset($result_select_announce['announce_status'])){
+																			?>
+																			<div>
+																				<a class="" href="province.php">
+																				<button class="btn btn-soft-dark space-top-1 text-large">
+																					<span>ดำเนินการต่อ</span>
+																				</button></a>
+																			</div>
+																			
+																			<?php
+																			} ?>
 																		</div>
 																	</div>
 																</div>
 															</div>
-															<?php if(isset($result_select_announce) and $result_select_announce['announce_status'] != 'unready'){ ?>
+															<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'unready'){ ?>
 															<div class="col-sm-2 correct">
 																<span>
 																	<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
@@ -126,7 +150,7 @@ if (!isset($_SESSION['member_id'])) {
 												<!-- step1 -->
 												
 												<div step-header="step-2">
-												<?php if(isset($result_announce_select) and $result_announce_select['announce_status'] == 'ready'){
+												<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] == 'ready'){
 												?>
 												<div class="landing-step-collection step-collection-completed">
 													<?php }else{ ?>
@@ -138,7 +162,14 @@ if (!isset($_SESSION['member_id'])) {
 															<div class="col-sm-10">
 																<div class="va-container va-container-v va-container-h">
 																	<div class="va-middle">
-																		<div class="landing__step-content">
+																		<?php
+																				if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'unready'){
+																				?>
+																				<div class="landing__step-content">
+																			    <?php }else{ ?>
+																			    <div class="landing__step-content disabled">
+																			<?php } ?>
+																		
 																			<strong class="landing__step-number text-base text-branding text-light-gray"><span>ขั้นตอนที่ 2</span></strong>
 																			<div class="h3 landing__step-content-title landing__subtitle-width">
 																				รูปภาพ
@@ -146,14 +177,14 @@ if (!isset($_SESSION['member_id'])) {
 																			<div class="landing__step-content-subtitle">
 																				รูป รายละเอียดสั้นๆ ชื่อประกาศ
 																			</div>
-																			<?php if(isset($result_select_announce)){ if($result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] != 'unready'){
+																			<?php if(isset($result_select_announce['announce_status'])){ if($result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] != 'unready'){
 																			?>
 																			<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-soft-dark" href="/photos.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>"> <span>เปลี่ยน</span> </a></span> </span>
 																			<?php }
 																				}
 																			?>
-																			<?php if(isset($result_select_announce)){
-																			if($result_select_announce['announce_status'] != 'unready'){
+																			<?php if(isset($result_select_announce['announce_status'])){
+																			if($result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] == 'step1'){
 																			?>
 																			<div>
 																				<a class="" href="photos.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>">
@@ -166,7 +197,7 @@ if (!isset($_SESSION['member_id'])) {
 																	</div>
 																</div>
 															</div>
-															<?php if(isset($result_select_announce) and $result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] != 'unready'){ ?>
+															<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] != 'unready'){ ?>
 															<div class="col-sm-2 correct">
 																<span>
 																	<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
@@ -179,69 +210,71 @@ if (!isset($_SESSION['member_id'])) {
 													<hr>
 												</div>
 												<!-- step2 -->
+												
+												<div step-header="step-3">
+												<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] == 'ready'){
+												?>
+												<div class="landing-step-collection step-collection-completed">
+													<?php }else{ ?>
+													<div class="landing-step-collection">
+														<!-- step-collection-completed กรอกเสร็จแล้ว -->
+														<?php } ?>
 
-														<div step-header="step-3">
-															<div class="landing-step-collection">
-																<div class="row row-condensed lys-vertical-align-middle-container">
-																	<div class="col-sm-10">
-																		<div class="va-container va-container-v va-container-h">
-																			<div class="va-middle">
-																				<?php
-																				if(isset($result_announce_select) and $result_announce_select['announce_status'] != 'unready'){
+														<div class="row row-condensed lys-vertical-align-middle-container">
+															<div class="col-sm-10">
+																<div class="va-container va-container-v va-container-h">
+																	<div class="va-middle">
+																		<?php
+																				if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] != 'step1'){
 																				?>
-
 																				<div class="landing__step-content">
-																					<?php }else{ ?>
-
-																					<div class="landing__step-content disabled">
-																						<!-- disabled -->
-																						<?php } ?>
-																						<strong class="landing__step-number text-base text-branding text-light-gray"><span>ขั้นตอนที่ 3</span></strong>
-																						<div class="h3 landing__step-content-title landing__subtitle-width">
-																							เตรียมพร้อมสำหรับผู้ใช้บริการ
-																						</div>
-																						<div class="landing__step-content-subtitle">
-																							ราคา ปฎิทิน การตั้งค่าการจอง
-																						</div>
-																						<?php
-																						if(isset($result_select_announce) and $result_select_announce['announce_status'] != 'unready'){
-																						?>
-																						<div class="col-sm-2 correct">
-																							<span>
-																								<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
-																									<i class="icon icon-ok-fill icon-size-2 icon-soft-dark"></i>
-																								</div>
-																						</div>
-																						<?php }
-																							if(isset($result_select_announce) and $result_select_announce['announce_status'] != 'unready'
-																							and $result_select_announce['announce_status'] != 'step3'){
-																						?>
-																						<span><span class="">
-																								<div>
-																									<a class="" href="choose-scope.php?id=<?php
-																									if (isset($_GET['id'])) { echo $_GET['id'];
-																									}
-																									?>">
-																									<button class="btn btn-soft-dark space-top-1 text-large">
-																										<span>ดำเนินการต่อ</span>
-																									</button></a>
-																								</div></span></span>
-																						<?php } ?>
-																					</div>
-																				</div>
+																			    <?php }else{ ?>
+																			    <div class="landing__step-content disabled">
+																			<?php } ?>
+																		
+																			<strong class="landing__step-number text-base text-branding text-light-gray"><span>ขั้นตอนที่ 3</span></strong>
+																			<div class="h3 landing__step-content-title landing__subtitle-width">
+																				เตรียมพร้อมสำหรับผู้ใช้บริการ
 																			</div>
-																		</div>
-																		<div class="col-sm-2 lys-vertical-align-middle">
-
+																			<div class="landing__step-content-subtitle">
+																				ราคา ปฎิทิน การตั้งค่าการจอง
+																			</div>
+																			<?php if(isset($result_select_announce['announce_status'])){ if($result_select_announce['announce_status'] == 'ready' or $result_select_announce['announce_status'] == 'hide' or $result_select_announce['announce_status'] == 'show'){
+																			?>
+																			<span> <span class="" style="transition-delay:0ms;display:inline-block;"> <a class="link-soft-dark" href="/choose-scope.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>"> <span>เปลี่ยน</span> </a></span> </span>
+																			<?php }
+																				}
+																			?>
+																			<?php if(isset($result_select_announce['announce_status'])){
+																			if($result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] == 'step2'){
+																			?>
+																			<div>
+																				<a class="" href="choose-scope.php?id=<?php if (isset($_GET['id'])) { echo $_GET['id']; }?>">
+																				<button class="btn btn-soft-dark space-top-1 text-large">
+																					<span>ดำเนินการต่อ</span>
+																				</button></a>
+																			</div>
+																			<?php } } ?>
 																		</div>
 																	</div>
 																</div>
-																<hr>
 															</div>
-															<!-- step3 -->
+															<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] != 'step1' and $result_select_announce['announce_status'] != 'step2'){ ?>
+															<div class="col-sm-2 correct">
+																<span>
+																	<div class="text-center" style="transition-delay:0ms;transition-duration:250ms;">
+																		<i class="icon icon-ok-fill icon-size-2 icon-soft-dark"></i>
+																	</div></span>
+															</div>
+															<?php } ?>
+														</div>
+													</div>
+													<hr>
+												</div>
+												<!-- step3 -->
 
 															<?php
-															if(isset($result_select_announce) and $result_select_announce['announce_status'] == 'ready'){
+															if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] == 'ready'){
 															?>
 
 															<span>
@@ -289,7 +322,7 @@ if (!isset($_SESSION['member_id'])) {
 															</div> </span>
 															</div>
 															</div> -->
-															<?php if(isset($result_select_announce) and $result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] != 'step1'){
+															<?php if(isset($result_select_announce['announce_status']) and $result_select_announce['announce_status'] != 'unready' and $result_select_announce['announce_status'] != 'step1'){
 															?>
 
 															<div class="landing__more-info-card">

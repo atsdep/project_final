@@ -18,7 +18,7 @@ $(document).ready(function() {
 			}
 
 		}, "json");
-		return false;
+		//return false;
 	});
 
 	$("#car-gene").change(function() {

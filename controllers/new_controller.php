@@ -20,6 +20,21 @@ if (isset($_POST["mode"])) {
 		}
 	}
 
+	if (isset($_SESSION['member_id'])) {
+		$sql_select_member = "SELECT * FROM members WHERE  member_id = '" . $_SESSION['member_id'] . "'";
+		$query_select_member = mysqli_query($connect, $sql_select_member);
+		$row_select_member = mysqli_num_rows($query_select_member);
+		if (!$query_select_member) {
+			header("location:index.php");
+		} else {
+			if ($row_select_member == 1) {
+				$result_member = mysqli_fetch_assoc($query_select_member);
+			} else {
+				header("location:index.php");
+			}
+		}
+	}
+
 	if ($_POST["mode"] == "province") {
 
 		if (isset($_POST['ann_id']) and strlen($_POST['ann_id']) == 10) {
@@ -131,17 +146,15 @@ if (isset($_POST["mode"])) {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
 		}
 	} else if ($_POST["mode"] == "additional_service") {
-		
-		if($result_select_announce['announce_status'] == 'unready'){
+
+		if ($result_select_announce['announce_status'] == 'unready') {
 			$sql_update_ann = "UPDATE announces SET car_stop = '" . $_POST["car_stop"] . "'
 			,announce_status = 'step1'
 			WHERE announce_id = '" . $_POST["ann_id"] . "'";
-		}else{
+		} else {
 			$sql_update_ann = "UPDATE announces SET car_stop = '" . $_POST["car_stop"] . "'
 			WHERE announce_id = '" . $_POST["ann_id"] . "'";
 		}
-		
-		
 
 		$update_ann_query = mysqli_query($connect, $sql_update_ann);
 
@@ -168,8 +181,17 @@ if (isset($_POST["mode"])) {
 		}
 	} else if ($_POST["mode"] == "title") {
 
-		$sql_update_ann = "UPDATE announces SET announce_title = '" . $_POST["title"] . "'
-		WHERE announce_id = '" . $_POST["ann_id"] . "'";
+		if ($result_member['member_profile_photo'] != null and $result_member['member_telephone_verified'] == 1) {
+			if ($result_select_announce['announce_status'] == 'step1') {
+				$sql_update_ann = "UPDATE announces SET announce_title = '" . $_POST["title"] . "'
+			,announce_status = 'step2'
+			WHERE announce_id = '" . $_POST["ann_id"] . "'";
+			} else {
+				$sql_update_ann = "UPDATE announces SET announce_title = '" . $_POST["title"] . "'
+			WHERE announce_id = '" . $_POST["ann_id"] . "'";
+
+			}
+		}
 
 		$update_ann_query = mysqli_query($connect, $sql_update_ann);
 
@@ -365,17 +387,25 @@ if (isset($_POST["mode"])) {
 		}
 	} else if ($_POST["mode"] == "announce_ready") {
 
-		$sql_update_ann = "UPDATE announces SET announce_status = 'ready'
+		if ($result_select_announce['announce_status'] == 'step2') {
+
+			$sql_update_ann = "UPDATE announces SET announce_status = 'ready'
 		WHERE announce_id = '" . $_POST["ann_id"] . "'";
 
-		$update_ann_query = mysqli_query($connect, $sql_update_ann);
+			$update_ann_query = mysqli_query($connect, $sql_update_ann);
 
-		if (!$update_ann_query) {
-			$data["error"] = true;
-			$data["msg"] = "ระบบผิดพลาด " . $sql_update_ann;
-		} else {
-			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
+			if (!$update_ann_query) {
+				$data["error"] = true;
+				$data["msg"] = "ระบบผิดพลาด " . $sql_update_ann;
+			} else {
+				$data["error"] = false;
+				$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
+			}
+
+		}else{
+			$data["error"] = false;
 		}
+
 	} else if ($_POST["mode"] == "announce_show") {
 
 		$sql_update_ann = "UPDATE announces SET announce_status = 'show'

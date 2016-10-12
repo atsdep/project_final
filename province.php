@@ -100,8 +100,8 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a id="btn-next-province" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="map.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php<?php if(isset($_GET['id'])){ echo '?id='. $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a id="btn-next-province" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="map.php<?php if(isset($_GET['id'])){ echo '?id='.$_GET['id'];}?>">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>

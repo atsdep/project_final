@@ -1,5 +1,13 @@
 <?php
 session_start();
+require ("config/database.php");
+require ("config/connectdb.php");
+if (!isset($_SESSION['member_id'])) {
+	header("location:index.php?login=" . urlencode($_SERVER['REQUEST_URI']) . "&error=1");
+	exit(0);
+} else {
+	require ("/controllers/newpage_controller.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -245,11 +253,12 @@ session_start();
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="description.php">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="description.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div></a>
+																	<input type="hidden" value="<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>" id="ann_id">
 																</div>
 															</div>
 														</div>
