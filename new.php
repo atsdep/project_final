@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['member_id'])){
 	//header("location:http://".$_SERVER['HTTP_HOST']."?pleaselogin=1");
-	header("location:index.php?login=".urlencode("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])."&error=1");
+	header("location:index.php?login=".urlencode($_SERVER['REQUEST_URI'])."&error=1");
 	exit(0);
 }
 ?>
