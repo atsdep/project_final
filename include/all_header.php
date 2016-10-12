@@ -56,6 +56,7 @@
 			<a href="#" data-redirect="redirect_params[action]=host&redirect_params[controller]=info&redirect_params[from_nav]=1&redirect_params[link]=1" class="hdr-btn link-reset"> เข้าสู่ระบบ </a>
 		</div>
 		<div class="comp pull-right">
+			<a id="" data-signup-modal="" data-toggle="modal" data-target="#signup-modal" href="#sigin" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ลงทะเบียน </a>
 		</div>
 		<div class="comp pull-right">
 			<a data-signup-modal="" data-header-view="true" href="#helps" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ความช่วยเหลือ </a>
