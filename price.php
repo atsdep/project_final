@@ -105,7 +105,7 @@ if (!isset($_SESSION['member_id'])) {
 												</div>
 												<?php
 												if(isset($result_scope['announce_scope'])){
-												if($result_scope['announce_scope'] == 0){
+												if($result_scope['announce_scope'] == 1){
 												?>
 
 												<div class="space-top-6">
