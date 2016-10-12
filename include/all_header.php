@@ -134,7 +134,7 @@ if (isset($_SESSIONS['member_id'])) {
 		?>
 
 		<?php
-			if(isset($row_ann) and $row_ann > 0 ){
+			if(isset($row_ann) and $row_ann >= 1 ){
 		?>
 			<div class="comp pull-right">
 			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade in">!</i> </i> </a><!-- fade in -->
@@ -197,9 +197,10 @@ if (isset($_SESSIONS['member_id'])) {
 		
 		<?php
 		}else{
-		if($_SERVER['REQUEST_URI'] != "/new.php" and $_SERVER['REQUEST_URI'] != "/start.php"){
+		// if($_SERVER['REQUEST_URI'] != "/new.php" and $_SERVER['REQUEST_URI'] != "/start.php"){
+			$string = $_SERVER['REQUEST_URI'];
+  			if(stristr($string, 'new.php') === FALSE and stristr($string, 'start.php') === FALSE) {
 		?>
-		
 		<div class="comp pull-right comp-become-a-host">
 			<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="/start.php"> <span class="btn btn-small btn-become-a-host"> สร้างรายได้จากการขับรถ</span> </a>
 		</div>
