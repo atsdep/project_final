@@ -7,7 +7,7 @@ if (!isset($_SESSION['member_id'])) {
 	exit(0);
 } else {
 	require ("controllers/calendar_controller.php");
-	require ("/controllers/newpage_controller.php");
+	require ("controllers/newpage_controller.php");
 	require ("config/datetime.php");
 }
 ?>

@@ -6,7 +6,7 @@ if (!isset($_SESSION['member_id'])) {
 	header("location:index.php?login=" . urlencode($_SERVER['REQUEST_URI']) . "&error=1");
 	exit(0);
 } else {
-	require ("/controllers/newpage_controller.php");
+	require ("controllers/newpage_controller.php");
 }
 ?>
 <!DOCTYPE html>

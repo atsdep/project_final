@@ -8,8 +8,8 @@ if (!isset($_SESSION['member_id'])) {
 }else if ($_GET['mid'] != $_SESSION['member_id']){
 	header("location:index.php?");
 }else {
-	require ("/controllers/newpage_controller.php");
-	require ("/controllers/verifycheck_controller.php");
+	require ("controllers/newpage_controller.php");
+	require ("controllers/verifycheck_controller.php");
 }
 ?>
 <!DOCTYPE html>
