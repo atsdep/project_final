@@ -1,7 +1,15 @@
 <?php
 session_start();
-require ("config/datetime.php");
-require ("controllers/calendar_controller.php");
+require ("config/database.php");
+require ("config/connectdb.php");
+if (!isset($_SESSION['member_id'])) {
+	header("location:index.php?login=" . urlencode($_SERVER['REQUEST_URI']) . "&error=1");
+	exit(0);
+} else {
+	require ("controllers/calendar_controller.php");
+	require ("/controllers/newpage_controller.php");
+	require ("config/datetime.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,11 +173,12 @@ require ("controllers/calendar_controller.php");
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price.php"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a id="btn-next-calendar" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="customer-requiements.php">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="price.php<?php if(isset($_GET['id'])){ echo '?id='.$_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a id="btn-next-calendar" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="customer-requiements.php<?php if(isset($_GET['id'])){ echo '?id='.$_GET['id'];}?>">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>
+																	<input type="hidden" value="<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>" id="ann_id">
 																</div>
 															</div>
 														</div>
@@ -230,21 +239,22 @@ require ("controllers/calendar_controller.php");
 		</main>
 	</body>
 		<script type="text/javascript">
-						$(document).ready(function() {
-			var number = <?php echo date("j")?>;
+									$(document).ready(function() {
+			var number = <?php echo date("j")?>
+							;
 
-		var step_oneMouth = document.querySelectorAll("#one_mouth td.DayPicker-day");
-		for (var i = 0; i < step_oneMouth.length; i++) {
+							var step_oneMouth = document.querySelectorAll("#one_mouth td.DayPicker-day");
+							for (var i = 0; i < step_oneMouth.length; i++) {
 
-			if (step_oneMouth[i].innerHTML < number && step_oneMouth[i].innerHTML != "") {
-				step_oneMouth[i].className = "DayPicker-day DayPicker-day--blocked-past-date";
-			}
-		}//block date
+								if (step_oneMouth[i].innerHTML < number && step_oneMouth[i].innerHTML != "") {
+									step_oneMouth[i].className = "DayPicker-day DayPicker-day--blocked-past-date";
+								}
+							}//block date
 
-		$("td.DayPicker-day--available").click(function(e) {
-			$(this).toggleClass("DayPicker-day--available DayPicker-day--unavailable");
-		});
+							$("td.DayPicker-day--available").click(function(e) {
+								$(this).toggleClass("DayPicker-day--available DayPicker-day--unavailable");
+							});
 
-		});
+							});
 	</script>
 </html>
