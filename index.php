@@ -44,7 +44,7 @@ require ("controllers/select_member.php");
 
 	</head>
 	
-	<body>
+	<body class="">
 		<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">

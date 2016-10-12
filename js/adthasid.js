@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	$("#birthday-signup-form-question-trigger").mouseenter(function(e) {
 		$("#question-birthday").attr("aria-hidden", false);
 	}).mouseleave(function() {
@@ -15,8 +16,6 @@ $(document).ready(function() {
 		var txtYear = $("#user_birthday_year").val();
 		var mode = "add";
 
-		
-
 		$.post("controllers/members_controller.php", {
 			fn : txtFirstName,
 			ln : txtLastName,
@@ -29,7 +28,7 @@ $(document).ready(function() {
 		}, function(data) {
 			if (data.error) {
 				sweetAlert("ขออภัย...", data.msg, "error");
-				
+
 			} else {
 				swal({
 					title : "ลงทะเบียนสำเร็จ",
@@ -46,13 +45,11 @@ $(document).ready(function() {
 		return false;
 
 	});
-	
+
 	$("#btnLogin").click(function(e) {
 		var txtEmail = $("#login_email").val();
 		var txtPassword = $("#login_password").val();
 		var mode = "login";
-
-		
 
 		$.post("controllers/members_controller.php", {
 			em : txtEmail,
@@ -61,7 +58,7 @@ $(document).ready(function() {
 		}, function(data) {
 			if (data.error) {
 				sweetAlert("ขออภัย...", data.msg, "error");
-				
+
 			} else {
 				swal({
 					title : "Rentcnd ยินดีต้อนรับคุณ ",
@@ -79,6 +76,5 @@ $(document).ready(function() {
 		return false;
 
 	});
-	
 
 });
