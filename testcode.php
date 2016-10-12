@@ -6,6 +6,8 @@ echo date("d/m/Y",strtotime(str_replace('/', '-', '2016-10-10')));
 echo $birthday = 2016 . "-" . 06 ."-". 23;
 
 echo date("Y-m-d",strtotime(str_replace('/', '-', 2016 . "-" . 06 ."-". 23)));
-echo $_GET['return'];
+
 //header("location:http://".$_SERVER['HTTP_HOST']."/start.php");
+$location = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+echo $location;
 ?>

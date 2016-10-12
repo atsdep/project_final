@@ -1,6 +1,16 @@
-<div id="header" class="airbnb-header new  logged_in">
+<?php
+require ("config/database.php");
+require ("config/connectdb.php");
+require ("controllers/select_member.php");
+
+if (isset($_SESSIONS['member_id'])) {
+	require ("controllers/select_announce_member.php");
+}
+?>
+
+<div id="header" class="airbnb-header new">
 	<div class="header--sm show-sm" aria-hidden="true">
-		<a href="#" aria-label="หน้าแรก" data-prevent-default="" class="link-reset burger--sm"> <i class="icon icon-reorder icon-rausch"></i> <span class="screen-reader-only"> Airbnb </span> </a>
+		<a href="#" aria-label="หน้าแรก" data-prevent-default="" class="link-reset burger--sm"> <i class="icon icon-reorder icon-rausch"></i> <span class="screen-reader-only"> Rentcnd </span> </a>
 		<div class="title--sm text-center">
 			<button class="btn btn-block search-btn--sm search-modal-trigger hide" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 				<i class="icon icon-search icon-gray"></i>
@@ -20,8 +30,12 @@
 			<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rentcnd </a>
 		</div>
 
-		<div class="comp pull-right show-login">
-			<a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/users.php" data-href="/dashboard" data-href-host="/trips"> <span class="value_name margin-right--tiny hide-md">Adthasid</span>
+		<?php
+		if(isset($_SESSION['member_id'])){
+		?>
+		
+		<div class="comp pull-right">
+			<a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/users.php" data-href="/dashboard" data-href-host="/trips"> <span class="value_name margin-right--tiny hide-md"><?php echo $result_mem['member_firstname'] ?></span>
 			<div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray"><img width="28" height="28" src="img/profile.jpg?aki_policy=profile_small" alt="">
 			</div> </a>
 
@@ -31,7 +45,7 @@
 				</div>
 				<!-- <a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
-					การเดินทางของคุณ
+				การเดินทางของคุณ
 				</div> </a> -->
 				<a href="/my_reservations.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
@@ -45,12 +59,19 @@
 				<div class="hover-item__content">
 					เปลี่ยนรหัสผ่าน
 				</div> </a>
-				<a href="#" class=" panel-body link-reset hover-item no-crawl">
+				<a href="/controllers/logout.php?return=<?php echo $_SERVER['REQUEST_URI']  ?>" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					ออกจากระบบ
 				</div> </a>
 			</div>
 		</div>
+		
+		
+		
+
+		<?php
+		}else{
+		?>
 
 		<div class="comp pull-right">
 			<a href="#" data-redirect="redirect_params[action]=host&redirect_params[controller]=info&redirect_params[from_nav]=1&redirect_params[link]=1" class="hdr-btn link-reset"> เข้าสู่ระบบ </a>
@@ -58,13 +79,65 @@
 		<div class="comp pull-right">
 			<a id="" data-signup-modal="" data-toggle="modal" data-target="#signup-modal" href="#sigin" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ลงทะเบียน </a>
 		</div>
+		<?php
+		}
+		?>
+
 		<div class="comp pull-right">
 			<a data-signup-modal="" data-header-view="true" href="#helps" data-redirect="redirect_params[action]=host&amp;redirect_params[controller]=info" class="hdr-btn link-reset"> ความช่วยเหลือ </a>
 		</div>
 		
-		<div class="comp pull-right">
-			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> 
-				<i class="alert-count js-host-item-count listing-count text-center fade in">!</i> </i> </a> <!-- fade in -->
+		<?php
+			if(isset($_SESSION['member_id'])){
+		?>
+		<div class="comp pull-right show-trips js-trips-menu-container">
+			<a class="needsclick no-crawl hdr-btn link-reset js-trips-comp trips-comp" href="/trips" rel="nofollow" data-href="/trips">
+			<div class="inbox-icon-container text-center">
+				<span class="margin-right--tiny hide-md">การเดินทาง</span>
+				<i class="header-icon js-trips-icon icon-suitcase-gray"> <i class="alert-count js-trips-unread-count text-center fade">0</i> </i>
+			</div> </a>
+
+			<div class="panel  drop-down-menu trips-dropdown dark-caret">
+				<div class="trips-tooltip panel panel-body-scroll">
+					<div class="panel-header no-border section-header">
+						<strong><span>การเดินทาง</span></strong><a href="/trips" class="link-reset view-trips pull-right"><strong><span>ดูการเดินทาง</span></strong></a>
+					</div>
+					<div class="trip-row panel-body">
+						<a href="/s/Paris--France?checkin=&amp;checkout=" class="link-reset">
+						<div class="reservation-block">
+							<div class="reservation-info">
+								<div class="va-container va-container-v">
+									<div class="va-middle">
+										<div>
+											<div class="listing-brief text-wrap tiny-space">
+												<strong><span>ไม่มีการเดินทางที่กำลังจะมาถึง</span></strong>
+											</div>
+											<div class="text-muted">
+												<span>ค้นหาต่อไปใน Paris</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="empty-list-icon bg-light-gray pull-right">
+								<i class="icon icon-suitcase-alt icon-size-3 icon-white"></i>
+							</div>
+						</div></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<?php
+		}
+		?>
+
+		<?php
+			if(isset($row_ann) and $row_ann > 0 ){
+		?>
+			<div class="comp pull-right">
+			<a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" href="" rel="nofollow" data-href="/dashboard"> <span class="hide-md margin-right--tiny"> เจ้าของรถเช่า </span> <i class="fa fa-car js-host-icon carhead"> <i class="alert-count js-host-item-count listing-count text-center fade in">!</i> </i> </a><!-- fade in -->
 
 			<div class="panel  drop-down-menu host-tooltip--new">
 				<div class="panel-header no-border hide-lg">
@@ -109,11 +182,11 @@
 					การจองของลูกค้า
 
 				</div> </a>
-				<a href="/my_reservations.php" class=" panel-body link-reset hover-item origin-item js-host-transaction-history-link no-crawl">
+				<!-- <a href="/my_reservations.php" class=" panel-body link-reset hover-item origin-item js-host-transaction-history-link no-crawl">
 				<div class="hover-item__content">
 					การจองของคุณ
 
-				</div> </a>
+				</div> </a> -->
 				<a href="/reviews.php" class=" panel-body link-reset hover-item origin-item js-host-reviews-link no-crawl">
 				<div class="hover-item__content">
 					ความคิดเห็น
@@ -121,10 +194,23 @@
 				</div> </a>
 			</div>
 		</div>
-
-		<div class="comp pull-right hide-host comp-become-a-host">
+		
+		<?php
+		}else{
+		if($_SERVER['REQUEST_URI'] != "/new.php" and $_SERVER['REQUEST_URI'] != "/start.php"){
+		?>
+		
+		<div class="comp pull-right comp-become-a-host">
 			<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="/start.php"> <span class="btn btn-small btn-become-a-host"> สร้างรายได้จากการขับรถ</span> </a>
 		</div>
+		
+		<?php
+		}
+		}
+		?>
+		
+
+		
 
 		<div class="comp pull-left back-to-search-results-wrapper"></div>
 
@@ -139,7 +225,6 @@
 				</div>
 			</form>
 		</div>
-
 	</header>
 
 </div>
