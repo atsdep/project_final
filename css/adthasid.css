@@ -37,6 +37,11 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
 }
 
 /*new*/
+
+.progress-section--completed{
+	background-color: #41687F;
+    border-right-color: #41687F;
+}
 .correct {
 	position: absolute;
 	top: 50%;
@@ -45,7 +50,7 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	right: 45px;
+	right: -170px;
 }
 
 .help-soft {

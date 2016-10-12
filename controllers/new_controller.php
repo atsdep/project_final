@@ -416,8 +416,10 @@ if (isset($_POST["mode"])) {
 		if (!$update_ann_query) {
 			$data["error"] = true;
 			$data["msg"] = "ระบบผิดพลาด " . $sql_update_ann;
+		
 		} else {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
+			$data["goto"] =  "mycar.php";
 		}
 	}
 

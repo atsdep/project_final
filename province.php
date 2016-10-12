@@ -51,6 +51,7 @@ if (!isset($_SESSION['member_id'])) {
 						<div class="list-your-space__progress">
 							<div class="list-your-space__header">
 								<div class="airbnb-header new">
+									
 									<div class="regular-header clearfix">
 										<div class="comp pull-left">
 											<a href="/" class="hdr-btn link-reset belo-container text-logo" aria-label="Rentcnd"> Rentcnd </a>
@@ -64,9 +65,18 @@ if (!isset($_SESSION['member_id'])) {
 									</div>
 								</div>
 								<div>
-									<div class="progress-bar__container"></div>
+					
+									<div class="progress-bar__container progress-bar--edit">
+										<div>
+											<span>
+												<div class="progress-section progress__bar-section progress-section--first progress-section--completed progress-bar--edit" style="width:100%;left:0%;max-width:100%;"></div>
+											</span>
+										</div>
+									</div>
 								</div>
-							</div><div class="left-backdrop"></div><div class="right-backdrop hide-sm bg-white right-backdrop--with-bg"></div>
+							</div>
+							
+							<div class="left-backdrop"></div><div class="right-backdrop hide-sm bg-white right-backdrop--with-bg"></div>
 							<div class="list-your-space__content">
 								<div class="centered-content clearfix">
 									<div class="main-panel-container no-padding-h bg-white main-panel-outer-half clearfix" tabindex="-1">
@@ -106,6 +116,7 @@ if (!isset($_SESSION['member_id'])) {
 																		<span>ถัดไป</span>
 																	</div> </a>
 																	<input type="hidden" value="<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>" id="ann_id">
+																	<input type="hidden" id="announce_status" value="<?php if (isset($result_select_announce['announce_status'])) { echo $result_select_announce['announce_status']; }; ?>">
 																</div>
 															</div>
 														</div>

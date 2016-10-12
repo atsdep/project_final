@@ -469,6 +469,7 @@ $(document).ready(function() {
 	$("#btn-new-show").click(function() {
 		var mode = "announce_show";
 		var ann_id = $("#ann_id").val();
+		console.log(ann_id);
 		$.post("controllers/new_controller.php", {
 			ann_id : ann_id,
 			mode : mode
@@ -477,6 +478,7 @@ $(document).ready(function() {
 				console.log(data.msg);
 			} else {
 				console.log(data.msg);
+				window.location.replace(data.goto);
 			}
 		}, "json");
 	});
