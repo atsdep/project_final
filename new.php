@@ -182,7 +182,7 @@ if (!isset($_SESSION['member_id'])) {
 											</div>
 											<span>
 												<div class="landing__publish-section hide">
-													<h3><span>เยี่ยม! คุณพร้อมเผยแพร่แล้ว</span></h3>
+													<h3><span>เยี่ยม! คุณพร้อมเผยแพร่ประกาศแล้ว</span></h3>
 													<p class="text-gray">
 														<span>ไม่นานหลังจากนี้ รถเช่าของคุณจะปรากฏบน  Rentcnd ผู้ใช้บริการสามารถจองวันแรกที่ปฏิทินของคุณแสดงว่ารถเช่าคุณว่าง</span>
 													</p>
