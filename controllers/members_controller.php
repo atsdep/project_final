@@ -38,10 +38,20 @@ if (isset($_POST["mode"])) {
 		$row_login = mysqli_num_rows($login_query);
 		
 		if($row_login == 1){
-			$data["error"] = false;
-			$data["msg"] = $result_login["member_firstname"];
-			$_SESSION['login'] = true;
-			$_SESSION['member_id']= $result_login["member_id"];
+			if($_POST['re']){
+				$data["error"] = false;
+				$data["msg"] = $result_login["member_firstname"];
+				$_SESSION['login'] = true;
+				$_SESSION['member_id']= $result_login["member_id"];
+				$data["repage"] = $_POST['re'];
+				
+			}else{
+				$data["error"] = false;
+				$data["msg"] = $result_login["member_firstname"];
+				$_SESSION['login'] = true;
+				$_SESSION['member_id']= $result_login["member_id"];
+			}
+			
 		}else{
 			$data["error"] = true;
 			$data["msg"] = "อีเมลล์หรือรหัสผ่านของคุณไม่ถูกต้อง";

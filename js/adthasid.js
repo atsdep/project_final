@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	
 	$("#birthday-signup-form-question-trigger").mouseenter(function(e) {
 		$("#question-birthday").attr("aria-hidden", false);
 	}).mouseleave(function() {
@@ -49,11 +49,14 @@ $(document).ready(function() {
 	$("#btnLogin").click(function(e) {
 		var txtEmail = $("#login_email").val();
 		var txtPassword = $("#login_password").val();
+		var returnpage =  $("#return").val();
 		var mode = "login";
+		
 
 		$.post("controllers/members_controller.php", {
 			em : txtEmail,
 			pw : txtPassword,
+			re : returnpage,
 			mode : mode
 		}, function(data) {
 			if (data.error) {
@@ -68,7 +71,11 @@ $(document).ready(function() {
 					timer : 2000,
 					showConfirmButton : true
 				}, function() {
-					location.reload();
+					if(!data.repage){
+						location.reload();
+					}else{
+						window.location.assign(data.repage);
+					}	
 				});
 			}
 

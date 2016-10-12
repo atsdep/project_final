@@ -180,6 +180,7 @@ require ("controllers/select_member.php");
 								<button id="btnLogin" type="button" class="btn btn-signin btn-block signup-login-form__btn-xl btn-large">
 									เข้าสู่ระบบ
 								</button>
+								<input id="return" type="hidden" value="<?php if(isset($_GET['login'])){echo $_GET['login'];} ?>">
 							</div>
 						</form>
 					</div>
@@ -642,5 +643,19 @@ require ("controllers/select_member.php");
 	require ('config/js.php');
 	?>
 		<script src="js/adthasid.js" type="text/javascript"></script>
-	
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+		
+	<?php if(isset($_GET['login']) AND !isset($_SESSION['member_id']) ){
+		
+	?>
+		sweetAlert("กรุณา login");
+		$("#modal-login").modal();
+	<?php	
+	}
+	?>
+	});
+
+	</script>
 </html>
