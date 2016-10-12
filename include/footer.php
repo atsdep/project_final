@@ -19,11 +19,9 @@
 
 		<div class="text-center">
 			<h2 class="h5 space-4 hide-sm">ติดตามเราได้ที่</h2>
-			<ul class="list-layout list-inline" itemscope="" itemtype="http://schema.org/Organization">
-				<link itemprop="url" href="https://th.adthasid.com">
-				<meta itemprop="logo" content="https://a2.muscache.com/adthasid/static/logos/belo-200x200-4d851c5b28f61931bf1df28dd15e60ef.png">
+			<ul class="list-layout list-inline">
 				<li>
-					<a href="https://www.facebook.com/adthasid" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon footer-icon icon-facebook"></i> </a>
+					<a href="https://www.facebook.com/adthasid.suksomthawisap" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon footer-icon icon-facebook"></i> </a>
 				</li>
 				<li>
 					<a href="https://plus.google.com/+adthasid" class="link-contrast footer-icon-container" itemprop="sameAs" rel="publisher" target="_blank"> <span class="screen-reader-only">Google+</span> <i class="icon footer-icon icon-google-plus"></i> </a>
@@ -44,7 +42,7 @@
 					<a href="https://www.youtube.com/user/adthasid" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">YouTube</span> <i class="icon footer-icon icon-youtube"></i> </a>
 				</li>
 				<li>
-					<a href="https://instagram.com/adthasid" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Instagram</span> <i class="icon footer-icon icon-instagram"></i> </a>
+					<a href="https://instagram.com/suksomthawisap" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Instagram</span> <i class="icon footer-icon icon-instagram"></i> </a>
 				</li>
 			</ul>
 			<div class="space-top-2 text-muted">
