@@ -650,7 +650,7 @@ require ("controllers/select_member.php");
 	<?php if(isset($_GET['login']) AND !isset($_SESSION['member_id']) ){
 		
 	?>
-		sweetAlert("กรุณา login");
+		//sweetAlert("กรุณา login");
 		$("#modal-login").modal();
 	<?php	
 	}
