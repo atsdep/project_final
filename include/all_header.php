@@ -2,6 +2,7 @@
 require ("config/database.php");
 require ("config/connectdb.php");
 require ("controllers/select_member.php");
+require ("config/datetime.php");
 
 if (isset($_SESSIONS['member_id'])) {
 	require ("controllers/select_announce_member.php");

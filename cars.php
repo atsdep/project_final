@@ -1,8 +1,12 @@
 <?php
 session_start();
+if (!isset($_GET['id'])) {
+	header("location:index.php");
+	exit(0);
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
@@ -31,10 +35,63 @@ session_start();
 	</head>
 
 	<body class="with-new-header no_wiggle_webkit">
+		
+		
 
 		<script src="https://a2.muscache.com/airbnb/static/packages/header_cookie.bundle-8fccc80bc11420dd7f69.js" type="text/javascript"></script>
-
+	
+		<?php
+		include 'include/all_header.php';
+		?>
 		<main id="site-content" role="main">
+		<?php
+			if (isset($_GET['id' ])) {
+			$sql_select_all = "SELECT members.member_firstname,
+			members.member_profile_photo,
+			provinces.PROVINCE_NAME,
+			car_category.car_category_name,
+			car_gene.car_gene_name,
+			car_brand.car_brand_name,
+			announces.*
+			FROM announces
+			INNER JOIN provinces
+			ON announces.car_province = provinces.PROVINCE_ID
+			INNER JOIN car_gene
+			ON car_gene.car_gene_id = announces.car_gene_id
+			INNER JOIN car_brand
+			ON car_brand.car_brand_id = car_gene.car_brand_id
+			INNER JOIN car_category
+			ON car_gene.car_category_id = car_category.car_category_id
+			INNER JOIN members
+			ON announces.member_id = members.member_id
+			WHERE announces.announce_id = '". $_GET['id' ] ."'";
+
+				$query_ann_cars = mysqli_query($connect, $sql_select_all);
+				$result_ann_cars =  mysqli_fetch_assoc($query_ann_cars);
+				$row_ann_cars = mysqli_num_rows($query_ann_cars);
+			}
+			if ($row_ann_cars == 1) {
+				$price = number_format($result_ann_cars['announce_price']);
+				$title = $result_ann_cars['announce_title'];
+				$province = $result_ann_cars['PROVINCE_NAME'];
+				$photos_1 = 'img/'.$result_ann_cars['announce_photos_1'];
+				
+				if(isset($result_ann_cars['member_profile_photo'])){
+					$profile_photo = 'img/'.$result_ann_cars['member_profile_photo'];
+				}else{
+					$profile_photo = 'img/profile.jp';
+				}
+				$car_gene = $result_ann_cars['car_gene_name'];
+				$car_brand = $result_ann_cars['car_brand_name'];
+				$car_year = $result_ann_cars['car_year'];
+				$car_category = $result_ann_cars['car_category_name'];
+				$passenger = $result_ann_cars['announce_passenger'];
+				$description = $result_ann_cars['announce_description'];
+				
+				
+			}
+			?>	
+		
 			<div class="subnav-container">
 				<div class="subnav book-it show-md" data-sticky="true" data-transition-at="#details" aria-hidden="true">
 					<div class="page-container-responsive">
@@ -44,7 +101,7 @@ session_start();
 									<strong>
 									<div>
 										<div>
-											<span class="h3 text-contrast price-amount"><span>฿3,005</span></span>
+											<span class="h3 text-contrast price-amount"><span>฿<?php echo $price ?></span></span>
 											<span class="listing-price__per-night hide-sm"> <span>ต่อวัน</span></span>
 										</div>
 									</div> </strong>
@@ -90,17 +147,17 @@ session_start();
 				<div>
 					<div>
 						<div id="photos" class="with-photos with-modal">
-							<span class="cover-photo"><img class="hide" alt="" width="0" src="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=large" srcset="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=large 639w,https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=xx_large 1440w"> <span class="cover-img-container" data-hook="cover-img-container">
-									<div class="cover-img" style="background-image:url(https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=xx_large);">
+							<span class="cover-photo"><img class="hide" alt="" width="0" src="<?php echo $photos_1?>?aki_policy=large" srcset="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=large 639w,https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=xx_large 1440w"> <span class="cover-img-container" data-hook="cover-img-container">
+									<div class="cover-img" style="background-image:url(<?php echo $photos_1?>?aki_policy=xx_large);">
 										<div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm">
 											<div>
-												<span class="h3 text-contrast price-amount"><span>฿3,005</span></span>
+												<span class="h3 text-contrast price-amount"><span>฿<?php echo $price ?></span></span>
 												<span class="listing-price__per-night hide-sm"> <span>ต่อวัน</span></span>
 											</div>
 										</div>
 									</div></span>
 								<div class="slideshow-inline-preload hide">
-									<img class="carousel-image img-responsive-height" src="https://a2.muscache.com/im/pictures/b3c359cd-c2e1-41ca-9dcd-2a9f9f1856f5.jpg?aki_policy=x_large" alt="">
+									<img class="carousel-image img-responsive-height" src="<?php echo $photos_1?>?aki_policy=x_large" alt="">
 								</div>
 								<div class="hero__view-photos">
 									<button type="button" class="btn">
@@ -135,13 +192,13 @@ session_start();
 											<div class="row">
 												<div class="col-md-3 space-sm-4 text-center space-sm-2">
 													<div class="media-photo-badge">
-														<a href="#host-profile" class="media-photo media-round"> <img alt="ใช้รูปโปรไฟล์" class="host-profile-image" height="115" width="115" data-pin-nopin="true" src="img/profile.jpg?aki_policy=profile_x_medium" title="Adthasid"></a>
+														<a href="#host-profile" class="media-photo media-round"> <img alt="ใช้รูปโปรไฟล์" class="host-profile-image" height="115" width="115" data-pin-nopin="true" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="Adthasid"></a>
 													</div>
 												</div>
 												<div class="col-md-9">
-													<h1 class="overflow h3 space-1 text-center-sm" id="listing_name">ชื่อประกาศ ฮาโหลหนึ่งสองสามสี่ห้าหกเจ็ดแปด</h1>
+													<h1 class="overflow h3 space-1 text-center-sm" id="listing_name"><?php echo $title ?></h1>
 													<div id="display-address" class="space-2 text-muted text-center-sm" data-location="กรุงเทพมหานคร">
-														<a href="#neighborhood" class="link-reset">กรุงเทพมหานคร</a>
+														<a href="#neighborhood" class="link-reset"><?php echo $province?></a>
 													</div>
 													<div class="row row-condensed text-muted text-center">
 														<div class="col-sm-3">
@@ -150,9 +207,9 @@ session_start();
 														<div class="col-sm-3">
 															<i class="icon icon-group icon-size-2" aria-hidden="true"></i>
 														</div>
-														<div class="col-sm-3">
+														<!-- <div class="col-sm-3">
 															<i class="icon icon-star icon-size-2" aria-hidden="true"></i>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -163,14 +220,14 @@ session_start();
 												<div class="col-md-9">
 													<div class="row row-condensed text-muted text-center">
 														<div class="col-sm-3">
-															รถเก๋ง
+															<?php echo $car_category ?>
 														</div>
 														<div class="col-sm-3">
-															ผู้โดยสาร 1 คน
+															ผู้โดยสาร <?php echo $passenger ?> คน
 														</div>
-														<div class="col-sm-3">
+														<!-- <div class="col-sm-3">
 															3 ที่นั่ง
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -190,10 +247,10 @@ session_start();
 														<div class="row">
 															<div class="col-sm-8">
 																<div class="screen-reader-only">
-																	<span class="h3"><span>฿3,005</span></span><span>ต่อวัน</span>
+																	<span class="h3"><span>฿<?php echo $price ?></span></span><span>ต่อวัน</span>
 																</div>
 																<div class="book-it__price-amount text-special" aria-hidden="true">
-																	<span class="h3"><span>฿3,005</span></span>
+																	<span class="h3"><span>฿<?php echo $price ?></span></span>
 																</div>
 															</div>
 															<div class="col-sm-4">
@@ -250,7 +307,7 @@ session_start();
 																		<span>ขอจอง</span>
 																	</button>
 																	<div class="bookit-message__container text-center text-muted">
-																		<small><span>ราคาโดยประมาณ</span></small>
+																		<small><span>ราคาเริ่มต้นโดยประมาณ</span></small>
 																	</div>
 																</div>
 																<div class="hide">
@@ -295,7 +352,7 @@ session_start();
 												<h4 class="space-4 text-center-sm"><span><span>เกี่ยวกับรถเช่านี้  (</span><span><a href="/manage-listing/15417960" class="link-underline"><span>แก้ไขรถเช่า</span></a></span> <span>)</span></span></h4>
 												<div>
 													<p>
-														<span>สวัสดีครับ</span>
+														<span><?php echo $description ?></span>
 													</p>
 												</div>
 												<!-- <div class="row row-condensed">
@@ -321,32 +378,35 @@ session_start();
 														<div class="row">
 															<div class="col-md-6">
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>ยี่ห้อ:</span><span>&nbsp;</span><strong><?php echo $car_brand ?></strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รุ่น:</span><span>&nbsp;</span><strong><?php echo $car_gene ?></strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>ปี:</span><span>&nbsp;</span><strong><?php echo $car_year ?></strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>ประเภท:</span><span>&nbsp;</span><strong><?php echo $car_category ?></strong>
 																</div>
 
 															</div>
 															<div class="col-md-6">
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong><?php echo $passenger ?></strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>ประเภทเชื้อเพลิง:</span><span>&nbsp;</span><strong>ไฟฟ้า</strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>ขนาดเครื่องยนต์:</span><span>&nbsp;</span><strong>1800 cc</strong>
 																</div>
 																<div>
-																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																	<span>สี:</span><span>&nbsp;</span><strong>ขาว</strong>
 																</div>
+																<!-- <div>
+																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong>1</strong>
+																</div> -->
 															</div>
 														</div>
 														<div class="row">
@@ -454,7 +514,7 @@ session_start();
 																<div class="expandable-content expandable-content-long">
 																	<div>
 																		<p>
-																			<span>สวัสดีครับ</span>
+																			<span><?php echo $description ?></span>
 																		</p>
 																	</div><div class="expandable-indicator"></div>
 																</div>
@@ -479,14 +539,14 @@ session_start();
 													<div class="col-md-9">
 														<div class="structured_house_rules">
 															<div class="row col-sm-12">
-																<span>ไม่มีงานสังสรรค์หรือเหตุการณ์</span>
+																<span>ไม่ดื่มในรถ</span>
 															</div>
-															<div class="row col-sm-12 space-top-1">
+															<!-- <div class="row col-sm-12 space-top-1">
 																<span>อาจไม่ปลอดภัยหรือเหมาะกับเด็ก (อายุ 0-12 ปี)</span>
 															</div>
 															<div class="row col-sm-12 space-top-1">
 																<span>เวลาเช็คอินคือหลัง 15:00</span>
-															</div>
+															</div> -->
 															<div class="row">
 																<div class="col-sm-2">
 																	<hr class="structured_house_rules__hr">
@@ -1428,7 +1488,7 @@ session_start();
 								</div>
 								<ul id="guidebook-recommendations" class="hide">
 									<li class="user-image">
-										<a href="users/15417960"><img alt="Adthasid" data-pin-nopin="true" height="90" src="https://a2.muscache.com/im/pictures/26ff8bef-2333-4265-b6d2-cc1e86b349b4.jpg?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
+										<a href="profile.php"><img alt="Adthasid" data-pin-nopin="true" height="90" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
 									</li><li href="" class="info" data-neighborhood-id="3300"></li>
 								</ul>
 								<div id="hover-card" class="panel">
@@ -1658,7 +1718,7 @@ session_start();
 						</div>
 					</div>
 				</div>
-			</div><!-- ver. fee0ae7d352d98eadff675470c0c0f56b09e2b19 -->
+			</div>
 		</div>
 
 		<div>
@@ -1671,9 +1731,4 @@ session_start();
 		</div>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>
