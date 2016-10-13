@@ -137,7 +137,7 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="media-photo media-photo-block-lg" >
 															<?php 
 															if(!isset($result_ann['announce_photos_1'])){
-																$img = "img/car_default_no_photos";
+																$img = "img/car_default_no_photos.png";
 															}else{
 																$img = 'img/'.$result_ann['announce_photos_1'];
 															}
@@ -234,7 +234,7 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="media-photo media-photo-block-lg">
 															<?php 
 															if(!isset($result_ann['announce_photos_1'])){
-																$img = "img/car_default_no_photos";
+																$img = "img/car_default_no_photos.png";
 															}else{
 																$img = 'img/'.$result_ann['announce_photos_1'];
 															}
@@ -302,7 +302,7 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="media-photo media-photo-block-lg">
 															<?php 
 															if(!isset($result_ann['announce_photos_1'])){
-																$img = "img/car_default_no_photos";
+																$img = "img/car_default_no_photos.png";
 															}else{
 																$img = 'img/'.$result_ann['announce_photos_1'];
 															}

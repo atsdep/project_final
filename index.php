@@ -642,7 +642,7 @@ require ("controllers/select_member.php");
 	<?php
 	require ('config/js.php');
 	?>
-		<script src="js/adthasid.js" type="text/javascript"></script>
+	<script src="js/adthasid.js" type="text/javascript"></script>
 	<script type="text/javascript">
 
 	$(document).ready(function() {
@@ -650,7 +650,7 @@ require ("controllers/select_member.php");
 	<?php if(isset($_GET['login']) AND !isset($_SESSION['member_id']) ){
 		
 	?>
-		//sweetAlert("กรุณา login");
+		
 		$("#modal-login").modal();
 	<?php	
 	}
