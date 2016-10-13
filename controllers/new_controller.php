@@ -2,6 +2,7 @@
 session_start();
 require ("../config/database.php");
 require ("../config/connectdb.php");
+require '../config/datetime.php';
 if (isset($_POST["mode"])) {
 	$member_id = $_SESSION['member_id'];
 
@@ -64,13 +65,14 @@ if (isset($_POST["mode"])) {
 			}
 
 		} else {
-			$sql_insert_ann = "INSERT INTO announces (member_id,car_province)
-			values($member_id,'" . $_POST["province"] . "')";
+			$date = date("Y-m-d H:i:s");
+			$sql_insert_ann = "INSERT INTO announces (member_id,car_province,announce_create_date)
+			values($member_id,'" . $_POST["province"] . "', '".$date. "' )";
 
 			$add_ann_query = mysqli_query($connect, $sql_insert_ann);
 			if (!$add_ann_query) {
 				$data["error"] = true;
-				$data["msg"] = "ลงประกาศไม่สำเร็จ";
+				$data["msg"] = "ลงประกาศไม่สำเร็จ " . $sql_insert_ann;
 			} else {
 
 				$sql_select_ann = "SELECT * FROM announces WHERE member_id = $member_id ORDER BY announce_id DESC Limit 1";
@@ -83,7 +85,7 @@ if (isset($_POST["mode"])) {
 					$data["error"] = false;
 					$data["msg"] = "บันทึกเรียบร้อยแล้ว ";
 					$data["ann_id"] = $result_select_ann['announce_id'];
-					$data["goto"] = "map.php?id=" . $data["ann_id"];
+					$data["goto"] = "map.php?id=" . $result_select_ann['announce_id'];
 				} else {
 					$data["error"] = true;
 					$data["msg"] = "ระบบผิดพลาด ";

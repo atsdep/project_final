@@ -1,5 +1,15 @@
 <?php
 session_start();
+require ("config/database.php");
+require ("config/connectdb.php");
+require ("config/datetime.php");
+if (!isset($_SESSION['member_id'])) {
+	//header("location:http://".$_SERVER['HTTP_HOST']."?pleaselogin=1");
+	header("location:index.php?login=" . urlencode($_SERVER['REQUEST_URI']) . "&error=1");
+	exit(0);
+} else {
+	require ("controllers/mycartab_controller.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -28,6 +38,10 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/mycartab_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -45,6 +59,9 @@ session_start();
 						</li>
 						<li>
 							<a href="users.php" aria-selected="false" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
+						</li>
+						<li>
+							<a href="trips.php" aria-selected="false" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
 						</li>
 						<li>
 							<a href="account.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
@@ -92,6 +109,58 @@ session_start();
 											</div>
 										</div>
 										<ul class="list-unstyled list-layout" >
+											<?php
+											
+												$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' ORDER by  announces.announce_update_date DESC ");
+												$row_all = mysqli_num_rows($query_ann);
+												if($row_all > 0) {
+												while ($result_ann = mysqli_fetch_assoc($query_ann)) {
+											?>
+											<li class="listing panel-body" data-hosting-id="15415428" >
+												<div class="row row-table" >
+													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
+													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
+														<a href="/manage-listing/15415428" >
+														<div class="media-photo media-photo-block-lg" >
+															<div class="media-cover text-center" ><img class="img-responsive-height" src="" >
+															</div>
+														</div></a>
+													</div>
+													<div class="col-sm-10 col-lg-7 col-middle" >
+														<div class="row row-table" >
+															<div class="col-lg-10" >
+																<div class="listing-progress" >
+																	<div class="text-babu space-top-1" >
+																		<span >พร้อมที่จะประกาศแล้ว!</span>
+																	</div><div class="space-top-2" ></div>
+																</div>
+															</div>
+														</div><span class="h4" ><a href="/manage-listing/15415428" class="text-normal" ><span ><span ><?php echo $result_ann['announce_title'];   ?></span></span></a></span>
+														<div class="text-muted text-grey space-top-1 last-modified-date" >
+															<?php
+															$date = date_create($result_ann['announce_update_date']);
+															//date_format($date,"Y/m/d H:i:s");
+															
+
+															$strDate = $result_ann['announce_update_date'];
+															//echo "ThaiCreate.Com Time now : " . DateThai($strDate);
+															?>
+															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
+														</div>
+														<div class="space-top-4" >
+															
+															<a class="btn btn__first-btn btn-primary" href="/manage-listing/15415428?listnow" ><span >ลงประกาศรถเช่า</span></a><a class="btn btn__second-btn" href="/rooms/15415428" ><span >ดูตัวอย่าง</span></a>
+														</div><noscript ></noscript>
+													</div>
+												</div>
+											</li>
+											
+											<?php
+											}
+											}else{
+											echo $row_ann . ' test';
+											}
+											?>
 											<li class="listing panel-body" data-hosting-id="15425938" >
 												<div class="row row-table" >
 													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
@@ -199,9 +268,4 @@ session_start();
 		?>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>

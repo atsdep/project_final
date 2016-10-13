@@ -43,6 +43,7 @@ if (isset($_POST["mode"])) {
 				$data["msg"] = $result_login["member_firstname"];
 				$_SESSION['login'] = true;
 				$_SESSION['member_id']= $result_login["member_id"];
+				$_SESSION['member_firstname']= $result_login["member_firstname"];
 				$data["repage"] = $_POST['re'];
 				
 			}else{

@@ -36,6 +36,10 @@ if (!isset($_SESSION['member_id'])) {
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
+		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -115,7 +119,7 @@ if (!isset($_SESSION['member_id'])) {
 												</div>
 												<div class="row no-margin-h">
 
-													<div class="col-sm-12 space-4">
+													<div id="input-main-photos" class="col-sm-12 space-4">
 														<div>
 															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
 															<label class="col label--no-margin-padding" for="photo-image">
@@ -123,7 +127,7 @@ if (!isset($_SESSION['member_id'])) {
 																	<div class="va-middle text-center text-gray img__upload-photos-ghosts">
 																		<div class="col col-center">
 																			<div class="btn btn-soft-dark btn-jumbo">
-																				<i class="icon icon-upload" ></i><span > </span><span>อัพโหลดรูปภาพ</span>
+																				<i class="icon icon-upload"></i><span> </span><span>อัพโหลดรูปภาพ</span>
 																			</div>
 																			<div class="row space-top-2">
 																				<div class="h4 text-normal">
@@ -135,22 +139,21 @@ if (!isset($_SESSION['member_id'])) {
 																</div></label>
 														</div>
 													</div>
-													<div class="col-sm-12 no-padding-h">
+													<div id="show-photos" class="col-sm-12 no-padding-h hide">
 														<div class="drag-and-drop__container list-unstyled photo-list__container">
-															<div class="col-sm-12" draggable="true">
+															<div class="col-sm-12" draggable="false">
 																<div class="photos-list__item">
-																	<div class="panel-image" data-confirm="false"><img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/25513508-e5c9-42b3-8875-5b4e21915b73.jpg?aki_policy=xx_large">
+																	<div class="panel-image" data-confirm="false"><img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/f0cde288-859c-4a81-9e58-a7d84a3d8d5b.jpg?aki_policy=xx_large">
 																		<div class="photo-preview__title-badge">
-																			<span class="text-cover-photo text-large text-normal"><span>รูปหน้าปก</span></span>
-																			<div class="icon__title-photo-badge icon--with-margin pull-right"></div>
+																			<span class="text-cover-photo text-large text-normal"><span>รูปหน้าปก</span></span><div class="icon__title-photo-badge icon--with-margin pull-right"></div>
 																		</div>
-																		<div class="photo-preview__btns always-show">
+																		<div class="photo-preview__btns not-always-show">
 																			<div class="btn photo-preview__btn photo-preview__delete-btn">
 																				<div class="img__icon-trash-large img__icon-large pull-left"></div>
 																			</div>
 																		</div>
 																		<div class="media-photo media-photo-block photos-list__title-canvas" style="height:285.6666666666667px;">
-																			<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475939817265 photo-preview__cover-img-responsive" data-index="0" src="https://a2.muscache.com/im/pictures/25513508-e5c9-42b3-8875-5b4e21915b73.jpg?aki_policy=xx_large" style="position: relative; top: -286.172px;">
+																			<div class="media-cover text-center img-with-border"><img id="blah" role="presentation" class="img-responsive-height img-preview-15480579_221120381 photo-preview__cover-img-responsive" data-index="0" src="https://a2.muscache.com/im/pictures/f0cde288-859c-4a81-9e58-a7d84a3d8d5b.jpg?aki_policy=xx_large" style="position: relative; top: -142.177px;">
 																			</div>
 																		</div>
 																	</div>
@@ -173,73 +176,73 @@ if (!isset($_SESSION['member_id'])) {
 
 																</div>
 															</div>
-															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-																<div class="photos-list__item">
-																	<div class="panel-image" data-confirm="false">
-																		<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-																		<div class="photo-preview__btns always-show photo-preview__btns--show">
-																			<div class="btn photo-preview__btn photo-preview__delete-btn photo-preview__delete--confirm">
-																				<div class="img__icon-trash-large img__icon-large pull-left"></div>
-																				<span class="text-white text-large text-normal text-remove-confirm"> <span>ลบใช่ไหม? </span> </span>
-																			</div>
-																		</div>
-																		<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-																			<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-																			</div>
-																		</div>
-																	</div>
+															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
+															<div class="photos-list__item">
+															<div class="panel-image" data-confirm="false">
+															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
+															<div class="photo-preview__btns always-show photo-preview__btns--show">
+															<div class="btn photo-preview__btn photo-preview__delete-btn photo-preview__delete--confirm">
+															<div class="img__icon-trash-large img__icon-large pull-left"></div>
+															<span class="text-white text-large text-normal text-remove-confirm"> <span>ลบใช่ไหม? </span> </span>
+															</div>
+															</div>
+															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
+															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
+															</div>
+															</div>
+															</div>
 
-																</div>
 															</div>
-															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-																<div class="photos-list__item">
-																	<div class="panel-image" data-confirm="false">
-																		<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-																		<div class="photo-preview__btns always-show">
-																			<div class="btn photo-preview__btn photo-preview__delete-btn">
-																				<div class="img__icon-trash-large img__icon-large pull-left"></div>
-																			</div>
-																		</div>
-																		<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-																			<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-																			</div>
-																		</div>
-																	</div>
+															</div> -->
+															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
+															<div class="photos-list__item">
+															<div class="panel-image" data-confirm="false">
+															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
+															<div class="photo-preview__btns always-show">
+															<div class="btn photo-preview__btn photo-preview__delete-btn">
+															<div class="img__icon-trash-large img__icon-large pull-left"></div>
+															</div>
+															</div>
+															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
+															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
+															</div>
+															</div>
+															</div>
 
-																</div>
 															</div>
-															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-																<div>
-																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-																	<label class="col label--no-margin-padding" for="photo-image">
-																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-																			<div class="va-container va-container-v va-container-h">
-																				<div class="va-middle text-center">
-																					<div class="img__icon-plus-grey img-center"></div>
-																					<div class="text-gray space-top-2">
-																						<span>เพิ่มมากขึ้น</span>
-																					</div>
-																				</div>
-																			</div>
-																		</div></label>
-																</div>
+															</div> -->
+															<!-- <div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
+															<div>
+															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
+															<label class="col label--no-margin-padding" for="photo-image">
+															<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
+															<div class="va-container va-container-v va-container-h">
+															<div class="va-middle text-center">
+															<div class="img__icon-plus-grey img-center"></div>
+															<div class="text-gray space-top-2">
+															<span>เพิ่มมากขึ้น</span>
 															</div>
-															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-																<div>
-																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-																	<label class="col label--no-margin-padding" for="photo-image">
-																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-																			<div class="va-container va-container-v va-container-h">
-																				<div class="va-middle text-center">
-																					<div class="img__icon-plus-grey img-center"></div>
-																					<div class="text-gray space-top-2">
-																						<span>เพิ่มมากขึ้น</span>
-																					</div>
-																				</div>
-																			</div>
-																		</div></label>
-																</div>
 															</div>
+															</div>
+															</div></label>
+															</div>
+															</div> -->
+															<!-- <div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
+															<div>
+															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
+															<label class="col label--no-margin-padding" for="photo-image">
+															<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
+															<div class="va-container va-container-v va-container-h">
+															<div class="va-middle text-center">
+															<div class="img__icon-plus-grey img-center"></div>
+															<div class="text-gray space-top-2">
+															<span>เพิ่มมากขึ้น</span>
+															</div>
+															</div>
+															</div>
+															</div></label>
+															</div>
+															</div> -->
 														</div>
 													</div>
 												</div>
@@ -253,12 +256,21 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
-																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="description.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>">
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php?id=<?php
+																	if (isset($_GET['id'])) { echo $_GET['id'];
+																	}
+																	?>"><span class="icon hide-sm"></span><span class="va-middle"> <h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md" href="description.php?id=<?php
+																	if (isset($_GET['id'])) { echo $_GET['id'];
+																	}
+																	?>">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div></a>
-																	<input type="hidden" value="<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>" id="ann_id">
+																	<input type="hidden" value="<?php
+																	if (isset($_GET['id'])) { echo $_GET['id'];
+																	}
+																	?>" id="ann_id">
 																</div>
 															</div>
 														</div>

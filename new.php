@@ -10,6 +10,7 @@ if (!isset($_SESSION['member_id'])) {
 	if (isset($_GET['id'])) {
 		require ("controllers/newpage_controller.php");
 	}
+	require ("controllers/select_member.php");
 }
 ?>
 <!DOCTYPE html>
@@ -68,7 +69,7 @@ if (!isset($_SESSION['member_id'])) {
 								<span>
 									<div id="finish" class="col-md-7 landing__left-col">
 										<div class="landing__left-col-content">
-											<h2 class="landing__title-title space-5"><span>สวัสดี Adthasid! มาเตรียมความพร้อมของคุณในการเป็นเจ้าของรถเช่ากันเถอะ</span></h2>
+											<h2 class="landing__title-title space-5"><span>สวัสดีคุณ <?php echo $result_mem['member_firstname']  ;?>! มาเตรียมความพร้อมของคุณในการเป็นเจ้าของรถเช่ากับ Rentcnd กันเถอะ</span></h2>
 											<div class="step-1">
 												<div class="landing-step-collection">
 													<div class="row row-condensed lys-vertical-align-middle-container">

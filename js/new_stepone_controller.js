@@ -18,7 +18,7 @@ $(document).ready(function() {
 			}
 
 		}, "json");
-		//return false;
+		return false;
 	});
 
 	$("#car-gene").change(function() {
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 	$("#car-brand").change(function() {
 		var vBrand = $("#car-brand").val();
-		
+
 		$.post("controllers/select_car_gene.php", {
 			b : vBrand
 		}, function(data) {
@@ -165,6 +165,25 @@ $(document).ready(function() {
 
 		}, "json");
 	});
+
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+                console.log(e.target.result);
+            };
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#photo-image").change(function(){
+    	$("#input-main-photos").addClass("hide");
+    	$("#show-photos").removeClass("hide");
+        readURL(this);
+    });
 
 	$("#next-description").click(function() {
 		var vDes = $("#description").val();
@@ -411,7 +430,7 @@ $(document).ready(function() {
 			}
 		}, "json");
 	});
-	
+
 	$("#pet #pet_no").click(function() {
 		var vPet = 0;
 		var mode = "pet";
@@ -431,7 +450,7 @@ $(document).ready(function() {
 			}
 		}, "json");
 	});
-	
+
 	$("#pet #pet_yes").click(function() {
 		var vPet = 0;
 		var mode = "pet";
@@ -451,7 +470,7 @@ $(document).ready(function() {
 			}
 		}, "json");
 	});
-	
+
 	$("#btn-new-end").click(function() {
 		var mode = "announce_ready";
 		var ann_id = $("#ann_id").val();
