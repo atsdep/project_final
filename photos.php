@@ -159,23 +159,23 @@ if (!isset($_SESSION['member_id'])) {
 																	</div>
 																</div>
 															</div>
-															<div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-																<div class="photos-list__item">
-																	<div class="panel-image" data-confirm="false">
-																		<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-																		<div class="photo-preview__btns always-show">
-																			<div class="btn photo-preview__btn photo-preview__delete-btn">
-																				<div class="img__icon-trash-large img__icon-large pull-left"></div>
-																			</div>
-																		</div>
-																		<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-																			<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-																			</div>
-																		</div>
-																	</div>
-
-																</div>
+															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
+															<div class="photos-list__item">
+															<div class="panel-image" data-confirm="false">
+															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
+															<div class="photo-preview__btns always-show">
+															<div class="btn photo-preview__btn photo-preview__delete-btn">
+															<div class="img__icon-trash-large img__icon-large pull-left"></div>
 															</div>
+															</div>
+															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
+															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
+															</div>
+															</div>
+															</div>
+
+															</div>
+															</div> -->
 															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
 															<div class="photos-list__item">
 															<div class="panel-image" data-confirm="false">
@@ -227,22 +227,22 @@ if (!isset($_SESSION['member_id'])) {
 															</div></label>
 															</div>
 															</div> -->
-															<!-- <div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-															<div>
-															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-															<label class="col label--no-margin-padding" for="photo-image">
-															<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-															<div class="va-container va-container-v va-container-h">
-															<div class="va-middle text-center">
-															<div class="img__icon-plus-grey img-center"></div>
-															<div class="text-gray space-top-2">
-															<span>เพิ่มมากขึ้น</span>
+															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
+																<div>
+																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
+																	<label class="col label--no-margin-padding" for="photo-image">
+																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
+																			<div class="va-container va-container-v va-container-h">
+																				<div class="va-middle text-center">
+																					<div class="img__icon-plus-grey img-center"></div>
+																					<div class="text-gray space-top-2">
+																						<span>เพิ่มมากขึ้น</span>
+																					</div>
+																				</div>
+																			</div>
+																		</div></label>
+																</div>
 															</div>
-															</div>
-															</div>
-															</div></label>
-															</div>
-															</div> -->
 														</div>
 													</div>
 												</div>
@@ -293,9 +293,4 @@ if (!isset($_SESSION['member_id'])) {
 		</main>
 
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
 </html>
