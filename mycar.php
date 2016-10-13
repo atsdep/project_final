@@ -97,9 +97,23 @@ if (!isset($_SESSION['member_id'])) {
 					<div class="col-md-9">
 						<div class="your-listings-flash-container"></div>
 						<div id="listings-container">
-							<div >
-								<noscript ></noscript>
+							<div>
 								<div class="suspension-container" >
+									<!-- <div class="panel space-4" >
+										<div class="panel-header active-panel-header" >
+											<div class="row" >
+												<div class="col-sm-6 active-panel-padding" >
+													กำลังดำเนินการ
+												</div><div id="ib-master-switch-container" class="col-sm-6" ></div>
+											</div>
+										</div>
+										<ul class="list-unstyled list-layout"> -->
+											<?php
+											
+												$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' AND announce_status != 'show' AND announce_status != 'hide' ORDER by  announces.announce_update_date DESC ");
+												$row_all = mysqli_num_rows($query_ann);
+												if($row_all > 0) {
+											?>
 									<div class="panel space-4" >
 										<div class="panel-header active-panel-header" >
 											<div class="row" >
@@ -108,151 +122,235 @@ if (!isset($_SESSION['member_id'])) {
 												</div><div id="ib-master-switch-container" class="col-sm-6" ></div>
 											</div>
 										</div>
-										<ul class="list-unstyled list-layout" >
-											<?php
-											
-												$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' ORDER by  announces.announce_update_date DESC ");
-												$row_all = mysqli_num_rows($query_ann);
-												if($row_all > 0) {
+										<ul class="list-unstyled list-layout">			
+												
+													
+													
+											<?php		
 												while ($result_ann = mysqli_fetch_assoc($query_ann)) {
 											?>
-											<li class="listing panel-body" data-hosting-id="15415428" >
+											<li class="listing panel-body">
 												<div class="row row-table" >
 													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
 													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
-														<a href="/manage-listing/15415428" >
+														<a href="new.php?id=<?php echo $result_ann['announce_id'] ;?> ">
 														<div class="media-photo media-photo-block-lg" >
-															<div class="media-cover text-center" ><img class="img-responsive-height" src="" >
+															<?php 
+															if(!isset($result_ann['announce_photos_1'])){
+																$img = "img/car_default_no_photos";
+															}else{
+																$img = 'img/'.$result_ann['announce_photos_1'];
+															}
+															
+															?>
+															<div class="media-cover text-center" ><img class="img-responsive-height" src="<?php echo $img ;?>" >
 															</div>
 														</div></a>
 													</div>
-													<div class="col-sm-10 col-lg-7 col-middle" >
+													<div class="col-sm-10 col-lg-7 col-middle">
 														<div class="row row-table" >
 															<div class="col-lg-10" >
 																<div class="listing-progress" >
 																	<div class="text-babu space-top-1" >
-																		<span >พร้อมที่จะประกาศแล้ว!</span>
+																		<?php
+																		switch ($result_ann['announce_status']) {
+																			case 'step1' :
+																				echo '<span>เหลืออีก 2 ขั้นตอนเท่านั้น</span>';
+																				break;
+																			case 'step2' :
+																				echo '<span>เหลืออีก 1 ขั้นตอนเท่านั้น</span>';
+																				break;
+																			case 'ready' :
+																				echo '<span>พร้อมที่จะประกาศแล้ว!</span>';
+																				break;
+																			default :
+																				echo '<span>คุณลงประกาศรถเช่ายังไม่เสร็จ!</span>';
+																				break;
+																		}
+																		?>
+																		
 																	</div><div class="space-top-2" ></div>
 																</div>
 															</div>
-														</div><span class="h4" ><a href="/manage-listing/15415428" class="text-normal" ><span ><span ><?php echo $result_ann['announce_title'];   ?></span></span></a></span>
+														</div><span class="h4"><a href="new.php?id=<?php echo $result_ann['announce_id'] ;?>" class="text-normal" ><span ><span ><?php echo $result_ann['announce_title']; ?></span></span></a></span>
 														<div class="text-muted text-grey space-top-1 last-modified-date" >
 															<?php
 															$date = date_create($result_ann['announce_update_date']);
-															//date_format($date,"Y/m/d H:i:s");
-															
-
 															$strDate = $result_ann['announce_update_date'];
-															//echo "ThaiCreate.Com Time now : " . DateThai($strDate);
 															?>
 															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
 														</div>
+														
 														<div class="space-top-4" >
-															
-															<a class="btn btn__first-btn btn-primary" href="/manage-listing/15415428?listnow" ><span >ลงประกาศรถเช่า</span></a><a class="btn btn__second-btn" href="/rooms/15415428" ><span >ดูตัวอย่าง</span></a>
+															<a class="btn btn__first-btn btn-soft-dark" href="new.php?id=<?php echo $result_ann['announce_id'] ;?> "><span >ลงประกาศรถเช่าให้เสร็จ</span></a><a target="_blank" class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?> "><span >ดูตัวอย่าง</span></a>
 														</div><noscript ></noscript>
 													</div>
+													<i class="icon icon-size-1 icon-remove icon-remove-listing hide-sm"></i>
 												</div>
 											</li>
 											
 											<?php
 											}
-											}else{
-											echo $row_ann . ' test';
 											}
 											?>
-											<li class="listing panel-body" data-hosting-id="15425938" >
-												<div class="row row-table" >
-													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
-													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
-														<a href="/manage-listing/15425938/photos" >
-														<div class="media-photo media-photo-block-lg" >
-															<div class="media-cover text-center" ><img class="img-responsive-height" src="https://a1.muscache.com/airbnb/static/page3/v3/room_default_no_photos-f209d3d70c1bed81fb0822b68e913045.png" >
-															</div>
-														</div></a>
-													</div>
-													<div class="col-sm-10 col-lg-7 col-middle" >
-														<div class="row row-table" >
-															<div class="col-lg-10" >
-																<div class="listing-progress" >
-																	<div class="progress progress-bar__lean" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="7" >
-																		<div class="progress-bar progress-bar-success progress-bar__babu" style="width:57%;" ></div>
-																	</div>
-																	<div class="text-babu space-top-1" >
-																		<span >คุณลงประกาศรถเช่าเสร็จ 57%</span>
-																	</div><div class="space-top-2" ></div>
-																</div>
-															</div>
-														</div><span class="h4" ><a href="/manage-listing/15425938" class="text-normal" ><span ><span >ห้องส่วนตัว ใน Tambon Kamphaeng Saen</span></span></a></span>
-														<div class="text-muted text-grey space-top-1 last-modified-date" >
-															<span >ปรับปรุงล่าสุดวันที่ 9 ตุลาคม 2016</span>
-														</div>
-														<div class="space-top-4" >
-															<a class="btn btn__first-btn btn-primary" href="/manage-listing/15425938" ><span >ลงประกาศรถเช่าให้เสร็จ</span></a><a class="btn btn__second-btn" href="/rooms/15425938" ><span >ดูตัวอย่าง</span></a>
-														</div><noscript ></noscript>
-													</div>
-												</div>
-											</li>
-											<li class="listing panel-body" data-hosting-id="15417960" >
-												<div class="row row-table" >
-													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
-													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
-														<a href="/manage-listing/15417960" >
-														<div class="media-photo media-photo-block-lg" >
-															<div class="media-cover text-center" ><img class="img-responsive-height" src="https://a2.muscache.com/im/pictures/2cb713a5-2c80-423b-82e4-f20938845b97.jpg?aki_policy=small" >
-															</div>
-														</div></a>
-													</div>
-													<div class="col-sm-10 col-lg-7 col-middle" >
-														<div class="row row-table" >
-															<div class="col-lg-10" >
-																<div class="listing-progress" >
-																	<div class="text-babu space-top-1" >
-																		<span >พร้อมที่จะประกาศแล้ว!</span>
-																	</div><div class="space-top-2" ></div>
-																</div>
-															</div>
-														</div><span class="h4" ><a href="/manage-listing/15417960" class="text-normal" ><span ><span >test system</span></span></a></span>
-														<div class="text-muted text-grey space-top-1 last-modified-date" >
-															<span >ปรับปรุงล่าสุดวันที่ 9 ตุลาคม 2016</span>
-														</div>
-														<div class="space-top-4" >
-															<a class="btn btn__first-btn btn-primary" href="/manage-listing/15417960?listnow" ><span >ลงประกาศรถเช่า</span></a><a class="btn btn__second-btn" href="/rooms/15417960" ><span >ดูตัวอย่าง</span></a>
-														</div><noscript ></noscript>
-													</div><i class="icon icon-size-1 icon-remove icon-remove-listing hide-sm" ></i>
-												</div>
-											</li>
-											<li class="listing panel-body" data-hosting-id="15415428" >
-												<div class="row row-table" >
-													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
-													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
-														<a href="/manage-listing/15415428" >
-														<div class="media-photo media-photo-block-lg" >
-															<div class="media-cover text-center" ><img class="img-responsive-height" src="https://a2.muscache.com/im/pictures/7c8222b0-ba61-40a0-9932-c7ae96a757ba.jpg?aki_policy=small" >
-															</div>
-														</div></a>
-													</div>
-													<div class="col-sm-10 col-lg-7 col-middle" >
-														<div class="row row-table" >
-															<div class="col-lg-10" >
-																<div class="listing-progress" >
-																	<div class="text-babu space-top-1" >
-																		<span >พร้อมที่จะประกาศแล้ว!</span>
-																	</div><div class="space-top-2" ></div>
-																</div>
-															</div>
-														</div><span class="h4" ><a href="/manage-listing/15415428" class="text-normal" ><span ><span >ขอเทส</span></span></a></span>
-														<div class="text-muted text-grey space-top-1 last-modified-date" >
-															<span >ปรับปรุงล่าสุดวันที่ 8 ตุลาคม 2016</span>
-														</div>
-														<div class="space-top-4" >
-															<a class="btn btn__first-btn btn-primary" href="/manage-listing/15415428?listnow" ><span >ลงประกาศรถเช่า</span></a><a class="btn btn__second-btn" href="/rooms/15415428" ><span >ดูตัวอย่าง</span></a>
-														</div><noscript ></noscript>
-													</div>
-												</div>
-											</li>
+											
 										</ul>
-									</div><noscript ></noscript><noscript ></noscript>
+									</div>
+									
+								
+								<?php
+									$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' AND announce_status = 'show' ORDER by  announces.announce_update_date DESC ");
+									$row_all = mysqli_num_rows($query_ann);
+									if($row_all > 0) {
+								?>	
+								<div class="panel space-4">
+										<div class="panel-header active-panel-header">
+											<div class="row">
+												<div class="col-sm-6 active-panel-padding">
+													ลงประกาศแล้ว
+												</div><div id="ib-master-switch-container" class="col-sm-6"></div>
+											</div>
+										</div>
+										<div class=" ib-master-switch-alert">
+											<div class="alert alert-block alert-success">
+												<button class="alert-close" type="button"></button>
+												<div>
+													บันทึกแล้ว! เปิดใช้งานการจองทันทีสำหรับที่พักทุกแห่งของคุณที่เปิดให้จองแล้ว
+												</div>
+											</div>
+										</div>
+										<ul class="list-unstyled list-layout">
+								
+								
+								
+								<?php		
+									while ($result_ann = mysqli_fetch_assoc($query_ann)) {
+								?>
+								
+											<li class="listing panel-body">
+												<div class="row row-table">
+													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+														<a href="new.php?id=<?php echo $result_ann['announce_id']; ?>">
+														<div class="media-photo media-photo-block-lg">
+															<?php 
+															if(!isset($result_ann['announce_photos_1'])){
+																$img = "img/car_default_no_photos";
+															}else{
+																$img = 'img/'.$result_ann['announce_photos_1'];
+															}
+															
+															?>
+															<div class="media-cover text-center"><img class="img-responsive-height" src="<?php echo $img ?>?aki_policy=small">
+															</div>
+														</div></a>
+													</div>
+													<div class="col-sm-10 col-lg-7 col-middle">
+														<div class="row row-table">
+															<div class="col-lg-10"></div>
+														</div><span class="h4"><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>" class="text-normal"><span><span><?php echo $result_ann['announce_title'] ?></span></span></a></span>
+														<!-- <div class="text-normal space-top-2">
+															<?php echo $result_ann['car_province'] ?>
+														</div> -->
+														<div class="text-muted text-grey space-top-1 last-modified-date">
+															<?php
+															$date = date_create($result_ann['announce_update_date']);
+															$strDate = $result_ann['announce_update_date'];
+															?>
+															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
+														</div>
+														<div class="space-top-4">
+															<a class="btn btn__first-btn" href="calendar.php?id=<?php echo $result_ann['announce_id']; ?>"><span>ปฏิทินและอื่นๆ</span></a>
+															<a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?>">
+																<span>ดูตัวอย่าง</span></a><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>"  class="ib-toggle link-reset"  data-ib-enabled="true"></a>
+														</div>
+													</div>
+												</div>
+											</li>
+								<?php
+									}
+								}
+								?>
+								</ul>
+								</div>	
+								
+									
+								<?php
+									$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' AND announce_status = 'hide' ORDER by  announces.announce_update_date DESC ");
+									$row_all = mysqli_num_rows($query_ann);
+									if($row_all > 0) {
+								?>	
+								<div class="panel space-4">
+										<div class="panel-header active-panel-header">
+											<div class="row">
+												<div class="col-sm-6 active-panel-padding">
+													ปิดประกาศอยู่
+												</div><div id="ib-master-switch-container" class="col-sm-6"></div>
+											</div>
+										</div>
+										<ul class="list-unstyled list-layout">
+								
+								
+								
+								<?php		
+									while ($result_ann = mysqli_fetch_assoc($query_ann)) {
+								?>
+								
+											<li class="listing panel-body">
+												<div class="row row-table">
+													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+														<a href="new.php?id=<?php echo $result_ann['announce_id']; ?>">
+														<div class="media-photo media-photo-block-lg">
+															<?php 
+															if(!isset($result_ann['announce_photos_1'])){
+																$img = "img/car_default_no_photos";
+															}else{
+																$img = 'img/'.$result_ann['announce_photos_1'];
+															}
+															
+															?>
+															<div class="media-cover text-center"><img class="img-responsive-height" src="<?php echo $img ?>?aki_policy=small">
+															</div>
+														</div></a>
+													</div>
+													<div class="col-sm-10 col-lg-7 col-middle">
+														<div class="row row-table">
+															<div class="col-lg-10"></div>
+														</div><span class="h4"><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>" class="text-normal"><span><span><?php echo $result_ann['announce_title'] ?></span></span></a></span>
+														<!-- <div class="text-normal space-top-2">
+															<?php echo $result_ann['car_province'] ?>
+														</div> -->
+														<div class="text-muted text-grey space-top-1 last-modified-date">
+															<?php
+															$date = date_create($result_ann['announce_update_date']);
+															$strDate = $result_ann['announce_update_date'];
+															?>
+															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
+														</div>
+														<div>
+															<div class="unlisted-listing-action__toggle-button">
+																<div id="hosting_id_15495789" class="activation-notification availability-select space-top-4">
+																	<i class="dot space-top-2 dot-align-top dot-danger dot-red"></i>&nbsp;
+																	<div class="select">
+																		<select>
+																			<option value="listed">ลงทะเบียนแล้ว</option>
+
+																			<option value="unlisted">ปิดประกาศ</option>
+																		</select>
+																	</div>
+
+																</div>
+															</div><a class="btn unlisted-listing-action__preview-button" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?> "><span>ดูตัวอย่าง</span></a>
+														</div>
+													</div>
+												</div>
+											</li>
+								<?php
+									}
+								}
+								?>
+								</ul>
+								</div>
+
 								</div>
 							</div>
 						</div>
