@@ -45,10 +45,11 @@ if (!isset($_GET['id'])) {
 		?>
 		<main id="site-content" role="main">
 		<?php
-			if (isset($_GET['id' ])) {
+		if (isset($_GET['id'])) {
 			$sql_select_all = "SELECT members.member_firstname,
 			members.member_profile_photo,
 			provinces.PROVINCE_NAME,
+			provinces.PROVINCE_NAME_ENG,
 			car_category.car_category_name,
 			car_gene.car_gene_name,
 			car_brand.car_brand_name,
@@ -64,32 +65,32 @@ if (!isset($_GET['id'])) {
 			ON car_gene.car_category_id = car_category.car_category_id
 			INNER JOIN members
 			ON announces.member_id = members.member_id
-			WHERE announces.announce_id = '". $_GET['id' ] ."'";
+			WHERE announces.announce_id = '" . $_GET['id'] . "'";
 
-				$query_ann_cars = mysqli_query($connect, $sql_select_all);
-				$result_ann_cars =  mysqli_fetch_assoc($query_ann_cars);
-				$row_ann_cars = mysqli_num_rows($query_ann_cars);
+			$query_ann_cars = mysqli_query($connect, $sql_select_all);
+			$result_ann_cars = mysqli_fetch_assoc($query_ann_cars);
+			$row_ann_cars = mysqli_num_rows($query_ann_cars);
+		}
+		if ($row_ann_cars == 1) {
+			$price = number_format($result_ann_cars['announce_price']);
+			$title = $result_ann_cars['announce_title'];
+			$province = $result_ann_cars['PROVINCE_NAME'];
+			$province_eng = $result_ann_cars['PROVINCE_NAME_ENG'];
+			$photos_1 = 'img/' . $result_ann_cars['announce_photos_1'];
+
+			if (isset($result_ann_cars['member_profile_photo'])) {
+				$profile_photo = 'img/' . $result_ann_cars['member_profile_photo'];
+			} else {
+				$profile_photo = 'img/profile.jp';
 			}
-			if ($row_ann_cars == 1) {
-				$price = number_format($result_ann_cars['announce_price']);
-				$title = $result_ann_cars['announce_title'];
-				$province = $result_ann_cars['PROVINCE_NAME'];
-				$photos_1 = 'img/'.$result_ann_cars['announce_photos_1'];
-				
-				if(isset($result_ann_cars['member_profile_photo'])){
-					$profile_photo = 'img/'.$result_ann_cars['member_profile_photo'];
-				}else{
-					$profile_photo = 'img/profile.jp';
-				}
-				$car_gene = $result_ann_cars['car_gene_name'];
-				$car_brand = $result_ann_cars['car_brand_name'];
-				$car_year = $result_ann_cars['car_year'];
-				$car_category = $result_ann_cars['car_category_name'];
-				$passenger = $result_ann_cars['announce_passenger'];
-				$description = $result_ann_cars['announce_description'];
-				
-				
-			}
+			$car_gene = $result_ann_cars['car_gene_name'];
+			$car_brand = $result_ann_cars['car_brand_name'];
+			$car_year = $result_ann_cars['car_year'];
+			$car_category = $result_ann_cars['car_category_name'];
+			$passenger = $result_ann_cars['announce_passenger'];
+			$description = $result_ann_cars['announce_description'];
+
+		}
 			?>	
 		
 			<div class="subnav-container">
@@ -198,7 +199,27 @@ if (!isset($_GET['id'])) {
 												<div class="col-md-9">
 													<h1 class="overflow h3 space-1 text-center-sm" id="listing_name"><?php echo $title ?></h1>
 													<div id="display-address" class="space-2 text-muted text-center-sm" data-location="กรุงเทพมหานคร">
-														<a href="#neighborhood" class="link-reset"><?php echo $province?></a>
+														<a href="#neighborhood" class="link-reset"><?php echo $province . ', ' . $province_eng; ?></a>
+														<span> &nbsp; </span>
+														<a href="#reviews" class="link-reset hide-sm">
+														<div class="star-rating-wrapper" itemscope="" itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" aria-label="5 จาก 5 ดาวจาก 24 รีวิว">
+															<div class="star-rating" itemprop="ratingValue" content="5">
+																<div class="foreground">
+																	<span>
+																		<span><i class="icon-star icon icon-beach star-rating-icons"></i><span> </span></span>
+																		<span><i class="icon-star icon icon-beach star-rating-icons"></i><span> </span></span>
+																		<span><i class="icon-star icon icon-beach star-rating-icons"></i><span> </span></span>
+																		<span><i class="icon-star-half icon icon-beach star-rating-icons"></i></i><span> </span></span>
+																		<span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span>
+																		
+																	</span>
+																</div>
+																<div class="background">
+																	<span><span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span><span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span><span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span><span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span><span><i class="icon-star icon icon-light-gray star-rating-icons"></i><span> </span></span></span>
+																</div>
+															</div><span> </span><span class="h6"><small><span itemprop="reviewCount">24</span></small></span>
+														</div></a>
+
 													</div>
 													<div class="row row-condensed text-muted text-center">
 														<div class="col-sm-3">
@@ -207,7 +228,11 @@ if (!isset($_GET['id'])) {
 														<div class="col-sm-3">
 															<i class="icon icon-group icon-size-2" aria-hidden="true"></i>
 														</div>
-														<!-- <div class="col-sm-3">
+														<div class="col-sm-3">
+															<i class="icon icon-shared-room icon-size-2" aria-hidden="true"></i>
+														</div>
+														
+														<!--<div class="col-sm-3">
 															<i class="icon icon-star icon-size-2" aria-hidden="true"></i>
 														</div> -->
 													</div>
@@ -225,9 +250,9 @@ if (!isset($_GET['id'])) {
 														<div class="col-sm-3">
 															ผู้โดยสาร <?php echo $passenger ?> คน
 														</div>
-														<!-- <div class="col-sm-3">
+														<div class="col-sm-3">
 															3 ที่นั่ง
-														</div> -->
+														</div>
 													</div>
 												</div>
 											</div>
@@ -430,29 +455,34 @@ if (!isset($_GET['id'])) {
 														<div class="expandable-content-summary">
 															<div class="row">
 																<div class="col-sm-6">
-																	<div>
+																	<!-- <div>
 																		<div class="space-1">
 																			<span><i class="icon h3 icon-paw"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-12"><strong><a href="/s/กรุงเทพ--ไทย?amenity=pet-friendly" class="link-reset">นำสัตว์เลี้ยงไปด้วยได้</a></strong></span>
 																		</div>
+																	</div> -->
+																	<div>
+																		<div class="space-1">
+																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>Wifi ภายในรถ</span></span>
+																		</div>
 																	</div>
 																	<div>
 																		<div class="space-1">
-																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>สูบบุหรี่ได้</span></span>
+																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>น้ำดื่ม</span></span>
 																		</div>
 																	</div>
-																	<button class="expandable-trigger-more btn-link btn-link--bold" type="button">
+																	<!-- <button class="expandable-trigger-more btn-link btn-link--bold" type="button">
 																		<span>+ เพิ่มเติม</span>
-																	</button>
+																	</button> -->
 																</div>
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>สูบบุหรี่ได้</span></span>
+																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>หนังสือ</span></span>
 																		</div>
 																	</div>
 																	<div>
 																		<div class="space-1">
-																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>สูบบุหรี่ได้</span></span>
+																			<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id="amenity-short-tooltip-trigger-11"><span>เพลง</span></span>
 																		</div>
 																	</div>
 																</div>
@@ -466,7 +496,7 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1 text-muted">
-																			<span id="amenity-long-tooltip-trigger-28"><del>บัซเซอร์/อินเตอร์คอมแบบไร้สาย</del></span>
+																			<span id="amenity-long-tooltip-trigger-28"><del>กระดาษทิชชู่</del></span>
 																		</div>
 																	</div>
 
@@ -474,7 +504,41 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1 text-muted">
-																			<span id="amenity-long-tooltip-trigger-28"><del>บัซเซอร์/อินเตอร์คอมแบบไร้สาย</del></span>
+																			<span id="amenity-long-tooltip-trigger-28"><del>เบาะนั่งสำหรับเด็ก</del></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6">
+																	<div>
+																		<div class="space-1 text-muted">
+																			<span id="amenity-long-tooltip-trigger-28"><del>จอมอนิเตอร์ในรถยนต์</del></span>
+																		</div>
+																	</div>
+
+																</div>
+																<div class="col-sm-6">
+																	<div>
+																		<div class="space-1 text-muted">
+																			<span id="amenity-long-tooltip-trigger-28"><del>ไฟชาร์จ 220V</del></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6">
+																	<div>
+																		<div class="space-1 text-muted">
+																			<span id="amenity-long-tooltip-trigger-28"><del>ระบบฟอกอากาศในรถยนต์   </del></span>
+																		</div>
+																	</div>
+
+																</div>
+																<div class="col-sm-6">
+																	<div>
+																		<div class="space-1 text-muted">
+																			<span id="amenity-long-tooltip-trigger-28"><del>สูบบุหรี่</del></span>
 																		</div>
 																	</div>
 																</div>
@@ -493,8 +557,38 @@ if (!isset($_GET['id'])) {
 														</div>
 													</div>
 													<div class="col-md-9">
-														<div class="row">
+														<div class="structured_house_rules">
+															<div class="row col-sm-12">
+																<span><strong><?php echo 'ภายในจังหวัด'.$province; ?></strong></span><span> <strong>฿<?php echo $price ?></strong></span>
+															</div>
+															<!-- <div class="row col-sm-12 space-top-1">
+																<span>อาจไม่ปลอดภัยหรือเหมาะกับเด็ก (อายุ 0-12 ปี)</span>
+															</div>
+															<div class="row col-sm-12 space-top-1">
+																<span>เวลาเช็คอินคือหลัง 15:00</span>
+															</div> -->
+															<div class="row">
+																<div class="col-sm-2">
+																	<hr class="structured_house_rules__hr">
+																</div>
+															</div>
+														</div>
 
+														<div>
+															<div class="react-expandable expanded">
+																<div class="expandable-content">
+																	<div>
+																		<p>
+																			<span><?php echo 'ภายในจังหวัด Test: '?><span><?php echo '฿'. $price; ?></span></span>
+																			<br>
+																			<span class="space-top-1"><?php echo 'ภายในจังหวัด Test2: '?><span><?php echo '฿'. $price; ?></span></span>
+																		</p>
+																	</div><div class="expandable-indicator"></div>
+																</div><span class="react-expandable-trigger-more">
+																	<button class="btn-link btn-link--bold" type="button">
+																		<span>+ เพิ่มเติม</span>
+																	</button></span>
+															</div>
 														</div>
 													</div>
 												</div>
@@ -541,12 +635,12 @@ if (!isset($_GET['id'])) {
 															<div class="row col-sm-12">
 																<span>ไม่ดื่มในรถ</span>
 															</div>
-															<!-- <div class="row col-sm-12 space-top-1">
-																<span>อาจไม่ปลอดภัยหรือเหมาะกับเด็ก (อายุ 0-12 ปี)</span>
+															<div class="row col-sm-12 space-top-1">
+																<span>ไม่เหมาะกับสัตว์เลี้ยง</span>
 															</div>
 															<div class="row col-sm-12 space-top-1">
 																<span>เวลาเช็คอินคือหลัง 15:00</span>
-															</div> -->
+															</div>
 															<div class="row">
 																<div class="col-sm-2">
 																	<hr class="structured_house_rules__hr">
@@ -559,7 +653,7 @@ if (!isset($_GET['id'])) {
 																<div class="expandable-content">
 																	<div>
 																		<p>
-																			<span>- test</span>
+																			<span>- ผู้ใช้บริการต้องรัดเข็มขัดตลอดระหว่างการเดินทาง</span>
 																			<br>
 																			<span>- test</span>
 																		</p>
@@ -1223,14 +1317,15 @@ if (!isset($_GET['id'])) {
 											<div class="row">
 												<div class="col-md-3 text-center">
 													<div class="media-photo-badge">
-														<a href="/users/show/13880301" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/1b4150b3-c1f5-4d6b-b010-390c30184623.jpg?aki_policy=profile_x_medium" title="Ed &amp; Tum"></a><img src="https://a0.muscache.com/airbnb/static/badges/superhost_photo_badge-a38e6a7d2afe0e01146ce910da3915f5.png" class="superhost-photo-badge" alt="">
+														<a href="profile.php" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium"
+															title="<?php echo $result_ann_cars['member_firstname']; ?>"></a><img src="https://a0.muscache.com/airbnb/static/badges/superhost_photo_badge-a38e6a7d2afe0e01146ce910da3915f5.png" class="superhost-photo-badge" alt="">
 													</div>
 												</div>
 												<div class="col-md-9">
-													<h3 class="space-1"><a class="link-reset" href="/users/show/13880301">Ed &amp; Tum</a></h3>
+													<h3 class="space-1"><a class="link-reset" href="profile.php?id=<?php ?>"><?php echo $result_ann_cars['member_firstname'] ?></a></h3>
 													<div class="row row-condensed space-2">
 														<div class="col-md-12 text-muted">
-															<span>กรุงเทพ, ไทย</span><span> · </span><span>เป็นสมาชิกตั้งแต่ เมษายน 2014</span>
+															<span><?php echo $result_ann_cars['PROVINCE_NAME'] ?></span><span> · </span><span>เป็นสมาชิกตั้งแต่ เมษายน 2014</span>
 														</div>
 													</div>
 													<div class="react-expandable expanded">
