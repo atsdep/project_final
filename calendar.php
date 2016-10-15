@@ -39,10 +39,9 @@ if (!isset($_SESSION['member_id'])) {
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		<?php
-		include 'config/js.php';
+		require ("config/js.php");
 		?>
 		<script src="js/new_stepone_controller.js" type="text/javascript"></script>
-		<script src="js/calendar_controller.js" type="text/javascript"></script>
 	</head>
 
 	<body class="with-new-header ">
@@ -132,7 +131,7 @@ if (!isset($_SESSION['member_id'])) {
 													<td>อา</td><td>จ</td><td >อ</td><td>พ</td><td>พฤ</td><td>ศ</td><td>ส</td>
 													</tr><tr class="week-header-filler"></tr>
 												</thead>
-												<tbody id="two_mouth">
+												<tbody id="three_mouth">
 												<?php
 												$m = date("m", strtotime('+2 month'));
 												$y = date("Y");
@@ -239,7 +238,7 @@ if (!isset($_SESSION['member_id'])) {
 		</main>
 	</body>
 		<script type="text/javascript">
-									$(document).ready(function() {
+		$(document).ready(function() {
 			var number = <?php echo date("j")?>
 							;
 
@@ -254,7 +253,54 @@ if (!isset($_SESSION['member_id'])) {
 							$("td.DayPicker-day--available").click(function(e) {
 								$(this).toggleClass("DayPicker-day--available DayPicker-day--unavailable");
 							});
+							
+	$("#btn-next-calendar").click(function(e) {
 
-							});
+		var select_date_ava = document.querySelectorAll("td.DayPicker-day--available");
+		//หาวันที่เปิดทั้งหมด
+		var ava_all_date = new Array(select_date_ava.length);
+		//สร้าง อาเรตามความยาวมาเก็บ
+		for (var i = 0; i < select_date_ava.length; i++) {
+
+			ava_all_date[i] = $(select_date_ava[i]).attr("data-date");
+			//เก็บค่าวันที่ที่ว่าง
+			
+
+		}//find available date
+
+		var select_date_unava = document.querySelectorAll("td.DayPicker-day--unavailable");
+		var unava_all_date = new Array(select_date_ava.length);
+		for (var i = 0; i < select_date_unava.length; i++) {
+
+			unava_all_date[i] = $(select_date_unava[i]).attr("data-date");
+			
+
+		}//find unavailable date
+		var ann_id = $("#ann_id").val();
+		var vOpen = ava_all_date;
+		var vClose = unava_all_date;
+		var mode = "update_calendar";
+		var vOpen_length = select_date_ava.length;
+		var vClose_length = select_date_unava.length;
+
+
+		$.post("controllers/new_controller.php", {
+			ann_id : ann_id,
+			open : vOpen,
+			close : vClose,
+			mode : mode,
+			open_length : vOpen_length,
+			close_length : vClose_length
+
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+			} else {
+				console.log(data.msg);
+			}
+		}, "json");
+	});
+
+	});
 	</script>
 </html>
