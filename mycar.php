@@ -48,6 +48,17 @@ if (!isset($_SESSION['member_id'])) {
 
 		<?php
 		include 'include/all_header.php';
+		function DateThai($strDate) {
+			$strYear = date("Y", strtotime($strDate));
+			$strMonth = date("n", strtotime($strDate));
+			$strDay = date("j", strtotime($strDate));
+			$strHour = date("H", strtotime($strDate));
+			$strMinute = date("i", strtotime($strDate));
+			$strSeconds = date("s", strtotime($strDate));
+			$strMonthCut = ARRAY("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+			$strMonthThai = $strMonthCut[$strMonth];
+			return "$strDay $strMonthThai $strYear";
+		}
 		?>
 		<main id="site-content" role="main">
 
@@ -133,17 +144,16 @@ if (!isset($_SESSION['member_id'])) {
 												<div class="row row-table" >
 													<i class="icon icon-size-1 icon-remove icon-remove-listing show-sm" ></i>
 													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo" >
-														<a href="new.php?id=<?php echo $result_ann['announce_id'] ;?> ">
+														<a href="new.php?id=<?php echo $result_ann['announce_id']; ?> ">
 														<div class="media-photo media-photo-block-lg" >
-															<?php 
-															if(!isset($result_ann['announce_photos_1'])){
+															<?php
+															if (!isset($result_ann['announce_photos_1'])) {
 																$img = "img/car_default_no_photos.png";
-															}else{
-																$img = 'img/'.$result_ann['announce_photos_1'];
+															} else {
+																$img = 'img/' . $result_ann['announce_photos_1'];
 															}
-															
 															?>
-															<div class="media-cover text-center" ><img class="img-responsive-height" src="<?php echo $img ;?>" >
+															<div class="media-cover text-center" ><img class="img-responsive-height" src="<?php echo $img; ?>" >
 															</div>
 														</div></a>
 													</div>
@@ -172,17 +182,16 @@ if (!isset($_SESSION['member_id'])) {
 																	</div><div class="space-top-2" ></div>
 																</div>
 															</div>
-														</div><span class="h4"><a href="new.php?id=<?php echo $result_ann['announce_id'] ;?>" class="text-normal" ><span ><span ><?php echo $result_ann['announce_title']; ?></span></span></a></span>
+														</div><span class="h4"><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>" class="text-normal" ><span ><span ><?php echo $result_ann['announce_title']; ?></span></span></a></span>
 														<div class="text-muted text-grey space-top-1 last-modified-date" >
 															<?php
-															$date = date_create($result_ann['announce_update_date']);
 															$strDate = $result_ann['announce_update_date'];
 															?>
 															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
 														</div>
 														
 														<div class="space-top-4" >
-															<a class="btn btn__first-btn btn-soft-dark" href="new.php?id=<?php echo $result_ann['announce_id'] ;?> "><span >ลงประกาศรถเช่าให้เสร็จ</span></a><a target="_blank" class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?> "><span >ดูตัวอย่าง</span></a>
+															<a class="btn btn__first-btn btn-soft-dark" href="new.php?id=<?php echo $result_ann['announce_id']; ?> "><span >ลงประกาศรถเช่าให้เสร็จ</span></a><a target="_blank" class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?> "><span >ดูตัวอย่าง</span></a>
 														</div><noscript ></noscript>
 													</div>
 													<i class="icon icon-size-1 icon-remove icon-remove-listing hide-sm"></i>
@@ -232,13 +241,12 @@ if (!isset($_SESSION['member_id'])) {
 													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
 														<a href="new.php?id=<?php echo $result_ann['announce_id']; ?>">
 														<div class="media-photo media-photo-block-lg">
-															<?php 
-															if(!isset($result_ann['announce_photos_1'])){
+															<?php
+															if (!isset($result_ann['announce_photos_1'])) {
 																$img = "img/car_default_no_photos.png";
-															}else{
-																$img = 'img/'.$result_ann['announce_photos_1'];
+															} else {
+																$img = 'img/' . $result_ann['announce_photos_1'];
 															}
-															
 															?>
 															<div class="media-cover text-center"><img class="img-responsive-height" src="<?php echo $img ?>?aki_policy=small">
 															</div>
@@ -253,21 +261,21 @@ if (!isset($_SESSION['member_id'])) {
 														</div> -->
 														<div class="text-muted text-grey space-top-1 last-modified-date">
 															<?php
-															$date = date_create($result_ann['announce_update_date']);
+														
 															$strDate = $result_ann['announce_update_date'];
 															?>
 															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
 														</div>
 														<div class="space-top-4">
 															<a class="btn btn__first-btn" href="calendar.php?id=<?php echo $result_ann['announce_id']; ?>"><span>ปฏิทินและอื่นๆ</span></a>
-															<a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?>">
+															<a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?>">
 																<span>ดูตัวอย่าง</span></a><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>"  class="ib-toggle link-reset"  data-ib-enabled="true"></a>
 														</div>
 													</div>
 												</div>
 											</li>
 								<?php
-									}
+								}
 								}
 								?>
 								</ul>
@@ -300,13 +308,12 @@ if (!isset($_SESSION['member_id'])) {
 													<div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
 														<a href="new.php?id=<?php echo $result_ann['announce_id']; ?>">
 														<div class="media-photo media-photo-block-lg">
-															<?php 
-															if(!isset($result_ann['announce_photos_1'])){
+															<?php
+															if (!isset($result_ann['announce_photos_1'])) {
 																$img = "img/car_default_no_photos.png";
-															}else{
-																$img = 'img/'.$result_ann['announce_photos_1'];
+															} else {
+																$img = 'img/' . $result_ann['announce_photos_1'];
 															}
-															
 															?>
 															<div class="media-cover text-center"><img class="img-responsive-height" src="<?php echo $img ?>?aki_policy=small">
 															</div>
@@ -321,7 +328,7 @@ if (!isset($_SESSION['member_id'])) {
 														</div> -->
 														<div class="text-muted text-grey space-top-1 last-modified-date">
 															<?php
-															$date = date_create($result_ann['announce_update_date']);
+															
 															$strDate = $result_ann['announce_update_date'];
 															?>
 															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
@@ -339,13 +346,13 @@ if (!isset($_SESSION['member_id'])) {
 																	</div>
 
 																</div>
-															</div><a class="btn unlisted-listing-action__preview-button" href="cars.php?id=<?php echo $result_ann['announce_id'] ;?> "><span>ดูตัวอย่าง</span></a>
+															</div><a class="btn unlisted-listing-action__preview-button" href="cars.php?id=<?php echo $result_ann['announce_id']; ?> "><span>ดูตัวอย่าง</span></a>
 														</div>
 													</div>
 												</div>
 											</li>
 								<?php
-									}
+								}
 								}
 								?>
 								</ul>
