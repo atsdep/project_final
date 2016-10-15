@@ -1,5 +1,7 @@
 <?php
 session_start();
+require ("config/database.php");
+require ("config/connectdb.php");
 if (!isset($_GET['id'])) {
 	header("location:index.php");
 	exit(0);
@@ -38,16 +40,26 @@ if (!isset($_GET['id'])) {
 		
 		
 
-		<script src="https://a2.muscache.com/airbnb/static/packages/header_cookie.bundle-8fccc80bc11420dd7f69.js" type="text/javascript"></script>
-	
 		<?php
-		include 'include/all_header.php';
+		//include 'include/all_header.php';
+		function DateThai($strDate) {
+			$strYear = date("Y", strtotime($strDate));
+			$strMonth = date("n", strtotime($strDate));
+			$strDay = date("j", strtotime($strDate));
+			$strHour = date("H", strtotime($strDate));
+			$strMinute = date("i", strtotime($strDate));
+			$strSeconds = date("s", strtotime($strDate));
+			$strMonthCut = ARRAY("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+			$strMonthThai = $strMonthCut[$strMonth];
+			return "$strMonthThai $strYear";
+		}
 		?>
 		<main id="site-content" role="main">
 		<?php
 		if (isset($_GET['id'])) {
 			$sql_select_all = "SELECT members.member_firstname,
 			members.member_profile_photo,
+			members.member_regis_date,
 			provinces.PROVINCE_NAME,
 			provinces.PROVINCE_NAME_ENG,
 			car_category.car_category_name,
@@ -89,7 +101,7 @@ if (!isset($_GET['id'])) {
 			$car_category = $result_ann_cars['car_category_name'];
 			$passenger = $result_ann_cars['announce_passenger'];
 			$description = $result_ann_cars['announce_description'];
-
+			$member_create_date = $result_ann_cars['member_regis_date'];
 		}
 			?>	
 		
@@ -287,7 +299,7 @@ if (!isset($_GET['id'])) {
 															</div>
 														</div>
 													</div>
-													<form method="post" action="https://th.airbnb.com/payments/book?hosting_id=15417960">
+													<form>
 														<div class="panel book-it-panel">
 															<div class="panel-body panel-light">
 																<div class="row row-condensed space-3">
@@ -307,20 +319,20 @@ if (!isset($_GET['id'])) {
 																	<div class="col-md-9">
 																		<div class="row row-condensed">
 																			<div class="col-sm-6">
-																				<label class="book-it__label" for="datespan-checkin">เช็คอิน</label>
-																				<input id="datespan-checkin" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="วว-ดด-ปปปป">
+																				<label class="book-it__label">วันที่เช่า</label>
+																				<input value="" id="from" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="วว-ดด-ปปปป">
 																			</div>
 																			<div class="col-sm-6">
-																				<label class="book-it__label" for="datespan-checkout">เช็คเอาท์</label>
-																				<input id="datespan-checkout" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="วว-ดด-ปปปป">
+																				<label class="book-it__label">ถึงวันที่</label>
+																				<input value="" id="to" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="วว-ดด-ปปปป">
 																			</div>
 																		</div>
 																	</div>
 																	<div class="col-md-3">
 																		<div>
-																			<label for="number_of_guests_15417960" class="book-it__label"><span>ผู้โดยสาร</span></label>
+																			<label class="book-it__label"><span>ผู้โดยสาร</span></label>
 																			<div class="select select-block">
-																				<select id="number_of_guests_15417960" name="number_of_guests">
+																				<select name="number_of_guests">
 																					<option selected="" value="1">1</option>
 																				</select>
 																			</div>
@@ -328,7 +340,7 @@ if (!isset($_GET['id'])) {
 																	</div>
 																</div>
 																<div>
-																	<button type="submit" class="btn btn-primary btn-large btn-block" disabled="">
+																	<button id="btn-booking" type="submit" class="btn btn-primary btn-large btn-block" disabled="">
 																		<span>ขอจอง</span>
 																	</button>
 																	<div class="bookit-message__container text-center text-muted">
@@ -374,7 +386,9 @@ if (!isset($_GET['id'])) {
 									<div class="row">
 										<div class="col-lg-8 js-details-column">
 											<div class="space-8 space-top-8">
-												<h4 class="space-4 text-center-sm"><span><span>เกี่ยวกับรถเช่านี้  (</span><span><a href="/manage-listing/15417960" class="link-underline"><span>แก้ไขรถเช่า</span></a></span> <span>)</span></span></h4>
+												<h4 class="space-4 text-center-sm"><span><span>เกี่ยวกับรถเช่านี้ </span>
+													<?php if($result_ann_cars['member_id'] == $_SESSION['member_id']){ ?><span>(<a href="new.php?id=<?php echo $_GET['id'] ?>" class="link-underline"><span>แก้ไขรถเช่า</span></a></span><span>)</span> <?php } ?>
+													</span></h4>
 												<div>
 													<p>
 														<span><?php echo $description ?></span>
@@ -653,9 +667,9 @@ if (!isset($_GET['id'])) {
 																<div class="expandable-content">
 																	<div>
 																		<p>
-																			<span>- ผู้ใช้บริการต้องรัดเข็มขัดตลอดระหว่างการเดินทาง</span>
+																			<span>- wait</span>
 																			<br>
-																			<span>- test</span>
+																			<span>- wait</span>
 																		</p>
 																	</div><div class="expandable-indicator"></div>
 																</div><span class="react-expandable-trigger-more">
@@ -692,7 +706,7 @@ if (!isset($_GET['id'])) {
 									</div>
 								</div>
 							</div>
-							<!-- <div id="reviews" class="room-section webkit-render-fix">
+							<div id="reviews" class="room-section webkit-render-fix">
 								<div class="panel">
 									<div class="page-container-responsive space-2">
 										<div class="row">
@@ -716,598 +730,8 @@ if (!isset($_GET['id'])) {
 										</div>
 									</div>
 								</div>
-							</div> -->
-						
-
-							<div id="reviews" class="room-section webkit-render-fix">
-								<div class="panel">
-									<div class="page-container-responsive space-2">
-										<div class="row">
-											<div class="col-lg-8">
-												<div class="review-wrapper">
-													
-													<div>
-														<div class="row space-2 space-top-8 row-table">
-															<div class="review-header col-md-8">
-																<div class="va-container va-container-v va-container-h">
-																	<div class="va-bottom review-header-text">
-																		<h4 class="text-center-sm col-middle"><span>15 ความคิดเห็น</span>
-																		<div style="display:inline-block;">
-																			<div class="star-rating-wrapper">
-																				<div class="star-rating" content="5">
-																					<div class="foreground">
-																						<span><span><i class="icon-star icon icon-beach icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-big"></i><span> </span></span></span>
-																					</div>
-																					<div class="background">
-																						<span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span></span>
-																					</div>
-																				</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																			</div>
-																		</div></h4>
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4 review-header">
-																<div class="va-container va-container-v va-container-h">
-																	<div class="va-bottom">
-																		<div class="review-search">
-																			<label class="input-placeholder-group"><span class="input-placeholder-label screen-reader-only">ค้นหาความคิดเห็น</span>
-																				<div class="input-addon">
-																					<input type="search" placeholder="ค้นหาความคิดเห็น" class="input-stem" value="">
-																					<i name="remove" class="icon icon-remove input-suffix btn hide" title="กลับไปที่ความคิดเห็นทั้งหมด"></i>
-																				</div></label>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div>
-															<hr>
-														</div>
-													</div>
-													<div class="review-main">
-														<div class="review-inner space-top-2 space-2">
-															<div class="row">
-																<div class="col-lg-3 show-lg">
-																	<div class="text-muted">
-																		<span>สรุป</span>
-																	</div>
-																</div>
-																<div class="col-lg-9">
-																	<div class="row">
-																		<div class="col-lg-6">
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>ความถูกต้อง</strong>
-																			</div>
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>การสื่อสาร</strong>
-																			</div>
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>ความสะอาด</strong>
-																			</div>
-																		</div>
-																		<div class="col-lg-6">
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="4.5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><i class="icon-star-half icon icon-beach icon-star-small"></i></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>สถานที่</strong>
-																			</div>
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>เช็คอิน</strong>
-																			</div>
-																			<div>
-																				<div class="pull-right">
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="5">
-																							<div class="foreground">
-																								<span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-beach icon-star-small"></i><span> </span></span></span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-small"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div>
-																				</div><strong>คุณค่า</strong>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div id="review-translate-button-wrapper" class="space-top-6">
-																<button type="button" class="btn btn-block">
-																	<span class="review_translate_button_label"><span>แปลความคิดเห็นเป็น ภาษาไทย</span></span>
-																	<div class="gBrandingText">
-																		<span><span>สนับสนุนโดย </span><span><img src="https://a2.muscache.com/airbnb/static/logos/google-small-logo-2a536df1485db3d64cd10c2fdef19a03.png" alt="[object Object]" height="15" width="51"></span></span>
-																	</div>
-																</button>
-															</div>
-														</div>
-														<div class="review-content">
-															<div class="panel-body">
-																<div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/41436720" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/users/41436720/profile_pic/1439544714/original.jpg?aki_policy=profile_x_medium" title="Nannapat"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/41436720" class="text-muted link-reset" target="_blank">Nannapat</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="45711708" class="review-text">
-																					<div class="react-expandable expanded">
-																						<div class="expandable-content">
-																							<p>
-																								เป็นบ้านที่เหมาะมาพักผ่อนกับครอบครัวในวันหยุดมากๆค่ะ ตัวบ้านตกแต่งมีสไตส์ พื้นที่กว้างสบาย บรรยากาศดีมากๆ เราได้เช่าบ้านเพื่อถ่ายรูปสินค้า มันเป็นบรรยากาศที่เยี่ยมเหมาะกับงานถ่ายของเรามาก  ที่จะลืมไม่ได้คุณตุ้มและคุณแอ๊ดให้การตอนรับที่เป็นกันเองมาก ขอบคุณมากๆ นะคะ  ไว้เราจะหาโอกาสไปพักอีกแน่นอนค่ะ ปลื้มค่ะ ^-^
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">กันยายน 2015</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/35625460" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/users/35625460/profile_pic/1434806491/original.jpg?aki_policy=profile_x_medium" title="Mew"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/35625460" class="text-muted link-reset" target="_blank">Mew</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="36918706" class="review-text">
-																					<div class="react-expandable">
-																						<div class="expandable-content">
-																							<p>
-																								ได้ไปพักมา 2 คืน และไปถ่ายงานรายการอาหารที่ครัวของที่พัก ที่นี่ บ้านกว้าง สะอาด สวย โปร่ง ผ้าห่มและเตียงก็นุ่มมากๆ เจ้าของบริการดีมากค่ะ เป็นกันเอง ที่พักมีความส่วนตัวมากๆเลย ถ้ามีโอกาสจะไปพักอีกค่ะ
-
-																								I've booked for 2 night, every thing is great and private , wide and clear living room, very clean and professional kitchen, beautiful decorate, the bed is so soft, i feel like i'm living in my home, breakfast is very delicious-should try it!!! . Tum and Ed ,the owner of the house, are so kind. If there is a opportunity in the future i'll be there again.
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">กรกฎาคม 2015</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/95272800" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/c8aac545-2d50-4b7f-8374-0d6b4d3fc6ea.jpg?aki_policy=profile_x_medium" title="Soralak"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/95272800" class="text-muted link-reset" target="_blank">Soralak</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="106755997" class="review-text">
-																					<div class="react-expandable expanded">
-																						<div class="expandable-content">
-																							<p>
-																								I had a wondeful night at Rumour has it. This place is amazing and the food is awesome. Cant wait to go back to your home again. Thank you for your warm welcome ka khun Tum&amp; khun Ed
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">ตุลาคม 2016</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/2215854" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a0.muscache.com/im/users/2215854/profile_pic/1438472487/original.jpg?aki_policy=profile_x_medium" title="Jennille"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/2215854" class="text-muted link-reset" target="_blank">Jennille</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="104091828" class="review-text">
-																					<div class="react-expandable expanded">
-																						<div class="expandable-content">
-																							<p>
-																								Okay, honestly there aren't enough words to describe this experience. As my husband summed it up "This was an extraordinary Airbnb experience". As I am a normal Airbnb'er and was blown away, my husband on the other hand was new to this but on our honey moon this was his 3rd home visiting and by far his favorite experience. This experience offered a lot with this host and it is one to definitely experience!
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">กันยายน 2016</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/7444591" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/71c27a13-e281-49e2-9474-ed6ea5e6c122.jpg?aki_policy=profile_x_medium" title="Fonda"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/7444591" class="text-muted link-reset" target="_blank">Fonda</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="93346069" class="review-text">
-																					<div class="react-expandable expanded">
-																						<div class="expandable-content">
-																							<p>
-																								This place was beyond the expectation. The host, Ed &amp; Tum, took care of us very well. Everything in the house was kept in shape as new. The decoration was fantastic. The kitchen is superb!
-
-																								The host treated as a 5-star hotel service but still being able to give us a warm feeling just like we are staying with our closed friends.
-
-																								We will definitely come back!
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">สิงหาคม 2016</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/530791" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/34e6774b-8438-4e32-95d3-367b73e771d4.jpg?aki_policy=profile_x_medium" title="Renate"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/530791" class="text-muted link-reset" target="_blank">Renate</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="92521885" class="review-text">
-																					<div class="react-expandable">
-																						<div class="expandable-content">
-																							<p>
-																								Rumour Has It was a fantastic place to stay while in Bangkok.  The photos do not do justice to their serene home.  From the moment we arrived we were in awe. Their home was beautiful, spacious, eclectic and spotless.  Ed &amp; Tum are great people and took care of my husband and I very well.   I highly recommend you take Tum’s cooking class, she is an amazing cook and it was so much fun. She also prepared dinner for us upon arrival, it was delicious.  Breakfast every day was amazing.  Having morning coffee in the garden was so relaxing.  They also put together a great itinerary for us to see Bangkok, I recommend you hire them as your guide.  Glad we did.  I also have to mention how talented and great Ed is.  His amazing woodwork and clock making skills just blew us away.  You are awesome Ed.  We enjoyed our conversations and hanging with you both.  Thank you for a great vacation and a new friendship.  We look forward to seeing you both again.  Don’t think twice about booking this place.  Just do it!!
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">สิงหาคม 2016</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="media space-2">
-																				<div class="pull-left">
-																					<div class="media-photo-badge">
-																						<a href="/users/show/13880301" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="36" width="36" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/1b4150b3-c1f5-4d6b-b010-390c30184623.jpg?aki_policy=profile_x_medium" title="Ed &amp; Tum"></a><img src="https://a0.muscache.com/airbnb/static/badges/superhost_photo_badge-a38e6a7d2afe0e01146ce910da3915f5.png" class="superhost-photo-badge superhost-photo-badge--small" alt="">
-																					</div>
-																				</div>
-																				<div class="media-body">
-																					<strong><span>คำตอบจาก Ed &amp; Tum:</span></strong>
-																					<p>
-																						Thanks for the kind review.  We really enjoyed visiting with you and appreciate your patience as we dealt with Bangkok's notorious traffic (and the missed turn-:)  )
-																					</p>
-																					<div class="text-muted">
-																						<div class="date">
-																							สิงหาคม 2016
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row review">
-																		<div class="col-md-3 text-center space-2">
-																			<div class="media-photo-badge">
-																				<a href="/users/show/28139684" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="67" width="67" data-pin-nopin="true" src="https://a2.muscache.com/im/pictures/b9869d15-a752-401a-b2f5-e2534dc8596e.jpg?aki_policy=profile_x_medium" title="Doris"></a>
-																			</div>
-																			<div class="name">
-																				<a href="/users/show/28139684" class="text-muted link-reset" target="_blank">Doris</a>
-																			</div>
-																		</div>
-																		<div class="col-md-9">
-																			<div class="space-2">
-																				<div data-review-id="77245682" class="review-text">
-																					<div class="react-expandable">
-																						<div class="expandable-content">
-																							<p>
-																								The host warmly welcomed the guest upon arrival despite the late arrival and them hosting their friends for dinner in their own home next to the house. They took great efforts in showing the beautiful house and explained clearly how to use the different facilities including which button to press for each room or equipment. Looking out to the garden by the river from a nicely lighted dining hall with the beautiful kitchen island next to it, instantly sets the guest on the "holiday mode".
-																								The following few days were consecutive moments of being impressed by the delicious breakfast and specially customized dinner arrangements. Like all the beautiful self-made clocks displayed in the house, the "bell" in the house worked like clockwork each time we pressed for assistance.
-																								Both Ed and Tum dutiful convinced the guest of their well deserved title of "super host" by their warm hospitality and great attention to details.
-																								In a fast pace life that we live in, "Rumour has it" is no rumour of being a place of rest and reflection where one can recharge and be rejuvenated effectively.
-																								A big thank you to Ed and Tum.
-																							</p><div class="expandable-indicator"></div>
-																						</div><span class="react-expandable-trigger-more text-muted">
-																							<button class="btn-link btn-link--bold" type="button">
-																								<span>+ เพิ่มเติม</span>
-																							</button></span>
-																					</div>
-																				</div>
-																				<div class="text-muted review-subtext">
-																					<div class="review-translation-language"></div>
-																					<div class="va-container va-container-h va-container-v">
-																						<div class="va-middle">
-																							<span style="display:inline-block;" class="date">พฤษภาคม 2016</span><span><span> </span><span>·</span><span> </span></span><span>
-																								<button class="btn-link btn-link--icon" type="button">
-																									<span><i class="icon icon-flag"></i><span> </span></span>
-																								</button></span>
-																						</div>
-																						<div class="va-middle text-right">
-																							<button class="btn btn-default btn-small helpful-btn">
-																								<i class="icon icon-thumbs-up helpful-icon-bold text-muted"></i>
-																								<div class="helpful-btn-text text-muted">
-																									มีประโยชน์
-																								</div>
-																								<div class="helpful-btn-count">
-																									<div class=""></div>
-																								</div>
-																							</button>
-																						</div>
-																					</div>
-																				</div>
-																			</div><span></span>
-																		</div>
-																		<div class="row space-2">
-																			<div class="col-md-9 col-md-push-3">
-																				<hr>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-lg-9 col-offset-3">
-																		<div class="pagination pagination-responsive">
-																			<ul class="list-unstyled">
-																				<li class="active">
-																					<a href="#" data-prevent-default="true">1</a>
-																				</li>
-																				<li class="">
-																					<a href="#" data-prevent-default="true">2</a>
-																				</li>
-																				<li class="">
-																					<a href="#" data-prevent-default="true">3</a>
-																				</li>
-																				<li class="next next_page">
-																					<a href="#" data-prevent-default="true"><span class="screen-reader-only"><span>ถัดไป</span></span><i class="icon icon-caret-right"></i></a>
-																				</li>
-																			</ul>
-																		</div>
-																	</div>
-																</div><div></div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
-
+						
 							<div id="host-profile" class="room-section webkit-render-fix">
 								<div class="page-container-responsive space-top-8 space-8">
 									<div class="row">
@@ -1317,22 +741,23 @@ if (!isset($_GET['id'])) {
 											<div class="row">
 												<div class="col-md-3 text-center">
 													<div class="media-photo-badge">
-														<a href="profile.php" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium"
+														<a target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id'] ;?>" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium"
 															title="<?php echo $result_ann_cars['member_firstname']; ?>"></a><img src="https://a0.muscache.com/airbnb/static/badges/superhost_photo_badge-a38e6a7d2afe0e01146ce910da3915f5.png" class="superhost-photo-badge" alt="">
 													</div>
 												</div>
 												<div class="col-md-9">
-													<h3 class="space-1"><a class="link-reset" href="profile.php?id=<?php ?>"><?php echo $result_ann_cars['member_firstname'] ?></a></h3>
+													<h3 class="space-1"><a class="link-reset" target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id'] ;?>"><?php echo $result_ann_cars['member_firstname'] ?></a></h3>
 													<div class="row row-condensed space-2">
 														<div class="col-md-12 text-muted">
-															<span><?php echo $result_ann_cars['PROVINCE_NAME'] ?></span><span> · </span><span>เป็นสมาชิกตั้งแต่ เมษายน 2014</span>
+															
+															<span><?php echo $result_ann_cars['PROVINCE_NAME'] ?></span><span> · </span><span>เป็นสมาชิกตั้งแต่ <?php echo DateThai($member_create_date); ?></span>
 														</div>
 													</div>
 													<div class="react-expandable expanded">
 														<div class="expandable-content expandable-content-long">
 															<div>
 																<p>
-																	<span>Retired but very active. Both my wife and I love to entertain at home. She is a trained chef and I am her favorite sous chef. Aside from cooking our other love is traveling and we have been fortunate to have seen much of the world and have lived in the US, and the Philippines.</span>
+																	<span>wait</span>
 																</p>
 															</div><div class="expandable-indicator"></div>
 														</div><span class="react-expandable-trigger-more">
@@ -1340,14 +765,14 @@ if (!isset($_GET['id'])) {
 																<span>+ เพิ่มเติม</span>
 															</button></span>
 													</div>
-													<div class="row row-condensed space-2">
+													<!-- <div class="row row-condensed space-2">
 														<div class="col-md-6">
 															<span><span>อัตราการตอบกลับ:</span><span> </span><strong>100%</strong><small class="response-details text-muted hide"><span>(</span><span>ช่วง 90 วันที่ผ่านมา</span><span>)</span></small></span>
 															<div>
 																<span>เวลาตอบ:</span><span> </span><strong>ภายในหนึ่งชั่วโมง</strong>
 															</div>
 														</div>
-													</div>
+													</div> -->
 													<div class="space-top-3">
 														<div class="badge-container space-4">
 															<a class="link-reset" rel="nofollow" href="/users/show/13880301#reviews">
@@ -1416,7 +841,7 @@ if (!isset($_GET['id'])) {
 					</div>
 
 					<div id="neighborhood" class="room-section">
-						<div style="position:relative;" class="page-container-responsive">
+						<!-- <div style="position:relative;" class="page-container-responsive">
 							<div class="p3-location--map">
 								<div class="panel location-panel">
 									<div style="height: 100%; width: 100%; position: relative; background-color: rgb(164, 221, 245); overflow: hidden;">
@@ -1583,7 +1008,7 @@ if (!isset($_GET['id'])) {
 								</div>
 								<ul id="guidebook-recommendations" class="hide">
 									<li class="user-image">
-										<a href="profile.php"><img alt="Adthasid" data-pin-nopin="true" height="90" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
+										<a href="profile?mid=<?php $result_ann_cars['member_id'] ;?>"><img alt="Adthasid" data-pin-nopin="true" height="90" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="Adthasid" width="90"></a>
 									</li><li href="" class="info" data-neighborhood-id="3300"></li>
 								</ul>
 								<div id="hover-card" class="panel">
@@ -1663,7 +1088,7 @@ if (!isset($_GET['id'])) {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<!-- map -->
 
@@ -1695,7 +1120,7 @@ if (!isset($_GET['id'])) {
 														<div class="panel-body panel-card-section">
 															<div class="media">
 																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset">
-																<div class="media-photo media-round"><img src="img/profile?aki_policy=profile_medium" alt="Bruno">
+																<div class="media-photo media-round"><img src="img/profile.jpg?aki_policy=profile_medium" alt="Bruno">
 																</div> </a>
 																<h3 title="Title Name" class="h5 listing-name text-truncate space-top-1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal"><span class="listing-name--display">Title Name</span></a></h3>
 																<a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset">
@@ -1728,7 +1153,7 @@ if (!isset($_GET['id'])) {
 														<div class="panel-body panel-card-section">
 															<div class="media">
 																<a href="/users/show/1113464" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset">
-																<div class="media-photo media-round"><img src="img/profile?aki_policy=profile_medium" alt="Bruno">
+																<div class="media-photo media-round"><img src="img/profile.jpg?aki_policy=profile_medium" alt="Bruno">
 																</div> </a>
 																<h3 title="Title Name" class="h5 listing-name text-truncate space-top-1"><a href="/rooms/8752630" target="listing_8752630" class="text-normal"><span class="listing-name--display">Title Name</span></a></h3>
 																<a href="/rooms/8752630" target="listing_8752630" class="text-normal link-reset">
@@ -1824,6 +1249,124 @@ if (!isset($_GET['id'])) {
 				</div>
 			</div>
 		</div>
+		<?php
+		$sql_select_calendar = "SELECT * FROM calendars WHERE member_id = '" . $result_ann_cars['member_id'] . "'";
+		$query_calendar = mysqli_query($connect, $sql_select_calendar);
+		
+		$date = array();
+		while ($result_date = mysqli_fetch_assoc($query_calendar)) {
+			$date_expire = $result_date['date'];
+			$expire = strtotime($date_expire);
+			$today = strtotime(date("Y-m-d"));
+
+			if ($today <= $expire && $result_date['status'] == 0) {
+				array_push($date, $date_expire);
+			} else {
+
+			}
+		}
+		?>
 
 	</body>
+
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script  type="text/javascript">
+  		$(document).ready(function(){
+  			
+  		var vFrom = $("#from").val();
+  		var vTo = $("#to").val();
+  		if(vFrom.length > 5 && vTo.length > 5){
+  			$("#btn-booking").removeAttr("disabled");
+  		}
+  			
+  		var day = new Array(<?php echo json_encode($date); ?>
+			);
+
+			$(function() {
+				var d = new Date();
+				var dateFormat = "dd/mm/yy",
+				    from = $("#from").datepicker({
+				    dateFormat : 'dd/mm/yy',
+					showButtonPanel : true,
+					minDate : 0,
+					maxDate : '+3M',
+					beforeShowDay : function(date) {
+						var datestring = jQuery.datepicker.formatDate('yy-mm-dd', date);
+						var hindex = $.inArray(datestring);
+						if (hindex > -1) {
+							return [true];
+						}
+						var aindex = $.inArray(datestring, day[0]);
+						return [aindex == -1]
+					},
+					beforeShow : function(input) {
+						setTimeout(function() {
+							var buttonPane = $(input).datepicker("widget").find(".ui-datepicker-buttonpane");
+
+							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
+							btn.unbind("click").bind("click", function() {
+								$.datepicker._clearDate(input);
+								$("#btn-booking").attr("disabled","disabled");
+							});
+
+							btn.appendTo(buttonPane);
+
+						}, 1);
+					}
+				}).on("change", function() {
+					to.datepicker("option", "minDate", getDate(this));
+				}),
+					
+				    to = $("#to").datepicker({
+				    dateFormat : 'dd/mm/yy',
+					showButtonPanel : true,
+					maxDate : '+3M',
+					beforeShowDay : function(date) {
+						var datestring = jQuery.datepicker.formatDate('yy-mm-dd', date);
+						var hindex = $.inArray(datestring);
+						if (hindex > -1) {
+							return [true];
+						}
+						var aindex = $.inArray(datestring, day[0]);
+						return [aindex == -1]
+					},
+					beforeShow : function(input) {
+						setTimeout(function() {
+							var buttonPane = $(input).datepicker("widget").find(".ui-datepicker-buttonpane");
+
+							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
+							btn.unbind("click").bind("click", function() {
+								$.datepicker._clearDate(input);
+								$("#btn-booking").attr("disabled","disabled");
+							});
+
+							btn.appendTo(buttonPane);
+
+						}, 1);
+					}
+				}).on("change", function() {
+					from.datepicker("option", "maxDate", getDate(this));
+					$("#btn-booking").removeAttr("disabled");
+				});
+
+				function getDate(element) {
+					var date;
+					try {
+						date = $.datepicker.parseDate(dateFormat, element.value);
+					} catch(error) {
+						date = null;
+					}
+					return date;
+				}
+				   
+
+			});
+	
+			
+		});
+  		
+  </script>
 </html>
