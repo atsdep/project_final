@@ -67,7 +67,7 @@ if (isset($_POST["mode"])) {
 		} else {
 			$date = date("Y-m-d H:i:s");
 			$sql_insert_ann = "INSERT INTO announces (member_id,car_province,announce_create_date)
-			values($member_id,'" . $_POST["province"] . "', '".$date. "' )";
+			values($member_id,'" . $_POST["province"] . "', '" . $date . "' )";
 
 			$add_ann_query = mysqli_query($connect, $sql_insert_ann);
 			if (!$add_ann_query) {
@@ -253,96 +253,61 @@ if (isset($_POST["mode"])) {
 		$member_id = $_SESSION['member_id'];
 
 		if ($_POST["open_length"] > 0) {
-
 			for ($i = 0; $i < $_POST["open_length"]; $i++) {
-
 				$row_open_date = 0;
-
 				$sql_select_open_date = "SELECT * FROM calendars WHERE date = '" . $_POST["open"][$i] . "' AND member_id = $member_id";
 				$query_open_date = mysqli_query($connect, $sql_select_open_date);
-
 				$row_open_date = mysqli_num_rows($query_open_date);
-
 				if ($row_open_date > 0) {
-
 					$sql_update_open_date = "UPDATE calendars SET status = '1' WHERE date = '" . $_POST["open"][$i] . "' AND member_id = $member_id;";
 					$query_update_open_date = mysqli_query($connect, $sql_update_open_date);
-
 					if (!$query_update_open_date) {
 						$data["error"] = true;
 						$data["msg"][$i] = $i . "ขออถัยไม่สามารถบันทึกข้อมูลได้ในขณะนี้ โปรดกลับมาใหม่ในภายหลัง" . $sql_update_open_date;
-
 					} else {
 						$data["error"] = false;
 						$data["msg"][$i] = $i . "อัพเดทเรียบร้อยแล้ว" . $sql_update_open_date;
-
 					}
-
 				} else {
-
 					$sql_insert_open_date = "INSERT INTO calendars (member_id, date, status)VALUES ( $member_id, '" . $_POST["open"][$i] . "' , '1');";
-
 					$query_insert_open_date = mysqli_query($connect, $sql_insert_open_date);
-
 					if (!$query_insert_open_date) {
 						$data["error"] = true;
 						$data["msg"][$i] = $i . "ขออถัยไม่สามารถบันทึกข้อมูลได้ในขณะนี้ โปรดกลับมาใหม่ในภายหลัง" . $sql_insert_open_date;
-
 					} else {
 						$data["error"] = false;
 						$data["msg"][$i] = $i . " วันที่เปิด " . $sql_insert_open_date;
-
 					}
-
 				}
-
 			}
 		}
-
 		if ($_POST["close_length"] > 0) {
-
 			for ($i = 0; $i < $_POST["close_length"]; $i++) {
-
 				$row_close_date = 0;
-
 				$sql_select_close_date = "SELECT * FROM calendars WHERE date = '" . $_POST["close"][$i] . "' AND member_id = $member_id";
 				$query_close_date = mysqli_query($connect, $sql_select_close_date);
-
 				$row_close_date = mysqli_num_rows($query_close_date);
-
 				if ($row_close_date > 0) {
-
 					$sql_update_close_date = "UPDATE calendars SET status = '0' WHERE date = '" . $_POST["close"][$i] . "' AND member_id = $member_id;";
 					$query_update_close_date = mysqli_query($connect, $sql_update_close_date);
-
 					if (!$query_update_close_date) {
 						$data["error"] = true;
 						$data["msg"][$i] = $i . "ขออถัยไม่สามารถบันทึกข้อมูลได้ในขณะนี้ โปรดกลับมาใหม่ในภายหลัง" . $sql_update_close_date;
-
 					} else {
 						$data["error"] = false;
 						$data["msg"][$i] = $i . "อัพเดทเรียบร้อยแล้ว" . $sql_update_close_date;
-
 					}
-
 				} else {
-
 					$sql_insert_close_date = "INSERT INTO calendars (member_id, date, status)VALUES ( $member_id, '" . $_POST["close"][$i] . "' , '0');";
-
 					$query_insert_close_date = mysqli_query($connect, $sql_insert_close_date);
-
 					if (!$query_insert_close_date) {
 						$data["error"] = true;
 						$data["msg"][$i] = $i . "ขออถัยไม่สามารถบันทึกข้อมูลได้ในขณะนี้ โปรดกลับมาใหม่ในภายหลัง" . $sql_insert_close_date;
-
 					} else {
 						$data["error"] = false;
 						$data["msg"][$i] = $i . " วันที่เปิด " . $sql_insert_close_date;
-
 					}
-
 				}
-
 			}
 		}
 
@@ -404,7 +369,7 @@ if (isset($_POST["mode"])) {
 				$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
 			}
 
-		}else{
+		} else {
 			$data["error"] = false;
 		}
 
@@ -418,10 +383,10 @@ if (isset($_POST["mode"])) {
 		if (!$update_ann_query) {
 			$data["error"] = true;
 			$data["msg"] = "ระบบผิดพลาด " . $sql_update_ann;
-		
+
 		} else {
 			$data["msg"] = "บันทึกเรียบร้อยแล้ว " . $sql_update_ann;
-			$data["goto"] =  "mycar.php";
+			$data["goto"] = "mycar.php";
 		}
 	}
 
