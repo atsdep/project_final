@@ -2786,11 +2786,10 @@ span.ui-state-default:hover {
     text-decoration: none
 }
 a.ui-state-default.ui-state-hover,
-a.ui-state-default.ui-state-active,
 a.ui-state-default.ui-state-highlight {
-    background-color: #ff5a5f;
+    background-color: #41687F;
     color: white;
-    border-color: #ff5a5f;
+    border-color: #41687F;
     margin: -1px;
     width: 34px
 }
@@ -2799,6 +2798,13 @@ a.ui-state-default.ui-state-active:hover,
 a.ui-state-default.ui-state-highlight:hover {
     opacity: 0.9;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"
+}
+a.ui-state-default.ui-state-active{
+    background-color: #00A1FF;
+    color: white;
+    border-color: #00A1FF;
+    margin: -1px;
+    width: 34px
 }
 .ui-datepicker-prev,
 .ui-datepicker-next {
@@ -2849,7 +2855,8 @@ span.ui-state-default {
     background: transparent;
     border: 0;
     text-align: left;
-    width: 40%
+    width: 40%;
+    
 }
 .ui-datepicker-additional-info {
     position: relative;
