@@ -2,7 +2,7 @@
 session_start();
 require ("../config/database.php");
 require ("../config/connectdb.php");
-if (isset($_SESSION['login'])) {
+//if (isset($_SESSION['login'])) {
 
 	$query_gene = mysqli_query($connect, "SELECT * FROM car_gene WHERE car_brand_id = '" . $_POST["b"] . "'");
 
@@ -23,6 +23,6 @@ if (isset($_SESSION['login'])) {
 
 	echo json_encode($data);
 
-} 
+//} 
 require ("../config/closedb.php");
 ?>

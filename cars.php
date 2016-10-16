@@ -41,7 +41,7 @@ if (!isset($_GET['id'])) {
 		
 
 		<?php
-		//include 'include/all_header.php';
+		include 'include/all_header.php';
 		function DateThai($strDate) {
 			$strYear = date("Y", strtotime($strDate));
 			$strMonth = date("n", strtotime($strDate));
@@ -88,12 +88,16 @@ if (!isset($_GET['id'])) {
 			$title = $result_ann_cars['announce_title'];
 			$province = $result_ann_cars['PROVINCE_NAME'];
 			$province_eng = $result_ann_cars['PROVINCE_NAME_ENG'];
-			$photos_1 = 'img/' . $result_ann_cars['announce_photos_1'];
+			if (isset($result_ann_cars['announce_photos_1'])) {
+				$photos_1 = 'img/' . $result_ann_cars['announce_photos_1'];
+			} else {
+				$photos_1 = 'img/car_default_no_photos.png';
+			}
 
 			if (isset($result_ann_cars['member_profile_photo'])) {
 				$profile_photo = 'img/' . $result_ann_cars['member_profile_photo'];
 			} else {
-				$profile_photo = 'img/profile.jp';
+				$profile_photo = 'img/profile.jpg';
 			}
 			$car_gene = $result_ann_cars['car_gene_name'];
 			$car_brand = $result_ann_cars['car_brand_name'];
@@ -1323,6 +1327,7 @@ if (!isset($_GET['id'])) {
 				    to = $("#to").datepicker({
 				    dateFormat : 'dd/mm/yy',
 					showButtonPanel : true,
+					minDate : 0,
 					maxDate : '+3M',
 					beforeShowDay : function(date) {
 						var datestring = jQuery.datepicker.formatDate('yy-mm-dd', date);

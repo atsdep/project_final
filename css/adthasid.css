@@ -4,6 +4,33 @@ body{
     filter: gray;*/
 }
 
+.icon-sedan{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-sedan.png);
+   	width: 30px;
+    height: auto;
+}
+
+.icon-van{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-van.png);
+   	width: 30px;
+    height: auto;
+}
+
+.icon-suv{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-suv.png);
+   	width: 30px;
+    height: auto;
+}
+
+.icon-pickup{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-pickup.png);
+   	width: 30px;
+    height: auto;
+}
 
 .icon-size-1 {
 	font-size: 2.0em;
@@ -28,6 +55,19 @@ body{
     }
     
 }
+
+.pull-right-price{
+	float: right;
+	width: 20%;
+}
+
+@media (max-width: 999px) {
+    .pull-right-price {
+        width: 25%;
+    }
+
+}
+
 
 
 /*photo*/
@@ -149,8 +189,8 @@ photo-preview__delete-btn.photo-preview__delete--confirm {
 
 
 .booking-scenario__welcome-customer {
-    width: 190px;
-    height: auto;
+    /*width: 190px;
+    height: auto;*/
     background-repeat: no-repeat;
     background-image: url(../img/ICON-driver-by-Ton.png);
     width: 190px;
