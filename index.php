@@ -13,7 +13,7 @@ require ("controllers/select_member.php");
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>index</title>
+		<title>รถเช่าพร้อมคนขับ กับ Rentcnd</title>
 		<meta name="description" content="">
 		<meta name="author" content="adthasid">
 

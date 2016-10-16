@@ -510,7 +510,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																</div>
 															</div>
 															<div class="col-md-1">
-																<button id="more-amenities" class="btn-link btn-link--icon sectionLabel_rcr7sj" aria-label="+ เพิ่มเติม">
+																<button type="button" id="more-amenities" class="btn-link btn-link--icon sectionLabel_rcr7sj" aria-label="+ เพิ่มเติม">
 																	<i id="icon-amenities" class="icon icon-caret-down hide-sm"></i><strong class="text-muted show-sm"><span>+ เพิ่มเติม</span></strong>
 																</button>
 															</div>
@@ -572,7 +572,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																</div>
 															</div>
 															<div class="col-md-1">
-																<button id="btn-more-language" class="btn-link btn-link--icon sectionLabel_rcr7sj" aria-label="+ เพิ่มเติม">
+																<button type="button" id="btn-more-language" class="btn-link btn-link--icon sectionLabel_rcr7sj" aria-label="+ เพิ่มเติม">
 																	<i id="icon-language" class="icon icon-caret-down hide-sm"></i><strong class="text-muted show-sm"><span>+ เพิ่มเติม</span></strong>
 																</button>
 															</div>
@@ -587,12 +587,12 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 														<div class="col-md-8 col-lg-7 col-md-offset-4 col-lg-offset-5">
 															<div class="row row-condensed space-sm-7">
 																<div class="col-sm-6">
-																	<button id="cancel-btn-more-filters" class="btn btn-block cancel-btn">
+																	<button type="button"  id="cancel-btn-more-filters" class="btn btn-block cancel-btn">
 																		<span>ยกเลิก</span>
 																	</button>
 																</div>
 																<div class="col-sm-6">
-																	<button class="btn btn-block btn-soft-dark apply-filters-btn" disabled="">
+																	<button type="button" class="btn btn-block btn-soft-dark apply-filters-btn" disabled="">
 																		<span>ยืนยันการค้นหา</span>
 																	</button>
 																</div>
