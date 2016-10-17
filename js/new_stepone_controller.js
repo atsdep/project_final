@@ -82,6 +82,42 @@ $(document).ready(function() {
 		//return false;
 	});
 
+	$("#type_of_fuel").change(function() {
+		var type_of_fuel = $("#type_of_fuel").val();
+		var ann_id = $("#ann_id").val();
+		var mode = "type_of_fuel";
+		$.post("controllers/new_controller.php", {
+			type_of_fuel : type_of_fuel,
+			ann_id : ann_id,
+			mode : mode
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+			} else {
+				console.log(data.msg);
+			}
+
+		}, "json");
+	});
+
+	$("#passenger").change(function() {
+		var passenger = $("#passenger").val();
+		var ann_id = $("#ann_id").val();
+		var mode = "passenger";
+		$.post("controllers/new_controller.php", {
+			passenger : passenger,
+			ann_id : ann_id,
+			mode : mode
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+			} else {
+				console.log(data.msg);
+			}
+
+		}, "json");
+	});
+
 	$("#form-amenities input:checkbox").click(function() {
 		var vWifi = 0;
 		var vWater = 0;
@@ -121,8 +157,6 @@ $(document).ready(function() {
 		if ($("#purifier").is(':checked')) {
 			vPurifier = 1;
 		}//9
-
-		console.log(vWifi + " " + vWater + " " + vBook + " " + vMusic + " " + vTissues + " " + vChildseat + " " + vMonitor + " " + v220v + " " + vPurifier);
 
 		$.post("controllers/new_controller.php", {
 			ann_id : ann_id,
@@ -167,23 +201,24 @@ $(document).ready(function() {
 	});
 
 	function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-                console.log(e.target.result);
-            };
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#photo-image").change(function(){
-    	$("#input-main-photos").addClass("hide");
-    	$("#show-photos").removeClass("hide");
-        readURL(this);
-    });
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				$('#blah').attr('src', e.target.result);
+				console.log(e.target.result);
+			};
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+
+	$("#photo-image").change(function() {
+		$("#input-main-photos").addClass("hide");
+		$("#show-photos").removeClass("hide");
+		readURL(this);
+	});
 
 	$("#next-description").click(function() {
 		var vDes = $("#description").val();
@@ -229,6 +264,73 @@ $(document).ready(function() {
 			}
 
 		}, "json");
+	});
+
+	$("#btn-upload-profile").click(function() {
+		var mode = "phone_number_verification";
+		var otp = $("#phone_number_verification").val();
+
+		$.post("controllers/new_controller.php", {
+			otp : otp,
+			mode : mode
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+				$("#phone_number_verification").addClass("error-verify");
+			} else {
+				$("#verify-process").addClass("hide");
+				$("#verify-success").removeClass("hide");
+				$("#phone_number_verification").removeClass("error-verify");
+				console.log(data.msg);
+				console.log(data.result);
+			}
+		}, "json");
+
+	});
+
+	$("#btn-verify").click(function() {
+		var mode = "add-telephone";
+		$("#pic-default").addClass("hide");
+		$("#pic-process").removeClass("hide");
+		$("#input-number").addClass("hide");
+		$("#verify-process").removeClass("hide");
+		var otp = Math.floor(1000 + Math.random() * 9000);
+		var tel_number = $("#phone_number").val();
+		document.getElementById("tel-number").innerHTML = tel_number;
+		document.getElementById("example-code").innerHTML = otp;
+		$.post("controllers/new_controller.php", {
+			tel_number : tel_number,
+			otp : otp,
+			mode : mode
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+			} else {
+				console.log(data.msg);
+			}
+		}, "json");
+	});
+
+	$("#btn-verification").click(function() {
+		var mode = "phone_number_verification";
+		var otp = $("#phone_number_verification").val();
+
+		$.post("controllers/new_controller.php", {
+			otp : otp,
+			mode : mode
+		}, function(data) {
+			if (data.error) {
+				console.log(data.msg);
+				$("#phone_number_verification").addClass("error-verify");
+			} else {
+				$("#verify-process").addClass("hide");
+				$("#verify-success").removeClass("hide");
+				$("#phone_number_verification").removeClass("error-verify");
+				console.log(data.msg);
+				console.log(data.result);
+			}
+		}, "json");
+
 	});
 
 	$("#form-choose-scope #label-in").click(function() {
@@ -326,8 +428,6 @@ $(document).ready(function() {
 			}
 		}, "json");
 	});
-
-	
 
 	$("#form-customer-requiements input:checkbox").click(function() {
 		var vGovernment_id = 0;

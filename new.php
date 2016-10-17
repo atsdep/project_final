@@ -241,7 +241,7 @@ if (!isset($_SESSION['member_id'])) {
 												<div class="preview-card text-center text-large">
 													<span>
 														<div class="preview-card--border media space-top-2 hide-sm">
-															<a href="cars.php<?php if(isset($_GET['id'])) { echo '?id=' .  $_GET['id'] ;} ;  ?>" target="_blank" class="link-reset link--accessibility-outline" alt="ตัวอย่างประกาศ">
+															<a href="cars.php<?php if(isset($_GET['id'])) { echo '?id=' .  $_GET['id'].'&preview' ;} ;  ?>" target="_blank" class="link-reset link--accessibility-outline" alt="ตัวอย่างประกาศ">
 															<div class="panel-body va-container">
 																<div class="media-body preview-card--right-col va-middle text-truncated">
 																	<span>ชื่อประกาศ</span>

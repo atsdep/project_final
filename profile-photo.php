@@ -78,20 +78,18 @@ if (!isset($_SESSION['member_id'])) {
 												<h3 class="no-margin-padding">เพิ่มรูปของคุณ</h3>
 											</div>
 
-											<div class="profile-photo__container va-container">
-												<noscript></noscript>
+											<div id="profile-success" class="profile-photo__container va-container hide">
 												<div class="profile-photo--with-background-image media-photo media-round media-photo-badge va-middle">
-													<i class="media-photo-badge__alert-badge icon icon-ok-alt icon-white dot-lima"></i><img class="" src="https://a2.muscache.com/im/pictures/af7700c6-b8a0-44a5-82d4-1720d8f93805.jpg?aki_policy=profile_x_medium" height="144" width="144" alt="">
+													<i class="media-photo-badge__alert-badge icon icon-ok-alt icon-white dot-lima"></i><img class="" src="img/profile.jpg?aki_policy=profile_x_medium" height="144" width="144" alt="">
 												</div>
 												<div class="va-middle">
 													<div>
-														<span>ดูดีแล้ว!</span>
+														<span>ดูดีมาก!</span>
 													</div><a href="#" data-prevent-default="true"><span>เปลี่ยนรูป</span></a>
 												</div>
 											</div>
-											<div class="profile-photo__container va-container-md">
-												<noscript></noscript>
-												<div class="profile-photo--with-background-image media-photo media-round media-photo-badge va-middle"><img class="" src="https://a2.muscache.com/im/pictures/af7700c6-b8a0-44a5-82d4-1720d8f93805.jpg?aki_policy=profile_x_medium" height="144" width="144" alt="">
+											<div id="upload-profile" class="profile-photo__container va-container-md">
+												<div class="profile-photo--with-background-image media-photo media-round media-photo-badge va-middle"><img class="" src="img/profile.jpg?aki_policy=profile_x_medium" height="144" width="144" alt="">
 												</div><div class="show-sm space-2"></div>
 												<div class="va-middle">
 													<button type="button" class="btn btn-facebook space-1 btn-jumbo text-truncated profile-photo-button btn-jumbo">
@@ -103,7 +101,7 @@ if (!isset($_SESSION['member_id'])) {
 														<label for="upload_photo_input_7cd78851-8ecf-4d05-a990-d0fb64d417b8" class="btn btn-jumbo btn-jumbo"><i class="icon h4 icon-upload"></i><span>&nbsp;&nbsp;</span><span>อัพโหลดรูปภาพ</span></label></span>
 												</div>
 											</div>
-											<div class="profile-photo__container va-container">
+											<!-- <div class="profile-photo__container va-container">
 												<noscript></noscript>
 												<div class="profile-photo--with-background-image media-photo media-round media-photo-badge va-middle">
 													<span class="media-photo-badge__alert-badge icon-white dot-beach">!</span><img class="" src="https://a2.muscache.com/im/pictures/83041d5c-6f34-4d8b-aede-73f5d4d4c703.jpg?aki_policy=profile_x_medium" height="144" width="144" alt="">
@@ -118,7 +116,7 @@ if (!isset($_SESSION['member_id'])) {
 													<br>
 													<a href="#" class="data-prevent-default"><span>ใช่ ฉันเอง</span></a>
 												</div>
-											</div>
+											</div> -->
 
 										</div>
 
@@ -165,7 +163,7 @@ if (!isset($_SESSION['member_id'])) {
 												<div class="help-panel__text">
 													<div>
 														<p>
-															<span>ทุกคนบน Airbnb มีรูปโปรไฟล์ รวมผู้เข้าพักของคุณ ดังนั้นคุณจะทราบว่าจะมีใครมาพัก และผู้เข้าพักจะทราบว่าพวกเขากำลังติดต่ออยู่กับคนจริงๆ อยู่ด้วย</span>
+															<span>ทุกคนบน Rentcnd มีรูปโปรไฟล์ รวมผู้ใช้บริการของคุณ ดังนั้นคุณจะทราบว่าจะมีใครมาใช้บริการ และผู้ใช้บริการจะทราบว่าพวกเขากำลังติดต่ออยู่กับคนจริงๆ อยู่ด้วย</span>
 														</p>
 														<p>
 															<span>ตรวจให้แน่ใจว่ารูปแสดงหน้าคุณชัดเจน</span>
