@@ -39,7 +39,7 @@ $(document).ready(function (e){
 		if(source_province >= 1){
 			var request_uri = request_uri + '&source='+source_province;
 		}
-		var destination_province = $("#destination").val();
+		var destination_province = $("#destination_province").val();
 		if(destination_province >= 1){
 			var request_uri = request_uri + '&destination='+destination_province;
 		}
@@ -77,12 +77,14 @@ $(document).ready(function (e){
   		$("#filters-more-language").toggleClass( "collapse" );
   		$("#icon-language").toggleClass( "icon-caret-up" );
 	});
-	
+	var min_price =  $( "#price-left" ).val();
+	var max_price =  $( "#price-right" ).val();
 	$("#slider-range").slider({
+	  
       range: true,
       min: 350,
       max: 15000,
-      values: [ 350, 15000 ],
+      values: [ min_price, max_price ],
       slide: function( event, ui ) {
         $( "#price-left" ).val( "฿" + ui.values[ 0 ]);
         $( "#price-right" ).val( "฿" + ui.values[ 1 ]);

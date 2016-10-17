@@ -146,7 +146,15 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<?php
 
 																			while ($result_province = mysqli_fetch_assoc($query_province)) {
-																				echo "<option value=\" " . $result_province['PROVINCE_ID'] . " \"> " . $result_province['PROVINCE_NAME'] . "</option> ";
+																			   if(isset($_GET['source'])){
+																			   		if($_GET['source'] == $result_province['PROVINCE_ID']){
+																			   			echo '<option selected="" value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   		}else{
+																			   			echo '<option value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   		}
+																			   }else{
+																			   		echo '<option value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   }
 																			}
 																			?>
 																		</select>
@@ -160,9 +168,18 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<?php
 																			$query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVINCE_NAME ASC");
 																			while ($result_province = mysqli_fetch_assoc($query_province)) {
-																				echo "<option value=\" " . $result_province['PROVINCE_ID'] . " \"> " . $result_province['PROVINCE_NAME'] . "</option> ";
+																			   if(isset($_GET['destination'])){
+																			   		if($_GET['destination'] == $result_province['PROVINCE_ID']){
+																			   			echo '<option selected="" value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   		}else{
+																			   			echo '<option value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   		}
+																			   }else{
+																			   		echo '<option value="  '. $result_province['PROVINCE_ID'] .'">'.  $result_province['PROVINCE_NAME'] . '</option>';
+																			   }
 																			}
 																			?>
+																			
 																		</select>
 																	</div>
 																</div>
@@ -188,7 +205,8 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<span>รถเก๋ง</span>
 																		</div>
 																		<div class="facet-checkbox__input-col">
-																			<input id="sedan" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
+																			
+																			<input <?php if(isset($_GET['sedan'])){if($_GET['sedan'] == TRUE) echo 'checked' ;} ?> id="sedan" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
 																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
@@ -200,7 +218,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<span>รถตู้</span>
 																		</div>
 																		<div class="facet-checkbox__input-col">
-																			<input id="van" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
+																			<input <?php if(isset($_GET['van'])){if($_GET['van'] == TRUE) echo 'checked' ;} ?> id="van" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
 															</div>
@@ -214,7 +232,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<span>รถอเนกประสงค์</span>
 																		</div>
 																		<div class="facet-checkbox__input-col">
-																			<input id="suv" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
+																			<input <?php if(isset($_GET['suv'])){if($_GET['suv'] == TRUE) echo 'checked' ;} ?> id="suv" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
 																<div class="col-lg-4 col-md-6 col-sm-12 space-sm-1">
@@ -226,7 +244,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																			<span>รถกระบะ</span>
 																		</div>
 																		<div class="facet-checkbox__input-col">
-																			<input id="pickup" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
+																			<input <?php if(isset($_GET['pickup'])){if($_GET['pickup'] == TRUE) echo 'checked' ;} ?> id="pickup" type="checkbox" name="car-category" aria-labelledby="filter-section-header-room-types entire-place-checkbox-label" aria-describedby="entire-place-desc" value="">
 																		</div></label>
 																</div>
 															</div>
@@ -248,9 +266,9 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																	</div>
 																	<div class="row">
 																		<div class="col-6 pull-left">
-																			<input type="text" id="price-left" readonly style="border:0; font-weight:bold;">																	</div>
+																			<input <?php if(isset($_GET['min'])){ echo 'value="'. $_GET['min'] .'"'  ;} else echo 'value="350"' ; ?> type="text" id="price-left" readonly style="border:0; font-weight:bold;">																	</div>
 																		<div class="col-6 text-right pull-right-price">
-																			<input type="text" id="price-right" readonly style="border:0; font-weight:bold;">
+																			<input <?php if(isset($_GET['max'])){  echo 'value="'. $_GET['max'] .'"'  ;} else echo 'value="15000"' ; ?> type="text" id="price-right" readonly style="border:0; font-weight:bold;">
 																		</div>
 																	</div>
 																</div>
@@ -643,12 +661,17 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 												<div class="">
 
 													<?php
-													$sql_select_all = "SELECT
+													$sql_select_all = 'SELECT
 													members.member_profile_photo,
 													provinces.PROVINCE_NAME,
+													car_category.car_category_id,
 													car_category.car_category_name,
 													car_gene.car_gene_name,
-													car_brand.car_brand_name,
+													car_brand.car_brand_name,';
+													if(isset($_GET['from']) || isset($_GET['to'])){
+													$sql_select_all =  $sql_select_all .' calendars.*, ';
+													}
+													$sql_select_all = $sql_select_all .'
 													announces.*
 													FROM announces
 													INNER JOIN provinces
@@ -660,14 +683,53 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 													INNER JOIN car_category
 													ON car_gene.car_category_id = car_category.car_category_id
 													INNER JOIN members
-													ON announces.member_id = members.member_id
-													WHERE announces.announce_status = 'show'
-													ORDER BY announces.announce_update_date DESC";
-
-													$query_ann_cars = mysqli_query($connect, $sql_select_all);
-													//$result_ann_cars = mysqli_fetch_assoc($query_ann_cars);
-													$row_ann_cars = mysqli_num_rows($query_ann_cars);
+													ON announces.member_id = members.member_id';
+													if(isset($_GET['from']) || isset($_GET['to'])){
+													$sql_select_all =  $sql_select_all .' INNER JOIN calendars
+													ON `calendars`.`member_id` = members.member_id';
+													}
+													$sql_select_all = $sql_select_all .' WHERE announces.announce_status = "show"';
+													if(isset($_GET['passenger'])){
+													$sql_select_all =  $sql_select_all .' AND announces.announce_passenger >= '. $_GET['passenger'] .' ';
+													}
+													if(isset($_GET['source'])){
+													$sql_select_all =  $sql_select_all .' AND announces.car_province = '. $_GET['source'] .' ';
+													}									
+													// if(isset($_GET['destination'])){
+													// $sql_select_all =  $sql_select_all .' AND announces.car_province = '. $_GET['destination'] .' ';
+													// }
+													if(isset($_GET['from'])){
+													$sql_select_all =  $sql_select_all .' AND `calendars`.`date` = "2016-12-31" AND calendars.status = 1 ';
+													}
+													if(isset($_GET['to'])){
+													$sql_select_all =  $sql_select_all .' AND `calendars`.`date` = "2016-12-31" AND calendars.status = 1 ';
+													}													
+													if(isset($_GET['sedan'])){
+														if($_GET['sedan'] == true){
+													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "1"';
+													}
+													}
+													if(isset($_GET['van'])){
+														if($_GET['van'] == true){
+													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "2"';
+													}
+													}
+													if(isset($_GET['suv'])){
+														if($_GET['suv'] == true){
+													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "3"';
+													}
+													}
+													if(isset($_GET['pickup'])){
+														if($_GET['pickup'] == true){
+													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "4"';
+													}
+													}
 													
+													$sql_select_all =  $sql_select_all .' ORDER BY announces.announce_update_date DESC';
+													
+													//echo $sql_select_all;
+													$query_ann_cars = mysqli_query($connect, $sql_select_all);
+													$row_ann_cars = mysqli_num_rows($query_ann_cars);
 													if ($row_ann_cars >= 1) {
 														while ($result_ann = mysqli_fetch_assoc($query_ann_cars)) {
 															if (isset($result_ann['announce_photos_1'])) {
