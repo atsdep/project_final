@@ -4,6 +4,42 @@ body{
     filter: gray;*/
 }
 
+.hr-booking{
+	margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 0px solid #dce0e0;
+}
+
+.icon-sedan-carspage{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-sedan.png);
+   	width: 55px;
+    height: auto;
+}
+
+.icon-van-carspage{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-van.png);
+   	width: 55px;
+    height: auto;
+}
+
+.icon-suv-carspage{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-suv.png);
+   	width: 55px;
+    height: auto;
+}
+
+.icon-pickup-carspage{
+    background-repeat: no-repeat;
+    background-image: url(../img/icon-pickup.png);
+   	width: 55px;
+    height: auto;
+}
+
+
 .icon-sedan{
     background-repeat: no-repeat;
     background-image: url(../img/icon-sedan.png);
@@ -34,6 +70,13 @@ body{
 
 .icon-size-1 {
 	font-size: 2.0em;
+}
+
+.error-verify{
+	border-color: #D52B2A;
+	border-style: solid;
+	border-width: medium;
+	background-color: #FFF8E6;
 }
 
 @media (min-width: 744px) {

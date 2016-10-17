@@ -162,7 +162,7 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="generation.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="car-information.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
 																	<a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="additional_service.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>">
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
@@ -198,7 +198,7 @@ if (!isset($_SESSION['member_id'])) {
 										</div>
 										<div class="show-sm help-panel__floating-container">
 											<span class="tooltip-popup__transition-container">
-												<div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
+												<!-- <div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
 													<div class="help-panel__bulb-img"></div><div class="help-panel__close-icon"></div>
 													<div class="help-panel__floating-panel-body help-panel__text">
 														<div>
@@ -207,7 +207,7 @@ if (!isset($_SESSION['member_id'])) {
 															</p>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<div class="help-panel--collapsed help-panel__bulb-img-bubble">
 													<div class="help-panel__bulb-img img-center"></div>
 												</div> </span>
