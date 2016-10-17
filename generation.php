@@ -140,9 +140,10 @@ if (!isset($_SESSION['member_id'])) {
 														<div class="row no-margin-padding__sm">
 															<div class="main-panel__actions col-sm-12 no-margin-padding__sm">
 																<div>
-																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="new.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
+																	<a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="map.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>กลับไป</span></h5> </span> </a>
 
-																	<a id="" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="amenities.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> <span id="process-loading" class="hide-sm loading" style="left: -123px; top: 10px;"></span>
+																	<a id="" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-soft-dark" href="car-information.php?id=<?php if(isset($_GET['id'])){ echo $_GET['id'];}?>"> 
+																		<!-- <span id="process-loading" class="hide-sm loading" style="left: -123px; top: 10px;"></span> -->
 																	<div class="btn-progress-next__text">
 																		<span>ถัดไป</span>
 																	</div> </a>

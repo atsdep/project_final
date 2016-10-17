@@ -37,7 +37,15 @@ if (isset($_SESSIONS['member_id'])) {
 		
 		<div class="comp pull-right">
 			<a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/users.php" data-href="/dashboard" data-href-host="/trips"> <span class="value_name margin-right--tiny hide-md"><?php echo $result_mem['member_firstname'] ?></span>
-			<div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray"><img width="28" height="28" src="img/profile.jpg?aki_policy=profile_small" alt="">
+			<div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray">
+				<?php 
+				if (isset($result_mem['member_profile_photo'])) {
+				$profile_photo = '../img/' . $result_mem['member_profile_photo'];
+				} else {
+				$profile_photo = '../img/profile.jpg';
+				}
+				?>
+				<img width="28" height="28" src="img/<?php echo $profile_photo  ;?>?aki_policy=profile_small" alt="">
 			</div> </a>
 
 			<div class="panel  drop-down-menu avatar-tooltip--new">

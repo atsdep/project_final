@@ -89,7 +89,7 @@ hr {
     padding-right: 0
 }
 .input-suffix.btn-jumbo {
-    padding: 20px 24px
+    padding: 20px 5px
 }
 .text-low-importance {
     font-size: 14px;
@@ -2771,6 +2771,7 @@ input[type=number].phone-number-verification::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0
 }
+
 input[type=number].phone-number-verification {
     -moz-appearance: textfield
 }
