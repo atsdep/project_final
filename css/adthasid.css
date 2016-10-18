@@ -11,6 +11,24 @@ body{
     border-top: 0px solid #dce0e0;
 }
 
+.va-middle-activation {
+	display: block;
+}
+
+.btn-jumbo-activation {
+    padding: 20px 60px;
+    font-size: 18px;
+    padding: 19px 80px;
+    line-height: 1;
+}
+
+.btn-jumbo-activation-facebook {
+    padding: 20px 60px;
+    font-size: 18px;
+    padding: 19px 78px;
+    line-height: 1;
+}
+
 .icon-sedan-carspage{
     background-repeat: no-repeat;
     background-image: url(../img/icon-sedan.png);

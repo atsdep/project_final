@@ -10,7 +10,7 @@ session_start();
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>รถเช่าของคุณ - Rentcnd</title>
+		<title>การจองของคุณ - Rentcnd</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -41,13 +41,13 @@ session_start();
 				<div class="page-container-responsive">
 					<ul class="subnav-list">
 						<li>
-							<a href="mycar.php" aria-selected="true" class="subnav-item cohosting-ml-tooltip-trigger" id="rooms-item">รถเช่าของคุณ</a>
+							<a href="mycar.php" aria-selected="false" class="subnav-item cohosting-ml-tooltip-trigger" id="rooms-item">รถเช่าของคุณ</a>
 						</li>
 						<li>
 							<a href="users.php" aria-selected="false" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
 						</li>
 						<li>
-							<a href="trips.php" aria-selected="false" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
+							<a href="trips.php" aria-selected="true" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
 						</li>
 						<li>
 							<a href="account.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
@@ -62,18 +62,11 @@ session_start();
 					<div class="col-md-3 space-sm-3">
 						<ul class="sidenav-list">
 							<li>
-								<a href="mycar.php" aria-selected="false" class="sidenav-item">รถเช่าของคุณ</a>
+								<a href="trips.php" aria-selected="true" class="sidenav-item">การเดินทางของคุณ</a>
 							</li>
-							<li>
-								<a href="customer_reservations.php" aria-selected="true" class="sidenav-item">การจองของลูกค้า</a>
-							</li>
-							<li>
-								<a href="requirements.php" aria-selected="false" class="sidenav-item">ข้อกำหนดในการจอง</a>
-							</li>
-
-							<div class="space-top-4 space-4">
+							<!-- <div class="space-top-4 space-4">
 								<a href="new.php" aria-selected="false" class="btn btn-host">เพิ่มรถเช่าใหม่</a>
-							</div>
+							</div> -->
 
 						</ul>
 					</div>

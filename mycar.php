@@ -100,9 +100,6 @@ if (!isset($_SESSION['member_id'])) {
 								<a href="mycar.php" aria-selected="true" class="sidenav-item">รถเช่าของคุณ</a>
 							</li>
 							<li>
-								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
-							</li>
-							<li>
 								<a href="customer_reservations.php" aria-selected="false" class="sidenav-item">การจองของลูกค้า</a>
 							</li>
 							<li>

@@ -5,6 +5,8 @@ require ("config/connectdb.php");
 if (!isset($_GET['id'])) {
 	header("location:index.php");
 	exit(0);
+} else {
+	require ("controllers/cars_page_controller.php");
 }
 ?>
 <!DOCTYPE html>
@@ -108,10 +110,10 @@ if (!isset($_GET['id'])) {
 			$passenger = $result_ann_cars['announce_passenger'];
 			$description = $result_ann_cars['announce_description'];
 			$member_create_date = $result_ann_cars['member_regis_date'];
-			
-			if($result_ann_cars['member_id'] == $_SESSION['member_id']){
+
+			if ($result_ann_cars['member_id'] == $_SESSION['member_id']) {
 				$verify_member_id = TRUE;
-			}else{
+			} else {
 				$verify_member_id = FALSE;
 			}
 		}
@@ -218,7 +220,7 @@ if (!isset($_GET['id'])) {
 											<div class="row">
 												<div class="col-md-3 space-sm-4 text-center space-sm-2">
 													<div class="media-photo-badge">
-														<a href="#host-profile" class="media-photo media-round"> <img alt="ใช้รูปโปรไฟล์" class="host-profile-image" height="115" width="115" data-pin-nopin="true" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="Adthasid"></a>
+														<a href="#host-profile" class="media-photo media-round"> <img alt="ใช้รูปโปรไฟล์" class="host-profile-image" height="115" width="115" data-pin-nopin="true" src="<?php echo $profile_photo?>?aki_policy=profile_x_medium" title="<?php echo $result_ann_cars['firstname'] ?>"></a>
 													</div>
 												</div>
 												<div class="col-md-9">
@@ -249,9 +251,9 @@ if (!isset($_GET['id'])) {
 													<div class="row row-condensed text-muted text-center">
 														
 														<div class="col-sm-3">
-															<?php 
-															if($car_category=='รถเก๋ง')
-															 echo	'<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-sedan.png"></i>';
+															<?php
+															if ($car_category == 'รถเก๋ง')
+																echo '<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-sedan.png"></i>';
 															?>
 															
 														</div>
@@ -270,7 +272,7 @@ if (!isset($_GET['id'])) {
 											</div>
 											<div class="row">
 												<div class="col-md-3 text-muted text-center hide-sm">
-													<a href="#host-profile" class="link-reset text-wrap">Adthasid</a>
+													<a href="#host-profile" class="link-reset text-wrap"><?php echo $result_ann_cars['firstname'] ?></a>
 												</div>
 												<div class="col-md-9">
 													<div class="row row-condensed text-muted text-center">
@@ -352,9 +354,9 @@ if (!isset($_GET['id'])) {
 																			<div class="select select-block">
 																				<select name="passenger">
 																					<option selected="" value="1">1</option>
-																					<?php  
-																						for($i=2; $i<= $passenger; $i++){
-																							echo '<option value="'.$i.'">'.$i.'</option>';
+																					<?php
+																						for ($i = 2; $i <= $passenger; $i++) {
+																							echo '<option value="' . $i . '">' . $i . '</option>';
 																						}
 																					?>
 																				</select>
@@ -568,24 +570,24 @@ if (!isset($_GET['id'])) {
 																	</div> -->
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['wifi'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>Wifi ภายในรถ</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>Wifi ภายในรถ</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['wifi'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>Wifi ภายในรถ</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>Wifi ภายในรถ</del></span>';
+																			}
 																			?>
 																			
 																		</div>
 																	</div>
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['water'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>น้ำดื่ม</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>น้ำดื่ม</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['water'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>น้ำดื่ม</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>น้ำดื่ม</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -596,23 +598,23 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['book'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>หนังสือ</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>หนังสือ</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['book'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>หนังสือ</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>หนังสือ</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['music'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เพลง</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>เพลง</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['music'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เพลง</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>เพลง</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -627,12 +629,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['tissues'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>กระดาษทิชชู่</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>กระดาษทิชชู่</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['tissues'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>กระดาษทิชชู่</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>กระดาษทิชชู่</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -641,12 +643,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['childseat'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เบาะนั่งสำหรับเด็ก</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>เบาะนั่งสำหรับเด็ก</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['childseat'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เบาะนั่งสำหรับเด็ก</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>เบาะนั่งสำหรับเด็ก</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -656,12 +658,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['monitor'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>จอมอนิเตอร์ในรถยนต์</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>จอมอนิเตอร์ในรถยนต์</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['monitor'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>จอมอนิเตอร์ในรถยนต์</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>จอมอนิเตอร์ในรถยนต์</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -670,12 +672,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['220v'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ไฟชาร์จ 220V</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>ไฟชาร์จ 220V</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['220v'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ไฟชาร์จ 220V</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>ไฟชาร์จ 220V</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -685,12 +687,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['purifier'] == 1){
-																					echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ระบบฟอกอากาศในรถยนต์</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>ระบบฟอกอากาศในรถยนต์</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['purifier'] == 1) {
+																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ระบบฟอกอากาศในรถยนต์</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>ระบบฟอกอากาศในรถยนต์</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -699,12 +701,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['smoking'] == 1){
-																					echo '<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>สูบบุหรี่ได้</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>สูบบุหรี่ได้</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['smoking'] == 1) {
+																				echo '<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>สูบบุหรี่ได้</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>สูบบุหรี่ได้</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -712,12 +714,12 @@ if (!isset($_GET['id'])) {
 																<div class="col-sm-6">
 																	<div>
 																		<div class="space-1">
-																			<?php 
-																				if($result_ann_cars['pet'] == 1){
-																					echo '<span><i class="icon h3 icon-paw"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>นำสัตว์เลี้ยงเข้ามาได้</span></span>';
-																				}else{
-																					echo '<span id="amenity-long-tooltip-trigger-28"><del>นำสัตว์เลี้ยงเข้ามาได้</del></span>';
-																				}
+																			<?php
+																			if ($result_ann_cars['pet'] == 1) {
+																				echo '<span><i class="icon h3 icon-paw"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>นำสัตว์เลี้ยงเข้ามาได้</span></span>';
+																			} else {
+																				echo '<span id="amenity-long-tooltip-trigger-28"><del>นำสัตว์เลี้ยงเข้ามาได้</del></span>';
+																			}
 																			?>
 																		</div>
 																	</div>
@@ -739,7 +741,7 @@ if (!isset($_GET['id'])) {
 													<div class="col-md-9">
 														<div class="structured_house_rules">
 															<div class="row col-sm-6">
-																<span><strong><?php echo 'ภายในจังหวัด'.$province; ?></strong></span><span> <strong>฿<?php echo $price ?></strong></span>
+																<span><strong><?php echo 'ภายในจังหวัด' . $province; ?></strong></span><span> <strong>฿<?php echo $price ?></strong></span>
 															</div>
 															<br>
 															<div class="row">
@@ -748,30 +750,30 @@ if (!isset($_GET['id'])) {
 																</div>
 															</div>
 															<div class="row col-sm-12">
-																<?php 
-																	if($result_ann_cars['fuel_expenses'] == 1){
-																		echo '<span id="">ราคารวมค่าเชื้อเพลิง</span>';
-																	}else{
-																		echo '<span id=""><del>ราคารวมค่าเชื้อเพลิง</del></span>';
-																	}
+																<?php
+																if ($result_ann_cars['fuel_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าเชื้อเพลิง</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าเชื้อเพลิง</del></span>';
+																}
 																?>										
 															</div>
 															<div class="row col-sm-12">
-																<?php 
-																	if($result_ann_cars['expressway_expenses'] == 1){
-																		echo '<span id="">ราคารวมค่าทางด่วน</span>';
-																	}else{
-																		echo '<span id=""><del>ราคารวมค่าทางด่วน</del></span>';
-																	}
+																<?php
+																if ($result_ann_cars['expressway_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าทางด่วน</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าทางด่วน</del></span>';
+																}
 																?>														
 															</div>
 															<div class="row col-sm-12">
-																<?php 
-																	if($result_ann_cars['park_expenses'] == 1){
-																		echo '<span id="">ราคารวมค่าจอดรถ</span>';
-																	}else{
-																		echo '<span id=""><del>ราคารวมค่าจอดรถ</del></span>';
-																	}
+																<?php
+																if ($result_ann_cars['park_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าจอดรถ</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าจอดรถ</del></span>';
+																}
 																?>	
 															</div>
 															<!-- <div class="row col-sm-12 space-top-1">
@@ -855,7 +857,7 @@ if (!isset($_GET['id'])) {
 																<span>ไม่เหมาะสำหรับสัตว์เลี้ยง</span>
 																</div>
 															<?php
-																}
+															}
 															?>
 															<?php
 																if($result_ann_cars['smoking'] == 0){
@@ -864,7 +866,7 @@ if (!isset($_GET['id'])) {
 																<span>ห้ามสูบบุหรี่ภายในรถ</span>
 																</div>
 															<?php
-																}
+															}
 															?>
 															<!-- <div class="row">
 																<div class="col-sm-2">
@@ -952,12 +954,12 @@ if (!isset($_GET['id'])) {
 											<div class="row">
 												<div class="col-md-3 text-center">
 													<div class="media-photo-badge">
-														<a target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id'] ;?>" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium"
+														<a target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id']; ?>" class="media-photo media-round"><img alt="Ed &amp; Tum" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium"
 															title="<?php echo $result_ann_cars['member_firstname']; ?>"></a><img src="https://a0.muscache.com/airbnb/static/badges/superhost_photo_badge-a38e6a7d2afe0e01146ce910da3915f5.png" class="superhost-photo-badge" alt="">
 													</div>
 												</div>
 												<div class="col-md-9">
-													<h3 class="space-1"><a class="link-reset" target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id'] ;?>"><?php echo $result_ann_cars['member_firstname'] ?></a></h3>
+													<h3 class="space-1"><a class="link-reset" target="_blank" href="profile.php?mid=<?php echo $result_ann_cars['member_id']; ?>"><?php echo $result_ann_cars['member_firstname'] ?></a></h3>
 													<div class="row row-condensed space-2">
 														<div class="col-md-12 text-muted">
 															
@@ -1455,8 +1457,9 @@ if (!isset($_GET['id'])) {
 			</div>
 			</div>
 		<?php
-			}
-		}?>
+		}
+		}
+	?>
 		
 		
 
@@ -1471,7 +1474,7 @@ if (!isset($_GET['id'])) {
 		<?php
 		$sql_select_calendar = "SELECT * FROM calendars WHERE member_id = '" . $result_ann_cars['member_id'] . "'";
 		$query_calendar = mysqli_query($connect, $sql_select_calendar);
-		
+
 		$date = array();
 		while ($result_date = mysqli_fetch_assoc($query_calendar)) {
 			$date_expire = $result_date['date'];
@@ -1512,7 +1515,7 @@ if (!isset($_GET['id'])) {
 			var d1 = new Date(day2);
 			var differ = daysDifference(d0,d1);
 			
-			if(differ >= 1){
+			if(differ >= 0){
 				console.log(differ+1 + ' day');
 				
 				var formatter = new Intl.NumberFormat('en-US', {
@@ -1540,7 +1543,7 @@ if (!isset($_GET['id'])) {
 				var d = new Date();
 				var dateFormat = "dd/mm/yy",
 				    from = $("#from").datepicker({
-				    dateFormat : 'dd/mm/yy',
+					dateFormat : 'dd/mm/yy',
 					showButtonPanel : true,
 					minDate : 0,
 					maxDate : '+3M',
@@ -1560,7 +1563,7 @@ if (!isset($_GET['id'])) {
 							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
 							btn.unbind("click").bind("click", function() {
 								$.datepicker._clearDate(input);
-								$("#btn-booking").attr("disabled","disabled");
+								$("#btn-booking").attr("disabled", "disabled");
 							});
 
 							btn.appendTo(buttonPane);
@@ -1570,9 +1573,9 @@ if (!isset($_GET['id'])) {
 				}).on("change", function() {
 					to.datepicker("option", "minDate", getDate(this));
 				}),
-					
+
 				    to = $("#to").datepicker({
-				    dateFormat : 'dd/mm/yy',
+					dateFormat : 'dd/mm/yy',
 					showButtonPanel : true,
 					minDate : 0,
 					maxDate : '+3M',
@@ -1592,7 +1595,7 @@ if (!isset($_GET['id'])) {
 							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
 							btn.unbind("click").bind("click", function() {
 								$.datepicker._clearDate(input);
-								$("#btn-booking").attr("disabled","disabled");
+								$("#btn-booking").attr("disabled", "disabled");
 							});
 
 							btn.appendTo(buttonPane);
@@ -1613,12 +1616,10 @@ if (!isset($_GET['id'])) {
 					}
 					return date;
 				}
-				   
 
 			});
-	
-			
-		});
-  		
+
+			});
+
   </script>
 </html>

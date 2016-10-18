@@ -878,7 +878,35 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 												<span style="font-size:0;"></span>
 											</div>
 										</div>
-										<div class="results-footer">
+										<div class="outer-listings-container space-2 hide">
+										<div class="listings-container">
+											<div>
+												<div style="margin-bottom:12px;">
+													<h3 class="title_1psh9b0">
+													<div style="margin-right:12px;display:inline-block;">
+														<i class="icon icon-search icon-gray icon-size-1"></i>
+													</div><span>ไม่มีผลลัพธ์</span></h3>
+												</div>
+												<div style="margin-bottom:8px;">
+													<p class="text_1lobov3-o_O-size_regular_1n7tijc">
+														<span>ทดลองปรับการค้นหาของคุณ ตามตัวอย่างต่อไปนี้:</span>
+													</p>
+												</div>
+												<ul>
+													<li>
+														<span>เปลี่ยนตัวกรองหรือวันที่</span>
+													</li>
+													<li>
+														<span>ซูมออกแผนที่</span>
+													</li>
+													<li>
+														<span>ค้นหาเมือง ที่อยู่ หรือจุดสังเกต</span>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+										<div class="results-footer hide">
 											<div class="pagination-buttons-container space-8">
 												<div class="results_count">
 													<span><span>1</span><span> – </span><span>18</span><span> จาก</span><span><span>รถเช่า 169 รายการ</span></span></span>
@@ -906,7 +934,8 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 													</ul>
 												</div>
 											</div>
-										</div><div></div>
+										</div>
+										<div></div>
 									</div><div></div><div></div>
 								</div>
 							</div>
@@ -919,7 +948,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 
 	</body>
 	<script  type="text/javascript">
-  						$(document).ready(function(){
+  		$(document).ready(function(){
   			
   		var vFrom = $("#from").val();
   		var vTo = $("#to").val();

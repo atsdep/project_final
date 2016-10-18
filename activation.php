@@ -1,5 +1,19 @@
 <?php
 session_start();
+require ("config/database.php");
+require ("config/connectdb.php");
+if (!isset($_SESSION['member_id'])) {
+	header("location:index.php");
+	exit(0);
+} else {
+	if (!isset($_GET['id']) || !isset($_GET['destination']) || !isset($_GET['checkin']) || !isset($_GET['checkout']) || !isset($_GET['passenger'])) {
+		header("location:for_rent.php");
+	}else{
+		require 'controllers/select_member.php';
+		require 'controllers/cars_page_controller.php';
+	}
+	
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,43 +44,78 @@ session_start();
 		<?php
 		include 'config/js.php';
 		?>
-
+		<script type="text/javascript" src="js/activation_controller.js"></script>
 	</head>
 
 	<body class="with-new-header">
 
 		<?php
 		include 'include/all_header.php';
+			$sql_select_ann = "SELECT members.member_firstname,
+			announces.announce_photos_1,
+			announces.announce_title
+			FROM announces
+			INNER JOIN members
+			ON announces.member_id = members.member_id
+			WHERE announces.announce_id = '" . $_GET['id'] . "'";
+			
+			$query_ann = mysqli_query($connect, $sql_select_ann);
+			$result_ann = mysqli_fetch_assoc($query_ann);
+			$row_ann = mysqli_num_rows($query_ann);
+			if($row_ann == 1){
+				if (isset($result_ann['announce_photos_1'])) {
+					$photos_1 = 'img/' . $result_ann['announce_photos_1'];
+				} else {
+					$photos_1 = 'img/car_default_no_photos.png';
+				}
+			}
+			
+			
+			if (isset($result_mem['member_profile_photo'])) {
+				$profile_photo = 'img/' . $result_mem['member_profile_photo'];
+			} else {
+				$profile_photo = 'img/profile.jpg';
+				$verify_profile_photo = 0;
+			}
+			
+		
 		?>
-
 		<main id="site-content" role="main">
+			
+			<input name="destination" id="destination" type="hidden" value="<?php echo $_GET['destination'] ?>">
+			<input name="checkin" id="checkin" type="hidden" value="<?php echo $_GET['checkout'] ?>">
+			<input name="checkout" id="checkout" type="hidden" value="<?php echo $_GET['checkout'] ?>">
+			<input name="passenger" id="passenger" type="hidden" value="<?php echo $_GET['passenger'] ?>">
+			<input name="id" id="id" type="hidden" value="<?php echo $_GET['id'] ?>">
+			
+			<input name="verify_profile_photo" id="verify_profile_photo" type="hidden" value="<?php echo $verify_profile_photo ?>">
 
 			<div class="page-container-full bg-white" data-react-checksum="955207149">
 				<div class="account-activation-standalone space-4 space-top-4">
 					<div class="activation-step-panel" tabindex="-1">
 						<noscript></noscript>
 						<div class="activation-step-panel__body">
-							<h3><span>เตรียมพร้อมจองที่พักกับ ISanook</span></h3>
+							<h3><span>เตรียมพร้อมจองรถเช่าและคนขับ</span><span> กับ <?php echo $result_ann['member_firstname'] ?></span></h3>
 							<div class="space-6 space-top-6">
 								<div class="profile-pic-duo">
-									<div class="profile-pic-duo__user-left"><img class="profile-pic-duo__image media-photo media-round" src="https://a2.muscache.com/im/pictures/83041d5c-6f34-4d8b-aede-73f5d4d4c703.jpg?aki_policy=profile_x_medium" alt="">
+									<div class="profile-pic-duo__user-left"><img class="profile-pic-duo__image media-photo media-round" src="<?php echo $profile_photo ?>?aki_policy=profile_x_medium" alt="<?php echo $result_mem['member_firstname'] ?>">
 									</div>
 									<div class="profile-pic-duo__logo highlighted-icon">
-										<div class="highlighted-icon__background bg-rausch media-round"></div><i class="highlighted-icon__icon icon icon-airbnb-alt icon-size-2 icon-white"></i>
+										<div class="highlighted-icon__background bg-soft-dark media-round"></div><i class="highlighted-icon__icon icon icon-star  icon-size-2 icon-white"></i>
 									</div>
-									<div class="profile-pic-duo__user-right"><img class="profile-pic-duo__image media-photo media-round" src="https://a0.muscache.com/im/users/8663142/profile_pic/1390547303/original.jpg?aki_policy=profile_x_medium" alt="ISanook">
+									<div class="profile-pic-duo__user-right"><img class="profile-pic-duo__image media-photo media-round" src="<?php echo $photos_1 ?>?aki_policy=profile_x_medium" alt="<?php echo $result_ann['announce_title'] ?>">
 									</div>
 								</div>
 							</div>
 							<p class="text-lead space-2 space-top-4">
-								<span>เราขอให้ทุกคนใน Airbnb ยืนยันบางสิ่งก่อนเดินทางหรือให้เช่าที่พัก</span>
+								<span>เราขอให้ทุกคนใน Rentcnd ยืนยันบางสิ่งก่อนเช่าบริการหรือให้เช่ารถพร้อมคนขับ</span>
 							</p>
 							<p class="text-lead space-4">
 								<span>คุณต้องทำสิ่งนี้ครั้งเดียวเท่านั้น</span>
 							</p>
 							<div class="activation-footer__container">
 								<div class="activation-footer">
-									<button type="button" class="btn btn-primary btn-large btn-block">
+									<button id="btn-next-activation-page" type="button" class="btn btn-soft-dark btn-large btn-block">
 										<span>ถัดไป</span>
 									</button>
 								</div>

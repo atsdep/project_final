@@ -21,7 +21,7 @@ if (!isset($_SESSION['member_id'])) {
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>แก้ไข หัวข้อประกาศ สำหรับรถเช่า Rentcnd ของคุณ</title>
+		<title>แก้ไข รูปโปรไฟล์ สำหรับรถเช่า Rentcnd ของคุณ</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -174,7 +174,7 @@ if (!isset($_SESSION['member_id'])) {
 										</div>
 										<div class="show-sm help-panel__floating-container">
 											<span class="tooltip-popup__transition-container">
-												<div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
+												<!-- <div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--upward help-panel__floating-panel--leftward">
 													<div class="help-panel__bulb-img"></div><div class="help-panel__close-icon"></div>
 													<div class="help-panel__floating-panel-body help-panel__text">
 														<div>
@@ -183,7 +183,7 @@ if (!isset($_SESSION['member_id'])) {
 															</p>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<div class="help-panel--collapsed help-panel__bulb-img-bubble">
 													<div class="help-panel__bulb-img img-center"></div>
 												</div> </span>

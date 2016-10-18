@@ -131,7 +131,7 @@ if (!isset($_SESSION['member_id'])) {
 														</div>
 														<div class="row space-top-3">
 																<span id="example-code"></span>
-															</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -139,7 +139,7 @@ if (!isset($_SESSION['member_id'])) {
 												<div class="row phone-verification-form" tabindex="-1">
 													<div class="col-md-5">
 														<div class="input-addon input-addon-jumbo__verified">
-															<input type="tel" class="phone-verified input-stem inspectletIgnore input-jumbo" id="phone_number" value="0922728921" disabled="">
+															<input type="tel" class="phone-verified input-stem inspectletIgnore input-jumbo" id="phone_number" value="" disabled="">
 															<div class="input-suffix ok-fill-babu input-jumbo"></div>
 														</div>
 													</div>

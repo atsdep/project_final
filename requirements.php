@@ -47,6 +47,9 @@ session_start();
 							<a href="users.php" aria-selected="false" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
 						</li>
 						<li>
+							<a href="trips.php" aria-selected="false" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
+						</li>
+						<li>
 							<a href="account.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
 						</li>
 					</ul>
@@ -60,9 +63,6 @@ session_start();
 						<ul class="sidenav-list">
 							<li>
 								<a href="mycar.php" aria-selected="false" class="sidenav-item">รถเช่าของคุณ</a>
-							</li>
-							<li>
-								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
 							</li>
 							<li>
 								<a href="customer_reservations.php" aria-selected="false" class="sidenav-item">การจองของลูกค้า</a>

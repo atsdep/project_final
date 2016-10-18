@@ -6,20 +6,37 @@ require '../config/datetime.php';
 if (isset($_POST["mode"])) {
 	$member_id = $_SESSION['member_id'];
 
-	if (isset($_POST['ann_id']) and strlen($_POST['ann_id']) == 10) {
-		$sql_select_announce = "SELECT * FROM announces WHERE announce_id = '" . $_POST['ann_id'] . "' and member_id = '" . $_SESSION['member_id'] . "'";
-		$query_select_announce = mysqli_query($connect, $sql_select_announce);
-		$row_select_announce = mysqli_num_rows($query_select_announce);
-		if (!$query_select_announce) {
-			header("location:index.php");
+	if ($_POST["mode"] == "booking") {
+
+		$date = date("Y-m-d H:i:s");
+		$sql_insert_booking = "INSERT INTO bookings (booking_code
+		,member_id
+		,announce_id
+		,booking_description
+		,booking_passenger
+		,booking_date_begin
+		,booking_date_end
+		,booking_create_date
+		)values('" . $_POST["booking_code"] . "'
+		,'" . $member_id . "'
+		,'" . $_POST["announce_id"] . "'
+		,'" . $_POST["message"] . "'
+		,'" . $_POST["booking_passenger"] . "'
+		,'" . $_POST["booking_date_begin"] . "'
+		,'" . $_POST["booking_date_end"] . "'
+		,'" . $date . "'
+		)";
+
+		$add_booking_query = mysqli_query($connect, $sql_insert_booking);
+		if (!$add_booking_query) {
+			$data["error"] = true;
+			$data["msg"] = "จองไม่สำเร็จ " . $sql_insert_booking;
 		} else {
-			if ($row_select_announce == 1) {
-				$result_select_announce = mysqli_fetch_assoc($query_select_announce);
-			} else {
-				header("location:index.php");
-			}
+			$data["error"] = false;
+			$data["msg"] = "จองเรียบร้อย " . $sql_insert_booking;
 		}
 	}
+
 } else {
 	header("location:../index.php");
 }
