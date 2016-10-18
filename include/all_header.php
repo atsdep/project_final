@@ -137,6 +137,44 @@ if (isset($_SESSIONS['member_id'])) {
 			</div>
 		</div>
 		
+		<!-- <div class="comp pull-right show-trips js-trips-menu-container">
+			<a class="needsclick no-crawl hdr-btn link-reset js-trips-comp trips-comp" href="/trips" rel="nofollow" data-href="/trips">
+			<div class="inbox-icon-container text-center">
+				<span class="margin-right--tiny hide-md">การเดินทาง</span>
+				<i class="header-icon js-trips-icon icon-suitcase-gray"> <i class="alert-count js-trips-unread-count text-center fade">0</i> </i>
+			</div> </a>
+
+			<div class="panel  drop-down-menu trips-dropdown dark-caret">
+				<div class="trips-tooltip panel panel-body-scroll">
+					<div class="panel-header no-border section-header">
+						<strong><span>การเดินทาง</span></strong><a href="/trips" class="link-reset view-trips pull-right"><strong><span>ดูการเดินทาง</span></strong></a>
+					</div>
+					<div class="trip-row panel-body no-updates">
+					<a href="trips.php" class="link-reset">
+						<div class="reservation-block">
+							<div class="reservation-info">
+								<div class="va-container va-container-v">
+									<div class="va-middle">
+										<div>
+											<div class="listing-brief text-wrap tiny-space">
+												<strong>กรุงเทพ</strong><span>-</span><span>ยอมรับ</span>
+											</div><div class="notification-text text-truncate"></div>
+											<div class="dates-and-guests text-muted text-truncate">
+												<span>พฤศจิกา 10</span><span> - </span><span>พฤศจิกา 11</span><span> · </span><span>ผู้เข้าพัก 1 คน</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="listing-photo pull-right"><img src="https://a2.muscache.com/im/pictures/b163ac09-9c72-4d26-9c39-e7230a86c7f9.jpg?aki_policy=small" width="78" height="78" alt="กรุงเทพ">
+							</div>
+						</div>
+					</a>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		
 		
 		<?php
 		}

@@ -1,0 +1,163 @@
+#alterations {
+    padding-bottom: 100px
+}
+#alterations .change-or-cancel .centered-padding {
+    padding-left: 9px
+}
+#alterations .banner {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #28323c;
+    background-color: rgba(40, 50, 60, 0.5);
+    line-height: 20px;
+    position: relative;
+    z-index: 100;
+    color: #fff;
+    text-align: center
+}
+#alterations .banner .status {
+    font-weight: bold;
+    padding-right: 10px
+}
+#alterations .reservation-card {
+    background: white;
+    border: solid 1px #ccc;
+    overflow: hidden
+}
+#alterations .reservation-card h2 a,
+#alterations .reservation-card h4 a {
+    color: #484848
+}
+#alterations .reservation-card .top-image {
+    padding-left: 0;
+    padding-right: 0;
+    height: 220px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+@media (max-width: 743px) {
+    #alterations .reservation-card .top-image {
+        height: 80px
+    }
+}
+#alterations .reservation-card .final-section {
+    font-size: 20px
+}
+#alterations .confirm-textarea {
+    height: 150px
+}
+#alterations .cancel-complete .large-blank-space {
+    margin-bottom: 125px
+}
+#alterations .space-bottom-large {
+    margin-bottom: 100px
+}
+#alterations .large-font-padding {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px
+}
+#alterations .refund-pane {
+    padding-left: 20px;
+    padding-right: 20px
+}
+@media (max-width: 743px) {
+    #alterations .refund-pane {
+        padding-left: 5px;
+        padding-right: 5px
+    }
+}
+#alterations .refund-pane-left {
+    padding-left: 0;
+    padding-right: 20px
+}
+@media (max-width: 743px) {
+    #alterations .refund-pane-left {
+        padding-right: 5px
+    }
+}
+#alterations .small-offset {
+    margin-left: 5.5%
+}
+@media (max-width: 743px) {
+    #alterations .no-left-padding-sm {
+        padding-left: 0
+    }
+}
+#alterations .no-left-padding {
+    padding-left: 0
+}
+@media (max-width: 1127px) {
+    #alterations .icon-div {
+        float: right
+    }
+}
+#alterations .nps-score label {
+    float: left;
+    text-align: center;
+    width: 8.33333%;
+    padding: 12px
+}
+#alterations .nps-score input[type="radio"] {
+    display: block;
+    margin-right: auto;
+    margin-left: auto
+}
+#alterations .refund-confirm-content {
+    line-height: 24px
+}
+#alterations .panel-body-change-or-cancel {
+    padding-bottom: 30px
+}
+.ask-host-cancel .icon-middle {
+    margin-right: -15.4px
+}
+.ask-host-cancel .modal-panel {
+    padding-left: 50px;
+    padding-right: 50px
+}
+@media (max-width: 743px) {
+    .ask-host-cancel .modal-panel {
+        padding-left: 20px;
+        padding-right: 20px
+    }
+}
+.ask-host-cancel .penalty-modal-panel {
+    padding-left: 40px;
+    padding-right: 40px
+}
+@media (max-width: 743px) {
+    .ask-host-cancel .penalty-modal-panel {
+        padding-left: 20px;
+        padding-right: 20px
+    }
+}
+@media (min-width: 1128px) {
+    .timeout-alert-text {
+        margin-left: 70px
+    }
+}
+.host-penalty-icon-container {
+    text-align: center
+}
+.penalty-container__highlighted {
+    background-color: #ffd1c4;
+    padding-top: 15px
+}
+@media (max-width: 1127px) {
+    .penalty-container__highlighted {
+        margin-left: -12.5px;
+        padding-left: 12.5px
+    }
+}
+@media (max-width: 743px) {
+    .penalty-container__highlighted {
+        margin-right: -12.5px;
+        padding-right: 12.5px
+    }
+}
+.host-cancel-penalty h5 {
+    line-height: 20px
+}

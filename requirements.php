@@ -108,7 +108,7 @@ session_start();
 										ขอให้ผู้ใช้บริการของคุณทำการยืนยันตัวตน </label>
 								</div>
 								<div class="panel-body">
-									<input class="btn btn-primary" name="commit" type="submit" value="บันทึกข้อกำหนดในการจองรถเช่า">
+									<input class="btn btn-soft-dark" name="commit" type="submit" value="บันทึกข้อกำหนดในการจองรถเช่า">
 								</div>
 							</div>
 						</form>

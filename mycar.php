@@ -117,15 +117,32 @@ if (!isset($_SESSION['member_id'])) {
 						<div id="listings-container">
 							<div>
 								<div class="suspension-container" >
-									<!-- <div class="panel space-4" >
-										<div class="panel-header active-panel-header" >
-											<div class="row" >
-												<div class="col-sm-6 active-panel-padding" >
-													กำลังดำเนินการ
-												</div><div id="ib-master-switch-container" class="col-sm-6" ></div>
+											<?php
+											
+												$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' ");
+												$row_all = mysqli_num_rows($query_ann);
+												if($row_all < 1) {
+											?>
+											<div class="panel space-4" >
+												<div class="panel-header active-panel-header" >
+													<div class="row" >
+														<div class="col-sm-6 active-panel-padding" >
+															ไม่มีประกาศ
+														</div><div id="ib-master-switch-container" class="col-sm-6" ></div>
+													</div>
+												</div>
+												
+												<ul class="list-unstyled list-layout">
+													<li class="listing panel-body">
+														<div class="space-top-4 space-4">
+															<a href="new.php" aria-selected="false" class="btn btn-host">ลงประกาศรถเช่า</a>
+														</div>
+													</li>
+												</ul>
 											</div>
-										</div>
-										<ul class="list-unstyled list-layout"> -->
+											<?php
+											}
+											?>
 											<?php
 											
 												$query_ann = mysqli_query($connect, "SELECT * FROM announces WHERE member_id =  '" . $_SESSION['member_id'] . "' AND announce_status != 'show' AND announce_status != 'hide' ORDER by  announces.announce_update_date DESC ");

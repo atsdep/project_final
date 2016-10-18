@@ -26,6 +26,7 @@ $(document).ready(function() {
 		var price_value = $("#price-value").val();
 		var price_process = price_value * differday;
 		var price_slice = formatter.format(price_process).slice(3, 100);
+		document.getElementById("booking_total_price").innerHTML = price_process;
 		document.getElementById("price-process").innerHTML = '฿' + price_slice;
 		document.getElementById("total-price").innerHTML = '฿' + price_slice;
 	}
@@ -98,15 +99,19 @@ $(document).ready(function() {
 		var booking_passenger = $("#passenger_final").val();
 		var booking_date_begin = $("#sql_date_begin").val();
 		var booking_date_end = $("#sql_date_end").val();
-		
+		var destination = $("#destination").val();
+		var totalprice = document.getElementById("booking_total_price").innerHTML;
+		var request_uri = '/trips.php';
 
 		var mode = 'booking';
 		$.post("controllers/booking_controller.php", {
 			booking_code : booking_code,
 			announce_id : announce_id,
+			destination : destination,
 			booking_passenger : booking_passenger,
 			booking_date_begin : booking_date_begin,
 			booking_date_end : booking_date_end,
+			totalprice : totalprice,
 			message : message,
 			mode : mode
 		}, function(data) {
@@ -114,6 +119,7 @@ $(document).ready(function() {
 				console.log(data.msg);
 			} else {
 				console.log(data.msg);
+				window.location.assign(request_uri);
 			}
 
 		}, "json");
