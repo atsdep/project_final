@@ -92,7 +92,7 @@ require ("controllers/select_member.php");
 									<a href="profile.php">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
-									<a href="my_reservations.php">ข้อมูลการจอง</a>
+									<a href="trips.php">ข้อมูลการเดินทาง</a>
 								</li>
 								<li>
 									<a href="controllers/logout.php">ออกจากระบบ</a>
