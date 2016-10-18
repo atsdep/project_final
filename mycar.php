@@ -291,9 +291,20 @@ if (!isset($_SESSION['member_id'])) {
 															<span >ปรับปรุงล่าสุดวันที่  <?php echo DateThai($strDate); ?></span>
 														</div>
 														<div class="space-top-4">
+															<i class="dot space-top-2 dot-align-top dot-success dot-red"></i>&nbsp;
+																<div class="select">
+																	<select>
+																		<option selected="" value="listed">ลงประกาศแล้ว</option>
+
+																		<option value="unlisted">ปิดประกาศ</option>
+																	</select>
+															</div>
 															<a class="btn btn__first-btn" href="calendar.php?id=<?php echo $result_ann['announce_id']; ?>"><span>ปฏิทินและอื่นๆ</span></a>
-															<a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?>">
-																<span>ดูตัวอย่าง</span></a><a href="new.php?id=<?php echo $result_ann['announce_id']; ?>"  class="ib-toggle link-reset"  data-ib-enabled="true"></a>
+															<!-- <a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?>">
+																<span>ดูตัวอย่าง</span>
+															</a> -->
+															<!-- <a href="new.php?id=<?php echo $result_ann['announce_id']; ?>"  class="ib-toggle link-reset"  data-ib-enabled="true"></a> -->
+															
 														</div>
 													</div>
 												</div>
@@ -363,9 +374,9 @@ if (!isset($_SESSION['member_id'])) {
 																	<i class="dot space-top-2 dot-align-top dot-danger dot-red"></i>&nbsp;
 																	<div class="select">
 																		<select>
-																			<option value="listed">ลงทะเบียนแล้ว</option>
+																			<option value="listed">เปิดประกาศ</option>
 
-																			<option value="unlisted">ปิดประกาศ</option>
+																			<option selected="" value="unlisted">ปิดประกาศ</option>
 																		</select>
 																	</div>
 
