@@ -13,18 +13,22 @@ if (isset($_POST["mode"])) {
 		,member_id
 		,announce_id
 		,booking_description
+		,booking_destination
 		,booking_passenger
 		,booking_date_begin
 		,booking_date_end
 		,booking_create_date
+		,booking_total_price
 		)values('" . $_POST["booking_code"] . "'
 		,'" . $member_id . "'
 		,'" . $_POST["announce_id"] . "'
 		,'" . $_POST["message"] . "'
+		,'" . $_POST["destination"] . "'
 		,'" . $_POST["booking_passenger"] . "'
 		,'" . $_POST["booking_date_begin"] . "'
 		,'" . $_POST["booking_date_end"] . "'
 		,'" . $date . "'
+		,'" . $_POST["totalprice"] . "'
 		)";
 
 		$add_booking_query = mysqli_query($connect, $sql_insert_booking);
