@@ -748,7 +748,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 														<div class="listing">
 															<div class="panel-image listing-img">
 																<div>
-																	<a href="cars.php?id=<?php echo $result_ann['announce_id']; ?>&amp;checkin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" class="media-photo media-cover" target="_blank">
+																	<a href="cars.php?id=<?php echo $result_ann['announce_id']; ?>" class="media-photo media-cover" target="_blank">
 																	<div class="listing-img-container media-cover text-center"><img src="<?php echo $photo_main ?>?aki_policy=x_medium" itemprop="image" class="img-responsive-height" alt="">
 																		<img src="<?php echo $photo_main ?>?aki_policy=x_medium" itemprop="image" class="img-responsive-height hide" alt="">
 																	</div></a>
@@ -759,7 +759,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																		<button class="target-next target-control block-link" aria-label="Next">
 																			<i class="icon icon-chevron-right icon-size-2 icon-white"></i>
 																		</button>
-																	</div><a href="cars.php?id=<?php echo $result_ann['announce_id']; ?>&amp;checkin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" target="_blank">
+																	</div><a href="cars.php?id=<?php echo $result_ann['announce_id']; ?>" target="_blank">
 																	<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
 																		<div class="price-label">
 																			<span><sup class="currency-prefix">฿</sup><span class="price-amount"><?php echo $price; ?></span><span> </span></span>
@@ -818,7 +818,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 														<div class="listing">
 															<div class="panel-image listing-img">
 																<div>
-																	<a href="cars.php?id=7189445&amp;checkin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" class="media-photo media-cover" target="listing_7189445">
+																	<a href="cars.php?id=7189445" class="media-photo media-cover" target="listing_7189445">
 																	<div class="listing-img-container media-cover text-center"><img src="img/car.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height" alt="">
 																		<img src="img/car.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height hide" alt="">
 																	</div></a>
@@ -829,7 +829,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 																		<button class="target-next target-control block-link" aria-label="Next">
 																			<i class="icon icon-chevron-right icon-size-2 icon-white"></i>
 																		</button>
-																	</div><a href="cars.php?id=7189445&amp;checkin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" target="listing_7189445">
+																	</div><a href="cars.php?id=7189445" target="listing_7189445">
 																	<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
 																		<div class="price-label">
 																			<span><sup class="currency-prefix">฿</sup><span class="price-amount">3,000</span><span> </span></span>
