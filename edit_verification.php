@@ -107,7 +107,7 @@ session_start();
 										</div>
 										<div class="col-5 col-middle text-center">
 											<div class="verify-button-container">
-												<a href="/verify" class="btn btn-large btn-primary">ยืนยันตัวตนของฉัน</a>
+												<a href="/verify" class="btn btn-large btn-soft-dark">ยืนยันตัวตนของฉัน</a>
 											</div>
 										</div>
 									</div>
