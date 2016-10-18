@@ -316,6 +316,7 @@ if (!isset($_SESSION['member_id'])) {
 															<th class="price-item__header" scope="row"><span>ทั้งหมด</span><span>&nbsp;</span></th><td class="text-right price-item__price">
 															<div class="">
 																<span id="total-price"></span><sup>THB</sup>
+																<span class="hide" id="booking_total_price"></span>
 															</div></td>
 														</tr>
 													</tbody>
@@ -363,7 +364,7 @@ if (!isset($_SESSION['member_id'])) {
 										<div class="row">
 											<div class="col-md-10 text-left">
 												<div class="h3 pull-left">
-													1. เกี่ยวกับการเดินทางของคุณ
+													เกี่ยวกับการเดินทางของคุณ
 												</div><div class="hide-sm pull-left title-content__wrapper"></div>
 											</div><div class="col-md-2 text-right header-edit-link"></div>
 										</div><div class="space-2"></div>
