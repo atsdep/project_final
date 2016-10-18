@@ -1,5 +1,17 @@
 <?php
 session_start();
+require ("config/database.php");
+require ("config/connectdb.php");
+if (!isset($_SESSION['member_id'])) {
+	//header("location:http://".$_SERVER['HTTP_HOST']."?pleaselogin=1");
+	header("location:index.php?login=" . urlencode($_SERVER['REQUEST_URI']) . "&error=1");
+	exit(0);
+} else {
+	if (!isset($_GET['id']) || !isset($_GET['destination']) || !isset($_GET['checkin']) || !isset($_GET['checkout']) || !isset($_GET['passenger'])) {
+		header("location:index.php");
+	}
+	
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,27 +44,64 @@ session_start();
 		<?php
 		include 'config/js.php';
 		?>
+		<script type="text/javascript" src="js/booking_controller.js"></script>
 	</head>
 
 	<body class="with-new-header">
 
 		<?php
 		include 'include/all_header.php';
+		
+		if (isset($_GET['id'])) {
+			$sql_select_all = "SELECT members.member_firstname,
+			members.member_profile_photo,
+			provinces.PROVINCE_NAME,
+			provinces.PROVINCE_ID,
+			provinces.PROVINCE_NAME_ENG,
+			car_category.car_category_name,
+			car_gene.car_gene_name,
+			car_brand.car_brand_name,
+			announces.*
+			FROM announces
+			INNER JOIN provinces
+			ON announces.car_province = provinces.PROVINCE_ID
+			INNER JOIN car_gene
+			ON car_gene.car_gene_id = announces.car_gene_id
+			INNER JOIN car_brand
+			ON car_brand.car_brand_id = car_gene.car_brand_id
+			INNER JOIN car_category
+			ON car_gene.car_category_id = car_category.car_category_id
+			INNER JOIN members
+			ON announces.member_id = members.member_id
+			WHERE announces.announce_id = '" . $_GET['id'] . "'";
+
+			$query_ann_cars = mysqli_query($connect, $sql_select_all);
+			$result_ann = mysqli_fetch_assoc($query_ann_cars);
+			$row_ann = mysqli_num_rows($query_ann_cars);
+			
+			if ($row_ann == 1) {
+			$price = number_format($result_ann['announce_price']);
+			if (isset($result_ann['announce_photos_1'])) {
+				$photos_1 = 'img/' . $result_ann['announce_photos_1'];
+			} else {
+				$photos_1 = 'img/car_default_no_photos.png';
+			}
+
+			if (isset($result_ann['member_profile_photo'])) {
+				$profile_photo = 'img/' . $result_ann['member_profile_photo'];
+			} else {
+				$profile_photo = 'img/profile.jpg';
+			}
+		}
+		}
+		
 		?>
-
+		
 		<main id="site-content" role="main">
-			<div id="main-view" class="main-view page-container-responsive     space-top-md-6 space-md-6 space-top-lg-6 space-lg-6">
+			<div id="main-view" class="main-view page-container-responsive space-top-md-6 space-md-6 space-top-lg-6 space-lg-6">
 
-				<form action="/payments/create_booking_v2" method="post" id="checkout-form">
-					<input name="code" type="hidden" value="5HTW8N">
-					<input name="hosting_id" type="hidden" value="9355572">
-					<input name="date" type="hidden" value="2016-10-18">
-					<input name="nights" type="hidden" value="1">
-					<input name="number_of_guests" type="hidden" value="1">
-					<input name="special_offer_id" type="hidden" value="">
-					<input name="sig" type="hidden" value="">
-					<input name="ref" type="hidden" value="">
-					<input name="wishlist_id" type="hidden" value="">
+				<form action="" method="post" id="booking-form">
+					<input name="announce_id" id="announce_id" type="hidden" value="<?php echo $_GET['id'] ?>">
 
 					<div class="row">
 						<div class="col-sm-12 p4-error-header space-1">
@@ -73,7 +122,7 @@ session_start();
 
 							</div>
 
-							<div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="house-rules-error">
+							<div id="terms" class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="house-rules-error">
 								<i class="icon alert-icon icon-alert-alt"></i>
 
 								<div class="h5 space-1 error-header">
@@ -84,6 +133,7 @@ session_start();
 								</p>
 
 							</div>
+							
 
 						</div>
 					</div>
@@ -100,18 +150,34 @@ session_start();
 									<div class="panel">
 										<div class="panel-body">
 											<div class="text-muted space-2">
-												<span>ให้เช่ารถเช่าโดย Name</span>
+												<span>ให้เช่ารถเช่าโดย <?php echo $result_ann['firstname'] ?></span>
 											</div>
 											<div class="sidebar-text-large">
-												Title
+												<?php echo $result_ann['announce_title'] ?>
 											</div>
 											<div class="hide-sm text-muted">
-												<ul class="list-layout summary-card__additional-details-list">
-													<li>
-														ประเภท
-													</li>
+												<!-- <ul class="list-layout summary-card__additional-details-list"> -->
+													<span>
+														<?php echo $result_ann['car_category_name'] ?>
+													</span>
+													<span> · </span>
+													<span>
+													<?php echo $result_ann['car_gene_name'] ?>
+													</span>
+													<span> · </span>
+													<span>
+													<?php echo $result_ann['car_year'] ?>
+													</span>
+													<span> · </span>
+													<span>
+													<?php echo $result_ann['PROVINCE_NAME'] ?>
+													</span>
+													<span> · </span>
+													<span>
+													<?php echo $result_ann['PROVINCE_NAME_ENG'] ?>
+													</span>
 													
-														<small>
+														<!-- <small>
 															<div class="star-rating-wrapper">
 																<div class="star-rating" content="4.5">
 																	<div class="foreground">
@@ -137,11 +203,9 @@ session_start();
 													
 												
 														<span>ความคิดเห็น 36 ข้อความ</span>
-													
-												</ul>
-												<div>
-													จังหวัด
-												</div>
+													 -->
+												<!-- </ul> -->
+												
 											</div>
 											
 										</div>
@@ -152,7 +216,7 @@ session_start();
 												<div class="col-sm-5">
 													<div class="text-muted space-bottom-2">
 														<span>วันที่เช่า</span>
-													</div><span>18 ตุลา 2016</span>
+													</div><span><?php echo $_GET['checkin'] ?></span>
 												</div>
 												<div class="col-sm-2 summary-card__check-in-icon">
 													<i class="icon icon-chevron-right icon-light-gray"></i>
@@ -160,7 +224,7 @@ session_start();
 												<div class="col-sm-5">
 													<div class="text-muted space-bottom-2">
 														<span>ถึงวันที่</span>
-													</div><span>19 ตุลา 2016</span>
+													</div><span><?php echo $_GET['checkout'] ?></span>
 												</div>
 											</div>
 											
@@ -170,9 +234,9 @@ session_start();
 											<table class="summary-card__billing-table">
 												<tbody>
 													<tr class="price-item">
-														<th class="price-item__header" scope="row"><span>฿353 x 1 วัน</span><span>&nbsp;</span></th><td class="text-right price-item__price">
+														<th class="price-item__header" scope="row"><span>฿<?php echo $price ?> x 1 วัน</span><span>&nbsp;</span></th><td class="text-right price-item__price">
 														<div class="">
-															<span>฿353</span>
+															<span>฿<?php echo $price ?></span>
 														</div></td>
 													</tr>
 													<!-- <tr class="price-item">
@@ -195,7 +259,7 @@ session_start();
 														<tr class="price-item">
 															<th class="price-item__header" scope="row"><span>ทั้งหมด</span><span>&nbsp;</span></th><td class="text-right price-item__price">
 															<div class="">
-																<span>฿388</span><sup>THB</sup>
+																<span>฿<?php echo $price ?></span><sup>THB</sup>
 															</div></td>
 														</tr>
 													</tbody>
@@ -211,7 +275,7 @@ session_start();
 										<div class="show-sm panel-body text-center">
 											<a><span>ดูการกำหนดราคาและสรุปการเดินทาง</span></a>
 										</div>
-										<input type="hidden" value="1" name="apply_airbnb_credit" id="apply_airbnb_credit">
+										
 									</div>
 									<!-- <div class="hide-sm">
 										<div class="risk-messagebox-container space-top-md-4 space-top-lg-5">
@@ -254,12 +318,19 @@ session_start();
 										<div class="p4-first-message">
 											<div class="space-4">
 												<div class="guest-details">
-													<span>ใครกำลังจะมา</span>
+													<span>ผู้โดยสาร</span>
 													<div class="row space-top-1">
 														<div class="col-lg-6 col-md-12 space-sm-2 space-md-2">
 															<div class="select first-message-select guest-details-select">
-																<select class="">
-																	<option selected="" value="1">ผู้โดยสาร 1 คน</option>
+																<select name="passenger" id="passenger" class="">
+																	<?php 
+																	 for($i=1; $i<=$result_ann['announce_passenger']; $i++){
+																	 ?>
+																	 	<option <?php if($_GET['passenger'] == $i) { echo 'selected=""' ;} ?> value="<?php echo $i ?>">ผู้โดยสาร <?php echo $i ?> คน</option>;
+																	 <?php
+																	 }
+																	 ?>
+																	
 																</select>
 															</div>
 														</div>
@@ -271,7 +342,7 @@ session_start();
 													<label for="guest-message-input"><span>กล่าวสวัสดีเจ้าของรถเช่าของคุณและบอกพวกเขาว่าทำไมคุณจึงใช้บริการ:</span><span></span></label>
 													<div class="guest-message-textarea">
 														<div>
-															<textarea class="" id="message-to-host-input" name="message_to_host" placeholder="กำลังไปเยี่ยมครอบครัวหรือเพื่อนใช่ไหม กำลังไปเที่ยวชมสถานที่ต่างๆ ใช่ไหม สิ่งนี้ช่วยเจ้าของรถเช่าของคุณวางแผนสำหรับการเดินทางของคุณ" rows="4"></textarea>
+															<textarea class="" id="message-to-driver-input" name="message_to_host" placeholder="กำลังไปเยี่ยมครอบครัวหรือเพื่อนใช่ไหม กำลังไปเที่ยวชมสถานที่ต่างๆ ใช่ไหม สิ่งนี้ช่วยเจ้าของรถเช่าของคุณวางแผนสำหรับการเดินทางของคุณ" rows="4"></textarea>
 														</div>
 													</div>
 												</div>
@@ -282,7 +353,7 @@ session_start();
 											<div class="space-6">
 												<div class="panel house-rules">
 													<div class="panel-body house-rules__wrapper">
-															<h3 class="text-center"><span>กฎของรถเช่าของ Name</span></h3>
+															<h3 class="text-center"><span>กฎของรถเช่าของ <?php echo $result_ann['firstname'] ;?></span></h3>
 														<div>
 															<div class="structured-house-rules">
 																<div class="structured-house-rules__rule house-rules__guest-control">
@@ -321,8 +392,8 @@ session_start();
 											</div>
 										</div><span></span>
 										<div class="space-top-3">
-											<div id="payment-form-submit-wrapper">
-												<button class="btn btn-large btn-soft-dark disabled">
+											<div>
+												<button id="btn-next-process" class="btn btn-large btn-soft-dark disabled">
 													<span>ดำเนินการต่อ</span>
 												</button>
 											</div>
@@ -347,7 +418,7 @@ session_start();
 												</div><noscript></noscript>
 											</div>
 										</div>
-										<div id="house-rules-modal" class="modal" role="dialog" aria-hidden="true" data-trigger="#house-rules-modal-trigger">
+										<!-- <div id="house-rules-modal" class="modal" role="dialog" aria-hidden="true" data-trigger="#house-rules-modal-trigger">
 											<div class="modal-table">
 												<div class="modal-cell">
 													<div class="modal-content">
@@ -386,7 +457,7 @@ session_start();
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 
 									<!-- <section data-hook="progress_button">
@@ -400,7 +471,7 @@ session_start();
 									</section> -->
 								</div>
 							</div>
-							<div class="accordion-style-checkout__section">
+							<!-- <div class="accordion-style-checkout__section">
 								<div data-hypernova-key="p4_agree_checkbox_termsbundlejs">
 									<div data-react-checksum="-224179263">
 										<span></span><span></span><span></span>
@@ -463,7 +534,7 @@ session_start();
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="show-sm space-top-2">
 								<div class="accordion-style-checkout__section">

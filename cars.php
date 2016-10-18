@@ -61,6 +61,7 @@ if (!isset($_GET['id'])) {
 			members.member_profile_photo,
 			members.member_regis_date,
 			provinces.PROVINCE_NAME,
+			provinces.PROVINCE_ID,
 			provinces.PROVINCE_NAME_ENG,
 			car_category.car_category_name,
 			car_gene.car_gene_name,
@@ -309,7 +310,7 @@ if (!isset($_GET['id'])) {
 															</div>
 														</div>
 													</div>
-													<form id="booking-form">
+													<form id="booking-form" action="booking.php" method="get">
 														<div class="panel book-it-panel">
 															<div class="panel-body panel-light">
 																<div class="row row-condensed space-3">
@@ -317,8 +318,8 @@ if (!isset($_GET['id'])) {
 																		<div>
 																			<label for="number_of_guests_15417960" class="book-it__label"><span>ปลายทาง</span></label>
 																			<div class="select select-block">
-																				<select id="number_of_guests_15417960" name="number_of_guests">
-																					<option selected="" value="1">ภายในจังหวัด<?php echo $province ?></option>
+																				<select id="destination" name="destination">
+																					<option selected="" value="<?php echo $result_ann_cars['PROVINCE_ID'] ?>">ภายในจังหวัด<?php echo $province ?></option>
 																					<!-- <option value="2">นครปฐม</option> -->
 																				</select>
 																			</div>
@@ -342,7 +343,7 @@ if (!isset($_GET['id'])) {
 																		<div>
 																			<label class="book-it__label"><span>ผู้โดยสาร</span></label>
 																			<div class="select select-block">
-																				<select name="number_of_guests">
+																				<select name="passenger">
 																					<option selected="" value="1">1</option>
 																					<?php  
 																						for($i=2; $i<= $passenger; $i++){
@@ -422,9 +423,11 @@ if (!isset($_GET['id'])) {
 																	</div>
 																</div>
 																<div>
-																	<button id="btn-booking" type="button" class="btn btn-soft-dark btn-large btn-block" disabled="">
+																	<a target="_blank">
+																	<button id="btn-booking" type="submit" class="btn btn-soft-dark btn-large btn-block" disabled="">
 																		<span>ขอจอง</span>
 																	</button>
+																	</a>
 																	<div class="bookit-message__container text-center text-muted">
 																		<small><span>ราคาเริ่มต้นโดยประมาณ</span></small>
 																	</div>
@@ -434,6 +437,7 @@ if (!isset($_GET['id'])) {
 																		<span>ติดต่อเจ้าของรถเช่า</span>
 																	</button>
 																</div>
+																<input type="hidden" id="id" name="id" value="<?php echo $_GET['id'] ?>">
 															</div>
 														</div>
 													</form>
