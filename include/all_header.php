@@ -50,16 +50,16 @@ if (isset($_SESSIONS['member_id'])) {
 
 			<div class="panel  drop-down-menu avatar-tooltip--new">
 				<div class="panel-header no-border hide-lg">
-					<strong><span class="value_name">Adthasid</span></strong>
+					<strong><span class="value_name"><?php echo $result_mem['member_firstname'] ?></span></strong>
 				</div>
-				<!-- <a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
+				<a href="trips.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 				การเดินทางของคุณ
-				</div> </a> -->
-				<a href="/my_reservations.php" class=" panel-body link-reset hover-item no-crawl">
+				</div> </a>
+				<!-- <a href="/my_reservations.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					ข้อมูลการจองของคุณ
-				</div> </a>
+				</div> </a> -->
 				<a href="/users.php" class=" panel-body link-reset hover-item no-crawl">
 				<div class="hover-item__content">
 					แก้ไขข้อมูลส่วนตัว

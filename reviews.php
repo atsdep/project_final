@@ -48,6 +48,9 @@ session_start();
 							<a href="users.php" aria-selected="true" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
 						</li>
 						<li>
+							<a href="trips.php" aria-selected="false" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
+						</li>
+						<li>
 							<a href="account.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
 						</li>
 					</ul>

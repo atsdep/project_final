@@ -38,7 +38,7 @@ session_start();
 		?>
 		<main id="site-content" role="main">
 
-			<div class="alert alert-success alert-success">
+			<div class="alert alert-success alert-success hide">
 				<a href="#" class="close alert-close" data-prevent-default="">×</a><i class="icon alert-icon icon-star-circled"></i>ปรับปรุงโปรไฟล์เรียบร้อยแล้ว
 			</div>
 
@@ -50,6 +50,9 @@ session_start();
 						</li>
 						<li>
 							<a href="users.php" aria-selected="true" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
+						</li>
+						<li>
+							<a href="trips.php" aria-selected="false" class="subnav-item" id="account-item">การเดินทางของคุณ</a>
 						</li>
 						<li>
 							<a href="account.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
