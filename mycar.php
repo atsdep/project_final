@@ -80,6 +80,16 @@ if (!isset($_SESSION['member_id'])) {
 					</ul>
 				</div>
 			</div>
+			<?php
+				if($_GET['alert'] == 'booking-own'){
+			?>
+				<div id="close-panel" class="alert alert-with-icon alert-success alert-error">
+					<a id="close" href="#" class="close alert-close" data-prevent-default="">×</a><i class="icon alert-icon icon-alert-alt"></i>คุณไม่สามารถจองจองรถเช่าของตัวเองได้
+				</div>
+			<?php
+				}
+			?>
+			
 
 			<div class="page-container-responsive space-top-4 space-4">
 

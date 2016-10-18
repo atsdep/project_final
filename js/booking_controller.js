@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	var verify_member_id = $("#verify_member_id").val();
+	
+	if(verify_member_id == 1 ){
+		var request_uri = '/mycar.php?alert=booking-own';
+		window.location.assign(request_uri);
+	}
+	
 	$("#agrees-to-terms").click(function (e){
 		if ($("#agrees-to-terms").is(':checked')) {
 			$("#btn-next-process").removeClass("disabled");

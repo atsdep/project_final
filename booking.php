@@ -92,6 +92,12 @@ if (!isset($_SESSION['member_id'])) {
 			} else {
 				$profile_photo = 'img/profile.jpg';
 			}
+			
+			if($result_ann['member_id'] == $_SESSION['member_id']){
+				$verify_member_id = 1;
+			}else{
+				$verify_member_id = 0;
+			}
 		}
 		}
 		
@@ -102,7 +108,7 @@ if (!isset($_SESSION['member_id'])) {
 
 				<form action="" method="post" id="booking-form">
 					<input name="announce_id" id="announce_id" type="hidden" value="<?php echo $_GET['id'] ?>">
-
+					<input type="hidden" id="verify_member_id" value="<?php echo $verify_member_id ?>">
 					<div class="row">
 						<div class="col-sm-12 p4-error-header space-1">
 							<div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="form-errors">
@@ -393,7 +399,7 @@ if (!isset($_SESSION['member_id'])) {
 										</div><span></span>
 										<div class="space-top-3">
 											<div>
-												<button id="btn-next-process" class="btn btn-large btn-soft-dark disabled">
+												<button type="button" id="btn-next-process" class="btn btn-large btn-soft-dark disabled">
 													<span>ดำเนินการต่อ</span>
 												</button>
 											</div>

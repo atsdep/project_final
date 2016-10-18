@@ -54,6 +54,7 @@ if (!isset($_GET['id'])) {
 			return "$strMonthThai $strYear";
 		}
 		?>
+	
 		<main id="site-content" role="main">
 		<?php
 		if (isset($_GET['id'])) {
@@ -107,9 +108,15 @@ if (!isset($_GET['id'])) {
 			$passenger = $result_ann_cars['announce_passenger'];
 			$description = $result_ann_cars['announce_description'];
 			$member_create_date = $result_ann_cars['member_regis_date'];
+			
+			if($result_ann_cars['member_id'] == $_SESSION['member_id']){
+				$verify_member_id = TRUE;
+			}else{
+				$verify_member_id = FALSE;
+			}
 		}
-			?>	
-		
+		?>	
+			
 			<div class="subnav-container">
 				<div class="subnav book-it show-md" data-sticky="true" data-transition-at="#details" aria-hidden="true">
 					<div class="page-container-responsive">
@@ -1493,8 +1500,6 @@ if (!isset($_GET['id'])) {
   			return Math.round(diff/8.64e7);
 		}
 		
-		
-		
   		$("#booking-form").change(function (e){
   			var vFrom = $("#from").val();
   			var vTo = $("#to").val();
@@ -1527,10 +1532,7 @@ if (!isset($_GET['id'])) {
 			
   		}
   		});
-  		
-  		
-  		
-  			
+
   		var day = new Array(<?php echo json_encode($date); ?>
 			);
 
