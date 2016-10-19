@@ -4,6 +4,25 @@ body{
     filter: gray;*/
 }
 
+/*index*/
+.category-card {
+	height: 240px;
+}
+
+.category-card{
+	background-color: #f5f5f5;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.no-border-bottom {
+    border-bottom: 0
+}
+
 .hr-booking{
 	margin-top: 15px;
     margin-bottom: 15px;

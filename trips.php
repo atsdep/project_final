@@ -26,7 +26,7 @@ if (!isset($_SESSION['member_id'])) {
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
 		<!-- css -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/studyOne.css">
 		<link rel="stylesheet" href="css/studyTwo.css">
@@ -225,6 +225,35 @@ if (!isset($_SESSION['member_id'])) {
 								
 									<?php			
 											}
+										}else{
+									?>
+									<div class="row no-trips">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="panel panel-your-trips space-top-4">
+												<div class="panel-body panel-body-your-trips">
+													<div class="meta">
+														<div class="title show-lg">
+															เลือกการผจญภัยครั้งถัดไปของคุณ
+														</div>
+														<div class="space-top-2 content">
+															<p>คุณไม่มีการเดินทางที่กำลังจะมาถึง!</p>
+															<p>เลือกเช่ารถพร้อมคนขับสำหรับการเดินทางของคุณ</p>
+															
+														</div>
+														<div class="space-top-5 btn btn-large btn-soft-dark btn-invite-friends">
+															<a href="for_rent.php">
+															<div class="text-white invite">
+																ค้นหารถเช่าพร้อมคนขับ!
+															</div></a>
+														</div>
+													</div>
+													<!-- <div class="pin no-trips-img"></div> -->
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<?php
 										}
 									?>
 
