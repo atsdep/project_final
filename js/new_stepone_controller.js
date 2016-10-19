@@ -264,6 +264,7 @@ $(document).ready(function() {
 			}
 
 		}, "json");
+		//return false;
 	});
 
 	$("#btn-upload-profile").click(function() {

@@ -300,9 +300,9 @@ if (!isset($_SESSION['member_id'])) {
 																	</select>
 															</div>
 															<a class="btn btn__first-btn" href="calendar.php?id=<?php echo $result_ann['announce_id']; ?>"><span>ปฏิทินและอื่นๆ</span></a>
-															<!-- <a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?>">
+															<a class="btn btn__second-btn" href="cars.php?id=<?php echo $result_ann['announce_id']; ?>">
 																<span>ดูตัวอย่าง</span>
-															</a> -->
+															</a>
 															<!-- <a href="new.php?id=<?php echo $result_ann['announce_id']; ?>"  class="ib-toggle link-reset"  data-ib-enabled="true"></a> -->
 															
 														</div>
@@ -379,6 +379,7 @@ if (!isset($_SESSION['member_id'])) {
 																			<option selected="" value="unlisted">ปิดประกาศ</option>
 																		</select>
 																	</div>
+																	
 
 																</div>
 															</div><a class="btn unlisted-listing-action__preview-button" href="cars.php?id=<?php echo $result_ann['announce_id']; ?> "><span>ดูตัวอย่าง</span></a>

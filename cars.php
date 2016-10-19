@@ -254,7 +254,17 @@ if (!isset($_GET['id'])) {
 															<?php
 															if ($car_category == 'รถเก๋ง')
 																echo '<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-sedan.png"></i>';
+															
+															if ($car_category == 'รถตู้')
+																echo '<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-van.png"></i>';
+															
+															if ($car_category == 'รถอเนกประสงค์')
+																echo '<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-suv.png"></i>';
+															
+															if ($car_category == 'รถกระบะ')
+																echo '<i class="icon icon-size-2" aria-hidden="true"><img class="icon-sedan-carspage" src="img/icon-pickup.png"></i>';
 															?>
+															
 															
 														</div>
 														<div class="col-sm-3">
@@ -572,7 +582,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['wifi'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>Wifi ภายในรถ</span></span>';
+																				echo '<span><i class="icon h3"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>Wifi ภายในรถ</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>Wifi ภายในรถ</del></span>';
 																			}
@@ -584,7 +594,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['water'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>น้ำดื่ม</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>น้ำดื่ม</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>น้ำดื่ม</del></span>';
 																			}
@@ -600,7 +610,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['book'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>หนังสือ</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>หนังสือ</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>หนังสือ</del></span>';
 																			}
@@ -611,7 +621,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['music'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เพลง</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เพลง</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>เพลง</del></span>';
 																			}
@@ -631,7 +641,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['tissues'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>กระดาษทิชชู่</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>กระดาษทิชชู่</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>กระดาษทิชชู่</del></span>';
 																			}
@@ -645,7 +655,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['childseat'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เบาะนั่งสำหรับเด็ก</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>เบาะนั่งสำหรับเด็ก</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>เบาะนั่งสำหรับเด็ก</del></span>';
 																			}
@@ -660,7 +670,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['monitor'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>จอมอนิเตอร์ในรถยนต์</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>จอมอนิเตอร์ในรถยนต์</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>จอมอนิเตอร์ในรถยนต์</del></span>';
 																			}
@@ -674,7 +684,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['220v'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ไฟชาร์จ 220V</span></span>';
+																				echo '<span><i class="icon h3 "></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ไฟชาร์จ 220V</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>ไฟชาร์จ 220V</del></span>';
 																			}
@@ -689,7 +699,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['purifier'] == 1) {
-																				echo '<span><i class="icon h3 icon-wifi"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ระบบฟอกอากาศในรถยนต์</span></span>';
+																				echo '<span><i class="icon h3"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>ระบบฟอกอากาศในรถยนต์</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>ระบบฟอกอากาศในรถยนต์</del></span>';
 																			}
@@ -703,7 +713,7 @@ if (!isset($_GET['id'])) {
 																		<div class="space-1">
 																			<?php
 																			if ($result_ann_cars['smoking'] == 1) {
-																				echo '<span><i class="icon h3 icon-smoking"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>สูบบุหรี่ได้</span></span>';
+																				echo '<span><i class="icon h3"></i><span>&nbsp;&nbsp;&nbsp;</span></span><span id=""><span>สูบบุหรี่ได้</span></span>';
 																			} else {
 																				echo '<span id="amenity-long-tooltip-trigger-28"><del>สูบบุหรี่ได้</del></span>';
 																			}
