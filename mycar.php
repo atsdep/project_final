@@ -127,13 +127,16 @@ if (!isset($_SESSION['member_id'])) {
 												<div class="panel-header active-panel-header" >
 													<div class="row" >
 														<div class="col-sm-6 active-panel-padding" >
-															ไม่มีประกาศ
+															คุณยังไม่มีรถให้เช่าเลย!
 														</div><div id="ib-master-switch-container" class="col-sm-6" ></div>
 													</div>
 												</div>
 												
 												<ul class="list-unstyled list-layout">
 													<li class="listing panel-body">
+														<p>
+															สร้างรายได้โดยการให้เช่ารถที่คุณมีพร้อมขับรถกับ Rentcnd
+														</p>
 														<div class="space-top-4 space-4">
 															<a href="new.php" aria-selected="false" class="btn btn-host">ลงประกาศรถเช่า</a>
 														</div>
