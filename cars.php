@@ -1482,7 +1482,7 @@ if (!isset($_GET['id'])) {
 			</div>
 		</div>
 		<?php
-		$sql_select_calendar = "SELECT * FROM calendars WHERE member_id = '" . $result_ann_cars['member_id'] . "'";
+		$sql_select_calendar = "SELECT * FROM calendars WHERE calendar_member_id = '" . $result_ann_cars['member_id'] . "'";
 		$query_calendar = mysqli_query($connect, $sql_select_calendar);
 
 		$date = array();
