@@ -328,11 +328,11 @@ if (isset($_POST["mode"])) {
 		if ($_POST["open_length"] > 0) {
 			for ($i = 0; $i < $_POST["open_length"]; $i++) {
 				$row_open_date = 0;
-				$sql_select_open_date = "SELECT * FROM calendars WHERE date = '" . $_POST["open"][$i] . "' AND member_id = $member_id";
+				$sql_select_open_date = "SELECT * FROM calendars WHERE date = '" . $_POST["open"][$i] . "' AND calendar_member_id = $member_id";
 				$query_open_date = mysqli_query($connect, $sql_select_open_date);
 				$row_open_date = mysqli_num_rows($query_open_date);
 				if ($row_open_date > 0) {
-					$sql_update_open_date = "UPDATE calendars SET status = '1' WHERE date = '" . $_POST["open"][$i] . "' AND member_id = $member_id;";
+					$sql_update_open_date = "UPDATE calendars SET status = '1' WHERE date = '" . $_POST["open"][$i] . "' AND calendar_member_id = $member_id;";
 					$query_update_open_date = mysqli_query($connect, $sql_update_open_date);
 					if (!$query_update_open_date) {
 						$data["error"] = true;
@@ -342,7 +342,7 @@ if (isset($_POST["mode"])) {
 						$data["msg"][$i] = $i . "อัพเดทเรียบร้อยแล้ว" . $sql_update_open_date;
 					}
 				} else {
-					$sql_insert_open_date = "INSERT INTO calendars (member_id, date, status)VALUES ( $member_id, '" . $_POST["open"][$i] . "' , '1');";
+					$sql_insert_open_date = "INSERT INTO calendars (calendar_member_id, date, status)VALUES ( $member_id, '" . $_POST["open"][$i] . "' , '1');";
 					$query_insert_open_date = mysqli_query($connect, $sql_insert_open_date);
 					if (!$query_insert_open_date) {
 						$data["error"] = true;
@@ -357,11 +357,11 @@ if (isset($_POST["mode"])) {
 		if ($_POST["close_length"] > 0) {
 			for ($i = 0; $i < $_POST["close_length"]; $i++) {
 				$row_close_date = 0;
-				$sql_select_close_date = "SELECT * FROM calendars WHERE date = '" . $_POST["close"][$i] . "' AND member_id = $member_id";
+				$sql_select_close_date = "SELECT * FROM calendars WHERE date = '" . $_POST["close"][$i] . "' AND calendar_member_id = $member_id";
 				$query_close_date = mysqli_query($connect, $sql_select_close_date);
 				$row_close_date = mysqli_num_rows($query_close_date);
 				if ($row_close_date > 0) {
-					$sql_update_close_date = "UPDATE calendars SET status = '0' WHERE date = '" . $_POST["close"][$i] . "' AND member_id = $member_id;";
+					$sql_update_close_date = "UPDATE calendars SET status = '0' WHERE date = '" . $_POST["close"][$i] . "' AND calendar_member_id = $member_id;";
 					$query_update_close_date = mysqli_query($connect, $sql_update_close_date);
 					if (!$query_update_close_date) {
 						$data["error"] = true;
@@ -371,7 +371,7 @@ if (isset($_POST["mode"])) {
 						$data["msg"][$i] = $i . "อัพเดทเรียบร้อยแล้ว" . $sql_update_close_date;
 					}
 				} else {
-					$sql_insert_close_date = "INSERT INTO calendars (member_id, date, status)VALUES ( $member_id, '" . $_POST["close"][$i] . "' , '0');";
+					$sql_insert_close_date = "INSERT INTO calendars (calendar_member_id, date, status)VALUES ( $member_id, '" . $_POST["close"][$i] . "' , '0');";
 					$query_insert_close_date = mysqli_query($connect, $sql_insert_close_date);
 					if (!$query_insert_close_date) {
 						$data["error"] = true;
