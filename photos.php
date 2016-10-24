@@ -129,11 +129,11 @@ if (!isset($_SESSION['member_id'])) {
 																			<div class="btn btn-soft-dark btn-jumbo">
 																				<i class="icon icon-upload"></i><span> </span><span>อัพโหลดรูปภาพ</span>
 																			</div>
-																			<div class="row space-top-2">
+																			<!-- <div class="row space-top-2">
 																				<div class="h4 text-normal">
 																					<span>หรือลากเข้ามา</span>
 																				</div>
-																			</div>
+																			</div> -->
 																		</div>
 																	</div>
 																</div></label>
@@ -243,39 +243,6 @@ if (!isset($_SESSION['member_id'])) {
 																		</div></label>
 																</div>
 															</div>
-															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-																<div>
-																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-																	<label class="col label--no-margin-padding" for="photo-image">
-																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-																			<div class="va-container va-container-v va-container-h">
-																				<div class="va-middle text-center">
-																					<div class="img__icon-plus-grey img-center"></div>
-																					<div class="text-gray space-top-2">
-																						<span>เพิ่มมากขึ้น</span>
-																					</div>
-																				</div>
-																			</div>
-																		</div></label>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-																<div>
-																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-																	<label class="col label--no-margin-padding" for="photo-image">
-																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-																			<div class="va-container va-container-v va-container-h">
-																				<div class="va-middle text-center">
-																					<div class="img__icon-plus-grey img-center"></div>
-																					<div class="text-gray space-top-2">
-																						<span>เพิ่มมากขึ้น</span>
-																					</div>
-																				</div>
-																			</div>
-																		</div></label>
-																</div>
-															</div>
-															
 														</div>
 													</div>
 												</div>
