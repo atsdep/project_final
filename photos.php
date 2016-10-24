@@ -7,6 +7,29 @@ if (!isset($_SESSION['member_id'])) {
 	exit(0);
 } else {
 	require ("controllers/newpage_controller.php");
+	
+	$msg = "";
+	//if upload button is pressed
+	if(isset($_POST['upload'])){
+		// the path to store the uplaoded image
+		$target = "img/".basename($_FILES['image']['name']);
+		
+	
+		// Get all the submitted data form the form
+		$image = $_FILES['image']['name'];
+
+		$sql = "UPDATE announces SET announce_photos_1 = '$image' WHERE announce_id = '" . $_GET['id'] . "'";
+		mysqli_query($connect, $sql); //stores the submitted data into the database table: images
+		
+		// Now let's move the uploaded image into the folder : images
+		if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+			$msg ="Image uploaded successfully";
+			
+		}else{
+			$msg = "There was a problem uploading image";
+		}
+		
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -80,54 +103,52 @@ if (!isset($_SESSION['member_id'])) {
 													<span class="tooltip-popup__transition-container">
 														<div class="help-panel--collapsed help-panel__bulb-img-bubble">
 															<div class="help-panel__bulb-img img-center"></div>
-														</div> <!-- <div class="help-panel--expanded help-panel__floating-panel bg-white help-panel__floating-panel--downward help-panel__floating-panel--leftward">
-														<div class="help-panel__bulb-img"></div>
-														<div class="help-panel__close-icon"></div>
-														<div class="help-panel__floating-panel-body help-panel__text">
-														<div class="lys-carousel">
-														<div class="lys-carousel__height-container" style="height: 275px;">
-														<span>
-														<div class="">
-														<div>
-														<div class="photo-image__help-tip-1 img-center"></div>
-														<p class="space-top-2">
-														<span>เจ้าของที่พักส่วนใหญ่มีรูปอย่างน้อย 8 รูป คุณสามารถเริ่มด้วยรูปเดียวและค่อยมาเพิ่มภายหลังได้ การมีรูปในที่พักทุกแห่งที่ผู้เข้าพักใช้ได้ช่วยผู้เข้าพักจินตนาการภาพการพักในที่พักคุณ</span>
-														</p>
-														</div>
-														</div></span>
-														</div>
-														<div class="flex-container-h space-top-4">
-														<div class="flex-item">
-														<button aria-label="กลับไป" class="lys-carousel__button lys-carousel__button--prev btn btn-large" disabled="">
-														<i class="icon icon-arrow-large-left"></i>
-														</button>
-														</div>
-														<div class="flex-item flex-item-fill-parent text-center help-panel__carousel-progress">
-														<i class="dot help-panel__carousel-dot dot-gray"></i>
-														<i class="dot help-panel__carousel-dot dot-light-gray"></i>
-														<i class="dot help-panel__carousel-dot dot-light-gray"></i>
-														</div>
-														<div class="flex-item">
-														<button aria-label="ถัดไป" class="lys-carousel__button lys-carousel__button--next btn btn-large">
-														<i class="icon icon-arrow-large-right"></i>
-														</button>
-														</div>
-														</div>
-														</div>
-														</div>
-														</div> --></span>
+														</div> </span>
 												</div>
 												<div class="row no-margin-h">
-
+													<form method="post" action="#" enctype="multipart/form-data">
+													<?php
+														$sql = "SELECT announce_photos_1 FROM announces WHERE announce_id = '" . $_GET['id'] . "'";
+														$query = mysqli_query($connect, $sql);
+														$row = mysqli_num_rows($query);
+														$result = mysqli_fetch_assoc($query);
+														if(!empty($result['announce_photos_1'])){
+													?>
+													<div class="col-sm-12 no-padding-h">
+														<div class="drag-and-drop__container list-unstyled photo-list__container">
+															<div class="col-sm-12" draggable="false">
+																<div class="photos-list__item">
+																	<div class="panel-image" data-confirm="false"><img class="hide" role="presentation" src="img/<?php echo $result['announce_photos_1'] ?>">
+																		<div class="photo-preview__title-badge">
+																			<span class="text-cover-photo text-large text-normal"><span>รูปหน้าปก</span></span><div class="icon__title-photo-badge icon--with-margin pull-right"></div>
+																		</div>
+																		<div class="photo-preview__btns not-always-show">
+																			<div class="btn photo-preview__btn photo-preview__delete-btn" onClick="DeleteCover(<?php echo $_GET['id']?>)">
+																				<div class="img__icon-trash-large img__icon-large pull-left"></div>
+																			</div>
+																		</div>
+																		<div class="media-photo media-photo-block photos-list__title-canvas" style="height:285.6666666666667px;">
+																			<div class="media-cover text-center img-with-border"><img id="blah" role="presentation" class="img-responsive-height img-preview-15480579_221120381 photo-preview__cover-img-responsive" data-index="0" src="img/<?php echo $result['announce_photos_1']?>" style="position: relative; top: -142.177px;">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<?php
+														}else{
+													?>
 													<div id="input-main-photos" class="col-sm-12 space-4">
 														<div>
+															
 															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
 															<label class="col label--no-margin-padding" for="photo-image">
 																<div class="panel-body photos__empty-frame photos__empty-drag-highlight va-container va-container-h va-container-v">
 																	<div class="va-middle text-center text-gray img__upload-photos-ghosts">
 																		<div class="col col-center">
 																			<div class="btn btn-soft-dark btn-jumbo">
-																				<i class="icon icon-upload"></i><span> </span><span>อัพโหลดรูปภาพ</span>
+																				<i class="icon icon-upload"></i><span> </span><span>เลือกรูปภาพ</span>
 																			</div>
 																			<!-- <div class="row space-top-2">
 																				<div class="h4 text-normal">
@@ -139,11 +160,15 @@ if (!isset($_SESSION['member_id'])) {
 																</div></label>
 														</div>
 													</div>
+													<?php
+														}
+													?>
+													
 													<div id="show-photos" class="col-sm-12 no-padding-h hide">
 														<div class="drag-and-drop__container list-unstyled photo-list__container">
 															<div class="col-sm-12" draggable="false">
 																<div class="photos-list__item">
-																	<div class="panel-image" data-confirm="false"><img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/f0cde288-859c-4a81-9e58-a7d84a3d8d5b.jpg?aki_policy=xx_large">
+																	<div class="panel-image" data-confirm="false"><img class="hide" role="presentation" src="">
 																		<div class="photo-preview__title-badge">
 																			<span class="text-cover-photo text-large text-normal"><span>รูปหน้าปก</span></span><div class="icon__title-photo-badge icon--with-margin pull-right"></div>
 																		</div>
@@ -153,98 +178,18 @@ if (!isset($_SESSION['member_id'])) {
 																			</div>
 																		</div>
 																		<div class="media-photo media-photo-block photos-list__title-canvas" style="height:285.6666666666667px;">
-																			<div class="media-cover text-center img-with-border"><img id="blah" role="presentation" class="img-responsive-height img-preview-15480579_221120381 photo-preview__cover-img-responsive" data-index="0" src="https://a2.muscache.com/im/pictures/f0cde288-859c-4a81-9e58-a7d84a3d8d5b.jpg?aki_policy=xx_large" style="position: relative; top: -142.177px;">
+																			<div class="media-cover text-center img-with-border"><img id="blah" role="presentation" class="img-responsive-height img-preview-15480579_221120381 photo-preview__cover-img-responsive" data-index="0" src="" style="position: relative; top: -142.177px;">
 																			</div>
 																		</div>
 																	</div>
 																</div>
-															</div>
-															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-															<div class="photos-list__item">
-															<div class="panel-image" data-confirm="false">
-															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-															<div class="photo-preview__btns always-show">
-															<div class="btn photo-preview__btn photo-preview__delete-btn">
-															<div class="img__icon-trash-large img__icon-large pull-left"></div>
-															</div>
-															</div>
-															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-															</div>
-															</div>
-															</div>
-
-															</div>
-															</div> -->
-															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-															<div class="photos-list__item">
-															<div class="panel-image" data-confirm="false">
-															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-															<div class="photo-preview__btns always-show photo-preview__btns--show">
-															<div class="btn photo-preview__btn photo-preview__delete-btn photo-preview__delete--confirm">
-															<div class="img__icon-trash-large img__icon-large pull-left"></div>
-															<span class="text-white text-large text-normal text-remove-confirm"> <span>ลบใช่ไหม? </span> </span>
-															</div>
-															</div>
-															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-															</div>
-															</div>
-															</div>
-
-															</div>
-															</div> -->
-															<!-- <div class="col-sm-12 space-top-5 col-lg-4 col-md-6 photos-item__preview-card " draggable="true">
-															<div class="photos-list__item">
-															<div class="panel-image" data-confirm="false">
-															<img class="hide" role="presentation" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=xx_large">
-															<div class="photo-preview__btns always-show">
-															<div class="btn photo-preview__btn photo-preview__delete-btn">
-															<div class="img__icon-trash-large img__icon-large pull-left"></div>
-															</div>
-															</div>
-															<div class="media-photo media-photo-block photos-list__canvas" style="height:179.33333333333334px;">
-															<div class="media-cover text-center img-with-border"><img role="presentation" class="img-responsive-height img-preview-1475940282517" data-index="1" src="https://a2.muscache.com/im/pictures/c857d3dc-2262-4ada-92d2-ac96e29df624.jpg?aki_policy=x_medium">
-															</div>
-															</div>
-															</div>
-
-															</div>
-															</div> -->
-															<!-- <div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-															<div>
-															<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-															<label class="col label--no-margin-padding" for="photo-image">
-															<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-															<div class="va-container va-container-v va-container-h">
-															<div class="va-middle text-center">
-															<div class="img__icon-plus-grey img-center"></div>
-															<div class="text-gray space-top-2">
-															<span>เพิ่มมากขึ้น</span>
-															</div>
-															</div>
-															</div>
-															</div></label>
-															</div>
-															</div> -->
-															<div class="col-lg-4 col-md-6 col-sm-12 space-top-5">
-																<div>
-																	<input class="input-file" type="file" id="photo-image" name="image" accept="image/jpg, image/jpeg, image/png, image/gif" multiple="">
-																	<label class="col label--no-margin-padding" for="photo-image">
-																		<div class="panel photos-list__add-photo photos__empty-drag-highlight" style="height: 179.333px;">
-																			<div class="va-container va-container-v va-container-h">
-																				<div class="va-middle text-center">
-																					<div class="img__icon-plus-grey img-center"></div>
-																					<div class="text-gray space-top-2">
-																						<span>เพิ่มมากขึ้น</span>
-																					</div>
-																				</div>
-																			</div>
-																		</div></label>
-																</div>
+																<button class="btn btn-soft-dark btn-jumbo" type="submit" name="upload" value="Upload Image"> 
+																	อัพโหลด
+																</button>
 															</div>
 														</div>
 													</div>
+													</form>
 												</div>
 											</div>
 										</div>
@@ -291,6 +236,26 @@ if (!isset($_SESSION['member_id'])) {
 			</div>
 
 		</main>
+		<script type="text/javascript" charset="utf-8">
+			function DeleteCover(id) {
+				var mode = "DeleteCover";
+				var ann_id = $("#ann_id").val();
+				$.post("controllers/new_controller.php", {
+					id : id,
+					ann_id : ann_id,
+					mode : mode
+				}, function(data) {
+					if (data.error) {
+						console.log(data.msg);
+					} else {
+						console.log(data.msg);
+						//location.reload();
+						window.location.assign(data.goto);
+					}
+				}, "json");
+				return false;
+			};
+		</script>
 
 	</body>
 </html>
