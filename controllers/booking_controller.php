@@ -10,9 +10,8 @@ if (isset($_POST["mode"])) {
 
 		$date = date("Y-m-d H:i:s");
 		$sql_insert_booking = "INSERT INTO bookings (booking_code
-		,member_id
+		,booking_member_id
 		,announce_id
-		,booking_description
 		,booking_destination
 		,booking_passenger
 		,booking_date_begin
@@ -22,7 +21,6 @@ if (isset($_POST["mode"])) {
 		)values('" . $_POST["booking_code"] . "'
 		,'" . $member_id . "'
 		,'" . $_POST["announce_id"] . "'
-		,'" . $_POST["message"] . "'
 		,'" . $_POST["destination"] . "'
 		,'" . $_POST["booking_passenger"] . "'
 		,'" . $_POST["booking_date_begin"] . "'
@@ -36,8 +34,49 @@ if (isset($_POST["mode"])) {
 			$data["error"] = true;
 			$data["msg"] = "จองไม่สำเร็จ " . $sql_insert_booking;
 		} else {
-			$data["error"] = false;
-			$data["msg"] = "จองเรียบร้อย " . $sql_insert_booking;
+						
+			$sql = "SELECT booking_id FROM bookings WHERE booking_member_id = $member_id ORDER by  booking_create_date DESC LIMIT 1";
+			$query = mysqli_query($connect, $sql);		
+			$row = mysqli_num_rows($query);
+			if ($row != 1) {
+				$data["error"] = true;
+				$data["msg"] = "จองไม่สำเร็จ " . $sql;
+			} else {
+				$result = mysqli_fetch_assoc($query);
+				$sql_insert = "INSERT INTO message (message_booking_id)values('" . $result['booking_id'] . "')";
+				$query_insert = mysqli_query($connect, $sql_insert);
+				if (!$query_insert) {
+					$data["error"] = true;
+					$data["msg"] = "จองไม่สำเร็จ " . $sql_insert;
+				} else {
+					$sql = "SELECT message_id FROM message WHERE message_booking_id = '" . $result['booking_id'] . "'";
+					$query = mysqli_query($connect, $sql);		
+					$row = mysqli_num_rows($query);
+					if ($row != 1) {
+						$data["error"] = true;
+						$data["msg"] = "จองไม่สำเร็จ " . $sql;
+					} else {
+						$result = mysqli_fetch_assoc($query);
+						$sql_insert = "INSERT INTO message_detail (message_text
+						,message_member_id
+						,message_id
+						)values('" . $_POST["message"] . "'
+						,'" . $member_id . "'
+						,'" . $result['message_id'] . "'
+						)";
+						$query_insert = mysqli_query($connect, $sql_insert);
+						if (!$query_insert) {
+							$data["error"] = true;
+							$data["msg"] = "จองไม่สำเร็จ " . $sql_insert;
+						} else {
+							$data["error"] = false;
+							$data["msg"] = "จองเรียบร้อย " . $sql_insert;
+						}
+					}
+				}
+			}	
+			
+			
 		}
 	}
 
