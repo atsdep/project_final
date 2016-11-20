@@ -3,6 +3,7 @@ session_start();
 require ("config/database.php");
 require ("config/connectdb.php");
 require ("controllers/select_member.php");
+require 'controllers/select_province.php';
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -25,18 +26,20 @@ require ("controllers/select_member.php");
 
 		<link rel="stylesheet" href="css/main_study.css">
 
-		<!-- <link rel="stylesheet" href="css/studymain.css"> -->
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/adthasid.css">
 
-		<!-- <link rel="stylesheet" href="css/studyOne.css">
-		<link rel="stylesheet" href="css/studyTwo.css"> -->
 		<script src="dist/sweetalert.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+			require ('config/js.php');
+		?>
+		
+		<script type="text/javascript" src="js/getAge.js"></script>
 
 	</head>
 
@@ -73,19 +76,19 @@ require ("controllers/select_member.php");
 								</button>
 							</div>
 
-							<!-- <div class="show-sm sm-search">
+							<div class="show-sm sm-search">
 								<div class="input-addon" id="sm-search-field" style="display: table; table-layout: fixed; width: 100%;">
 									<span class="input-stem input-large fake-search-field"> ไปที่ไหน </span>
 									<i class="input-suffix btn btn-primary icon icon-full icon-search"></i>
 								</div>
 
-							</div> -->
+							</div>
 
 							<a href="#" class="btn hide-sm btn-contrast btn-large btn-semi-transparent"> วิธีใช้งาน Rentcnd </a>
 
 						</div>
 					</div>
-					<!-- <div id="search-bar-container" class="hero__content-footer hide-sm">
+					<div id="search-bar-container" class="hero__content-footer hide-sm">
 						<div class="page-container-responsive search-bar-responsive-container">
 
 							<div id="searchbar">
@@ -95,14 +98,28 @@ require ("controllers/select_member.php");
 											<div class="row">
 												<div class="SearchForm__location col-md-4 col-lg-5">
 													<div>
-														<div>
-															<label class="input-placeholder-group LocationInput__label"><span class="input-placeholder-label screen-reader-only">ไปที่ไหน</span>
+														
+														<div class="select select-block select-large">
+															<select id="car_province" name="car_province" class="">
+																		<option selected=""  value="" disabled="">เลือกจังหวัดต้นทาง</option>
+																		<?php
+			
+																		while ($result_province = mysqli_fetch_assoc($query_province)) {
+																			echo "<option value=\" " . $result_province['PROVINCE_ID'] . " \"> " . $result_province['PROVINCE_NAME'] . "</option> ";
+																		}
+																		?>
+															</select>
+														</div>
+														
+														<!-- <div>
+															<label class="input-placeholder-group LocationInput__label">
+																<span class="input-placeholder-label screen-reader-only">ไปที่ไหน</span>
 																<input class="LocationInput input-large" name="location" type="text" placeholder="ไปที่ไหน" autocomplete="off" value="">
 															</label>
 															<div class="LocationInput__error hide">
 																<span>กรุณาตั้งค่าสถานที่ตั้ง</span>
 															</div>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="SearchForm__dates col-md-5 text-left">
@@ -110,10 +127,10 @@ require ("controllers/select_member.php");
 														<div>
 															<div class="DateRangePickerInput">
 																<div class="DateInput">
-																	<label class="DateInput__label" for="startDate">เช็คอิน</label>
-																	<input class="DateInput__input" type="text" id="startDate" name="startDate" value="" placeholder="เช็คอิน" autocomplete="off" maxlength="10">
+																	<label class="DateInput__label" for="startDate">วันที่เริ่ม</label>
+																	<input class="DateInput__input" type="text" id="startDate" name="startDate" value="" placeholder="วันที่เริ่ม" autocomplete="off" maxlength="10">
 																	<div class="DateInput__display-text">
-																		เช็คอิน
+																		วันที่เริ่ม
 																	</div>
 																</div>
 																<div class="DateRangePickerInput__arrow">
@@ -122,10 +139,10 @@ require ("controllers/select_member.php");
 																	</svg>
 																</div>
 																<div class="DateInput">
-																	<label class="DateInput__label" for="endDate">เช็คเอาท์</label>
-																	<input class="DateInput__input" type="text" id="endDate" name="endDate" value="" placeholder="เช็คเอาท์" autocomplete="off" maxlength="10">
+																	<label class="DateInput__label" for="endDate">ถึงวันที่</label>
+																	<input class="DateInput__input" type="text" id="endDate" name="endDate" value="" placeholder="ถึงวันที่" autocomplete="off" maxlength="10">
 																	<div class="DateInput__display-text">
-																		เช็คเอาท์
+																		ถึงวันที่
 																	</div>
 																</div>
 																<button type="button" class="DateRangePickerInput__clear-dates DateRangePickerInput__clear-dates--hide">
@@ -141,8 +158,8 @@ require ("controllers/select_member.php");
 												</div>
 												<div class="SearchForm__guests text-left col-md-3 col-lg-2">
 													<div class="select select-block select-large">
-														<select aria-label="จำนวนผู้เข้าพัก" name="guests">
-															<option selected="" value="1">ผู้เข้าพัก 1 คน</option><option value="2">ผู้เข้าพัก 2 คน</option><option value="3">ผู้เข้าพัก 3 คน</option><option value="4">ผู้เข้าพัก 4 คน</option><option value="5">ผู้เข้าพัก 5 คน</option><option value="6">ผู้เข้าพัก 6 คน</option><option value="7">ผู้เข้าพัก 7 คน</option><option value="8">ผู้เข้าพัก 8 คน</option><option value="9">ผู้เข้าพัก 9 คน</option><option value="10">ผู้เข้าพัก 10 คน</option><option value="11">ผู้เข้าพัก 11 คน</option><option value="12">ผู้เข้าพัก 12 คน</option><option value="13">ผู้เข้าพัก 13 คน</option><option value="14">ผู้เข้าพัก 14 คน</option><option value="15">ผู้เข้าพัก 15 คน</option><option value="16">ผู้เข้าพัก 16+ คน</option>
+														<select aria-label="จำนวนผู้โดยสาร" name="guests">
+															<option selected="" value="1">ผู้โดยสาร 1 คน</option><option value="2">ผู้โดยสาร 2 คน</option><option value="3">ผู้โดยสาร 3 คน</option><option value="4">ผู้โดยสาร 4 คน</option><option value="5">ผู้โดยสาร 5 คน</option><option value="6">ผู้โดยสาร 6 คน</option><option value="7">ผู้โดยสาร 7 คน</option><option value="8">ผู้โดยสาร 8 คน</option><option value="9">ผู้โดยสาร 9 คน</option><option value="10">ผู้โดยสาร 10 คน</option><option value="11">ผู้โดยสาร 11 คน</option><option value="12">ผู้โดยสาร 12 คน</option><option value="13">ผู้โดยสาร 13 คน</option><option value="14">ผู้โดยสาร 14 คน</option><option value="15">ผู้โดยสาร 15 คน</option><option value="16">ผู้โดยสาร 16+ คน</option>
 														</select>
 													</div>
 												</div>
@@ -150,7 +167,7 @@ require ("controllers/select_member.php");
 										</div>
 										<input type="hidden" name="source" value="bb">
 										<div class="SearchForm__submit col-sm-2">
-											<button type="submit" class="btn btn-primary btn-large btn-block">
+											<button type="submit" class="btn btn-soft-dark btn-large btn-block">
 												<span class="SearchForm__submit-text"><span>ค้นหา</span></span>
 											</button>
 										</div>
@@ -159,7 +176,7 @@ require ("controllers/select_member.php");
 							</div>
 
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 
@@ -198,7 +215,7 @@ require ("controllers/select_member.php");
 											สร้างรายได้จากการขับรถของตัวเอง
 
 										</div>
-										<a href="/rooms/new?p1_b=1" class="link-reset host-banner__btn"> <strong class="btn btn-host btn-large btn-block host-banner__cta"> ลงประกาศรถเช่าพร้อมคนขับ </strong> </a>
+										<a href="start.php" class="link-reset host-banner__btn"> <strong class="btn btn-host btn-large btn-block host-banner__cta"> ลงประกาศรถเช่าพร้อมคนขับ </strong> </a>
 									</div>
 								</div>
 							</div>
@@ -207,8 +224,7 @@ require ("controllers/select_member.php");
 				</div>
 			</div>
 			
-			
-			<div class="panel panel-dark no-border-top no-border-bottom">
+			<div class="panel panel-dark no-border-top no-border-bottom hide">
 				<div id="discovery-container">
 					
 					<div class="discovery-section page-container-responsive page-container-no-padding" id="discover-recommendations">
@@ -224,7 +240,7 @@ require ("controllers/select_member.php");
 
 								<div class="col-lg-3 col-md-6 col-sm-12 rm-padding-sm">
 									<div class="category-card rm-padding-sm space-4 darken-on-hover " style="background-image:url('img/car.jpg')">
-										<a href="for_rent.php" class="link-reset" data-hook="category-card">
+										<a href="for_rent.php?sedan=true" class="link-reset" data-hook="category-card">
 										<div class="va-container va-container-v va-container-h">
 											<div class="va-middle text-center text-contrast">
 												<div class="h2">
@@ -238,7 +254,7 @@ require ("controllers/select_member.php");
 								
 								<div class="col-lg-3 col-md-6 col-sm-12 rm-padding-sm">
 									<div class="category-card rm-padding-sm space-4 darken-on-hover " style="background-image:url('img/van.jpg')">
-										<a href="for_rent.php" class="link-reset" data-hook="category-card" >
+										<a href="for_rent.php?van=true" class="link-reset" data-hook="category-card" >
 										<div class="va-container va-container-v va-container-h">
 											<div class="va-middle text-center text-contrast">
 												<div class="h2">
@@ -252,7 +268,7 @@ require ("controllers/select_member.php");
 								
 								<div class="col-lg-3 col-md-6 col-sm-12 rm-padding-sm">
 									<div class="category-card rm-padding-sm space-4 darken-on-hover " style="background-image:url('img/suv.jpg');">
-										<a href="for_rent.php" class="link-reset" data-hook="category-card">
+										<a href="for_rent.php?suv=true" class="link-reset" data-hook="category-card">
 										<div class="va-container va-container-v va-container-h">
 											<div class="va-middle text-center text-contrast">
 												<div class="h2">
@@ -266,7 +282,7 @@ require ("controllers/select_member.php");
 								
 								<div class="col-lg-3 col-md-6 col-sm-12 rm-padding-sm">
 									<div class="category-card rm-padding-sm space-4 darken-on-hover " style="background-image:url('img/4.jpg');">
-										<a href="for_rent.php" class="link-reset" data-hook="category-card">
+										<a href="for_rent.php?pickup=true" class="link-reset" data-hook="category-card">
 										<div class="va-container va-container-v va-container-h">
 											<div class="va-middle text-center text-contrast">
 												<div class="h2">
@@ -283,8 +299,12 @@ require ("controllers/select_member.php");
 							</div>
 
 						</div>
+						<!-- <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center;">
+							<a href="start.php" class="link-reset text-center"> <strong class="btn btn-large text-center"> ค้นหารถเช่าทั้งหมด </strong> </a>
+						</div> -->
+						
 					</div>
-
+					
 					<div class="discovery-section hide page-container-responsive page-container-no-padding space-6" id="guidebook"></div>
 				</div>
 			</div>
@@ -309,7 +329,7 @@ require ("controllers/select_member.php");
 
 								<div class="col-lg-8 col-md-12 rm-padding-sm">
 									<div class="discovery-card rm-padding-sm space-4 darken-on-hover " style="background-image:url('http://www.wegointer.com/wp-content/uploads/2014/07/bk1.jpg'">
-										<a href="#" class="link-reset" data-hook="discovery-card">
+										<a href="for_rent.php?source=%20%201&destination=%20%201" class="link-reset" data-hook="discovery-card">
 										<div class="va-container va-container-v va-container-h">
 											<div class="va-middle text-center text-contrast">
 												<div class="h2">
@@ -399,35 +419,21 @@ require ("controllers/select_member.php");
 					<div class="discovery-section hide page-container-responsive page-container-no-padding space-6" id="guidebook"></div>
 				</div>
 			</div>
+			
+
+			
 
 		</main>
+		
+		<?php
+		include 'include/modal.php';
+		?>
 
 		<?php
 		include 'include/footer.php';
 		?>
 
-		<div id="question-birthday" class="tooltip tooltip-bottom-middle signup-login-form__tooltip" role="tooltip" aria-hidden="true" data-trigger="#birthday-signup-form-question-trigger" data-position="top" style="left: 368.828px; top: 410px;">
-			<p class="panel-body">
-				ในการลงทะเบียน คุณต้องมีอายุอย่างน้อย 18 ปี คนอื่นจะไม่เห็นวันเกิดของคุณ
-			</p>
-		</div>
-
+		
 	</body>
 
-	<?php
-	require ('config/js.php');
-	?>
-	<script src="js/adthasid.js" type="text/javascript"></script>
-	<script type="text/javascript">
-
-	$(document).ready(function() {
-
-	<?php if(isset($_GET['login']) AND !isset($_SESSION['member_id']) ){
-
-	?>$("#modal-login").modal();<?php
-		}
-	?>
-	});
-
-	</script>
 </html>
