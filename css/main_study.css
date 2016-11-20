@@ -1519,14 +1519,14 @@ body.p1 .flash-container {
     width: 1px
 }
 .DateInput__input {
-    opacity: 0;
+    /*opacity: 0;*/
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     position: absolute;
     top: 0;
     left: 0;
     border: 0;
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 .DateInput__display-text {
     padding: 4px 8px;
@@ -1848,7 +1848,7 @@ body.p1 .flash-container {
         margin-right: 2px
     }
     .DateInput {
-        padding: 6px 2px;
+        padding: 20px 2px;
         width: 112px
     }
 }
@@ -1953,7 +1953,8 @@ body.p1 .flash-container {
     padding-right: 0
 }
 .SearchForm__inputs-wrapper .SearchForm__location {
-    position: initial
+    position: initial;
+    padding-left: 0px;
 }
 .SearchForm__inputs-wrapper .SearchForm__location .input-placeholder-label {
     position: absolute;
