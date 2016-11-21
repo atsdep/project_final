@@ -534,7 +534,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 															</div>
 														</div>
 													</div>
-													<div class="filters-section panel-body panel-light">
+													<div class="filters-section panel-body panel-light hide">
 														<div class="row">
 															<div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1 sectionLabel_rcr7sj">
 																<div id="filter-section-header-host_language">
@@ -686,7 +686,7 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 													ON announces.member_id = members.member_id';
 													if(isset($_GET['from']) || isset($_GET['to'])){
 													$sql_select_all =  $sql_select_all .' INNER JOIN calendars
-													ON `calendars`.`member_id` = members.member_id';
+													ON calendars.calendar_member_id = members.member_id';
 													}
 													$sql_select_all = $sql_select_all .' WHERE announces.announce_status = "show"';
 													if(isset($_GET['passenger'])){
@@ -699,35 +699,54 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 													// $sql_select_all =  $sql_select_all .' AND announces.car_province = '. $_GET['destination'] .' ';
 													// }
 													if(isset($_GET['from'])){
-													$sql_select_all =  $sql_select_all .' AND `calendars`.`date` = "2016-12-31" AND calendars.status = 1 ';
+														$sql_select_all =  $sql_select_all .' AND `calendars`.`date` = "2016-12-31" AND calendars.status = 1 ';
 													}
 													if(isset($_GET['to'])){
-													$sql_select_all =  $sql_select_all .' AND `calendars`.`date` = "2016-12-31" AND calendars.status = 1 ';
-													}													
+														$sql_select_all =  $sql_select_all .' AND calendars.date = "2016-12-31" AND calendars.status = 1 ';
+													}
+													if(isset($_GET['min']) AND isset($_GET['max']) ){
+														$sql_select_all =  $sql_select_all .' AND announces.announce_price BETWEEN  '. $_GET['min'] .' AND '. $_GET['max'] .'';
+													}
+		
+											
+													$sedan = "null";
+													$van = "null";
+													$suv = "null";
+													$pickup = "null";								
 													if(isset($_GET['sedan'])){
 														if($_GET['sedan'] == true){
-													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "1"';
-													}
+															$sedan = '1';
+														}
 													}
 													if(isset($_GET['van'])){
 														if($_GET['van'] == true){
-													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "2"';
-													}
+															$van = '2';
+														}
 													}
 													if(isset($_GET['suv'])){
 														if($_GET['suv'] == true){
-													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "3"';
+													
+													$suv = '3';
 													}
 													}
 													if(isset($_GET['pickup'])){
 														if($_GET['pickup'] == true){
-													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id = "4"';
-													}
+															$pickup = '4';
+														}
 													}
 													
-													$sql_select_all =  $sql_select_all .' ORDER BY announces.announce_update_date DESC';
+													if(!isset($_GET['sedan']) && !isset($_GET['pickup']) && !isset($_GET['suv']) && !isset($_GET['van'])){
+														$sedan = "1";
+														$van = "2";
+														$suv = "3";
+														$pickup = "4";
+													}
 													
+													//$sql_select_all =  $sql_select_all .' ORDER BY announces.announce_update_date DESC';
+													
+													$sql_select_all =  $sql_select_all .' AND car_category.car_category_id IN ('.$sedan.','.$van.','.$suv.','.$pickup.') ';
 													//echo $sql_select_all;
+									
 													$query_ann_cars = mysqli_query($connect, $sql_select_all);
 													$row_ann_cars = mysqli_num_rows($query_ann_cars);
 													if ($row_ann_cars >= 1) {
@@ -814,71 +833,16 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 														}
 														}
 													?>
-													<!-- <div class="listing-card-wrapper col-sm-12 space-2 col-md-4">
-														<div class="listing">
-															<div class="panel-image listing-img">
-																<div>
-																	<a href="cars.php?id=7189445" class="media-photo media-cover" target="listing_7189445">
-																	<div class="listing-img-container media-cover text-center"><img src="img/car.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height" alt="">
-																		<img src="img/car.jpg?aki_policy=x_medium" itemprop="image" class="img-responsive-height hide" alt="">
-																	</div></a>
-																	<div class="slideshow-controls">
-																		<button class="target-prev target-control block-link" aria-label="Previous">
-																			<i class="icon icon-chevron-left icon-size-2 icon-white"></i>
-																		</button>
-																		<button class="target-next target-control block-link" aria-label="Next">
-																			<i class="icon icon-chevron-right icon-size-2 icon-white"></i>
-																		</button>
-																	</div><a href="cars.php?id=7189445" target="listing_7189445">
-																	<div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
-																		<div class="price-label">
-																			<span><sup class="currency-prefix">฿</sup><span class="price-amount">3,000</span><span> </span></span>
-																		</div>
-																	</div></a>
-																</div>
-															</div>
-															<div class="panel-body panel-card-section">
-																<div class="media">
-																	<a href="profile.php?user=001" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset is-superhost">
-																	<div class="media-photo media-round"><img src="img/profile.jpg?aki_policy=profile_medium" alt="">
-																	</div></a><h3 title="Relive Resort,to live simply." class="h5 listing-name text-truncate space-top-1"><a href="/cars.php?id=7189445&ampcheckin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" target="_blank" class="text-normal"> <span class="listing-name--display">Yaris รถเช่าพร้อมคนขับ</span></a></h3>
-																	<a href="/cars.php?id=7189445&ampcheckin=09-10-2016&amp;checkout=10-10-2016&amp;guests=1" target="listing_7189445" class="text-normal link-reset">
-																	<div class="text-muted listing-location text-truncate">
-																		<div class="">
-																			<span>รถเก๋ง</span><span> · </span>
-																			<span>Toyota</span><span> · </span>
-																			<span>Yaris</span><span> · </span>
-																			<span>2010</span><span> · </span>
-																			<span>กรุงเทพมหานคร</span>
-																		</div>
-																	</div>
-																	<div class="text-muted listing-location text-truncate">
-																		<div class="">
-																			<span class="person-capacity hide-md"><span>ผู้โดยสาร 2 คน</span></span>
-
-																			<span><span> · </span> <small>
-																					<div class="star-rating-wrapper">
-																						<div class="star-rating" content="4.5">
-																							<div class="foreground">
-																								<span> <span> <i class="icon-star icon icon-beach icon-star-big"></i> <span> </span> </span> <span> <i class="icon-star icon icon-beach icon-star-big"></i> <span> </span> </span> <span> <i class="icon-star icon icon-beach icon-star-big"> </i> <span> </span> </span> <span> <i class="icon-star icon icon-beach icon-star-big"> </i> <span> </span> </span> <i class="icon-star-half icon icon-beach icon-star-big"></i> </span>
-																							</div>
-																							<div class="background">
-																								<span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span><span><i class="icon-star icon icon-light-gray icon-star-big"></i><span> </span></span></span>
-																							</div>
-																						</div><span> </span><span class="h6 hide"><small><span></span></small></span>
-																					</div> </small> <span> · </span> <span>ความคิดเห็น 2 ข้อความ</span> </span>
-																		</div>
-																	</div> </a>
-																</div>
-															</div>
-														</div>
-													</div> -->
-
+												
 												</div>
 												<span style="font-size:0;"></span>
 											</div>
 										</div>
-										<div class="outer-listings-container space-2 hide">
+										
+									<?php
+									if ($row_ann_cars < 1) {
+									?>
+									<div class="outer-listings-container space-2">
 										<div class="listings-container">
 											<div>
 												<div style="margin-bottom:12px;">
@@ -896,16 +860,14 @@ $query_province = mysqli_query($connect, "SELECT * FROM provinces Order by PROVI
 													<li>
 														<span>เปลี่ยนตัวกรองหรือวันที่</span>
 													</li>
-													<li>
-														<span>ซูมออกแผนที่</span>
-													</li>
-													<li>
-														<span>ค้นหาเมือง ที่อยู่ หรือจุดสังเกต</span>
-													</li>
 												</ul>
 											</div>
 										</div>
 									</div>
+									<?php
+									}
+									?>
+									
 										<div class="results-footer hide">
 											<div class="pagination-buttons-container space-8">
 												<div class="results_count">
