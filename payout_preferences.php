@@ -58,6 +58,7 @@ if (!isset($_SESSION['member_id'])) {
 		include 'include/all_header.php';
 		$sql_bank = "SELECT * FROM banks_accounts WHERE bank_acc_memid = '" . $_SESSION['member_id'] . "'";
 		$query = mysqli_query($connect, $sql_bank);
+		$row = mysqli_num_rows($query);
 		?>
 		<main id="site-content" role="main">
 
@@ -115,6 +116,9 @@ if (!isset($_SESSION['member_id'])) {
 										เมื่อคุณได้รับชำระเงินจากการจองที่พัก เราเรียกการชำระเงินที่ส่งให้คุณว่า "การรับชำระเงิน" ระบบการชำระเงินที่มีการรักษาความปลอดภัยของเรารองรับวิธีรับชำระเงินหลายวิธีซึ่งสามารถตั้งค่าและแก้ไขได้ที่นี่ วิธีรับชำระเงินและสกุลเงินที่ใช้ได้ในแต่ละประเทศอาจไม่เหมือนกัน
 										<a href="/help/topic/54" target="_blank"> เข้าไปที่คำถามที่พบบ่อยเกี่ยวกับการรับชำระเงิน » </a>
 									</p> -->
+									<?php
+									if($row >=1 ){
+									?>
 									<table id="payout_methods" class="table table-striped">
 										<thead>
 											<tr class="text-truncate">
@@ -155,6 +159,14 @@ if (!isset($_SESSION['member_id'])) {
 											</tr>
 										</tfoot>
 									</table>
+									<?php
+									}else{
+									?>
+									<a href="#" class="btn btn-soft-dark " id="btn_add">เพิ่มวิธีรับชำระเงิน</a>
+									<?php
+									}
+									?>
+									
 								</div>
 							</div>
 
