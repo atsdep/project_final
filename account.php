@@ -191,14 +191,14 @@ session_start();
 						console.log(data.msg);
 						if(data.msg == 'old_pwd_error'){
 							$("#old_pwd_error").removeClass('hide');
+							$("#success").addClass('hide');
 						}
 					} else {
 						console.log(data.msg);
 						
     					document.getElementById('change-pwd').reset();
 						$("#success").removeClass('hide');
-						//location.reload();
-						//12345678
+						$("#old_pwd_error").addClass('hide');
 					}
 
 				}, "json");
