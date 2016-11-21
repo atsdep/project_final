@@ -30,6 +30,7 @@ if (!isset($_GET['id'])) {
 		<link rel="stylesheet" href="css/studyTwo.css">
 
 		<link rel="stylesheet" href="css/cars.css">
+		
 
 		<link rel="stylesheet" href="css/adthasid.css">
 
@@ -69,6 +70,7 @@ if (!isset($_GET['id'])) {
 			car_category.car_category_name,
 			car_gene.car_gene_name,
 			car_brand.car_brand_name,
+			type_of_fuel.type_of_fuel_name,
 			announces.*
 			FROM announces
 			INNER JOIN provinces
@@ -81,6 +83,8 @@ if (!isset($_GET['id'])) {
 			ON car_gene.car_category_id = car_category.car_category_id
 			INNER JOIN members
 			ON announces.member_id = members.member_id
+			INNER JOIN type_of_fuel
+			ON type_of_fuel.type_of_fuel_id = announces.type_of_fuel
 			WHERE announces.announce_id = '" . $_GET['id'] . "'";
 
 			$query_ann_cars = mysqli_query($connect, $sql_select_all);
@@ -430,12 +434,14 @@ if (!isset($_GET['id'])) {
 																				</td>
 																			</tr>
 																			<tr>
-																				<td>
-																					<span>ทั้งหมด</span>
-																				</td>
-																				<td class="text-right">
-																					<span id="total-price"></span>
-																				</td>
+																				
+																					<td>
+																						<strong><span>ทั้งหมด</span><strong>
+																					</td>
+																					<td class="text-right">
+																						<strong><span id="total-price"></span><strong>
+																					</td>
+																				
 																			</tr>
 																		</tbody>
 																	</table>
@@ -539,7 +545,7 @@ if (!isset($_GET['id'])) {
 																	<span>รองรับผู้โดยสาร:</span><span>&nbsp;</span><strong><?php echo $passenger ?> คน</strong>
 																</div>
 																<div>
-																	<span>ประเภทเชื้อเพลิง:</span><span>&nbsp;</span><strong><?php echo $result_ann_cars['type_of_fuel'] ?></strong>
+																	<span>ประเภทเชื้อเพลิง:</span><span>&nbsp;</span><strong><?php echo $result_ann_cars['type_of_fuel_name'] ?></strong>
 																</div>
 																<!-- <div>
 																	<span>ขนาดเครื่องยนต์:</span><span>&nbsp;</span><strong>1800 cc</strong>
@@ -751,7 +757,7 @@ if (!isset($_GET['id'])) {
 													<div class="col-md-9">
 														<div class="structured_house_rules">
 															<div class="row col-sm-6">
-																<span><strong><?php echo 'ภายในจังหวัด' . $province; ?></strong></span><span> <strong>฿<?php echo $price ?></strong></span>
+																<span><strong><?php echo $province?></strong></span><span><strong>฿<?php echo $price ?></strong></span>
 															</div>
 															<br>
 															<div class="row">
@@ -759,44 +765,13 @@ if (!isset($_GET['id'])) {
 																	<hr class="structured_house_rules__hr">
 																</div>
 															</div>
-															<div class="row col-sm-12">
-																<?php
-																if ($result_ann_cars['fuel_expenses'] == 1) {
-																	echo '<span id="">ราคารวมค่าเชื้อเพลิง</span>';
-																} else {
-																	echo '<span id=""><del>ราคารวมค่าเชื้อเพลิง</del></span>';
-																}
-																?>										
+															<div class="row col-sm-6 space-top-1">
+																<span>ไปกาญจนบุรี ฿3500</span>
 															</div>
-															<div class="row col-sm-12">
-																<?php
-																if ($result_ann_cars['expressway_expenses'] == 1) {
-																	echo '<span id="">ราคารวมค่าทางด่วน</span>';
-																} else {
-																	echo '<span id=""><del>ราคารวมค่าทางด่วน</del></span>';
-																}
-																?>														
-															</div>
-															<div class="row col-sm-12">
-																<?php
-																if ($result_ann_cars['park_expenses'] == 1) {
-																	echo '<span id="">ราคารวมค่าจอดรถ</span>';
-																} else {
-																	echo '<span id=""><del>ราคารวมค่าจอดรถ</del></span>';
-																}
-																?>	
-															</div>
-															<!-- <div class="row col-sm-12 space-top-1">
-																<span>อาจไม่ปลอดภัยหรือเหมาะกับเด็ก (อายุ 0-12 ปี)</span>
-															</div>
-															<div class="row col-sm-12 space-top-1">
-																<span>เวลาเช็คอินคือหลัง 15:00</span>
-															</div> -->
-															<!-- <div class="row">
-																<div class="col-sm-2">
-																	<hr class="structured_house_rules__hr">
-																</div>
-															</div> -->
+															<div class="row col-sm-6 space-top-1">
+																<span>ไปกาญจนบุรี ฿3500</span>
+															</div> 
+															
 														</div>
 
 														<!-- <div>
@@ -815,6 +790,75 @@ if (!isset($_GET['id'])) {
 																	</button></span>
 															</div>
 														</div> -->
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-md-3 text-muted">
+														<div>
+															<span>เงื่อนไขราคา</span>
+														</div>
+														<div class="edit-link--hide">
+															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="/manage-listing/15417960/basics"><strong> <span>แก้ไข</span> </strong> </a>
+														</div>
+													</div>
+													<div class="col-md-9">
+														<div class="structured_house_rules">
+															<div class="row col-sm-6">
+																<?php
+																if ($result_ann_cars['fuel_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าเชื้อเพลิง</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าเชื้อเพลิง</del></span>';
+																}
+																?>										
+															</div>
+															<div class="row col-sm-6">
+																<?php
+																if ($result_ann_cars['expressway_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าทางด่วน</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าทางด่วน</del></span>';
+																}
+																?>														
+															</div>
+															<div class="row col-sm-6">
+																<?php
+																if ($result_ann_cars['park_expenses'] == 1) {
+																	echo '<span id="">ราคารวมค่าจอดรถ</span>';
+																} else {
+																	echo '<span id=""><del>ราคารวมค่าจอดรถ</del></span>';
+																}
+																?>	
+															</div>
+															<?php
+															if (!empty($result_ann_cars['weekly_discount'])&& $result_ann_cars['max_num_day'] >= 7) {
+															?>
+																<div class="row col-sm-6">
+																	<span>	ส่วนลดรายสัปดาห์:<strong> <?php echo $result_ann_cars['weekly_discount'] ?>% </strong></span>
+																</div>
+															<?php
+															}
+															?>
+															<?php
+															if (!empty($result_ann_cars['monthly_discount']) && $result_ann_cars['max_num_day'] >= 28) {
+															?>
+																<div class="row col-sm-6">
+																	<span>	ส่วนลดรายเดือน: <strong><?php echo $result_ann_cars['monthly_discount'] ?>% </strong></span>
+																</div>
+															<?php
+															}
+															?>
+															<?php
+															if (!empty($result_ann_cars['ann_deposit'])) {
+															?>
+																<div class="row col-sm-6">
+																	<span>	ค่ามัดจำ: <strong><?php echo number_format($result_ann_cars['ann_deposit']) ?>% </strong></span>
+																</div>
+															<?php
+															}
+															?>
+														</div>
 													</div>
 												</div>
 												<hr>
@@ -877,53 +921,77 @@ if (!isset($_GET['id'])) {
 																</div>
 															<?php
 															}
+																
+															if(!empty($result_ann_cars['other_rules'])){
 															?>
-															<!-- <div class="row">
-																<div class="col-sm-2">
-																	<hr class="structured_house_rules__hr">
-																</div>
-															</div> -->
-														</div>
 
-														<!-- <div>
+																<div class="row">
+																	<div class="col-sm-2">
+																		<hr class="structured_house_rules__hr">
+																	</div>
+																</div>
+															<?php
+															}
+															?>
+														</div>
+														<?php
+														if(!empty($result_ann_cars['other_rules'])){
+														?>
+														<div>
 															<div class="react-expandable expanded">
 																<div class="expandable-content">
 																	<div>
 																		<p>
-																			<span>- wait</span>
+																		<?php
+																		$rules_array = explode("+:" , $result_ann_cars['other_rules']);
+																			for ($i=1; $i < count($rules_array); $i++) {
+																		
+																		?>
+																			<span>- <?php echo $rules_array[$i]  ;?></span>
 																			<br>
-																			<span>- wait</span>
+																		<?php
+																			}
+																		?>
 																		</p>
-																	</div><div class="expandable-indicator"></div>
-																</div><span class="react-expandable-trigger-more">
+																	</div>
+																	<div class="expandable-indicator"></div>
+																</div>
+																<span class="react-expandable-trigger-more">
 																	<button class="btn-link btn-link--bold" type="button">
 																		<span>+ เพิ่มเติม</span>
-																	</button></span>
+																	</button>
+																</span>
 															</div>
-														</div> -->
+														</div>
+														<?php
+															}
+														?>
 													</div>
 												</div>
-												<!-- <hr>
+												<hr>
 												<div class="row">
 													<div class="col-md-3 text-muted">
 														<div>
-															<span>ว่าง</span>
+															<span>รถเช่าว่าง</span>
 														</div>
 														<div class="edit-link--hide">
-															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="/manage-listing/15417960/basics"><strong> <span>แก้ไข</span> </strong> </a>
+															<i class="icon icon-edit icon-rausch"></i><span>&nbsp;</span><a href="#"><strong> <span>แก้ไข</span> </strong> </a>
 														</div>
 													</div>
 													<div class="col-md-9">
 														<div class="row">
 															<div class="col-md-6">
-																<strong>1 วัน</strong> การเช่าขั้นต่ำ
+																การเช่าขั้นต่ำ <strong><?php echo $result_ann_cars['min_num_day'] ?> วัน</strong> 
+															</div>
+															<div class="col-md-6">
+																การเช่าสูงสุด <strong><?php echo $result_ann_cars['max_num_day'] ?> วัน</strong> 
 															</div>
 															<div class="col-md-6">
 																<a id="view-calendar" href="#"><strong> <span>ดูปฏิทิน</span> </strong> </a>
 															</div>
 														</div>
 													</div>
-												</div> -->
+												</div>
 											</div>
 										</div>
 									</div>
@@ -934,6 +1002,163 @@ if (!isset($_GET['id'])) {
 									<div class="page-container-responsive space-2">
 										<div class="row">
 											<div class="col-lg-8">
+												<?php 
+												$sql_review = "SELECT members.member_firstname,
+												members.member_profile_photo,
+												members.member_id,
+												customers_reviews.review_exp_comments
+												FROM customers_reviews
+												INNER JOIN members
+												ON customers_reviews.review_member_id = members.member_id
+												WHERE customers_reviews.review_booking_id = '" . $_GET['id'] . "'
+												ORDER BY customer_review_id ASC ";
+												$query_review = mysqli_query($connect, $sql_review);
+												$row_review = mysqli_num_rows($query_review);
+												
+												if($row_review >=1){
+												?>
+												<div class="review-wrapper">
+													<div>
+														<div class="row space-2 space-top-8 row-table">
+															<div class="review-header col-md-8">
+																<div class="va-container va-container-v va-container-h">
+																	<div class="va-bottom review-header-text">
+																		<h4 class="col-middle"><span class="title_n9n61p"><span><?php echo $row_review ?> ความคิดเห็น</span></span></h4>
+																	</div>
+																</div>
+															</div>
+															<!-- <div class="col-md-4 review-header">
+																<div class="va-container va-container-v va-container-h">
+																	<div class="va-bottom">
+																		<div class="review-search">
+																			<span class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3"><label class="input-placeholder-group"><span class="input-placeholder-label screen-reader-only">ค้นหาความคิดเห็น</span>
+																					<div class="input-addon">
+																						<input type="search" placeholder="ค้นหาความคิดเห็น" class="input-stem review-search__mt-ready" value="">
+																						<i name="remove" class="icon icon-remove input-suffix btn hide rounded-suffix-icon" title="กลับไปที่ความคิดเห็นทั้งหมด"></i>
+																					</div></label></span>
+																		</div>
+																	</div>
+																</div>
+															</div> -->
+														</div>
+														<div>
+															<hr>
+														</div>
+													</div>
+													<div class="review-main">
+														<!-- <div class="review-inner space-top-2">
+															<div id="review-translate-button-wrapper" class="space-top-6">
+																<button type="button" class="btn btn-block">
+																	<span class="review_translate_button_label"><span>แปลความคิดเห็นเป็น ภาษาไทย</span></span>
+																	<div class="gBrandingText">
+																		<span><span>สนับสนุนโดย </span><span><img src="https://a2.muscache.com/airbnb/static/logos/google-small-logo-2a536df1485db3d64cd10c2fdef19a03.png" alt="[object Object]" height="15" width="51"></span></span>
+																	</div>
+																</button>
+															</div>
+														</div> -->
+														<div class="review-content">
+															<div class="">
+																<div>
+																	<?php
+																	while ($review = mysqli_fetch_assoc($query_review)) {
+																		if (isset($review['member_profile_photo'])) {
+																			$profile_photo_review = 'img/' . $review['member_profile_photo'];
+																		} else {
+																			$profile_photo_review = 'img/profile.jpg';
+																		}
+																	?>
+																	
+																	
+																	<div class="row review">
+																		<div class="space-2">
+																			<div class="col-12">
+																				<div class="pull-left">
+																					<div class="show-inline-block">
+																						<div class="show-inline-block va-middle space-top-2 space-2">
+																							<div class="media-photo-badge">
+																								<a href="profile.php?mid=<?php echo $review['member_id'] ?>" rel="nofollow" class="media-photo media-round"><img alt="ใช้รูปโปรไฟล์" height="48" width="48" 
+																									src="<?php echo $profile_photo_review ?>" title="<?php echo $review['member_firstname'] ?>"></a>
+																							</div>
+																						</div>
+																						<div class="show-inline-block va-middle space-2">
+																							<div style="margin-left:16px;">
+																								<div class="name">
+																									<a href="profile.php?mid=<?php echo $review['member_id'] ?>" class="text-muted link-reset" target="_blank">
+																									<p class="text_1lobov3-o_O-size_regular_1n7tijc">
+																										<span><?php echo $review['member_firstname'] ?></span>
+																									</p></a>
+																								</div>
+																								<div class="date">
+																									<p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu">
+																										<span>พฤศจิกายน 2016</span>
+																									</p>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="space-2">
+																			<div class="col-sm-12">
+																				<div class="space-2">
+																					<div data-review-id="111347700" class="review-text space-top-2 space-2">
+																						<div class="react-expandable expanded">
+																							<div class="expandable-content">
+																								<p class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu">
+																									<span><?php echo $review['review_exp_comments'] ?></span>
+																								</p><div class="expandable-indicator"></div>
+																							</div><span class="react-expandable-trigger-more text-muted"><span class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
+																									<button class="component_mbfsxg-o_O-component_button_r21s1q" type="button">
+																										<span>+ เพิ่มเติม</span>
+																									</button></span></span>
+																						</div>
+																					</div>
+																					<div class="text-muted review-subtext">
+																						<div class="review-translation-language">
+																							<p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu-o_O-color_mutedLarge_1v78oro"></p>
+																						</div>
+																						<div class="va-container va-container-h va-container-v space-top-3 space-2">
+																							<div class="va-middle pull-right">
+																								<div class="va-middle show-inline-block">
+																									<div style="margin-right:16px;">
+																										<button class="btn-link btn-link--icon" type="button">
+																											<span><i class="icon icon-flag"></i><span> </span><span class="link-icon__text"><span class="text_1lobov3-o_O-size_small_h25x8d-o_O-color_mutedLarge_1v78oro-o_O-inline_10f0ge3"><span>รายงาน</span></span></span></span>
+																										</button>
+																									</div>
+																								</div>
+																								<!-- <button class="btn btn-default btn-small helpful-btn">
+																									<span class="text_1lobov3-o_O-size_small_h25x8d-o_O-inline_10f0ge3"><i class="icon icon-thumbs-up text-muted"></i>
+																										<div class="helpful-btn-text text-muted">
+																											มีประโยชน์
+																										</div>
+																										<div class="helpful-btn-count">
+																											<div class=""></div>
+																										</div></span>
+																								</button> -->
+																							</div>
+																						</div>
+																					</div>
+																				</div><span></span>
+																			</div>
+																		</div>
+																		<div class="col-sm-12">
+																			<hr>
+																		</div>
+																	</div>
+																	<?php
+																	}
+																	?>
+																
+																	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<?php
+												}else{
+												?>
 												<div class="review-wrapper">
 
 													<div class="review-main">
@@ -949,6 +1174,12 @@ if (!isset($_GET['id'])) {
 														</div>
 													</div>
 												</div>
+												<?php
+												}
+												?>
+												
+												
+
 											</div>
 										</div>
 									</div>
@@ -976,7 +1207,7 @@ if (!isset($_GET['id'])) {
 															<span><?php echo $result_ann_cars['PROVINCE_NAME'] ?></span><span> · </span><span>เป็นสมาชิกตั้งแต่ <?php echo DateThai($member_create_date); ?></span>
 														</div>
 													</div>
-													<div class="react-expandable expanded">
+													<div class="react-expandable expanded hide">
 														<div class="expandable-content expandable-content-long">
 															<div>
 																<p>
@@ -1007,7 +1238,7 @@ if (!isset($_GET['id'])) {
 																<span class="badge-pill-label">ความคิดเห็น</span>
 															</div></a>
 														</div>
-														<div class="badge-container space-4">
+														<div class="badge-container space-4 hide">
 															<a class="link-reset" rel="nofollow" href="/users/show/13880301#references">
 															<div class="text-center text-wrap">
 																<div class="badge-pill h3">
@@ -1027,8 +1258,8 @@ if (!isset($_GET['id'])) {
 															</div>
 														</div>
 													</div>
-													<div class="">
-														<button type="button" class="btn btn-primary btn-small">
+													<div class="hide">
+														<button type="button" class="btn btn-soft-dark btn-small">
 															<span>ติดต่อเจ้าของรถเช่า</span>
 														</button>
 														<div>
