@@ -29,6 +29,9 @@ session_start();
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<?php
+		include 'config/js.php';
+		?>
 	</head>
 
 	<body class="with-new-header ">
@@ -41,6 +44,12 @@ session_start();
 			<div class="subnav hide-print">
 				<div class="page-container-responsive">
 					<ul class="subnav-list">
+						<li>
+							<a href="stats.php" aria-selected="false" class="subnav-item" id="rooms-item">สถิติ</a>
+						</li>
+						<li>
+							<a href="inbox.php" aria-selected="false" class="subnav-item" id="rooms-item">กล่องข้อความ</a>
+						</li>
 						<li>
 							<a href="mycar.php" aria-selected="false" class="subnav-item cohosting-ml-tooltip-trigger" id="rooms-item">รถเช่าของคุณ</a>
 						</li>
@@ -56,6 +65,16 @@ session_start();
 					</ul>
 				</div>
 			</div>
+			
+		
+				<div id="old_pwd_error" class="alert alert-with-icon alert-error hide">
+					<a id="close" href="account.php" class="close alert-close" data-prevent-default="">×</a><i class="icon alert-icon icon-alert-alt"></i>รหัสผ่านเก่า ไม่ถูกต้อง
+				</div>
+			
+				<div id="success" class="alert alert-with-icon alert-success hide">
+					<a id="close" href="account.php" class="close alert-close" data-prevent-default="">×</a><i class="icon alert-icon icon-alert-alt"></i>ทำการเปลียนแปลงรหัสผ่านเรียบร้อยแล้ว
+				</div>
+			
 
 			<div class="page-container-responsive space-top-4 space-4">
 
@@ -66,13 +85,16 @@ session_start();
 							<li>
 								<a href="account.php" aria-selected="true" class="sidenav-item">ความปลอดภัย</a>
 							</li>
+							<li>
+								<a href="payout_preferences.php" aria-selected="false" class="sidenav-item">วิธีรับชำระเงินที่ต้องการ</a>
+							</li>
 							
 						</ul>
 
 					</div>
 					<div class="col-md-9">
 
-						<form accept-charset="UTF-8" action="https://th.airbnb.com/change_password" method="post">
+						<form id="change-pwd" accept-charset="UTF-8" action="#" method="post">
 							<div style="margin:0;padding:0;display:inline">
 								<input name="utf8" type="hidden" value="✓">
 								<input name="authenticity_token" type="hidden" value="V4$.airbnb.com$YP4tThly0ng$c_NfIUJHtitKZ29ST6PxJjkEiWohugZMfz-VmjAITgU=">
@@ -114,7 +136,7 @@ session_start();
 													<label for="user_password_confirmation"> ยืนยันรหัสผ่าน </label>
 												</div>
 												<div class="col-md-7">
-													<input class="input-block" id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password">
+													<input class="input-block" id="password_confirmation" name="user[password_confirmation]" size="30" type="password">
 												</div>
 											</div>
 										</div>
@@ -122,7 +144,7 @@ session_start();
 									</div>
 								</div>
 								<div class="panel-footer">
-									<button type="submit" class="btn btn-primary">
+									<button id="btn_change_pwd" type="button" class="btn btn-soft-dark">
 										ปรับปรุงรหัสผ่าน
 									</button>
 								</div>
@@ -140,9 +162,50 @@ session_start();
 		include 'include/footer.php';
 		?>
 	</body>
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$("#btn_change_pwd").click(function() {
+			var mode = "change_pwd";
+			var old_password = $("#old_password").val();
+			var new_password = $("#new_password").val();
+			var password_confirmation = $("#password_confirmation").val();
 
-	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+			if (old_password.length < 3) {
+				alert('กรุณากรอกรหัสผ่านมากกว่า 8 ตัวอักษร');
+				$("#old_password").focus();
+				return false;
+			}else if (new_password.length < 3) {
+				alert('กรุณากรอกรหัสผ่านมากกว่า 8 ตัวอักษร');
+				$("#new_password").focus();
+				return false;
+			}else if (password_confirmation != new_password) {
+				alert('รหัสผ่านใหม่ไม่ตรงกัน');
+				$("#password_confirmation").focus();
+				return false;
+			} else {
+				$.post("controllers/account_controller.php", {
+					mode : mode,
+					old_password : old_password,
+					new_password : new_password
+				}, function(data) {
+					if (data.error) {
+						console.log(data.msg);
+						if(data.msg == 'old_pwd_error'){
+							$("#old_pwd_error").removeClass('hide');
+						}
+					} else {
+						console.log(data.msg);
+						
+    					document.getElementById('change-pwd').reset();
+						$("#success").removeClass('hide');
+						//location.reload();
+						//12345678
+					}
+
+				}, "json");
+			}
+
+		});
+
+	</script>
 
 </html>
